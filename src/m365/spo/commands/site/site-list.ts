@@ -8,8 +8,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { SPOSitePropertiesEnumerable } from './SPOSitePropertiesEnumerable';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
-
 interface CommandArgs {
   options: Options;
 }
@@ -141,20 +139,20 @@ class SpoSiteListCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
-    log(vorpal.find(this.name).helpInformation());
+    // const chalk = vorpal.chalk;
+    // log(vorpal.find(this.name).helpInformation());
     log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
+      `  ${'Important:'} to use this command you have to have permissions to access
     the tenant admin site.
    
   Remarks:
 
-    Using the ${chalk.blue('-f, --filter')} option you can specify which sites you want to retrieve.
-    For example, to get sites with ${chalk.grey('project')} in their URL, use ${chalk.grey("Url -like 'project'")}
+    Using the ${'-f, --filter'} option you can specify which sites you want to retrieve.
+    For example, to get sites with ${'project'} in their URL, use ${"Url -like 'project'"}
     as the filter.
 
     When using the text output type (default), the command lists only the values
-    of the ${chalk.grey('Title')}, and ${chalk.grey('Url')} properties of the site. When setting the output type to JSON,
+    of the ${'Title'}, and ${'Url'} properties of the site. When setting the output type to JSON,
     all available properties are included in the command output.
   
   Examples:
