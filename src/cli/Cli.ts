@@ -32,12 +32,23 @@ export class Cli {
   }
 
   public execute(): void {
+    // check if help for a specific command has been requested using the
+    // 'm365 help xyz' format. If so, remove 'help' from the array of words
+    // to use lazy loading commands but keep track of the fact that help should
+    // be displayed
+    let showHelp: boolean = false;
+    const rawArgs: string[] = process.argv.slice(2);
+    if (rawArgs.length > 0 && rawArgs[0] === 'help') {
+      showHelp = true;
+      rawArgs.shift();
+    }
+
     // parse args to see if a command has been specified and can be loaded
     // rather than loading all commands
-    const args: minimist.ParsedArgs = minimist(process.argv.slice(2));
+    const parsedArgs: minimist.ParsedArgs = minimist(rawArgs);
 
     // load commands
-    this.loadCommandFromArgs(args._);
+    this.loadCommandFromArgs(parsedArgs._);
 
     if (this.currentCommandName) {
       for (let i = 0; i < this.commands.length; i++) {
@@ -56,22 +67,23 @@ export class Cli {
       // account short and long options, option types and whether the command
       // supports known and unknown options or not
       this.optionsFromArgs = {
-        options: this.getCommandOptionsFromArgs(process.argv.slice(2), this.commandToExecute)
+        options: this.getCommandOptionsFromArgs(rawArgs, this.commandToExecute)
       };
     }
     else {
       this.optionsFromArgs = {
-        options: args
+        options: parsedArgs
       };
     }
 
     // show help if no match found, help explicitly requested or
     // no command specified
     if (!this.commandToExecute ||
-      args.h ||
-      args.help > -1 ||
-      args._.length === 0 ||
-      args[0] === 'help') {
+      showHelp ||
+      parsedArgs.h ||
+      parsedArgs.help > -1 ||
+      parsedArgs._.length === 0 ||
+      parsedArgs[0] === 'help') {
       this.printHelp();
       return;
     }
@@ -405,11 +417,10 @@ export class Cli {
 
     if (fs.existsSync(helpFilePath)) {
       // TODO: markshell fails
+      console.log();
       console.log(fs.readFileSync(helpFilePath, 'utf8'));
       // console.log(markshell.toRawContent(helpFilePath));
     }
-
-    console.log();
   }
 
   private printAvailableCommands(): void {
@@ -419,18 +430,6 @@ export class Cli {
     const commandGroupsToPrint: { [group: string]: number } = {};
     // current command group, eg. 'spo', 'spo site'
     let currentGroup: string = '';
-
-    // get current command group
-    if (this.optionsFromArgs &&
-      this.optionsFromArgs.options &&
-      this.optionsFromArgs.options._ &&
-      this.optionsFromArgs.options._.length > 0) {
-      currentGroup = this.optionsFromArgs.options._.join(' ');
-
-      if (currentGroup) {
-        currentGroup += ' ';
-      }
-    }
 
     const addToList = (commandName: string, command: CliCommandInfo): void => {
       const pos: number = commandName.indexOf(' ', currentGroup.length + 1);
@@ -446,6 +445,18 @@ export class Cli {
         commandGroupsToPrint[subCommandsGroup]++;
       }
     };
+
+    // get current command group
+    if (this.optionsFromArgs &&
+      this.optionsFromArgs.options &&
+      this.optionsFromArgs.options._ &&
+      this.optionsFromArgs.options._.length > 0) {
+      currentGroup = this.optionsFromArgs.options._.join(' ');
+
+      if (currentGroup) {
+        currentGroup += ' ';
+      }
+    }
 
     const getCommandsForGroup = (): void => {
       for (let i = 0; i < this.commands.length; i++) {
