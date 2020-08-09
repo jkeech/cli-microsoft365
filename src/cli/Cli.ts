@@ -25,13 +25,23 @@ export class Cli {
    */
   private currentCommandName: string | undefined;
   private optionsFromArgs: { options: minimist.ParsedArgs } | undefined;
-  private rootFolder: string;
+  private rootFolder: string = '';
+  private static instance: Cli;
 
-  constructor(rootFolder: string) {
-    this.rootFolder = rootFolder;
+  private constructor() {
   }
 
-  public execute(): void {
+  public static getInstance(): Cli {
+    if (!Cli.instance) {
+      Cli.instance = new Cli();
+    }
+
+    return Cli.instance;
+  }
+  
+  public execute(rootFolder: string): void {
+    this.rootFolder = rootFolder;
+
     // check if help for a specific command has been requested using the
     // 'm365 help xyz' format. If so, remove 'help' from the array of words
     // to use lazy loading commands but keep track of the fact that help should
@@ -158,7 +168,7 @@ export class Cli {
   }
 
   public loadAllCommands(): void {
-    const commandsDir: string = path.join(this.rootFolder, './m365');
+    const commandsDir: string = path.join(this.rootFolder as string, './m365');
     const files: string[] = Cli.readdirR(commandsDir) as string[];
 
     files.forEach(file => {

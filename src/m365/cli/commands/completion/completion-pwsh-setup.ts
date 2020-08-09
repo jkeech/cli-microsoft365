@@ -35,7 +35,7 @@ class CliCompletionPwshSetupCommand extends AnonymousCommand {
       cmd.log('Generating command completion...');
     }
 
-    autocomplete.generateShCompletion(vorpal);
+    autocomplete.generateShCompletion();
 
     if (this.debug) {
       cmd.log(`Ensuring that the specified profile path ${args.options.profile} exists...`);

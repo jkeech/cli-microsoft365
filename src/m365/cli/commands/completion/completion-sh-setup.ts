@@ -2,6 +2,7 @@ import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import AnonymousCommand from '../../../base/AnonymousCommand';
 import { autocomplete } from '../../../../autocomplete';
+import chalk = require('chalk');
 
 const vorpal: Vorpal = require('../../../../vorpal-init');
 
@@ -23,7 +24,7 @@ class CliCompletionShSetupCommand extends AnonymousCommand {
       cmd.log('Generating command completion...');
     }
 
-    autocomplete.generateShCompletion(vorpal);
+    autocomplete.generateShCompletion();
 
     if (this.debug) {
       cmd.log('Registering command completion with the shell...');
@@ -34,7 +35,7 @@ class CliCompletionShSetupCommand extends AnonymousCommand {
     cmd.log('Command completion successfully registered. Restart your shell to load the completion');
 
     if (this.verbose) {
-      cmd.log(vorpal.chalk.green('DONE'));
+      cmd.log(chalk.green('DONE'));
     }
     cb();
   }

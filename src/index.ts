@@ -15,8 +15,8 @@ updateNotifier({ pkg: packageJSON }).notify({ defer: false });
 
 fs.realpath(__dirname, (err: NodeJS.ErrnoException | null, resolvedPath: string): void => {
   try {
-    const cli: Cli = new Cli(resolvedPath);
-    cli.execute();
+    const cli: Cli = Cli.getInstance();
+    cli.execute(resolvedPath);
   }
   catch (e) {
     appInsights.trackException({

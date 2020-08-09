@@ -19,7 +19,7 @@ class CliCompletionClinkUpdateCommand extends AnonymousCommand {
   }
 
   public commandAction(cmd: CommandInstance, args: CommandArgs, cb: (err?: any) => void): void {
-    cmd.log(autocomplete.getClinkCompletion(vorpal));
+    cmd.log(autocomplete.getClinkCompletion());
     cb();
   }
 

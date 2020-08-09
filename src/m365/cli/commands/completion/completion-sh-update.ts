@@ -23,7 +23,7 @@ class CliCompletionShUpdateCommand extends AnonymousCommand {
       cmd.log('Generating command completion...');
     }
 
-    autocomplete.generateShCompletion(vorpal);
+    autocomplete.generateShCompletion();
 
     if (this.debug) {
       cmd.log(vorpal.chalk.green('DONE'));
