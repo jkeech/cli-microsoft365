@@ -73,22 +73,6 @@ class TodoListAddCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently in preview
-    and is subject to change once the API reached general availability.
-
-  Examples:
-
-    Add a task list with the name ${chalk.grey('My task list')}
-      ${this.name} --name "My task list"
-      `);
-  }
 }
 
 module.exports = new TodoListAddCommand();

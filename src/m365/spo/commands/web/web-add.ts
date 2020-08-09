@@ -247,23 +247,6 @@ class SpoWebAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-    
-      Create subsite using the ${chalk.grey('Team site')} template in the ${chalk.grey('en-US')} locale
-        m365 ${this.name} --title Subsite --description Subsite --webUrl subsite --webTemplate STS#0 --parentWebUrl https://contoso.sharepoint.com --locale 1033
-
-      Create subsite with unique permissions using the default ${chalk.grey('en-US')} locale
-        m365 ${this.name} --title Subsite --webUrl subsite --webTemplate STS#0 --parentWebUrl https://contoso.sharepoint.com --breakInheritance
-
-      Create subsite with the same navigation as the parent site
-        m365 ${this.name} --title Subsite --webUrl subsite --webTemplate STS#0 --parentWebUrl https://contoso.sharepoint.com --inheritNavigation
-  ` );
-  }
 }
 
 module.exports = new SpoWebAddCommand();

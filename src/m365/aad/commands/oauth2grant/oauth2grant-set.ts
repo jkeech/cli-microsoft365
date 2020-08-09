@@ -82,34 +82,6 @@ class AadOAuth2GrantSetCommand extends AadCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.OAUTH2GRANT_SET).helpInformation());
-    log(
-      `  Remarks:
-  
-    Before you can update service principal's OAuth2 permissions, you need to
-    get the ${chalk.grey('objectId')} of the permissions grant to update. You can retrieve it
-    using the ${chalk.blue(commands.OAUTH2GRANT_LIST)} command.
-
-    If the ${chalk.grey('objectId')} listed when using the ${chalk.blue(commands.OAUTH2GRANT_LIST)} command has a 
-    minus sign ('-') prefix, you may receive an error indicating --grantId is
-    missing. To resolve this issue simply escape the leading '-',
-    eg. ${chalk.blue(commands.OAUTH2GRANT_SET)} --grantId \\-Zc1JRY8REeLxmXz5KtixAYU3Q6noCBPlhwGiX7pxmU --scope 'Calendars.Read'     
-       
-  Examples:
-  
-    Update the existing OAuth2 permission grant with ID ${chalk.grey('YgA60KYa4UOPSdc-lpxYEnQkr8KVLDpCsOXkiV8i-ek')}
-    to the ${chalk.grey('Calendars.Read Mail.Read')} permissions
-      m365 ${this.name} --grantId YgA60KYa4UOPSdc-lpxYEnQkr8KVLDpCsOXkiV8i-ek --scope "Calendars.Read Mail.Read"
-
-  More information:
-  
-    Application and service principal objects in Azure Active Directory (Azure AD)
-      https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects
-`);
-  }
 }
 
 module.exports = new AadOAuth2GrantSetCommand();

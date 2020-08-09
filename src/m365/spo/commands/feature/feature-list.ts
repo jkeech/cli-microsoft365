@@ -91,19 +91,6 @@ class SpoFeatureListCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.url);
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    log(vorpal.find(commands.FEATURE_LIST).helpInformation());
-    log(
-      `  Examples:
-  
-    Return details about Features activated in the specified site collection
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/test --scope Site
-
-    Return details about Features activated in the specified site
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/test --scope Web
-      `);
-  }
 }
 
 module.exports = new SpoFeatureListCommand();

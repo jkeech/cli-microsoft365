@@ -71,24 +71,6 @@ class TeamsUnarchiveCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-          
-    This command supports admin permissions. Global admins and Microsoft Teams
-    service admins can restore teams that they are not a member of.
-
-    This command restores users' ability to send messages and edit the team,
-    abiding by tenant and team settings.
-
-  Examples:
-    
-    Restore an archived Microsoft Teams team
-      m365 ${this.name} --teamId 6f6fd3f7-9ba5-4488-bbe6-a789004d0d55
-    `);
-  }
 }
 
 module.exports = new TeamsUnarchiveCommand();

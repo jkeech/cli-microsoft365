@@ -82,16 +82,6 @@ class SpoContentTypeHubGetCommand extends SpoCommand {
         }
       }, (err: any): void => this.handleRejectedPromise(err, cmd, cb));
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Retrieve the Content Type Hub URL
-      m365 ${this.name}
-    `);
-  }
 }
 
 module.exports = new SpoContentTypeHubGetCommand();

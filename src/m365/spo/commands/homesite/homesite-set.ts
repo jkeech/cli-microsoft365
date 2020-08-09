@@ -89,26 +89,6 @@ class SpoHomeSiteSetCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.HOMESITE_SET).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-      
-  Examples:
-  
-    Set the specified site as the Home Site
-      m365 ${this.name} --siteUrl https://contoso.sharepoint.com/sites/comms
-
-  More information:
-
-    SharePoint home sites: a landing for your organization on the intelligent
-    intranet
-      https://techcommunity.microsoft.com/t5/Microsoft-SharePoint-Blog/SharePoint-home-sites-a-landing-for-your-organization-on-the/ba-p/621933
-`);
-  }
 }
 
 module.exports = new SpoHomeSiteSetCommand();

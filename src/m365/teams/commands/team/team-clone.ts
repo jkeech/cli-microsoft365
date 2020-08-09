@@ -152,30 +152,6 @@ class TeamsCloneCommand extends GraphCommand {
     };
   }
 
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-          
-    Using this command, global admins and Microsoft Teams service admins can
-    access teams that they are not a member of.
-
-    When tabs are cloned, they are put into an unconfigured state. The first
-    time you open them, you'll go through the configuration screen.
-    If the person opening the tab does not have permission to configure apps,
-    they will see a message explaining that the tab hasn't been configured.
-
-  Examples:
-    
-    Creates a clone of a Microsoft Teams team with mandatory parameters
-      m365 ${this.name} --teamId 15d7a78e-fd77-4599-97a5-dbb6372846c5 --displayName "Library Assist" --partsToClone "apps,tabs,settings,channels,members" 
-    
-    Creates a clone of a Microsoft Teams team with mandatory and optional
-    parameters
-      m365 ${this.name} --teamId 15d7a78e-fd77-4599-97a5-dbb6372846c5 --displayName "Library Assist" --partsToClone "apps,tabs,settings,channels,members" --description "Self help community for library" --classification "Library" --visibility "public" 
-    `);
-  }
-
   /**
    * There is a know issue that the mailNickname is currently ignored and cannot be set by the user
    * However the mailNickname is still required by the payload so to deliver better user experience

@@ -126,18 +126,6 @@ class SpoFolderRenameCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Renames a folder with site-relative URL ${chalk.grey('/Shared Documents/My Folder 1')}
-    located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --folderUrl '/Shared Documents/My Folder 1' --name 'My Folder 2'
-    `);
-  }
 }
 
 module.exports = new SpoFolderRenameCommand();

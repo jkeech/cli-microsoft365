@@ -97,21 +97,6 @@ class TeamsChannelAddCommand extends GraphCommand {
       return true;
     };
   }
-
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    You can only add a channel to the Microsoft Teams team you are a member of.
-
-  Examples:
-  
-    Add channel to the specified Microsoft Teams team
-      ${this.name} --teamId 6703ac8a-c49b-4fd4-8223-28f0ac3a6402 --name office365cli --description development
-`   );
-  }
 }
 
 module.exports = new TeamsChannelAddCommand();

@@ -69,16 +69,6 @@ class TeamsFunSettingsListCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    List fun settings of a Microsoft Teams team
-      ${this.name} --teamId 83cece1e-938d-44a1-8b86-918cf6151957
-`);
-  }
 }
 
 module.exports = new TeamsFunSettingsListCommand();

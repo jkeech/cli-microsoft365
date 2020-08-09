@@ -57,26 +57,6 @@ class LogoutCommand extends Command {
         });
     }
   }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.LOGOUT).helpInformation());
-    log(
-      `  Remarks:
-
-    The ${chalk.blue(commands.LOGOUT)} command logs out from Microsoft 365
-    and removes any access and refresh tokens from memory.
-
-  Examples:
-  
-    Log out from Microsoft 365
-      m365 ${this.name}
-
-    Log out from Microsoft 365 in debug mode including detailed debug
-    information in the console output
-      m365 ${this.name} --debug
-`);
-  }
 }
 
 module.exports = new LogoutCommand();

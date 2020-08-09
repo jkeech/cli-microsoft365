@@ -145,22 +145,6 @@ class SpoNavigationNodeAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (message: string) => void): void {
-    log(vorpal.find(commands.NAVIGATION_NODE_ADD).helpInformation());
-    log(
-      `  Examples:
-  
-    Add a navigation node pointing to a SharePoint page to the top navigation
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --location TopNavigationBar --title About --url /sites/team-s/sitepages/about.aspx
-
-    Add a navigation node pointing to an external page to the quick launch
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --location QuickLaunch --title "About us" --url https://contoso.com/about-us --isExternal
-
-    Add a navigation node below an existing node
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --parentNodeId 2010 --title About --url /sites/team-s/sitepages/about.aspx
-`);
-  }
 }
 
 module.exports = new SpoNavigationNodeAddCommand();

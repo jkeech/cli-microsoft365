@@ -74,16 +74,6 @@ class TeamsChannelListCommand extends GraphItemsListCommand<Channel>{
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    List the channels in a specified Microsoft Teams team
-      ${this.name} --teamId 00000000-0000-0000-0000-000000000000
-`   );
-  }
 }
 
 module.exports = new TeamsChannelListCommand();

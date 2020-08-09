@@ -105,27 +105,6 @@ class AadO365GroupRemoveCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    If the specified ${chalk.grey('id')} doesn't refer to an existing group, you will get
-    a ${chalk.grey('Resource does not exist')} error.
-
-  Examples:
-
-    Remove group with ID ${chalk.grey('28beab62-7540-4db1-a23f-29a6018a3848')}. Will prompt
-    for confirmation before removing the group
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848
-
-    Remove group with ID ${chalk.grey('28beab62-7540-4db1-a23f-29a6018a3848')} without prompting
-    for confirmation
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848 --confirm
-  `);
-  }
 }
 
 module.exports = new AadO365GroupRemoveCommand();

@@ -85,28 +85,6 @@ class SpoSiteScriptGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified ${chalk.grey('id')} doesn't refer to an existing site script, you will get
-    a ${chalk.grey('File not found')} error.
-
-  Examples:
-  
-    Get information about the site script with ID
-    ${chalk.grey('2c1ba4c4-cd9b-4417-832f-92a34bc34b2a')}
-      ${this.name} --id 2c1ba4c4-cd9b-4417-832f-92a34bc34b2a
-
-  More information:
-
-    SharePoint site design and site script overview
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteScriptGetCommand();

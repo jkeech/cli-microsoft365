@@ -165,23 +165,6 @@ class SpoListLabelSetCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Sets classification label "Confidential" for list ${chalk.grey('Shared Documents')}
-    located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listUrl 'Shared Documents' --label 'Confidential'
-
-    Sets classification label "Confidential" and disables editing and deleting
-    items on the list and all existing items for list ${chalk.grey('Documents')}
-    located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listTitle 'Documents' --label 'Confidential' --blockEdit --blockDelete --syncToItems
-`);
-  }
 }
 
 module.exports = new SpoListLabelSetCommand();

@@ -142,28 +142,6 @@ class SpoFieldGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Retrieves site column by id located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/contoso-sales')}
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --id 5ee2dd25-d941-455a-9bdb-7f2c54aed11b
-    
-    Retrieves list column by id located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/contoso-sales')}. Retrieves the list
-    by its title
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listTitle Events --id 5ee2dd25-d941-455a-9bdb-7f2c54aed11b
-
-    Retrieves list column by display name located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/contoso-sales')}. Retrieves the list
-    by its url
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listUrl 'Lists/Events' --fieldTitle 'Title'
-`);
-  }
 }
 
 module.exports = new SpoFieldGetCommand();

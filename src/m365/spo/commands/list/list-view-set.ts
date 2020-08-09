@@ -168,31 +168,6 @@ class SpoListViewSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    Specify properties to update using their names, eg.
-    ${chalk.grey("--Title 'New Title' --JSLink jslink.js")}
-
-    When updating list formatting, the value of the CustomFormatter property
-    must be XML-escaped, eg. ${chalk.grey('&lt;')} instead of ${chalk.grey('<')}.
-        
-  Examples:
-
-    Update the title of the list view specified by its name
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listTitle 'My List' --viewTitle 'All items' --Title 'All events'
-
-    Update the title of the list view specified by its ID
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listTitle 'My List' --viewId 330f29c5-5c4c-465f-9f4b-7903020ae1ce --Title 'All events'
-  
-    Update view formatting of the specified list view
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listTitle 'My List' --viewTitle 'All items' --CustomFormatter '\`{"schema":"https://developer.microsoft.com/json-schemas/sp/view-formatting.schema.json","additionalRowClass": "=if([$DueDate] &lt;= @now, 'sp-field-severity--severeWarning', '')"}\`'
-   `);
-  }
 }
 
 module.exports = new SpoListViewSetCommand();

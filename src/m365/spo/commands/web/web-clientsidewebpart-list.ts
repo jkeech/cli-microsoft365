@@ -86,16 +86,6 @@ class SpoWebClientSideWebPartListCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Lists all the available client-side web parts for the specified site
-      ${this.name} --webUrl https://contoso.sharepoint.com
-    ` );
-  }
 }
 
 module.exports = new SpoWebClientSideWebPartListCommand();

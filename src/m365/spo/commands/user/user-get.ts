@@ -119,25 +119,6 @@ class SpoUserGetCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Get user with email address ${chalk.grey('john.doe@mytenant.onmicrosoft.com')} for web
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --email john.doe@mytenant.onmicrosoft.com
-
-    Get user with id ${chalk.grey('6')} for web ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --id 6
-
-    Get user with login name ${chalk.grey('i:0#.f|membership|john.doe@mytenant.onmicrosoft.com')}
-    for web  ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --loginName "i:0#.f|membership|john.doe@mytenant.onmicrosoft.com"
-    `);
-  }
 }
 
 module.exports = new SpoUserGetCommand();

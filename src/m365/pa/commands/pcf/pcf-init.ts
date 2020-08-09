@@ -173,41 +173,6 @@ class PaPcfInitCommand extends Command {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.PCF_INIT).helpInformation());
-    log(
-      `  Remarks:
-
-    Name cannot contain reserved Javascript words. Only characters within the
-    ranges [A-Z], [a-z] or [0-9] are allowed. The first character may not be
-    a number.
-
-    Namespace cannot contain reserved Javascript words. Only characters within
-    the ranges [A-Z], [a-z], [0-9], or '.' are allowed. The first and last
-    character may not be the '.' character. Consecutive '.' characters are not
-    allowed. Numbers are not allowed as the first character or immediately after
-    a period.
-    
-    Template currently only supports Field or Dataset.
-
-  Examples:
-
-    Initialize the PowerApps Component Framework for a ${chalk.grey('Field')} component, using
-    ${chalk.grey('yourCustomFieldComponent')} as name and ${chalk.grey('yourNamespace')} as namespace
-      m365 ${this.name} --namespace yourNamespace --name yourCustomFieldComponent --template Field
-
-    Initialize the PowerApps Component Framework for a ${chalk.grey('Dataset')} component, using
-    ${chalk.grey('yourCustomDatasetComponent')} as name and ${chalk.grey('yourNamespace')} as namespace
-      m365 ${this.name} --namespace yourNamespace --name yourCustomDatasetComponent --template Dataset
-
-  More information:
-
-    Create and build a custom component
-      https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-custom-controls-using-pcf
-`);
-  }
 }
 
 module.exports = new PaPcfInitCommand();

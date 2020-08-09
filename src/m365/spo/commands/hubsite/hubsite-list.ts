@@ -181,36 +181,6 @@ class SpoHubSiteListCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on a SharePoint API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-    When using the text output type (default), the command lists only the
-    values of the ${chalk.grey('ID')}, ${chalk.grey('SiteUrl')} and ${chalk.grey('Title')} properties of the hub site. When setting
-    the output type to JSON, all available properties are included in
-    the command output.
-
-  Examples:
-  
-    List hub sites in the current tenant
-      ${this.name}
-
-    List hub sites, including their associated sites, in the current tenant. Associated site info is only shown in JSON output.
-      ${this.name} --includeAssociatedSites --output json
-
-  More information:
-
-    SharePoint hub sites new in Microsoft 365
-      https://techcommunity.microsoft.com/t5/SharePoint-Blog/SharePoint-hub-sites-new-in-Office-365/ba-p/109547
-`);
-  }
 }
 
 module.exports = new SpoHubSiteListCommand();

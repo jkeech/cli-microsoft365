@@ -248,38 +248,6 @@ class SpoSiteRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-
-  Remarks:
-
-    Deleting a site collection is by default asynchronous and depending on the
-    current state of Microsoft 365, might take up to few minutes.
-    If you're building a script with steps that require the site to be
-    fully deleted, you should use the ${chalk.blue('--wait')} flag. When using this flag,
-    the ${chalk.blue(this.getCommandName())} command will keep running until it received
-    confirmation from Microsoft 365 that the site has been fully deleted.
-
-  Examples:
-
-    Remove the specified site and place it in the Recycle Bin
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/demosite 
-
-    Remove the site without moving it to the Recycle Bin
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/demosite --skipRecycleBin
-
-    Remove the previously deleted site from the Recycle Bin
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/demosite --fromRecycleBin
-
-    Remove the site without moving it to the Recycle Bin and wait for completion 
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/demosite --wait --skipRecycleBin
-`);
-  }
 }
 
 module.exports = new SpoSiteRemoveCommand();

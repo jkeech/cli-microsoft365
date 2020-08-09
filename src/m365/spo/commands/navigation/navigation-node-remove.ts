@@ -143,19 +143,6 @@ class SpoNavigationNodeRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (message: string) => void): void {
-    log(vorpal.find(commands.NAVIGATION_NODE_REMOVE).helpInformation());
-    log(
-      `  Examples:
-  
-    Remove a node from the top navigation. Will prompt for confirmation
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --location TopNavigationBar --id 2003
-
-    Remove a node from the quick launch without prompting for confirmation
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --location QuickLaunch --id 2003 --confirm
-`);
-  }
 }
 
 module.exports = new SpoNavigationNodeRemoveCommand();

@@ -501,57 +501,6 @@ class SpoSiteSetCommand extends SpoCommand {
       string: ['classification']
     }
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SITE_SET).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-      
-  Remarks:
-
-    If the specified ${chalk.grey('url')} doesn't refer to an existing site collection,
-    you will get a ${chalk.grey('404 - "404 FILE NOT FOUND"')} error.
-
-    The ${chalk.grey('isPublic')} property can be set only on groupified site
-    collections. If you try to set it on a site collection without a group, you
-    will get an error.
-
-    When setting owners, the specified owners will be added to the already
-    configured owners. Existing owners will not be removed.
-
-  Examples:
-  
-    Update site collection's classification
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --classification MBI
-
-    Reset site collection's classification.
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --classification
-
-    Disable using Microsoft Flow on the site collection
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --disableFlows true
-
-    Update the visibility of the Microsoft 365 group behind the specified
-    groupified site collection to public
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --isPublic true
-
-    Update site collection's owners
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --owners "john@contoso.onmicrosoft.com,steve@contoso.onmicrosoft.com"
-
-    Allow sharing files in the site collection with guests
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --shareByEmailEnabled true
-
-    Apply the specified site ID to the site collection
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --siteDesignId "eb2f31da-9461-4fbf-9ea1-9959b134b89e"
-
-    Update site collection's title
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --title "My new site"
-
-    Restrict external sharing to already available external users only
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --sharingCapability ExternalUserSharingOnly
-`);
-  }
 }
 
 module.exports = new SpoSiteSetCommand();

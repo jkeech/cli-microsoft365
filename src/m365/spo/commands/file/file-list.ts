@@ -90,17 +90,6 @@ class SpoFileListCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Return all files from folder ${chalk.grey('Shared Documents')} located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --folder 'Shared Documents'
-      `);
-  }
 }
 
 module.exports = new SpoFileListCommand();

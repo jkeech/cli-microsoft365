@@ -81,21 +81,6 @@ class SpoSiteDesignTaskGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Get information about the specified site design scheduled for execution
-      ${this.name} --taskId 6ec3ca5b-d04b-4381-b169-61378556d76e
-
-  More information:
-
-    SharePoint site design and site script overview
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteDesignTaskGetCommand();

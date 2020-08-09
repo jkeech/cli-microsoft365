@@ -108,23 +108,6 @@ class SpoAppPageAddCommand extends SpoCommand {
       return true;
     };
   }
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If you want to add the single-part app page to quick launch, use the
-    ${chalk.blue('addToQuickLaunch')} flag.
-
-  Examples:
-  
-    Create a single-part app page in a site with url
-    https://contoso.sharepoint.com, webpart data is stored in the
-    ${chalk.grey('$webPartData')} variable
-      ${this.name} --title "Contoso" --webUrl "https://contoso.sharepoint.com" --webPartData $webPartData --addToQuickLaunch 
-`);
-  }
 }
 
 module.exports = new SpoAppPageAddCommand();

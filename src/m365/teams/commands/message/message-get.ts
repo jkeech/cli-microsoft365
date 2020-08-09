@@ -94,26 +94,6 @@ class TeamsMessageGetCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-    You can only retrieve a message from a Microsoft Teams team if you are
-    a member of that team.
-
-  Examples:
-  
-    Retrieve the specified message from a channel of the Microsoft Teams team
-      ${this.name} --teamId 5f5d7b71-1161-44d8-bcc1-3da710eb4171 --channelId 19:88f7e66a8dfe42be92db19505ae912a8@thread.skype --messageId 1540747442203
-`   );
-  }
 }
 
 module.exports = new TeamsMessageGetCommand();

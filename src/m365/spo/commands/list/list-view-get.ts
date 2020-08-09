@@ -143,26 +143,6 @@ class SpoListViewGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Gets a list view by name from a list located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listTitle 'My List' --viewTitle 'All Items'
-
-    Gets a list view by ID from a list located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listUrl 'Lists/My List' --viewId 330f29c5-5c4c-465f-9f4b-7903020ae1ce
-
-    Gets a list view by name from a list located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}. Retrieve the list by its ID
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listId 330f29c5-5c4c-465f-9f4b-7903020ae1c1 --viewTitle 'All Items'
-   `);
-  }
 }
 
 module.exports = new SpoListViewGetCommand();

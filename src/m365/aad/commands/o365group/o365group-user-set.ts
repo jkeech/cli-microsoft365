@@ -205,30 +205,6 @@ class AadO365GroupUserSetCommand extends GraphItemsListCommand<GroupUser> {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(`  Remarks:
-
-    The command will return an error if the user already has the specified role
-    in the given Microsoft 365 Group or Microsoft Teams team.
-
-  Examples:
-
-    Promote the specified user to owner of the given Microsoft 365 Group
-      ${this.name} --groupId '00000000-0000-0000-0000-000000000000' --userName 'anne.matthews@contoso.onmicrosoft.com' --role Owner
-
-    Demote the specified user from owner to member in the given Microsoft 365 Group
-      ${this.name} --groupId '00000000-0000-0000-0000-000000000000' --userName 'anne.matthews@contoso.onmicrosoft.com' --role Member
-
-    Promote the specified user to owner of the given Microsoft Teams team
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --userName 'anne.matthews@contoso.onmicrosoft.com' --role Owner
-
-    Demote the specified user from owner to member in the given Microsoft Teams
-    team
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --userName 'anne.matthews@contoso.onmicrosoft.com' --role Member
-`);
-  }
 }
 
 module.exports = new AadO365GroupUserSetCommand();

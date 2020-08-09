@@ -106,19 +106,6 @@ class SpoNavigationNodeListCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (message: string) => void): void {
-    log(vorpal.find(commands.NAVIGATION_NODE_LIST).helpInformation());
-    log(
-      `  Examples:
-  
-    Retrieve nodes from the top navigation
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --location TopNavigationBar
-
-    Retrieve nodes from the quick launch
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --location QuickLaunch
-`);
-  }
 }
 
 module.exports = new SpoNavigationNodeListCommand();

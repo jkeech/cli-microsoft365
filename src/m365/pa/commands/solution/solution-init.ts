@@ -152,31 +152,6 @@ class PaSolutionInitCommand extends Command {
     };
   }
 
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SOLUTION_INIT).helpInformation());
-    log(
-      `  Remarks:
-
-    PublisherName only allows characters within the ranges [A-Z], [a-z], [0-9],
-    or _. The first character may only be in the ranges [A-Z], [a-z], or _.
-    
-    PublisherPrefix must be 2 to 8 characters long, can only consist of
-    alpha-numerics, must start with a letter, and cannot start with 'mscrm'.
-
-  Examples:
-
-    Initializes a CDS solution project using ${chalk.grey('yourPublisherName')} as publisher
-    name and ${chalk.grey('ypn')} as publisher prefix
-      m365 ${this.name} --publisherName yourPublisherName --publisherPrefix ypn
-
-  More information:
-
-    Create and build a custom component
-      https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-custom-controls-using-pcf
-`);
-  }
-
   private generateOptionValuePrefixForPublisher(customizationPrefix: string): string {
     if (customizationPrefix.toLocaleLowerCase() !== "new") {
       return this.generateOptionValuePrefixForPublisherInternal(this.getHashCode(customizationPrefix));

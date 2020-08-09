@@ -207,33 +207,6 @@ class SpoContentTypeAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified content type already exists, you will get a
-    ${chalk.grey('A duplicate content type "Your Content Type" was found.')} error.
-
-    The ID of the content type specifies the parent content type from which this
-    content type inherits.
-
-  Examples:
-  
-    Create a site content type that inherits from the List item content type
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --name 'PnP Alert' --id 0x01007926A45D687BA842B947286090B8F67D --group 'PnP Content Types'
-    
-    Create a list content type that inherits from the List item content type
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listTitle Alerts --name 'PnP Alert' --id 0x01007926A45D687BA842B947286090B8F67D
-
-  More information:
-
-    Content Type IDs
-      https://docs.microsoft.com/en-us/previous-versions/office/developer/sharepoint-2010/aa543822(v%3Doffice.14)
-`);
-  }
 }
 
 module.exports = new SpoContentTypeAddCommand();

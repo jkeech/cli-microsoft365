@@ -3,8 +3,7 @@ import GlobalOptions from '../../../../GlobalOptions';
 import request from '../../../../request';
 import {
   CommandOption,
-  CommandValidate,
-  CommandCancel
+  CommandValidate
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo } from '../../spo';
@@ -23,10 +22,30 @@ interface Options extends GlobalOptions {
   allowSchemaMismatch: boolean;
 }
 
-class SpoFileCopyCommand extends SpoCommand {
-  private dots?: string;
-  private timeout?: NodeJS.Timer;
+interface JobProgressOptions {
+  webUrl: string;
+  /**
+   * Response object retrieved from /_api/site/CreateCopyJobs
+   */
+  copyJopInfo: any;
+  /**
+   * Poll interval to call /_api/site/GetCopyJobProgress
+   */
+  progressPollInterval: number;
+  /**
+   * Max poll intervals to call /_api/site/GetCopyJobProgress
+   * after which to give up
+   */
+  progressMaxPollAttempts: number;
+  /**
+   * Retry attempts before give up.
+   * Give up if /_api/site/GetCopyJobProgress returns 
+   * X reject promises in a row
+   */
+  progressRetryAttempts: number;
+}
 
+class SpoFileCopyCommand extends SpoCommand {
   public get name(): string {
     return commands.FILE_COPY;
   }
@@ -38,7 +57,6 @@ class SpoFileCopyCommand extends SpoCommand {
   public getTelemetryProperties(args: CommandArgs): any {
     const telemetryProps: any = super.getTelemetryProperties(args);
     telemetryProps.deleteIfAlreadyExists = args.options.deleteIfAlreadyExists || false;
-    telemetryProps.allowSchemaMismatch = args.options.allowSchemaMismatch || false;
     return telemetryProps;
   }
 
@@ -49,7 +67,7 @@ class SpoFileCopyCommand extends SpoCommand {
 
     // Check if the source file exists.
     // Called on purpose, we explicitly check if user specified file
-    // in the sourceUrl option.
+    // in the sourceUrl option. 
     // The CreateCopyJobs endpoint accepts file, folder or batch from both.
     // A user might enter folder instead of file as source url by mistake
     // then there are edge cases when deleteIfAlreadyExists flag is set
@@ -89,16 +107,15 @@ class SpoFileCopyCommand extends SpoCommand {
         return request.post(requestOptions);
       })
       .then((jobInfo: any): Promise<any> => {
-        return new Promise<void>((resolve: () => void, reject: (error: any) => void): void => {
-          this.dots = '';
+        const jobProgressOptions: JobProgressOptions = {
+          webUrl: webUrl,
+          copyJopInfo: jobInfo.value[0],
+          progressMaxPollAttempts: 1000, // 1 sec.
+          progressPollInterval: 30 * 60, // approx. 30 mins. if interval is 1000
+          progressRetryAttempts: 5
+        }
 
-          const copyJobInfo: any = jobInfo.value[0];
-          const progressPollInterval: number = 30 * 60; //used previously implemented interval. The API does not provide guidance on what value should be used.
-
-          this.timeout = setTimeout(() => {
-            this.waitUntilCopyJobFinished(copyJobInfo, webUrl, progressPollInterval, resolve, reject, cmd, this.dots, this.timeout)
-          }, progressPollInterval);
-        });
+        return this.waitForJobResult(jobProgressOptions, cmd);
       })
       .then((): void => {
         if (this.verbose) {
@@ -126,6 +143,82 @@ class SpoFileCopyCommand extends SpoCommand {
     };
 
     return request.get(requestOptions);
+  }
+
+  /**
+   * A polling function that awaits the 
+   * queued copy job to return JobStatus = 0 meaning it is done with the task.
+   */
+  private waitForJobResult(opts: JobProgressOptions, cmd: CommandInstance): Promise<void> {
+    let pollCount: number = 0;
+    let retryAttemptsCount: number = 0;
+
+    const checkCondition = (resolve: () => void, reject: (error: any) => void): void => {
+      pollCount++;
+      const requestUrl: string = `${opts.webUrl}/_api/site/GetCopyJobProgress`;
+      const requestOptions: any = {
+        url: requestUrl,
+        headers: {
+          'accept': 'application/json;odata=nometadata'
+        },
+        body: { "copyJobInfo": opts.copyJopInfo },
+        json: true
+      };
+
+      request.post(requestOptions).then((resp: any): void => {
+        retryAttemptsCount = 0; // clear retry on promise success 
+
+        if (this.verbose) {
+          if (resp.JobState && resp.JobState === 4) {
+            cmd.log(`Check #${pollCount}. Copy job in progress... JobState: ${resp.JobState}`);
+          }
+          else {
+            cmd.log(`Check #${pollCount}. JobState: ${resp.JobState}`);
+          }
+        }
+
+        for (const item of resp.Logs) {
+          const log = JSON.parse(item);
+
+          // reject if progress error 
+          if (log.Event === "JobError" || log.Event === "JobFatalError") {
+            return reject(log.Message);
+          }
+        }
+
+        // three possible scenarios
+        // job done = success promise returned
+        // job in progress = recursive call using setTimeout returned
+        // max poll attempts flag raised = reject promise returned
+        if (resp.JobState === 0) {
+          // job done
+          resolve();
+          return;
+        }
+
+        if (pollCount < opts.progressMaxPollAttempts) {
+          // if the condition isn't met but the timeout hasn't elapsed, go again
+          setTimeout(checkCondition, opts.progressPollInterval, resolve, reject);
+        }
+        else {
+          reject(new Error('waitForJobResult timed out'));
+        }
+      },
+        (error: any): void => {
+          retryAttemptsCount++;
+
+          // let's retry x times in row before we give up since
+          // this is progress check and even if rejects a promise
+          // the actual copy process can success.
+          if (retryAttemptsCount <= opts.progressRetryAttempts) {
+            setTimeout(checkCondition, opts.progressPollInterval, resolve, reject);
+          } else {
+            reject(error);
+          }
+        });
+    }
+
+    return new Promise<void>(checkCondition);
   }
 
   /**
@@ -185,12 +278,28 @@ class SpoFileCopyCommand extends SpoCommand {
     });
   }
 
-  public cancel(): CommandCancel {
-    return (): void => {
-      if (this.timeout) {
-        clearTimeout(this.timeout);
-      }
+  /**
+   * Combines base and relative url considering any missing slashes
+   * @param baseUrl https://contoso.com
+   * @param relativeUrl sites/abc
+   */
+  private urlCombine(baseUrl: string, relativeUrl: string): string {
+    // remove last '/' of base if exists
+    if (baseUrl.lastIndexOf('/') === baseUrl.length - 1) {
+      baseUrl = baseUrl.substring(0, baseUrl.length - 1);
     }
+
+    // remove '/' at 0
+    if (relativeUrl.charAt(0) === '/') {
+      relativeUrl = relativeUrl.substring(1, relativeUrl.length);
+    }
+
+    // remove last '/' of next if exists
+    if (relativeUrl.lastIndexOf('/') === relativeUrl.length - 1) {
+      relativeUrl = relativeUrl.substring(0, relativeUrl.length - 1);
+    }
+
+    return `${baseUrl}/${relativeUrl}`;
   }
 
   public options(): CommandOption[] {
@@ -242,39 +351,6 @@ class SpoFileCopyCommand extends SpoCommand {
 
       return true;
     };
-  }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    When you copy a file using the ${chalk.grey(this.name)} command,
-    only the latest version of the file is copied.
-
-  Examples:
-
-    Copy file to a document library in another site collection
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test1 --sourceUrl /Shared%20Documents/sp1.pdf --targetUrl /sites/test2/Shared%20Documents/
-
-    Copy file to a document library in the same site collection
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test1 --sourceUrl /Shared%20Documents/sp1.pdf --targetUrl /sites/test1/HRDocuments/
-
-    Copy file to a document library in another site collection. If a file with
-    the same name already exists in the target document library, move it
-    to the recycle bin
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test1 --sourceUrl /Shared%20Documents/sp1.pdf --targetUrl /sites/test2/Shared%20Documents/ --deleteIfAlreadyExists
-  
-    Copy file to a document library in another site collection. Will ignore
-    any missing fields in the target destination and copy anyway
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test1 --sourceUrl /Shared%20Documents/sp1.pdf --targetUrl /sites/test2/Shared%20Documents/ --allowSchemaMismatch
-
-  More information:
-
-    Copy items from a SharePoint document library
-      https://support.office.com/en-us/article/move-or-copy-items-from-a-sharepoint-document-library-00e2f483-4df3-46be-a861-1f5f0c1a87bc
-    `);
   }
 }
 

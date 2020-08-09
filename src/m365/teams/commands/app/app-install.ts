@@ -87,23 +87,6 @@ class TeamsAppInstallCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    The ${chalk.grey(`appId`)} has to be the ID of the app from the Microsoft Teams App Catalog.
-    Do not use the ID from the manifest of the zip app package.
-    Use the ${chalk.blue(`graph teams app list`)} command to get this ID.
-
-  Examples:
-
-    Install an app from the catalog in a Microsoft Teams team
-      ${this.name} --appId 4440558e-8c73-4597-abc7-3644a64c4bce --teamId 2609af39-7775-4f94-a3dc-0dd67657e900
-`);
-  }
 }
 
 module.exports = new TeamsAppInstallCommand();

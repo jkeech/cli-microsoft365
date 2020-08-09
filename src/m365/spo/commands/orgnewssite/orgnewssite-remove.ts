@@ -124,24 +124,6 @@ class SpoOrgNewsSiteRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.ORGNEWSSITE_REMOVE).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-        
-  Examples:
-  
-    Remove a site from the list of organizational news sites
-      ${chalk.grey(config.delimiter)} m365 ${this.name} --url https://contoso.sharepoint.com/sites/site1
-
-    Remove a site from the list of organizational news sites, without prompting
-    for confirmation
-      ${chalk.grey(config.delimiter)} m365 ${this.name} --url https://contoso.sharepoint.com/sites/site1 --confirm
-  `);
-  }
 }
 
 module.exports = new SpoOrgNewsSiteRemoveCommand();

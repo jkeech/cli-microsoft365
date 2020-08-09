@@ -14,27 +14,6 @@ class YammerReportGroupsActivityCountsCommand extends PeriodBasedReport {
   public get description(): string {
     return 'Gets the number of Yammer messages posted, read, and liked in groups';
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-      
-    Gets the number of Yammer messages posted, read, and liked in groups for
-    the last week
-      m365 ${this.name} --period D7
-
-    Gets the number of Yammer messages posted, read, and liked in groups for
-    the last week and exports the report data in the specified path in text
-    format
-      m365 ${this.name} --period D7 --output text > "groupsactivitycounts.txt"
-
-    Gets the number of Yammer messages posted, read, and liked in groups for
-    the last week and exports the report data in the specified path in json
-    format
-      m365 ${this.name} --period D7 --output json > "groupsactivitycounts.json"
-`);
-  }
 }
 
 module.exports = new YammerReportGroupsActivityCountsCommand();

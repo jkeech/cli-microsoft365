@@ -78,22 +78,6 @@ class AadO365GroupTeamifyCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently in preview
-    and is subject to change once the API reached general availability.
-
-  Examples:
-  
-    Creates a new Microsoft Teams team under existing Microsoft 365 group
-      ${chalk.grey(config.delimiter)} ${this.name} --groupId e3f60f99-0bad-481f-9e9f-ff0f572fbd03
-`);
-  }
 }
 
 module.exports = new AadO365GroupTeamifyCommand();

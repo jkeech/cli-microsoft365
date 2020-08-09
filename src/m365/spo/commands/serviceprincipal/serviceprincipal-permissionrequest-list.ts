@@ -72,20 +72,6 @@ class SpoServicePrincipalPermissionRequestListCommand extends SpoCommand {
         cb();
       }, (err: any): void => this.handleRejectedPromise(err, cmd, cb));
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SERVICEPRINCIPAL_PERMISSIONREQUEST_LIST).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-        
-  Examples:
-  
-    List all pending permission requests
-      m365 ${this.name}
-`);
-  }
 }
 
 module.exports = new SpoServicePrincipalPermissionRequestListCommand();

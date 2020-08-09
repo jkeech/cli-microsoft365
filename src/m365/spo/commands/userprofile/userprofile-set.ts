@@ -113,25 +113,6 @@ class SpoUserProfileSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    You have to have tenant admin permissions in order to use this command to
-    update profile properties of other users.
-
-  Examples:
-  
-    Updates the single-value ${chalk.grey('AboutMe')} property
-      m365 ${this.name} --userName 'john.doe@mytenant.onmicrosoft.com' --propertyName 'AboutMe' --propertyValue 'Working as a Microsoft 365 developer'
-  
-    Updates the multi-value ${chalk.grey('SPS-Skills')} property
-      m365 ${this.name} --userName 'john.doe@mytenant.onmicrosoft.com' --propertyName 'SPS-Skills' --propertyValue 'CSS, HTML'
-`);
-  }
 }
 
 module.exports = new SpoUserProfileSetCommand();

@@ -107,16 +107,6 @@ class SpoWebAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Delete subsite without prompting for confirmation
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/subsite --confirm
-  ` );
-  }
 }
 
 module.exports = new SpoWebAddCommand();

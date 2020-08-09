@@ -100,25 +100,6 @@ class SpoSiteAppCatalogAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-   
-  Examples:
-  
-    Add a site collection app catalog to the specified site
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/site
-
-  More information:
-    
-    Use the site collection app catalog
-      https://docs.microsoft.com/en-us/sharepoint/dev/general-development/site-collection-app-catalog
-    `);
-  }
 }
 
 module.exports = new SpoSiteAppCatalogAddCommand();

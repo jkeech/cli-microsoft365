@@ -100,32 +100,6 @@ class YammerMessageRemoveCommand extends YammerCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    ${chalk.yellow('Attention:')} In order to use this command, you need to grant the Azure AD
-    application used by the CLI for Microsoft 365 the permission to the Yammer API.
-    To do this, execute the ${chalk.blue('cli consent --service yammer')} command.
-
-    To remove a message, you must either:
-      - have posted the message yourself 
-      - be an administrator of the group the message was posted to or 
-      - be an admin of the network the message is in.
-    
-  Examples:
-  
-    Removes the Yammer message with the id 1239871123
-      ${this.name} --id 1239871123
-
-    Removes the Yammer message with the id 1239871123 without prompting for
-    confirmation.
-      ${this.name} --id 1239871123 --confirm
-`);
-  }
 }
 
 module.exports = new YammerMessageRemoveCommand();

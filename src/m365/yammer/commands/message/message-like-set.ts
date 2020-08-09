@@ -132,29 +132,6 @@ class YammerMessageLikeSetCommand extends YammerCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    ${chalk.yellow('Attention:')} In order to use this command, you need to grant the Azure AD
-    application used by the CLI for Microsoft 365 the permission to the Yammer API.
-    To do this, execute the ${chalk.blue('cli consent --service yammer')} command.
-  
-  Examples:
-    
-    Likes the message with the ID ${chalk.grey('5611239081')}
-      ${this.name} --id 5611239081
-    
-    Unlike the message with the ID ${chalk.grey('5611239081')}
-      ${this.name} --id 5611239081 --enable false
-
-    Unlike the message with the ID ${chalk.grey('5611239081')} without asking for confirmation
-      ${this.name} --id 5611239081 --enable false --confirm
-  `);
-  }
 }
 
 module.exports = new YammerMessageLikeSetCommand();

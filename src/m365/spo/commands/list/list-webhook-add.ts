@@ -168,30 +168,6 @@ class SpoListWebhookAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Add a web hook to the list ${chalk.grey('Documents')} located in site 
-    ${chalk.grey('https://contoso.sharepoint.com/sites/ninja')} with the notification url 
-    ${chalk.grey('https://contoso-functions.azurewebsites.net/webhook')} and the default expiration date
-    m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/ninja --listTitle Documents --notificationUrl https://contoso-functions.azurewebsites.net/webhook
-
-    Add a web hook to the list ${chalk.grey('Documents')} located in site 
-    ${chalk.grey('https://contoso.sharepoint.com/sites/ninja')} with the notification url 
-    ${chalk.grey('https://contoso-functions.azurewebsites.net/webhook')} and an expiration date of ${chalk.grey('January 21st, 2019')}
-    m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/ninja --listTitle Documents --notificationUrl https://contoso-functions.azurewebsites.net/webhook --expirationDateTime 2019-01-21
-    
-    Add a web hook to the list ${chalk.grey('Documents')} located in site 
-    ${chalk.grey('https://contoso.sharepoint.com/sites/ninja')} with the notification url 
-    ${chalk.grey('https://contoso-functions.azurewebsites.net/webhook')}, a very specific expiration date
-    of ${chalk.grey('6:15 PM on March 2nd, 2019')} and a client state
-    m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/ninja --listTitle Documents --notificationUrl https://contoso-functions.azurewebsites.net/webhook --expirationDateTime '2019-03-02T18:15' --clientState "Hello State!"
-      `);
-  }
 }
 
 module.exports = new SpoListWebhookAddCommand();

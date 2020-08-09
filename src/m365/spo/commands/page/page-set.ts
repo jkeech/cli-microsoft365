@@ -340,41 +340,6 @@ class SpoPageSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If you try to create a page with a name of a page that already exists, you
-    will get a ${chalk.grey('The file doesn\'t exists')} error.
-
-    If you choose to promote the page using the ${chalk.blue('promoteAs')} option
-    or enable page comments, you will see the result only after publishing
-    the page.
-
-  Examples:
-
-    Change the layout of the existing page to Article
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --layoutType Article
-
-    Promote the existing article page as a news article
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --promoteAs NewsPage
-
-    Promote the existing article page as a template
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --promoteAs Template
-
-    Change the page's layout to Home and set it as the site's home page
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --layoutType Home --promoteAs HomePage
-
-    Enable comments on the existing page
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --commentsEnabled true
-
-    Publish existing page
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --publish
-`);
-  }
 }
 
 module.exports = new SpoPageSetCommand();

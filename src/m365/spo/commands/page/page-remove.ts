@@ -129,29 +129,6 @@ class SpoPageRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If you try to remove a page with that does not exist, you will get
-    a ${chalk.grey('The file does not exist')} error.
-
-    If you set the ${chalk.grey('--confirm')}  flag, you will not be prompted for confirmation
-    before the page is actually removed.
-
-  Examples:
-
-    Remove a modern page.
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team
-
-    Remove a modern page without a confirmation prompt.
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --confirm
-    `
-    );
-  }
 }
 
 module.exports = new SpoPageRemoveCommand();

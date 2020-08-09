@@ -147,27 +147,6 @@ class SpoCustomActionClearCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.CUSTOMACTION_CLEAR).helpInformation());
-    log(
-      `  Examples:
-  
-    Clears all user custom actions for both site and site collection
-    ${chalk.grey('https://contoso.sharepoint.com/sites/test')}. Skips the confirmation prompt
-    message.
-      m365 ${this.name} -u https://contoso.sharepoint.com/sites/test --confirm
-
-    Clears all user custom actions for site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} -u https://contoso.sharepoint.com/sites/test -s Web
-
-    Clears all user custom actions for site collection
-    ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/test --scope Site
-    `);
-  }
 }
 
 module.exports = new SpoCustomActionClearCommand();

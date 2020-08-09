@@ -99,34 +99,6 @@ class SpoPropertyBagGetCommand extends SpoPropertyBagBaseCommand {
     };
   }
 
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.PROPERTYBAG_GET).helpInformation());
-    log(
-      `  Examples:
-
-    Returns the value of the ${chalk.grey('key1')} property from the property bag located
-    in site ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test --key key1
-    
-    Returns the value of the ${chalk.grey('key1')} property from the property bag located
-    in site root folder ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test --key key1 --folder /
-
-    Returns the value of the ${chalk.grey('key1')} property from the property bag located
-    in site document library ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test --key key1 --folder '/Shared Documents'
-
-    Returns the value of the ${chalk.grey('key1')} property from the property bag located
-    in folder in site document library ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test --key key1 --folder '/Shared Documents/MyFolder'
-
-    Returns the value of the ${chalk.grey('key1')} property from the property bag located
-    in site list ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test --key key1 --folder /Lists/MyList
-      `);
-  }
-
   private filterByKey(propertyBag: any, key: string): Property | null {
     const keys = Object.keys(propertyBag);
 

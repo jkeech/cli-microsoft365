@@ -60,28 +60,6 @@ class AccessTokenGetCommand extends Command {
       return true;
     };
   }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-    
-    The ${chalk.blue(this.name)} command returns an access token for the specified
-    resource. If an access token has been previously retrieved and is still
-    valid, the command will return the cached token. If you want to ensure that
-    the returned access token is valid for as long as possible, you can force
-    the command to retrieve a new access token by using the ${chalk.grey('--new')} option.
-      
-  Examples:
-  
-    Get access token for the Microsoft Graph
-      ${this.name} --resource https://graph.microsoft.com
-
-    Get a new access token for SharePoint Online
-      ${this.name} --resource https://contoso.sharepoint.com --new
-`);
-  }
 }
 
 module.exports = new AccessTokenGetCommand();

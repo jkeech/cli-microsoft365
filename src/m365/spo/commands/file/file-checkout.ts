@@ -113,23 +113,6 @@ class SpoFileCheckoutCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Checks out file with UniqueId ${chalk.grey('b2307a39-e878-458b-bc90-03bc578531d6')}
-    located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --id 'b2307a39-e878-458b-bc90-03bc578531d6' 
-
-    Checks out file with server-relative url
-    ${chalk.grey('/sites/project-x/documents/Test1.docx')} located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --fileUrl '/sites/project-x/documents/Test1.docx'
-      `);
-  }
 }
 
 module.exports = new SpoFileCheckoutCommand();

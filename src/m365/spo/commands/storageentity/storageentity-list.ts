@@ -99,30 +99,6 @@ class SpoStorageEntityListCommand extends SpoCommand {
       }
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.STORAGEENTITY_LIST).helpInformation());
-    log(
-      `  Remarks:
-
-    Tenant properties are stored in the app catalog site. To list all tenant
-    properties, you have to specify the absolute URL of the app catalog site.
-    If you specify an incorrect URL, or the site at the given URL is not an
-    app catalog site, no properties will be retrieved.
-
-  Examples:
-  
-    List all tenant properties stored in the
-    ${chalk.grey('https://contoso.sharepoint.com/sites/appcatalog')} app catalog site
-      m365 ${this.name} --appCatalogUrl https://contoso.sharepoint.com/sites/appcatalog
-
-  More information:
-
-    SharePoint Framework Tenant Properties
-      https://docs.microsoft.com/en-us/sharepoint/dev/spfx/tenant-properties
-`);
-  }
 }
 
 module.exports = new SpoStorageEntityListCommand();

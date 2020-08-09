@@ -22,6 +22,7 @@ interface CommandArgs {
 }
 
 interface Options extends GlobalOptions {
+  outputFile?: string;
   packageManager?: string;
   toVersion?: string;
   shell?: string;
@@ -165,6 +166,7 @@ class SpfxProjectUpgradeCommand extends BaseProjectCommand {
     telemetryProps.toVersion = args.options.toVersion || this.supportedVersions[this.supportedVersions.length - 1];
     telemetryProps.packageManager = args.options.packageManager || 'npm';
     telemetryProps.shell = args.options.shell || 'bash';
+    telemetryProps.outputFile = typeof args.options.outputFile !== 'undefined';
     return telemetryProps;
   }
 
@@ -360,16 +362,16 @@ class SpfxProjectUpgradeCommand extends BaseProjectCommand {
 
     switch (args.options.output) {
       case 'json':
-        cmd.log(findingsToReport);
+        this.writeReport(findingsToReport, cmd, args.options);
         break;
       case 'tour':
         this.writeReportTourFolder(this.getTourReport(findingsToReport, project), cmd, args.options);
         break;
       case 'md':
-        cmd.log(this.getMdReport(findingsToReport));       
+        this.writeReport(this.getMdReport(findingsToReport), cmd, args.options);
         break;
       default:
-        cmd.log(this.getTextReport(findingsToReport));
+        this.writeReport(this.getTextReport(findingsToReport), cmd, args.options);
     }
 
     cb();
@@ -381,8 +383,21 @@ class SpfxProjectUpgradeCommand extends BaseProjectCommand {
     if (!fs.existsSync(toursFolder)) {
       fs.mkdirSync(toursFolder, { recursive: false });
     }
-    const tourFilePath = path.join(this.projectRootPath as string, '.tours', 'upgrade.tour');
-    fs.writeFileSync(path.resolve(tourFilePath),findingsToReport, 'utf-8');
+
+    // Override reports folder
+    options.outputFile = path.join(this.projectRootPath as string, '.tours', 'upgrade.tour');
+
+    // Write reports
+    this.writeReport(findingsToReport, cmd, options);
+  }
+
+  private writeReport(findingsToReport: any, cmd: CommandInstance, options: Options): void {
+    if (options.outputFile) {
+      fs.writeFileSync(path.resolve(options.outputFile), options.output === 'json' ? JSON.stringify(findingsToReport) : findingsToReport, 'utf-8');
+    }
+    else {
+      cmd.log(findingsToReport);
+    }
   }
 
   private getTextReport(findings: FindingToReport[]): string {
@@ -709,6 +724,10 @@ ${f.resolution}
         option: '--shell [shell]',
         description: 'The shell you use. Supported shells bash|powershell|cmd. Default bash',
         autocomplete: ['bash', 'powershell', 'cmd']
+      },
+      {
+        option: '-f, --outputFile [outputFile]',
+        description: 'Path to the file where the upgrade report should be stored in. This option is ignored if output type is "tour"'
       }
     ];
 
@@ -734,70 +753,18 @@ ${f.resolution}
         if (['bash', 'powershell', 'cmd'].indexOf(args.options.shell) < 0) {
           return `${args.options.shell} is not a supported shell. Supported shells are bash, powershell and cmd`;
         }
-      }     
+      }
+
+      // If we're not using a CodeTour, make sure the path exists
+      if (args.options.outputFile && args.options.output !== 'tour') {
+        const dirPath: string = path.dirname(path.resolve(args.options.outputFile));
+        if (!fs.existsSync(dirPath)) {
+          return `Directory ${dirPath} doesn't exist. Please check the path and try again.`;
+        }
+      }
 
       return true;
     };
-  }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.PROJECT_UPGRADE).helpInformation());
-    log(
-      `   ${chalk.yellow('Important:')} Run this command in the folder where the project
-    that you want to upgrade is located. This command doesn't change your
-    project files.
-      
-  Remarks:
-
-    The ${this.name} command helps you upgrade your SharePoint Framework
-    project to the specified version. If no version is specified, the command
-    will upgrade to the latest version of the SharePoint Framework it supports
-    (v1.11.0).
-
-    This command doesn't change your project files. Instead, it gives you
-    a report with all steps necessary to upgrade your project to the specified
-    version of the SharePoint Framework. Changing project files is error-prone,
-    especially when it comes to updating your solution's code. This is why at
-    this moment, this command produces a report that you can use yourself to
-    perform the necessary updates and verify that everything is working as
-    expected.
-
-    Using this command you can upgrade SharePoint Framework projects built using
-    versions: 1.0.0, 1.0.1, 1.0.2, 1.1.0, 1.1.1, 1.1.3, 1.2.0, 1.3.0, 1.3.1,
-    1.3.2, 1.3.4, 1.4.0, 1.4.1, 1.5.0, 1.5.1, 1.6.0, 1.7.0, 1.7.1, 1.8.0,
-    1.8.1, 1.8.2, 1.9.1 and 1.10.0.
-
-  Examples:
-  
-    Get instructions to upgrade the current SharePoint Framework project to
-    SharePoint Framework version 1.5.0 and save the findings in a Markdown file
-      ${this.name} --toVersion 1.5.0 --output md > "upgrade-report.md"
-
-    Get instructions to Upgrade the current SharePoint Framework project to
-    SharePoint Framework version 1.5.0 and show the summary of the findings
-    in the shell
-      ${this.name} --toVersion 1.5.0
-
-    Get instructions to upgrade the current SharePoint Framework project to the
-    latest SharePoint Framework version supported by the CLI for Microsoft 365 using
-    pnpm
-      ${this.name} --packageManager pnpm
-
-    Get instructions to upgrade the current SharePoint Framework project to the
-    latest SharePoint Framework version supported by the CLI for Microsoft 365
-      ${this.name}
-
-    Get instructions to upgrade the current SharePoint Framework project to the
-    latest SharePoint Framework version supported by the CLI for Microsoft 365 using
-    PowerShell
-      ${this.name} --shell powershell
-
-    Get instructions to upgrade the current SharePoint Framework project to
-    the latest version of SharePoint Framework and save the findings in a 
-    CodeTour file
-        ${this.name} --output tour
-`);
   }
 }
 

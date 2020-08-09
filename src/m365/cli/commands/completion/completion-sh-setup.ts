@@ -38,21 +38,6 @@ class CliCompletionShSetupCommand extends AnonymousCommand {
     }
     cb();
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(commands.COMPLETION_SH_SETUP).helpInformation());
-    log(
-      `  Examples:
-  
-    Set up command completion for Zsh, Bash or Fish
-      ${this.getCommandName()}
-
-  More information:
-
-    Command completion
-      https://pnp.github.io/cli-microsoft365/concepts/completion/
-`);
-  }
 }
 
 module.exports = new CliCompletionShSetupCommand();

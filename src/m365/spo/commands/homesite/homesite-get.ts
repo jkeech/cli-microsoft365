@@ -43,22 +43,6 @@ class SpoHomeSiteGetCommand extends SpoCommand {
         cb();
       }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Get information about the Home Site
-      m365 ${this.name}
-
-  More information:
-
-    SharePoint home sites: a landing for your organization on the intelligent
-    intranet
-      https://techcommunity.microsoft.com/t5/Microsoft-SharePoint-Blog/SharePoint-home-sites-a-landing-for-your-organization-on-the/ba-p/621933
-`);
-  }
 }
 
 module.exports = new SpoHomeSiteGetCommand();

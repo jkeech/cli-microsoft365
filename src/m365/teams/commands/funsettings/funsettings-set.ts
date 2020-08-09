@@ -139,26 +139,6 @@ class TeamsFunSettingsSetCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Allow giphy usage within a given Microsoft Teams team, setting the content
-    rating for giphy to Moderate
-      ${this.name} --teamId 83cece1e-938d-44a1-8b86-918cf6151957 --allowGiphy true --giphyContentRating Moderate
-    
-    Disable usage of giphy within the given Microsoft Teams team
-      ${this.name} --teamId 83cece1e-938d-44a1-8b86-918cf6151957 --allowGiphy false
-
-    Allow usage of stickers and memes within a given Microsoft Teams team
-      ${this.name} --teamId 83cece1e-938d-44a1-8b86-918cf6151957 --allowStickersAndMemes true
-
-    Disable usage custom memes within a given Microsoft Teams team
-      ${this.name} --teamId 83cece1e-938d-44a1-8b86-918cf6151957 --allowCustomMemes false
-`);
-  }
 }
 
 module.exports = new TeamsFunSettingsSetCommand();

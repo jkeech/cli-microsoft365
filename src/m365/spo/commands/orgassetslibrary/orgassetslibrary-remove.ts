@@ -118,20 +118,6 @@ class SpoOrgAssetsLibraryRemoveCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.ORGASSETSLIBRARY_REMOVE).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-
-  Examples:
-
-    Removes organization assets library without confirmation
-      m365 ${this.name} --libraryUrl "/sites/branding/assets" --confirm
-  `);
-  }
 }
 
 module.exports = new SpoOrgAssetsLibraryRemoveCommand();

@@ -102,23 +102,6 @@ class TeamsAppUninstallCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    The ${chalk.grey(`appId`)} has to be the id the app instance installed in the Microsoft Teams
-    team. Do not use the ID from the manifest of the zip app package or the id
-    from the Microsoft Teams App Catalog.
-
-  Examples:
-
-    Uninstall an app from a Microsoft Teams team
-      ${this.name} --appId YzUyN2E0NzAtYTg4Mi00ODFjLTk4MWMtZWU2ZWZhYmE4NWM3IyM0ZDFlYTA0Ny1mMTk2LTQ1MGQtYjJlOS0wZDI4NTViYTA1YTY= --teamId 2609af39-7775-4f94-a3dc-0dd67657e900
-`);
-  }
 }
 
 module.exports = new TeamsAppUninstallCommand();

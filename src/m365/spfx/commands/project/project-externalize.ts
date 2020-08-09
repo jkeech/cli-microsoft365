@@ -131,8 +131,7 @@ class SpfxProjectExternalizeCommand extends BaseProjectCommand {
         break;
     }
 
-      cmd.log(report);
-    
+    cmd.log(report);
   }
 
   private serializeMdReport(findingsToReport: ExternalizeEntry[], editsToReport: FileEdit[]): string {
@@ -219,42 +218,6 @@ class SpfxProjectExternalizeCommand extends BaseProjectCommand {
       }
     });
     return parentOptions;
-  }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.PROJECT_EXTERNALIZE).helpInformation());
-    log(
-      `   ${chalk.yellow('Important:')} Run this command in the folder where the project for which you
-    want to externalize dependencies is located. This command doesn't change
-    your project files.
-
-  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is in preview and could change
-    once it's officially released. If you see any room for improvement, we'd
-    love to hear from you at https://github.com/pnp/cli-microsoft365/issues.
-
-    The ${chalk.blue(this.name)} command helps you externalize your SharePoint
-    Framework project dependencies using the unpkg CDN.
-
-    This command doesn't change your project files. Instead, it gives you
-    a report with all steps necessary to externalize your project dependencies.
-    Externalizing project dependencies is error-prone, especially when it comes
-    to updating your solution's code. This is why at this moment, this command
-    produces a report that you can use yourself to perform the necessary changes
-    and verify that everything is working as expected.
-
-  Examples:
-
-    Get instructions to externalize dependencies for the current SharePoint
-    Framework project and save the findings in a Markdown file
-      ${this.name} --output md > "deps-report.md"
-
-    Get instructions to externalize the current SharePoint Framework project
-    dependencies and show the summary of the findings in the terminal
-      ${this.name}
-`);
   }
 }
 

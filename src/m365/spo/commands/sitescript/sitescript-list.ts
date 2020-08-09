@@ -46,21 +46,6 @@ class SpoSiteScriptListCommand extends SpoCommand {
         cb();
       }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    List all site scripts available for use with site designs
-      ${this.name}
-
-  More information:
-
-    SharePoint site design and site script overview
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteScriptListCommand();

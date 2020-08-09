@@ -140,42 +140,6 @@ class SpoSiteGroupifyCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on a SharePoint API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-    When connecting site collection to an Microsoft 365 Group, SharePoint will
-    create a new group using the specified information. If a group with the same
-    name already exists, you will get a ${chalk.grey('The group alias already exists.')}
-    error.
-
-  Examples:
-  
-    Connect site collection to an Microsoft 365 Group
-      ${this.name} --siteUrl https://contoso.sharepoin.com/sites/team-a --alias team-a --displayName 'Team A'
-
-    Connect site collection to an Microsoft 365 Group and make the group public
-      ${this.name} --siteUrl https://contoso.sharepoin.com/sites/team-a --alias team-a --displayName 'Team A' --isPublic
-
-    Connect site collection to an Microsoft 365 Group and set the group classification
-      ${this.name} --siteUrl https://contoso.sharepoin.com/sites/team-a --alias team-a --displayName 'Team A' --classification HBI
-
-    Connect site collection to an Microsoft 365 Group and keep the old home page
-      ${this.name} --siteUrl https://contoso.sharepoin.com/sites/team-a --alias team-a --displayName 'Team A' --keepOldHomepage
-
-  More information:
-
-    Overview of the "Connect to new Microsoft 365 group" feature
-      https://docs.microsoft.com/en-us/sharepoint/dev/features/groupify/groupify-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteGroupifyCommand();

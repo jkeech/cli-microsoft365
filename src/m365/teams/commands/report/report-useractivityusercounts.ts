@@ -14,24 +14,6 @@ class TeamsReportUserActivityUserCountsCommand extends PeriodBasedReport {
   public get usageEndpoint(): string {
     return 'getTeamsUserActivityUserCounts';
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples: 
-
-    Gets the number of Microsoft Teams users by activity type for last week
-      m365 ${this.name} --period D7
-
-    Gets the number of Microsoft Teams users by activity type for last week
-    and exports the report data in the specified path in text format
-      m365 ${this.name} --period D7 --output text > "useractivityusercounts.txt"
-
-    Gets the number of Microsoft Teams users by activity type for last week
-    and exports the report data in the specified path in json format
-      m365 ${this.name} --period D7 --output json > "useractivityusercounts.json"
-`);
-  }
 }
 
 module.exports = new TeamsReportUserActivityUserCountsCommand();

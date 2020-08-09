@@ -107,29 +107,6 @@ class SpoSiteScriptAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    Each time you execute the ${chalk.blue(this.name)} command, it will create
-    a new site script with a unique ID. Before creating a site script, be sure
-    that another script with the same name doesn't already exist.
-
-  Examples:
-  
-    Create new site script for use with site designs. Script contents are stored
-    in the ${chalk.grey('$script')} variable
-      ${this.name} --title "Contoso" --description "Contoso theme script" --content $script
-
-  More information:
-
-    SharePoint site design and site script overview
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteScriptAddCommand();

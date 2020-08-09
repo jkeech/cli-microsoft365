@@ -130,23 +130,6 @@ class SpoTermSetListCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.TERM_SET_LIST).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-    
-  Examples:
-  
-    List taxonomy term sets from the term group with the given name
-      m365 ${this.name} --termGroupName PnPTermSets
-
-    List taxonomy term sets from the term group with the given ID
-      m365 ${this.name} --termGroupId 0e8f395e-ff58-4d45-9ff7-e331ab728beb
-`);
-  }
 }
 
 module.exports = new SpoTermSetListCommand();

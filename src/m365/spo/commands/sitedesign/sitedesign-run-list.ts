@@ -109,25 +109,6 @@ class SpoSiteDesignRunListCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    List site designs applied to the specified site
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a
-
-    List information about the specified site design applied to the specified
-    site
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --siteDesignId 6ec3ca5b-d04b-4381-b169-61378556d76e
-
-  More information:
-
-    SharePoint site design and site script overview
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteDesignRunListCommand();

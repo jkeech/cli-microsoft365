@@ -87,25 +87,6 @@ class SpoHideDefaultThemesSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-  
-  Examples:
-
-    Hide default themes and allow users to use organization themes only
-      m365 ${this.name} --hideDefaultThemes true
-
-  More information:
-
-    SharePoint site theming
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-theming/sharepoint-site-theming-overview
-      `);
-  }
 }
 
 module.exports = new SpoHideDefaultThemesSetCommand();

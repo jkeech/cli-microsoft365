@@ -72,20 +72,5 @@ class GraphSchemaExtensionGet extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    To get properties of a schema extension definition, you have to pass the ID of the schema
-    extension. 
-
-  Examples:
-  
-    Gets properties of a schema extension definition with ID domain_myExtension
-      ${chalk.grey(config.delimiter)} ${this.name} --id domain_myExtension`);
-  }
 }
 module.exports = new GraphSchemaExtensionGet();

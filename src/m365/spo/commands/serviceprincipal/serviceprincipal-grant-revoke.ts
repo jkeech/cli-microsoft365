@@ -91,26 +91,6 @@ class SpoServicePrincipalGrantRevokeCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SERVICEPRINCIPAL_GRANT_REVOKE).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-        
-  Remarks:
-
-    The permission grant you want to revoke is denoted using its ${chalk.grey('ObjectId')}.
-    You can retrieve it using the ${chalk.grey(`${commands.SERVICEPRINCIPAL_GRANT_LIST}`)} command.
-
-  Examples:
-  
-    Revoke permission grant with ObjectId
-    ${chalk.grey('50NAzUm3C0K9B6p8ORLtIsQccg4rMERGvFGRtBsk2fA')}
-      m365 ${this.name} --grantId 50NAzUm3C0K9B6p8ORLtIsQccg4rMERGvFGRtBsk2fA
-`);
-  }
 }
 
 module.exports = new SpoServicePrincipalGrantRevokeCommand();

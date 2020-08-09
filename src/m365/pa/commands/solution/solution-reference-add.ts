@@ -125,31 +125,6 @@ class PaSolutionReferenceAddCommand extends Command {
       return ext === '.pcfproj' || ext === '.csproj';
     }).map(entry => path.join(rootPath, entry));
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SOLUTION_REFERENCE_ADD).helpInformation());
-    log(
-      `  Remarks:
-
-    This commands expects a CDS solution project in the current directory, and
-    references a PowerApps component framework project.
-    
-    The CDS solution project and the PowerApps component framework project
-    cannot have the same name.
-
-  Examples:
-
-    Adds a reference inside the CDS Solution project in the current directory
-    to the PowerApps component framework project at ${chalk.grey('./projects/ExampleProject')}
-      m365 ${this.name} --path ./projects/ExampleProject
-
-  More information:
-
-    Create and build a custom component
-      https://docs.microsoft.com/en-us/powerapps/developer/component-framework/create-custom-controls-using-pcf
-`);
-  }
 }
 
 module.exports = new PaSolutionReferenceAddCommand();

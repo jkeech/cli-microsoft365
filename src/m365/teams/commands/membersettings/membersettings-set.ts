@@ -135,19 +135,6 @@ class TeamsMemberSettingsSetCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Allow members to create and edit channels
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --allowCreateUpdateChannels true
-
-    Disallow members to add and remove apps
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --allowAddRemoveApps false
-`);
-  }
 }
 
 module.exports = new TeamsMemberSettingsSetCommand();

@@ -90,25 +90,6 @@ class SpoFolderGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    If no folder exists at the specified URL, you will get a
-    ${chalk.grey(`Please check the folder URL. Folder might not exist on the specified URL`)}
-    error.
-        
-  Examples:
-  
-    Get folder properties for folder with site-relative url
-    ${chalk.grey('/Shared Documents')} located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --folderUrl '/Shared Documents'
-    `);
-  }
 }
 
 module.exports = new SpoFolderGetCommand();

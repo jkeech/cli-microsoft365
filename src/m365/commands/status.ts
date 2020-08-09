@@ -58,24 +58,6 @@ class StatusCommand extends Command {
         });
     }
   }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.STATUS).helpInformation());
-    log(
-      `  Remarks:
-
-    If you are logged in to Microsoft 365, the ${chalk.blue(commands.STATUS)} command
-    will show you information about the user or application name used to sign in
-    and the details about the stored refresh and access tokens and their
-    expiration date and time when run in debug mode.
-
-  Examples:
-  
-    Show the information about the current login to Microsoft 365
-      m365 ${this.name}
-`);
-  }
 }
 
 module.exports = new StatusCommand();

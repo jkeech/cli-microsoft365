@@ -113,31 +113,6 @@ class AadSiteClassificationDisableCommand extends GraphCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-  Examples:
-  
-    Disable site classification 
-      ${this.name}  
-
-    Disable site classification without confirmation
-      ${this.name} --confirm
-
-  More information:
-
-    SharePoint "modern" sites classification
-      https://docs.microsoft.com/en-us/sharepoint/dev/solution-guidance/modern-experience-site-classification
-    `);
-  }
 }
 
 module.exports = new AadSiteClassificationDisableCommand();

@@ -119,25 +119,6 @@ class SpoFeatureEnableCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.FEATURE_ENABLE).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified ${chalk.grey('url')} doesn't refer to an existing site collection,
-    you will get a ${chalk.grey('"404 FILE NOT FOUND"')} error.
-      
-  Examples:
-  
-    Enable site feature
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --featureId 915c240e-a6cc-49b8-8b2c-0bff8b553ed3 --scope Site
-
-    Enable web feature (with force to overwrite feature with same id)
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales --featureId 00bfea71-5932-4f9c-ad71-1557e5751100 --scope Web --force
-    `);
-  }
 }
 
 module.exports = new SpoFeatureEnableCommand();

@@ -252,29 +252,6 @@ class SpfxProjectRenameCommand extends BaseProjectCommand {
       }
     }
   }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.PROJECT_RENAME).helpInformation());
-    log(
-      `   ${chalk.yellow('Important:')} Run this command in the folder where the project that you want to
-    rename is located.
-
-  Remarks:
-
-    This command will update the project name in: package.json, .yo-rc.json,
-    package-solution.json, deploy-azure-storage.json and README.md.
-
-
-  Examples:
-
-    Renames SharePoint Framework project to contoso
-      m365 ${this.name} --newName contoso
-
-    Renames SharePoint Framework project to contoso with new solution ID
-      m365 ${this.name} --newName contoso --generateNewId
-`);
-  }
 }
 
 module.exports = new SpfxProjectRenameCommand();

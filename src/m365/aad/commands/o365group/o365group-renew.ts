@@ -74,23 +74,6 @@ class AadO365GroupRenewCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified ${chalk.grey('id')} doesn't refer to an existing group, you will get
-    a ${chalk.grey('The remote server returned an error: (404) Not Found.')} error.
-
-  Examples:
-
-    Renew expiration of a Microsoft 365 group with ID
-    ${chalk.grey('28beab62-7540-4db1-a23f-29a6018a3848')}.
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848
-  `);
-  }
 }
 
 module.exports = new AadO365GroupRenewCommand();

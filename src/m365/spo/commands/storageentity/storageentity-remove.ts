@@ -128,37 +128,6 @@ class SpoStorageEntityRemoveCommand extends SpoCommand {
       }
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.STORAGEENTITY_REMOVE).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-    
-  Remarks:
-
-    Tenant properties are stored in the app catalog site associated with that
-    tenant. To remove a property, you have to specify the absolute URL of the
-    app catalog site. If you specify the URL of a site different than the app
-    catalog, you will get an access denied error.
-
-  Examples:
-  
-    Remove the ${chalk.grey('AnalyticsId')} tenant property. Yields a confirmation prompt
-    before actually removing the property
-      m365 ${this.name} --key AnalyticsId --appCatalogUrl https://contoso.sharepoint.com/sites/appcatalog
-
-    Remove the ${chalk.grey('AnalyticsId')} tenant property. Suppresses the confirmation
-    prompt
-      m365 ${this.name} --key AnalyticsId --confirm --appCatalogUrl https://contoso.sharepoint.com/sites/appcatalog
-
-  More information:
-
-    SharePoint Framework Tenant Properties
-      https://docs.microsoft.com/en-us/sharepoint/dev/spfx/tenant-properties
-`);
-  }
 }
 
 module.exports = new SpoStorageEntityRemoveCommand();

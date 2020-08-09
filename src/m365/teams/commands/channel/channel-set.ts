@@ -134,20 +134,6 @@ class TeamsChannelSetCommand extends GraphCommand {
 
     return requestBody;
   }
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Set new description and display name for the specified channel in the given
-    Microsoft Teams team
-      ${this.name} --teamId "00000000-0000-0000-0000-000000000000" --channelName Reviews --newChannelName Projects --description "Channel for new projects"
-
-    Set new display name for the specified channel in the given Microsoft Teams
-    team
-      ${this.name} --teamId "00000000-0000-0000-0000-000000000000" --channelName Reviews --newChannelName Projects
-`);
-  }
 }
 
 module.exports = new TeamsChannelSetCommand();

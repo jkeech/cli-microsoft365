@@ -71,22 +71,6 @@ class SpoSiteGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    This command can retrieve information for both classic and modern sites.
-   
-  Examples:
-  
-    Return information about the ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-    site collection.
-      m365 ${this.name} --url https://contoso.sharepoint.com/sites/project-x
-`);
-  }
 }
 
 module.exports = new SpoSiteGetCommand();

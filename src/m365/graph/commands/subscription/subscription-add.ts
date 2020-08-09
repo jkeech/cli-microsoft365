@@ -221,49 +221,6 @@ class GraphSubscriptionAddCommand extends GraphCommand {
 
     return invalidChangesTypes.length === 0;
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    On personal OneDrive, you can subscribe to the root folder or any subfolder
-    in that drive. On OneDrive for Business, you can subscribe to only the root
-    folder.
-
-    Notifications are sent for the requested types of changes on the subscribed
-    folder, or any file, folder, or other ${chalk.grey(`driveItem`)} instances in its hierarchy.
-    You cannot subscribe to ${chalk.grey(`drive`)} or ${chalk.grey(`driveItem`)} instances that are not folders,
-    such as individual files.
-
-    In Outlook, delegated permission supports subscribing to items in folders in
-    only the signed-in user's mailbox. That means, for example, you cannot use
-    the delegated permission Calendars.Read to subscribe to events in another
-    user’s mailbox.
-
-    To subscribe to change notifications of Outlook contacts, events,
-    or messages in shared or delegated folders:
-
-    - Use the corresponding application permission to subscribe to changes of
-      items in a folder or mailbox of any user in the tenant.
-    - Do not use the Outlook sharing permissions (Contacts.Read.Shared,
-      Calendars.Read.Shared, Mail.Read.Shared, and their read/write
-      counterparts), as they do not support subscribing to change notifications
-      on items in shared or delegated folders.
-
-  Examples:
-  
-    Create a subscription
-      ${this.name} --resource "me/mailFolders('Inbox')/messages" --changeType "updated" --notificationUrl "https://webhook.azurewebsites.net/api/send/myNotifyClient" --expirationDateTime "2016-11-20T18:23:45.935Z" --clientState "secretClientState"
-
-    Create a subscription on multiple change types
-      ${this.name} --resource groups --changeType updated,deleted --notificationUrl "https://webhook.azurewebsites.net/api/send/myNotifyClient" --expirationDateTime "2016-11-20T18:23:45.935Z" --clientState "secretClientState"
-
-    Create a subscription using the maximum allowed expiration for Group resources
-      ${this.name} --resource groups --changeType "updated" --notificationUrl "https://webhook.azurewebsites.net/api/send/myNotifyClient"
-`);
-  }
 }
 
 module.exports = new GraphSubscriptionAddCommand();

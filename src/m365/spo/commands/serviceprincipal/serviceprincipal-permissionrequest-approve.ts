@@ -100,25 +100,6 @@ class SpoServicePrincipalPermissionRequestApproveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SERVICEPRINCIPAL_PERMISSIONREQUEST_APPROVE).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-        
-  Remarks:
-
-    The permission request you want to approve is denoted using its ${chalk.grey('ID')}. You can
-    retrieve it using the ${chalk.grey(`${commands.SERVICEPRINCIPAL_PERMISSIONREQUEST_LIST}`)} command.
-
-  Examples:
-  
-    Approve permission request with id ${chalk.grey('4dc4c043-25ee-40f2-81d3-b3bf63da7538')}
-      m365 ${this.name} --requestId 4dc4c043-25ee-40f2-81d3-b3bf63da7538
-`);
-  }
 }
 
 module.exports = new SpoServicePrincipalPermissionRequestApproveCommand();

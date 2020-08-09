@@ -38,16 +38,6 @@ class SpoTenantAppCatalogUrlGetCommand extends SpoCommand {
         cb();
       }, (err: any): void => this.handleRejectedPromise(err, cmd, cb));
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Get the URL of the tenant app catalog
-      m365 ${this.name}
-  ` );
-  }
 }
 
 module.exports = new SpoTenantAppCatalogUrlGetCommand();

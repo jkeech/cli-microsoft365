@@ -170,35 +170,6 @@ class TeamsChannelRemoveCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-      
-    When deleted, Microsoft Teams channels are moved to a recycle bin and can be
-    restored within 30 days. After that time, they are permanently deleted.
-      
-  Examples:
-    
-    Remove the specified Microsoft Teams channel by Id
-      ${this.name} --channelId 19:f3dcbb1674574677abcae89cb626f1e6@thread.skype --teamId d66b8110-fcad-49e8-8159-0d488ddb7656
-
-    Remove the specified Microsoft Teams channel by Id without confirmation
-      ${this.name} --channelId 19:f3dcbb1674574677abcae89cb626f1e6@thread.skype --teamId d66b8110-fcad-49e8-8159-0d488ddb7656 --confirm
-
-    Remove the specified Microsoft Teams channel by Name
-      ${this.name} --channelName 'channelName' --teamId d66b8110-fcad-49e8-8159-0d488ddb7656
-
-    Remove the specified Microsoft Teams channel by Name without confirmation
-      ${this.name} --channelName 'channelName' --teamId d66b8110-fcad-49e8-8159-0d488ddb7656 --confirm  
-
-  More information:
-
-    directory resource type (deleted items)
-      https://docs.microsoft.com/en-us/graph/api/resources/directory?view=graph-rest-1.0
-`);
-  }
 }
 
 module.exports = new TeamsChannelRemoveCommand();

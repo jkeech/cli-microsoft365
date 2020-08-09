@@ -402,29 +402,6 @@ class SpoSearchCommand extends SpoCommand {
 
     return outputData;
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Execute search query to retrieve all Document Sets
-    (ContentTypeId = '${chalk.grey('0x0120D520')}') for the English locale
-      m365 ${this.name} --queryText "ContentTypeId:0x0120D520" --culture 1033
-
-    Retrieve all documents. For each document, retrieve the Path, Author
-    and FileType.
-      m365 ${this.name} --queryText "IsDocument:1" --selectProperties "Path,Author,FileType" --allResults
-
-    Return the top 50 items of which the title starts with 'Marketing' while
-    trimming duplicates.
-      m365 ${this.name} --queryText "Title:Marketing*" --rowLimit=50 --trimDuplicates
-
-    Return only items from a specific result source (using the source id).
-      m365 ${this.name} --queryText "*" --sourceId "6e71030e-5e16-4406-9bff-9c1829843083"
-      `);
-  }
 }
 
 module.exports = new SpoSearchCommand();

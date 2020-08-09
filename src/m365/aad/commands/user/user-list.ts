@@ -86,45 +86,6 @@ class AadUserListCommand extends GraphItemsListCommand<any> {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    Using the ${chalk.blue('--properties')} option, you can specify
-    a comma-separated list of user properties to retrieve from the Microsoft
-    Graph. If you don't specify any properties, the command will retrieve
-    user's display name and account name.
-
-    To filter the list of users, include additional options that match the user
-    property that you want to filter with. For example
-    ${chalk.blue('--displayName Patt')} will return all users whose displayName
-    starts with ${chalk.grey('Patt')}. Multiple filters will be combined using
-    the ${chalk.blue('and')} operator.
-
-  Examples:
-
-    List all users in the tenant
-      ${this.name}
-
-    List all users in the tenant. For each one return the display name and
-    e-mail address
-      ${this.name} --properties "displayName,mail"
-
-    Show users whose display name starts with ${chalk.grey('Patt')}
-      ${this.name} --displayName Patt
-
-    Show all account managers whose display name starts with ${chalk.grey('Patt')}
-      ${this.name} --displayName Patt --jobTitle 'Account manager'
-
-  More information:
-
-    Microsoft Graph User properties
-      https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/user#properties
-`);
-  }
 }
 
 module.exports = new AadUserListCommand();

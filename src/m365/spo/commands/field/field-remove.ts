@@ -224,35 +224,6 @@ class SpoFieldRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    If the specified field not exists, you will get an ${chalk.grey('Invalid field name')} error.
-        
-  Examples:
-
-    Remove the site column with the specified ID, located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/contoso-sales')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --id 5ee2dd25-d941-455a-9bdb-7f2c54aed11b
-    
-    Remove the list column with the specified ID, located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/contoso-sales')}.
-    Retrieves the list by its title
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listTitle Events --id 5ee2dd25-d941-455a-9bdb-7f2c54aed11b
-
-    Remove the list column with the specified display name, located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/contoso-sales')}.
-    Retrieves the list by its url
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listUrl 'Lists/Events' --fieldTitle 'Title'     
-    
-    Remove all site columns from group "MyGroup"
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --group 'MyGroup'
-      `);
-  }
 }
 
 module.exports = new SpoFieldRemoveCommand();

@@ -184,37 +184,6 @@ class AadSiteClassificationUpdateCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-  Examples:
-
-    Update Microsoft 365 Tenant site classification configuration
-      ${this.name} --classifications "High, Medium, Low" --defaultClassification "Medium" 
-
-    Update only the default classification
-      ${this.name} --defaultClassification "Low"
-
-    Update site classification with a usage guidelines URL 
-      ${this.name} --usageGuidelinesUrl "http://aka.ms/pnp"
-
-    Update site classification with usage guidelines URLs for guests and members
-      ${this.name} --usageGuidelinesUrl "http://aka.ms/pnp" --guestUsageGuidelinesUrl "http://aka.ms/pnp" 
-
-  More information:
-
-    SharePoint "modern" sites classification
-      https://docs.microsoft.com/en-us/sharepoint/dev/solution-guidance/modern-experience-site-classification
-    `);
-  }
 }
 
 module.exports = new AadSiteClassificationUpdateCommand();

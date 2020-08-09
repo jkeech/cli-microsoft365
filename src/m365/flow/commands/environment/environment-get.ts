@@ -68,27 +68,6 @@ class FlowEnvironmentGetCommand extends AzmgmtCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.FLOW_ENVIRONMENT_GET).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-  
-    If the environment with the name you specified doesn't exist, you will get
-    the ${chalk.grey('Access to the environment \'xyz\' is denied.')} error.
-   
-  Examples:
-  
-    Get information about the Microsoft Flow environment named
-    ${chalk.grey('Default-d87a7535-dd31-4437-bfe1-95340acd55c5')}
-      ${this.getCommandName()} --name Default-d87a7535-dd31-4437-bfe1-95340acd55c5
-`);
-  }
 }
 
 module.exports = new FlowEnvironmentGetCommand();

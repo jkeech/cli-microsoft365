@@ -234,29 +234,6 @@ class SpoContentTypeFieldRemoveCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Remove column with ID ${chalk.grey('2c1ba4c4-cd9b-4417-832f-92a34bc34b2a')} from
-    content type with ID ${chalk.grey('0x0100CA0FA0F5DAEF784494B9C6020C3020A6')}
-    from web with URL ${chalk.grey('https://contoso.sharepoint.com')}
-      ${this.name} --contentTypeId "0x0100CA0FA0F5DAEF784494B9C6020C3020A6" --fieldLinkId "880d2f46-fccb-43ca-9def-f88e722cef80" --webUrl https://contoso.sharepoint.com --confirm
-
-    Remove column with ID ${chalk.grey('2c1ba4c4-cd9b-4417-832f-92a34bc34b2a')} from
-    content type with ID ${chalk.grey('0x0100CA0FA0F5DAEF784494B9C6020C3020A6')}
-    from web with URL ${chalk.grey('https://contoso.sharepoint.com')} updating child content types
-      ${this.name} --contentTypeId "0x0100CA0FA0F5DAEF784494B9C6020C3020A6" --fieldLinkId "880d2f46-fccb-43ca-9def-f88e722cef80" --webUrl https://contoso.sharepoint.com --updateChildContentTypes 
-
-    Remove fieldLink with ID ${chalk.grey('2c1ba4c4-cd9b-4417-832f-92a34bc34b2a')} from list
-    content type with ID ${chalk.grey('0x0100CA0FA0F5DAEF784494B9C6020C3020A6')}
-    from web with URL ${chalk.grey('https://contoso.sharepoint.com')} 
-      ${this.name} --contentTypeId "0x0100CA0FA0F5DAEF784494B9C6020C3020A60062F089A38C867747942DB2C3FC50FF6A" --fieldLinkId "880d2f46-fccb-43ca-9def-f88e722cef80" --webUrl https://contoso.sharepoint.com --listTitle "Documents"
-      `);
-  }
 }
 
 module.exports = new SpoContentTypeFieldRemoveCommand();

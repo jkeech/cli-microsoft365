@@ -14,24 +14,6 @@ class OutlookReportMailAppUsageUserCountsCommand extends PeriodBasedReport {
   public get description(): string {
     return 'Gets the count of unique users that connected to Exchange Online using any email app';
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-      
-    Gets the count of unique users that connected to Exchange Online using any email app for the last week
-      m365 ${this.name} --period D7
-
-    Gets the count of unique users that connected to Exchange Online using any email app for the last week
-    and exports the report data in the specified path in text format
-      m365 ${this.name} --period D7 --output text > "mailappusageusercounts.txt"
-
-    Gets the count of unique users that connected to Exchange Online using any email app for the last week
-    and exports the report data in the specified path in json format
-      m365 ${this.name} --period D7 --output json > "mailappusageusercounts.json"
-`);
-  }
 }
 
 module.exports = new OutlookReportMailAppUsageUserCountsCommand();

@@ -371,48 +371,6 @@ class SpoPageAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If you try to create a page with a name of a page that already exists, you
-    will get a ${chalk.grey('The file exists')} error.
-
-    If you choose to promote the page using the ${chalk.blue('promoteAs')} option
-    or enable page comments, you will see the result only after publishing
-    the page.
-
-  Examples:
-
-    Create new modern page. Use the Article layout
-      ${this.name} --name new-page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team
-
-    Create new modern page and set its title
-      ${this.name} --name new-page.aspx --title 'My page' --webUrl https://contoso.sharepoint.com/sites/a-team
-
-    Create new modern page. Use the Home page layout and include the default set
-    of web parts
-      ${this.name} --name new-page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --layoutType Home
-
-    Create new article page and promote it as a news article
-      ${this.name} --name new-page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --promoteAs NewsPage
-
-    Create new page and set it as the site's home page
-      ${this.name} --name new-page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --layoutType Home --promoteAs HomePage
-
-    Create new article page and promote it as a template
-      ${this.name} --name page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --promoteAs Template
-
-    Create new article page and enable comments on the page
-      ${this.name} --name new-page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --commentsEnabled
-
-    Create new article page and publish it
-      ${this.name} --name new-page.aspx --webUrl https://contoso.sharepoint.com/sites/a-team --publish
-`);
-  }
 }
 
 module.exports = new SpoPageAddCommand();

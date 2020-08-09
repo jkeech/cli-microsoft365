@@ -97,25 +97,6 @@ class SpoContentTypeGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If no content type with the specified is found in the site or the list, you
-    will get the ${chalk.grey('Content type with ID 0x010012 not found')} error.
-
-  Examples:
-  
-    Retrieve site content type
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --id 0x0100558D85B7216F6A489A499DB361E1AE2F
-    
-    Retrieve list content type
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listTitle Events --id 0x0100558D85B7216F6A489A499DB361E1AE2F
-`);
-  }
 }
 
 module.exports = new SpoContentTypeGetCommand();

@@ -95,22 +95,6 @@ class SpoSiteInPlaceRecordsManagementSetCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.siteUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Activates in-place records management for site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/team-a')}
-      m365 ${this.name} --siteUrl https://contoso.sharepoint.com/sites/team-a --enabled true
-
-    Deactivates in-place records management for site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/team-a')}
-      m365 ${this.name} --siteUrl https://contoso.sharepoint.com/sites/team-a --enabled false
-  ` );
-  }
 }
 
 module.exports = new SpoSiteInPlaceRecordsManagementSetCommand();

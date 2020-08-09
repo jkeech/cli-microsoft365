@@ -105,26 +105,6 @@ class SpoHomeSiteRemoveCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.HOMESITE_REMOVE).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} To use this command you have to have permissions to access
-      the tenant admin site.
-
-  Examples:
-
-    Removes the current Home Site without confirmation
-      ${chalk.grey(config.delimiter)} m365 ${this.name} --confirm
-
-  More information:
-
-    SharePoint home sites, a landing for your organization on the intelligent
-    intranet
-      https://techcommunity.microsoft.com/t5/Microsoft-SharePoint-Blog/SharePoint-home-sites-a-landing-for-your-organization-on-the/ba-p/621933
-`);
-  }
 }
 
 module.exports = new SpoHomeSiteRemoveCommand();

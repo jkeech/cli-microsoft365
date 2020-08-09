@@ -80,22 +80,6 @@ class AadO365GroupRestoreCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified ${chalk.grey('id')} doesn't refer to a deleted group, you will get
-    a ${chalk.grey('File not found')} error.
-
-  Examples:
-
-    Restore group with ID ${chalk.grey('28beab62-7540-4db1-a23f-29a6018a3848')}.
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848
-  `);
-  }
 }
 
 module.exports = new AadO365GroupRestoreCommand();

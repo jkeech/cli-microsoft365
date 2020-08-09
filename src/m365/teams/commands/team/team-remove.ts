@@ -102,30 +102,6 @@ class TeamsRemoveCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    When deleted, Microsoft 365 groups are moved to a temporary container and
-    can be restored within 30 days. After that time, they are permanently
-    deleted. This applies only to Microsoft 365 groups.
-
-  Examples:
-  
-    Removes the specified team 
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000'
-
-    Removes the specified team without confirmation
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --confirm
-
-  More information:
-
-    directory resource type (deleted items)
-      https://docs.microsoft.com/en-us/graph/api/resources/directory?view=graph-rest-1.0
-  `);
-  }
 }
 
 module.exports = new TeamsRemoveCommand();

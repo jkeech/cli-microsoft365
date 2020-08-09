@@ -190,23 +190,6 @@ class SpoWebReindexCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the subsite to be reindexed is a no-script site, the command will request
-    reindexing all lists from the subsite that haven't been excluded from the
-    search index.
-        
-  Examples:
-  
-    Request reindexing the subsite ${chalk.grey('https://contoso.sharepoint.com/subsite')}
-      ${this.name} --webUrl https://contoso.sharepoint.com/subsite
-      `);
-  }
 }
 
 module.exports = new SpoWebReindexCommand();

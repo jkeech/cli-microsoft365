@@ -61,25 +61,6 @@ class SpoSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    log(vorpal.find(commands.SET).helpInformation());
-    log(` Remarks:
-
-    CLI for Microsoft 365 automatically discovers the URL of the root SharePoint site
-    collection/SharePoint tenant admin site (whichever is needed to run
-    the particular command). In specific cases, like when managing multi-geo
-    Microsoft 365 tenants, it could be desirable to make the CLI manage
-    the specific geography. For such cases, you can use this command
-    to explicitly specify the SPO URL that should be used when executing SPO
-    commands.
-      
-  Examples:
-  
-    Set SPO URL to the specified URL
-      m365 ${this.name} --url https://contoso.sharepoint.com
-`);
-  }
 }
 
 module.exports = new SpoSetCommand();

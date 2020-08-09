@@ -96,22 +96,6 @@ class TeamsAppUpdateCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    You can only update a Teams app as a global administrator.
-
-  Examples:
-
-    Update the Teams app with ID ${chalk.grey('83cece1e-938d-44a1-8b86-918cf6151957')}
-    from file ${chalk.grey('teams-manifest.zip')}
-      ${this.name} --id 83cece1e-938d-44a1-8b86-918cf6151957 --filePath ./teams-manifest.zip
-`);
-  }
 }
 
 module.exports = new TeamsAppUpdateCommand();

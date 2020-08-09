@@ -40,16 +40,6 @@ class AadGroupSettingListCommand extends GraphItemsListCommand<GroupSetting> {
         cb();
       }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    List all group settings in the tenant
-      ${this.name}
-`);
-  }
 }
 
 module.exports = new AadGroupSettingListCommand();

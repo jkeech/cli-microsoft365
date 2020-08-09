@@ -94,24 +94,6 @@ class SpoPageControlGetCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified ${chalk.grey('name')} doesn't refer to an existing modern page, you will get
-    a ${chalk.grey('File doesn\'t exists')} error.
-
-  Examples:
-  
-    Get information about the control with ID
-    ${chalk.grey('3ede60d3-dc2c-438b-b5bf-cc40bb2351e1')} placed on a modern page
-    with name ${chalk.grey('home.aspx')}
-      ${this.name} --id 3ede60d3-dc2c-438b-b5bf-cc40bb2351e1 --webUrl https://contoso.sharepoint.com/sites/team-a --name home.aspx
-`);
-  }
 }
 
 module.exports = new SpoPageControlGetCommand();

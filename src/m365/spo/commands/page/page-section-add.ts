@@ -235,22 +235,6 @@ class SpoPageSectionAddCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified ${chalk.grey('name')} doesn't refer to an existing modern 
-    page, you will get a ${chalk.grey('File doesn\'t exists')} error.
-
-  Examples:
-  
-    Add section to the modern page named ${chalk.grey('home.aspx')}
-      ${this.name} --name home.aspx --webUrl https://contoso.sharepoint.com/sites/newsletter  --sectionTemplate OneColumn --order 1
-`);
-  }
 }
 
 module.exports = new SpoPageSectionAddCommand();

@@ -145,23 +145,6 @@ class SpoListLabelGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Gets label set on the list with title ${chalk.grey('ContosoList')} located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listTitle ContosoList
-
-    Gets label set on the list with id ${chalk.grey('cc27a922-8224-4296-90a5-ebbc54da2e85')} located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listId cc27a922-8224-4296-90a5-ebbc54da2e85
-
-      `);
-  }
 }
 
 module.exports = new SpoListLabelGetCommand();

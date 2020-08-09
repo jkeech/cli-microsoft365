@@ -142,50 +142,6 @@ class SpoAppAddCommand extends SpoAppBaseCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (message: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.APP_ADD).helpInformation());
-    log(
-      `  Remarks:
-
-    When specifying the path to the app package file you can use both relative
-    and absolute paths. Note, that ~ in the path, will not be resolved and will
-    most likely result in an error.
-
-    When adding an app to the tenant app catalog, it's not necessary to specify
-    the tenant app catalog URL. When the URL is not specified, the CLI will
-    try to resolve the URL itself. Specifying the app catalog URL is required
-    when you want to add the app to a site collection app catalog.
-
-    When specifying site collection app catalog, you can specify the URL either
-    with our without the ${chalk.grey('AppCatalog')} part, for example
-    ${chalk.grey('https://contoso.sharepoint.com/sites/team-a/AppCatalog')} or
-    ${chalk.grey('https://contoso.sharepoint.com/sites/team-a')}. CLI will accept both formats.
-
-    If you try to upload a package that already exists in the app catalog
-    without specifying the ${chalk.blue('--overwrite')} option, the command will fail
-    with an error stating that the specified package already exists.
-
-  Examples:
-  
-    Add the ${chalk.grey('spfx.sppkg')} package to the tenant app catalog
-      m365 ${this.name} --filePath /Users/pnp/spfx/sharepoint/solution/spfx.sppkg
-
-    Overwrite the ${chalk.grey('spfx.sppkg')} package in the tenant app catalog with the newer
-    version
-      m365 ${this.name} --filePath sharepoint/solution/spfx.sppkg --overwrite
-
-    Add the ${chalk.grey('spfx.sppkg')} package to the site collection app catalog 
-    of site ${chalk.grey('https://contoso.sharepoint.com/sites/site1')}
-      m365 ${this.name} --filePath c:\\spfx.sppkg --scope sitecollection --appCatalogUrl https://contoso.sharepoint.com/sites/site1
-
-  More information:
-
-    Application Lifecycle Management (ALM) APIs
-      https://docs.microsoft.com/en-us/sharepoint/dev/apis/alm-api-for-spfx-add-ins
-`);
-  }
 }
 
 module.exports = new SpoAppAddCommand();

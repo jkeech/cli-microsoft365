@@ -72,17 +72,6 @@ class AadGroupSettingGetCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Get information about the group setting with id ${chalk.grey(`1caf7dcd-7e83-4c3a-94f7-932a1299c844`)}
-      ${this.name} --id 1caf7dcd-7e83-4c3a-94f7-932a1299c844
-`);
-  }
 }
 
 module.exports = new AadGroupSettingGetCommand();

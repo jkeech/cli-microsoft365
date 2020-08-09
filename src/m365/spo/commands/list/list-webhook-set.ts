@@ -169,40 +169,6 @@ class SpoListWebhookSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-  
-    If the specified ${chalk.grey('id')} doesn't refer to an existing webhook,
-    you will get a ${chalk.grey('404 - "404 FILE NOT FOUND"')} error.
-        
-  Examples:
-  
-    Update the notification url of a webhook with ID
-    ${chalk.grey('cc27a922-8224-4296-90a5-ebbc54da2e81')} which belongs to a list with ID
-    ${chalk.grey('0cd891ef-afce-4e55-b836-fce03286cccf')} located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/ninja')} to
-    ${chalk.grey('https://contoso-functions.azurewebsites.net/webhook')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/ninja --listId 0cd891ef-afce-4e55-b836-fce03286cccf --id cc27a922-8224-4296-90a5-ebbc54da2e81 --notificationUrl https://contoso-functions.azurewebsites.net/webhook
-
-    Update the expiration date of a webhook with ID
-    ${chalk.grey('cc27a922-8224-4296-90a5-ebbc54da2e81')} which belongs to a list with title
-    ${chalk.grey('Documents')} located in site 
-    ${chalk.grey('https://contoso.sharepoint.com/sites/ninja')} to
-    ${chalk.grey('October 9th, 2018 at 6:15 PM')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/ninja --listTitle Documents --id cc27a922-8224-4296-90a5-ebbc54da2e81 --expirationDateTime 2018-10-09T18:15
-
-    From the webhook with ID ${chalk.grey('cc27a922-8224-4296-90a5-ebbc54da2e81')} which
-    belongs to a list with title ${chalk.grey('Documents')} located in site 
-    ${chalk.grey('https://contoso.sharepoint.com/sites/ninja')} update the notification url to 
-    to ${chalk.grey('https://contoso-functions.azurewebsites.net/webhook')} and the expiration
-    date to ${chalk.grey('March 2nd, 2019')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/ninja --listTitle Documents --id cc27a922-8224-4296-90a5-ebbc54da2e81 --notificationUrl https://contoso-functions.azurewebsites.net/webhook --expirationDateTime 2019-03-02
-      `);
-  }
 }
 
 module.exports = new SpoListWebhookSetCommand();

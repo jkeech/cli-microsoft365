@@ -85,21 +85,6 @@ class TeamsAppPublishCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    You can only publish a Teams app as a global administrator.
-
-  Examples:
-
-    Add the ${chalk.grey('teams-manifest.zip')} file to the organization's app catalog
-      ${this.name} --filePath ./teams-manifest.zip
-`);
-  }
 }
 
 module.exports = new TeamsAppPublishCommand();

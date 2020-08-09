@@ -133,44 +133,6 @@ class AadGroupSettingAddCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    To create a group setting, you have to specify the ID of the group setting
-    template that should be used to create the setting. You can retrieve the ID
-    of the template using the ${chalk.blue(commands.GROUPSETTINGTEMPLATE_LIST)}
-    command.
-
-    To specify values for the different properties specified in the group
-    setting template, include additional options that match the property in the
-    group setting template.
-    For example ${chalk.blue("--ClassificationList 'HBI, MBI, LBI, GDPR'")} will set
-    the list of classifications to use on modern SharePoint sites.
-
-    Each group setting template specifies default value for each property. If
-    you don't specify a value for the particular property yourself, the default
-    value from the group setting template will be used. To find out which
-    properties are available for the particular group setting template, use the
-    ${chalk.blue(commands.GROUPSETTINGTEMPLATE_GET)} command.
-
-    If the specified ${chalk.blue('templateId')} doesn't reference a valid group setting
-    template, you will get a ${chalk.grey("Resource 'xyz' does not exist or one of its ")}
-    ${chalk.grey('queried reference-property objects are not present.')} error.
-
-    If you try to add a group setting using a template, for which a setting
-    already exists, you will get a ${chalk.grey('A conflicting object with one or more ')}
-    ${chalk.grey('of the specified property values is present in the directory.')} error.
-
-  Examples:
-  
-    Configure classification for modern SharePoint sites
-      ${this.name} --templateId 62375ab9-6b52-47ed-826b-58e47e0e304b --UsageGuidelinesUrl https://contoso.sharepoint.com/sites/compliance --ClassificationList 'HBI, MBI, LBI, GDPR' --DefaultClassification MBI
-`);
-  }
 }
 
 module.exports = new AadGroupSettingAddCommand();

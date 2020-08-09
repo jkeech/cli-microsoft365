@@ -69,17 +69,6 @@ class SpoWebGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Retrieve information about the site ${chalk.grey('https://contoso.sharepoint.com/subsite')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/subsite
-      `);
-  }
 }
 
 module.exports = new SpoWebGetCommand();

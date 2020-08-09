@@ -107,24 +107,6 @@ class SpoServicePrincipalGrantAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SERVICEPRINCIPAL_GRANT_ADD).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-        
-  Examples:
-  
-    Grant the service principal permission to read email using the Microsoft
-    Graph
-      m365 ${this.name} --resource 'Microsoft Graph' --scope 'Mail.Read'
-
-    Grant the service principal permission to a custom API
-      m365 ${this.name} --resource 'contoso-api' --scope 'user_impersonation'
-`);
-  }
 }
 
 module.exports = new SpoServicePrincipalGrantAddCommand();

@@ -101,27 +101,6 @@ class TeamsAppRemoveCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    You can only remove a Teams app as a global administrator.
-
-  Examples:
-
-    Remove the Teams app with ID ${chalk.grey('83cece1e-938d-44a1-8b86-918cf6151957')} from
-    the organization's app catalog. Will prompt for confirmation before actually
-    removing the app.
-      ${this.name} --id 83cece1e-938d-44a1-8b86-918cf6151957
-
-    Remove the Teams app with ID ${chalk.grey('83cece1e-938d-44a1-8b86-918cf6151957')} from
-    the organization's app catalog. Don't prompt for confirmation.
-      ${this.name} --id 83cece1e-938d-44a1-8b86-918cf6151957 --confirm
-`);
-  }
 }
 
 module.exports = new TeamsAppRemoveCommand();

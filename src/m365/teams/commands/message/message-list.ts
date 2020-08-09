@@ -103,31 +103,6 @@ class TeamsMessageListCommand extends GraphItemsListCommand<Message> {
       return true;
     };
   }
-  
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-    You can list all the messages from a Microsoft Teams team if you are
-    a member of that team.
-
-  Examples:
-  
-    Lists all the messages from a channel of the Microsoft Teams team
-      ${this.name} --teamId fce9e580-8bba-4638-ab5c-ab40016651e3 --channelId 19:eb30973b42a847a2a1df92d91e37c76a@thread.skype
-
-    List the messages from a channel of the Microsoft Teams team that have been
-    created or modified since the date specified by the ${chalk.blue('--since')} parameter
-    (WARNING: only captures the last 8 months of data) 
-      ${this.name} --teamId fce9e580-8bba-4638-ab5c-ab40016651e3 --channelId 19:eb30973b42a847a2a1df92d91e37c76a@thread.skype --since 2019-12-31T14:00:00Z
-`   );
-  }
 }
 
 module.exports = new TeamsMessageListCommand();

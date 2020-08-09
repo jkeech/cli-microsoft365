@@ -90,22 +90,6 @@ class AadGroupSettingTemplateGetCommand extends GraphItemsListCommand<GroupSetti
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Get information about the group setting template with id
-    ${chalk.grey('62375ab9-6b52-47ed-826b-58e47e0e304b')}
-      ${this.name} --id 62375ab9-6b52-47ed-826b-58e47e0e304b
-
-    Get information about the group setting template with display name
-    ${chalk.grey('Group.Unified')}
-      ${this.name} --displayName Group.Unified
-`);
-  }
 }
 
 module.exports = new AadGroupSettingTemplateGetCommand();

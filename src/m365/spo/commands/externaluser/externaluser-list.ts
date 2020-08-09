@@ -177,33 +177,6 @@ class SpoExternalUserListCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.getCommandName()).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-                
-  Examples:
-  
-    List all external users from the current tenant. Show the first batch of 50
-    users.
-      ${this.getCommandName()} --pageSize 50 --position 0
-
-    List all external users from the current tenant whose first name, last name
-    or email address begins with ${chalk.grey('Vesa')}. Show the first batch of 50 users.
-      ${this.getCommandName()} --pageSize 50 --position 0 --filter Vesa
-
-    List all external users from the specified site. Show the first batch of 50
-    users.
-      ${this.getCommandName()} --pageSize 50 --position 0 --siteUrl https://contoso.sharepoint.com
-
-    List all external users from the current tenant. Show the first batch of 50
-    users sorted descending by e-mail.
-      ${this.getCommandName()} --pageSize 50 --position 0 --sortOrder desc
-`);
-  }
 }
 
 module.exports = new SpoExternalUserListCommand();

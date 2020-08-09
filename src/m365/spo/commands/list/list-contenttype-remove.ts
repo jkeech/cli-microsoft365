@@ -159,24 +159,6 @@ class SpoListContentTypeRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Remove content type with ID ${chalk.grey('0x010109010053EE7AEB1FC54A41B4D9F66ADBDC312A')}
-    from the list with ID ${chalk.grey('0cd891ef-afce-4e55-b836-fce03286cccf')}
-    located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listId 0cd891ef-afce-4e55-b836-fce03286cccf --contentTypeId 0x010109010053EE7AEB1FC54A41B4D9F66ADBDC312A
-
-    Remove content type with ID ${chalk.grey('0x010109010053EE7AEB1FC54A41B4D9F66ADBDC312A')}
-    from the list with title ${chalk.grey('Documents')}
-    located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --listTitle Documents --contentTypeId 0x010109010053EE7AEB1FC54A41B4D9F66ADBDC312A
-      `);
-  }
 }
 
 module.exports = new SpoListContentTypeRemoveCommand();

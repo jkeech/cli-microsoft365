@@ -196,36 +196,6 @@ class SpoThemeApplyCommand extends SpoCommand {
       'themeJson': '{\"palette\": {${palette}}}'
     }`
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-
-  Remarks:
-
-    Following standard SharePoint themes are supported by the CLI for Microsoft 365:
-    Blue, Orange, Red, Purple, Green, Gray, Dark Yellow and Dark Blue.
-  
-  Examples:
-  
-    Apply theme to the specified site
-      m365 ${this.name} --name Contoso-Blue --webUrl https://contoso.sharepoint.com/sites/project-x
-
-    Apply a standard SharePoint theme to the specified site
-      m365 ${this.name} --name Blue --webUrl https://contoso.sharepoint.com/sites/project-x --sharePointTheme
-    
-  More information:
-
-    SharePoint site theming
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-theming/sharepoint-site-theming-overview
-
-    Theme Generator
-      https://aka.ms/themedesigner
-      `);
-  }
 }
 
 module.exports = new SpoThemeApplyCommand();

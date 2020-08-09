@@ -112,34 +112,6 @@ class AadSpGetCommand extends AadCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SP_GET).helpInformation());
-    log(
-      `  Remarks:
-  
-    Specify either the ${chalk.grey('appId')}, ${chalk.grey('objectId')} or ${chalk.grey('displayName')}. 
-    If you specify more than one option value, the command will fail
-    with an error.
-   
-  Examples:
-  
-    Return details about the service principal with appId ${chalk.grey('b2307a39-e878-458b-bc90-03bc578531d6')}.
-      m365 ${this.name} --appId b2307a39-e878-458b-bc90-03bc578531d6
-
-    Return details about the ${chalk.grey('Microsoft Graph')} service principal.
-      m365 ${this.name} --displayName "Microsoft Graph"
-
-    Return details about the service principal with ObjectId ${chalk.grey('b2307a39-e878-458b-bc90-03bc578531dd')}.
-      m365 ${this.name} --objectId b2307a39-e878-458b-bc90-03bc578531dd
-
-  More information:
-  
-    Application and service principal objects in Azure Active Directory (Azure AD)
-      https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects
-`);
-  }
 }
 
 module.exports = new AadSpGetCommand();

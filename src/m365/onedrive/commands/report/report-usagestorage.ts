@@ -14,27 +14,6 @@ class OneDriveReportUsageStorageCommand extends PeriodBasedReport {
   public get description(): string {
     return 'Gets the trend on the amount of storage you are using in OneDrive for Business';
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-      
-    Gets the trend on the amount of storage you are using in OneDrive for
-    Business for the last week
-      m365 ${this.name} --period D7
-
-    Gets the trend on the amount of storage you are using in OneDrive for
-    Business for the last week and exports the report data in the specified path
-    in text format
-      m365 ${this.name} --period D7 --output text > "usagestorage.txt"
-
-    Gets the trend on the amount of storage you are using in OneDrive for
-    Business for the last week and exports the report data in the specified path
-    in json format
-      m365 ${this.name} --period D7 --output json > "usagestorage.json"
-`);
-  }
 }
 
 module.exports = new OneDriveReportUsageStorageCommand();

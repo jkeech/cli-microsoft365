@@ -103,27 +103,6 @@ class SpoSiteDesignRunStatusGetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-      
-    For text output mode, displays the name of the action, site script and the
-    outcome of the action. For JSON output mode, displays all available
-    information.
-
-  Examples:
-  
-    List information about site scripts executed for the specified site design
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a --runId b4411557-308b-4545-a3c4-55297d5cd8c8
-
-  More information:
-
-    SharePoint site design and site script overview
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteDesignRunStatusGetCommand();

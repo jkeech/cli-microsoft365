@@ -128,25 +128,6 @@ class TeamsTabRemoveCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Removes a tab from the specified channel. Will prompt for confirmation
-      ${this.name} --teamId 00000000-0000-0000-0000-000000000000 --channelId 19:00000000000000000000000000000000@thread.skype --tabId 06805b9e-77e3-4b93-ac81-525eb87513b8
-
-    Removes a tab from the specified channel without prompting for confirmation
-      ${this.name} --teamId 00000000-0000-0000-0000-000000000000 --channelId 19:00000000000000000000000000000000@thread.skype --tabId 06805b9e-77e3-4b93-ac81-525eb87513b8 --confirm
-
-  Additional information:
-
-    Delete tab from channel:
-      https://docs.microsoft.com/en-us/graph/api/teamstab-delete?view=graph-rest-1.0
-     `
-    );
-  }
 }
 
 module.exports = new TeamsTabRemoveCommand();

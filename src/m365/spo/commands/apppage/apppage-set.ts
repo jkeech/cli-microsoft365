@@ -87,18 +87,5 @@ class SpoAppPageSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(`    
-  Examples:   
-     
-    Updates the single-part app page located in a site with url
-    https://contoso.sharepoint.com. Web part data is stored in the ${chalk.grey('$webPartData')}
-    variable
-      ${this.name} --webUrl "https://contoso.sharepoint.com" --pageName "Contoso.aspx" --webPartData $webPartData 
-`);
-  }
 }
 module.exports = new SpoAppPageSetCommand();

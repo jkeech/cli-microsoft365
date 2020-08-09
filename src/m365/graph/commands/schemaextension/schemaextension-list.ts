@@ -140,32 +140,5 @@ class GraphSchemaExtensionListCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      ` Remarks:
-
-    pageNumber is specified as a 0-based index. A value of 2 returns the third page of items. 
-
-  Examples:
-
-    Get a list of schemaExtension objects created in the current tenant, that can be InDevelopment, Available, or Deprecated.
-      ${chalk.grey(config.delimiter)} ${this.name}
-
-    Get a list of schemaExtension objects created in the current tenant, with owner 617720dc-85fc-45d7-a187-cee75eaf239e
-      ${chalk.grey(config.delimiter)} ${this.name} --owner 617720dc-85fc-45d7-a187-cee75eaf239e
-
-    Get a list of schemaExtension objects created in the current tenant, with owner 617720dc-85fc-45d7-a187-cee75eaf239e and return the third page of results of 10
-      ${chalk.grey(config.delimiter)} ${this.name} --owner 617720dc-85fc-45d7-a187-cee75eaf239e --pageNumber 2 --pageSize 10
-
-  More information:
-
-    List schemaExtensions:
-      https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/schemaextension_list
-    `
-    );
-  }
 }
 module.exports = new GraphSchemaExtensionListCommand();

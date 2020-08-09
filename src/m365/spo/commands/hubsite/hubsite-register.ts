@@ -77,32 +77,6 @@ class SpoHubSiteRegisterCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on a SharePoint API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-    If the specified site collection is already registered as a hub site,
-    you will get a ${chalk.grey('This site is already a HubSite.')} error.
-
-  Examples:
-  
-    Register the site collection with URL
-    ${chalk.grey('https://contoso.sharepoint.com/sites/sales')} as a hub site
-      ${this.name} --url https://contoso.sharepoint.com/sites/sales
-
-  More information:
-
-    SharePoint hub sites new in Microsoft 365
-      https://techcommunity.microsoft.com/t5/SharePoint-Blog/SharePoint-hub-sites-new-in-Office-365/ba-p/109547
-`);
-  }
 }
 
 module.exports = new SpoHubSiteRegisterCommand();

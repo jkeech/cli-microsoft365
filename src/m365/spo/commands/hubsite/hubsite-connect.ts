@@ -89,36 +89,6 @@ class SpoHubSiteConnectCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on a SharePoint API that is currently
-    in preview and is subject to change once the API reached general
-    availability.
-
-    If the specified site collection is already connected to a hub site,
-    it will be disconnected and connected to the newly specified hub site.
-
-    If the specified ${chalk.grey('hubSiteId')} doesn't point to a valid hub
-    site, you will get a ${chalk.grey('ResourceNotFoundException')} error.
-
-  Examples:
-  
-    Connect the site collection with URL
-    ${chalk.grey('https://contoso.sharepoint.com/sites/contoso-sales')} to the hub site
-    with ID ${chalk.grey('255a50b2-527f-4413-8485-57f4c17a24d1')}
-      ${this.name} --url https://contoso.sharepoint.com/sites/contoso-sales --hubSiteId 255a50b2-527f-4413-8485-57f4c17a24d1
-
-  More information:
-
-    SharePoint hub sites new in Microsoft 365
-      https://techcommunity.microsoft.com/t5/SharePoint-Blog/SharePoint-hub-sites-new-in-Office-365/ba-p/109547
-`);
-  }
 }
 
 module.exports = new SpoHubSiteConnectCommand();

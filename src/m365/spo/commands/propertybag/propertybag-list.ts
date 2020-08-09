@@ -86,29 +86,6 @@ class SpoPropertyBagListCommand extends SpoPropertyBagBaseCommand {
     };
   }
 
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.PROPERTYBAG_LIST).helpInformation());
-    log(
-      `  Examples:
-
-    Return property bag values located in site ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test
-
-    Return property bag values located in site root folder ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test -f /
-
-    Return property bag values located in site document library ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test --folder '/Shared Documents'
-
-    Return property bag values located in folder in site document library ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} -w https://contoso.sharepoint.com/sites/test -f '/Shared Documents/MyFolder'
-
-    Return property bag values located in site list ${chalk.grey('https://contoso.sharepoint.com/sites/test')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/test --folder /Lists/MyList
-    `);
-  }
-
   /**
    * The property bag data returned from the client.svc/ProcessQuery response
    * has to be formatted before displayed since the key, value objects

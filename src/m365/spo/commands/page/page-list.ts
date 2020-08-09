@@ -85,16 +85,6 @@ class SpoPageListCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    List all modern pages in the specific site
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/team-a
-`);
-  }
 }
 
 module.exports = new SpoPageListCommand();

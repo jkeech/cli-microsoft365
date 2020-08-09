@@ -16,16 +16,6 @@ class VersionCommand extends AnonymousCommand {
     cmd.log(`v${packageJSON.version}`);
     cb();
   }
-
-  public commandHelp(args: any, log: (help: string) => void): void {
-    log(vorpal.find(commands.STATUS).helpInformation());
-    log(
-      `  Examples:
-  
-    Show the version of CLI for Microsoft 365
-      ${commands.STATUS}
-`);
-  }
 }
 
 module.exports = new VersionCommand();

@@ -193,29 +193,6 @@ class SpoPageTextAddCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified ${chalk.grey('pageName')} doesn't refer to an existing modern page,
-    you will get a ${chalk.grey("File doesn't exists")} error.
-
-  Examples:
-
-    Add text to a modern page in the first available location on the page
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/a-team --pageName page.aspx --text 'Hello world'
-
-    Add text to a modern page in the third column of the second section
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/a-team --pageName page.aspx --text 'Hello world' --section 2 --column 3
-
-    Add text at the beginning of the default column on a modern page
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/a-team --pageName page.aspx --text 'Hello world' --order 1
-      `
-    );
-  }
 }
 
 module.exports = new SpoPageTextAddCommand();

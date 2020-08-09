@@ -82,18 +82,6 @@ class TeamsChannelGetCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Get information about Microsoft Teams team channel with id
-    ${chalk.grey('19:493665404ebd4a18adb8a980a31b4986@thread.skype')}
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --channelId '19:493665404ebd4a18adb8a980a31b4986@thread.skype'
-    `);
-  }
 }
 
 module.exports = new TeamsChannelGetCommand();

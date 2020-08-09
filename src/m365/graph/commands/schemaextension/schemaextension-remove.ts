@@ -99,25 +99,5 @@ class GraphSchemaExtensionRemoveCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    To remove specified schema extension definition, you have to pass the ID of the schema
-    extension. 
-
-  Examples:
-  
-    Removes specified Microsoft Graph schema extension with ID domain_myExtension. Will prompt for confirmation
-        ${chalk.grey(config.delimiter)} ${this.name} --id domain_myExtension
-    
-    Removes specified Microsoft Graph schema extension with ID domain_myExtension without prompt for confirmation
-        ${chalk.grey(config.delimiter)} ${this.name} --id domain_myExtension --confirm
-    `
-    );    
-  }
 }
 module.exports = new GraphSchemaExtensionRemoveCommand();

@@ -90,26 +90,6 @@ class TeamsTabListCommand extends GraphItemsListCommand<Tab> {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    You can only retrieve tabs for teams of which you are a member.
-
-    Tabs 'Conversations' and 'Files' are present in every team and therefore not
-    included in the list of available tabs.
-
-  Examples:
-  
-    List all tabs in a Microsoft Teams channel
-      ${this.name} --teamId 00000000-0000-0000-0000-000000000000 --channelId 19:00000000000000000000000000000000@thread.skype
-
-    Include all the values from the tab configuration and associated teams app
-      ${this.name} --teamId 00000000-0000-0000-0000-000000000000 --channelId 19:00000000000000000000000000000000@thread.skype --output json
-`);
-  }
 }
 
 module.exports = new TeamsTabListCommand();

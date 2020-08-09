@@ -115,23 +115,6 @@ class SpoOrgAssetsLibraryAddCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.ORGASSETSLIBRARY_ADD).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-
-  Examples:
-
-    Promotes an existing library to become an organization assets library
-      m365 ${this.name} --libraryUrl "https://contoso.sharepoint.com/assets"
-
-    Promotes an existing library to become an organization assets library with Thumbnail
-      m365 ${this.name} --libraryUrl "https://contoso.sharepoint.com/assets" --thumbnailUrl "https://contoso.sharepoint.com/assets/logo.png"
-  `);
-  }
 }
 
 module.exports = new SpoOrgAssetsLibraryAddCommand();

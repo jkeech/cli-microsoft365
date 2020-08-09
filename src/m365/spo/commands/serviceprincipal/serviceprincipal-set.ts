@@ -140,32 +140,6 @@ class SpoServicePrincipalSetCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(commands.SERVICEPRINCIPAL_SET).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-        
-  Remarks:
-
-    Using the ${chalk.blue('-e, --enabled')} option you can specify whether the service
-    principal should be enabled or disabled. Use ${chalk.grey('true')} to enable the service
-    principal and ${chalk.grey('false')} to disable it.
-
-  Examples:
-  
-    Enable the service principal. Will prompt for confirmation
-      m365 ${this.name} --enabled true
-
-    Disable the service principal. Will prompt for confirmation
-      m365 ${this.name} --enabled false
-
-    Enable the service principal without prompting for confirmation
-      m365 ${this.name} --enabled true --confirm
-`);
-  }
 }
 
 module.exports = new SpoServicePrincipalSetCommand();

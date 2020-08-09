@@ -117,19 +117,6 @@ class TeamsGuestSettingsSetCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Allow guests to create and edit channels
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --allowCreateUpdateChannels true
-
-    Disallow guests to delete channels
-      ${this.name} --teamId '00000000-0000-0000-0000-000000000000' --allowDeleteChannels false
-`);
-  }
 }
 
 module.exports = new TeamsGuestSettingsSetCommand();

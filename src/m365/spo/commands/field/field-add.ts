@@ -151,33 +151,6 @@ class SpoFieldAddCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    If the specified field already exists, you will get a
-    ${chalk.grey('A duplicate field name "your-field" was found.')} error.
-
-  Examples:
-  
-    Create a date time site column
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --xml '\`<Field Type="DateTime" DisplayName="Start date-time" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="DateTime" Group="PnP Columns" FriendlyDisplayFormat="Disabled" ID="{5ee2dd25-d941-455a-9bdb-7f2c54aed11b}" SourceID="{4f118c69-66e0-497c-96ff-d7855ce0713d}" StaticName="PnPAlertStartDateTime" Name="PnPAlertStartDateTime"><Default>[today]</Default></Field>\`'
-    
-    Create a URL list column
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listTitle Events --xml '\`<Field Type="URL" DisplayName="More information link" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Hyperlink" Group="PnP Columns" ID="{6085e32a-339b-4da7-ab6d-c1e013e5ab27}" SourceID="{4f118c69-66e0-497c-96ff-d7855ce0713d}" StaticName="PnPAlertMoreInformation" Name="PnPAlertMoreInformation"></Field>\`'
-
-    Create a URL list column and add it to all content types
-      ${this.name} --webUrl https://contoso.sharepoint.com/sites/contoso-sales --listTitle Events --xml '\`<Field Type="URL" DisplayName="More information link" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" Format="Hyperlink" Group="PnP Columns" ID="{6085e32a-339b-4da7-ab6d-c1e013e5ab27}" SourceID="{4f118c69-66e0-497c-96ff-d7855ce0713d}" StaticName="PnPAlertMoreInformation" Name="PnPAlertMoreInformation"></Field>\`' --options AddToAllContentTypes
-
-  More information:
-
-    AddFieldOptions enumeration
-      https://msdn.microsoft.com/en-us/library/microsoft.sharepoint.client.addfieldoptions.aspx
-`);
-  }
 }
 
 module.exports = new SpoFieldAddCommand();

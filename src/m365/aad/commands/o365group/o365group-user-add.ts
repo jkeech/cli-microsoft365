@@ -133,22 +133,6 @@ class AadO365GroupUserAddCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Add a new member to the specified Microsoft 365 Group
-      ${this.name} --groupId '00000000-0000-0000-0000-000000000000' --userName 'anne.matthews@contoso.onmicrosoft.com'
-
-    Add a new owner to the specified Microsoft 365 Group
-      ${this.name} --groupId '00000000-0000-0000-0000-000000000000' --userName 'anne.matthews@contoso.onmicrosoft.com' --role Owner
-
-    Add a new member to the specified Microsoft Teams team
-      ${(this.alias() as string[])[0]} --teamId '00000000-0000-0000-0000-000000000000' --userName 'anne.matthews@contoso.onmicrosoft.com'
-`);
-  }
 }
 
 module.exports = new AadO365GroupUserAddCommand();

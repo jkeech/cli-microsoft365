@@ -164,27 +164,6 @@ class SpoFileRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-  
-    Remove the file with ID ${chalk.grey('0cd891ef-afce-4e55-b836-fce03286cccf')} located in site
-    ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --id 0cd891ef-afce-4e55-b836-fce03286cccf
-
-    Remove the file with site-relative URL ${chalk.grey('SharedDocuments/Test.docx')} located in
-    site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --url SharedDocuments/Test.docx
-
-    Move the file with server-relative URL ${chalk.grey('/sites/project-x/SharedDocuments/Test.docx')}
-    located in site ${chalk.grey('https://contoso.sharepoint.com/sites/project-x')}
-    to the recycle bin
-      m365 ${this.name} --webUrl https://contoso.sharepoint.com/sites/project-x --url /sites/project-x/SharedDocuments/Test.docx --recycle
-      `);
-  }
 }
 
 module.exports = new SpoFileRemoveCommand();

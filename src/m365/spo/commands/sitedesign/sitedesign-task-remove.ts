@@ -106,29 +106,6 @@ class SpoSiteDesignTaskRemoveCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-    
-    Removes the specified site design task with taskId
-    ${chalk.grey('6ec3ca5b-d04b-4381-b169-61378556d76e')} scheduled for execution without
-    prompting confirmation
-      ${this.name} --taskId 6ec3ca5b-d04b-4381-b169-61378556d76e --confirm
-
-    Removes the specified site design task with taskId
-    ${chalk.grey('6ec3ca5b-d04b-4381-b169-61378556d76e')} scheduled for execution with
-    prompt for confirmation before removing
-      ${this.name} --taskId 6ec3ca5b-d04b-4381-b169-61378556d76e 
-
-  More information:
-
-    SharePoint site design and site script overview
-      https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-design-overview
-`);
-  }
 }
 
 module.exports = new SpoSiteDesignTaskRemoveCommand();

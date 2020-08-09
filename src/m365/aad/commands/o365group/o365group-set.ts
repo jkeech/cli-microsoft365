@@ -317,38 +317,6 @@ class AadO365GroupSetCommand extends GraphCommand {
       return true;
     };
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    When updating group's owners and members, the command will add newly
-    specified users to the previously set owners and members. The previously
-    set users will not be replaced.
-
-    When specifying the path to the logo image you can use both relative and
-    absolute paths. Note, that ~ in the path, will not be resolved and will most
-    likely result in an error.
-
-  Examples:
-
-    Update Microsoft 365 Group display name
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848 --displayName Finance
-
-    Change Microsoft 365 Group visibility to public
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848 --isPrivate false
-
-    Add new Microsoft 365 Group owners
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848 --owners "DebraB@contoso.onmicrosoft.com,DiegoS@contoso.onmicrosoft.com"
-
-    Add new Microsoft 365 Group members
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848 --members "DebraB@contoso.onmicrosoft.com,DiegoS@contoso.onmicrosoft.com"
-
-    Update Microsoft 365 Group logo
-      ${this.name} --id 28beab62-7540-4db1-a23f-29a6018a3848 --logoPath images/logo.png
-`);
-  }
 }
 
 module.exports = new AadO365GroupSetCommand();
