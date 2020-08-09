@@ -9,7 +9,6 @@ import Utils from '../../../Utils';
 import * as child_process from 'child_process';
 
 describe(commands.DOCTOR, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let sandbox: SinonSandbox;
   let cmdInstance: any;
@@ -32,7 +31,6 @@ describe(commands.DOCTOR, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import TemplateInstantiator from '../../template-instantiator';
 
 describe(commands.SOLUTION_INIT, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let trackEvent: any;
@@ -23,7 +22,6 @@ describe(commands.SOLUTION_INIT, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

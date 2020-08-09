@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.PAGE_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.PAGE_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -107,7 +105,7 @@ describe(commands.PAGE_SET, () => {
 
     cmdInstance.action({ options: { debug: true, name: 'page.aspx', webUrl: 'https://contoso.sharepoint.com/sites/team-a', layoutType: 'Article' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -135,7 +133,7 @@ describe(commands.PAGE_SET, () => {
 
     cmdInstance.action({ options: { debug: true, name: 'page.aspx', webUrl: 'https://contoso.sharepoint.com', layoutType: 'Article' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -265,7 +263,7 @@ describe(commands.PAGE_SET, () => {
 
     cmdInstance.action({ options: { debug: true, name: 'page.aspx', webUrl: 'https://contoso.sharepoint.com/sites/team-a', layoutType: 'Home', promoteAs: 'HomePage' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -285,7 +283,7 @@ describe(commands.PAGE_SET, () => {
 
     cmdInstance.action({ options: { debug: true, name: 'page.aspx', webUrl: 'https://contoso.sharepoint.com/sites/team-a', commentsEnabled: 'true' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -345,7 +343,7 @@ describe(commands.PAGE_SET, () => {
 
     cmdInstance.action({ options: { debug: true, name: 'page.aspx', webUrl: 'https://contoso.sharepoint.com/sites/team-a', publish: true, publishMessage: 'Initial version' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

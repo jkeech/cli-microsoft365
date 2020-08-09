@@ -8,7 +8,6 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { v4 } from 'uuid';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -255,7 +254,7 @@ class SpfxProjectRenameCommand extends BaseProjectCommand {
   }
 
   public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.PROJECT_RENAME).helpInformation());
     log(
       `   ${chalk.yellow('Important:')} Run this command in the folder where the project that you want to

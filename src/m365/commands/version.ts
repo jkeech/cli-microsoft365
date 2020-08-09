@@ -2,7 +2,6 @@ import commands from './commands';
 import AnonymousCommand from '../base/AnonymousCommand';
 const packageJSON = require('../../../package.json');
 
-const vorpal: Vorpal = require('../../vorpal-init');
 
 class VersionCommand extends AnonymousCommand {
   public get name(): string {

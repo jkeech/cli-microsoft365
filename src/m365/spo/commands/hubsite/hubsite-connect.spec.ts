@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.HUBSITE_CONNECT, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.HUBSITE_CONNECT, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -95,7 +93,7 @@ describe(commands.HUBSITE_CONNECT, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/sales', hubSiteId: '255a50b2-527f-4413-8485-57f4c17a24d1' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

@@ -7,7 +7,6 @@ import * as spoSiteGetCommand from '../site/site-get';
 import * as spoSiteRemoveCommand from '../site/site-remove';
 import * as spoSiteClassicAddCommand from '../site/site-classic-add';
 import Command, { CommandError, CommandOption, CommandValidate } from '../../../../Command';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 export interface CommandArgs {
   options: Options;
@@ -56,7 +55,7 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
       .then(_ => this.createAppCatalog(args.options, cmd))
       .then(_ => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         cb();
       }, (err: CommandError): void => cb(err));
@@ -188,7 +187,7 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} To use this command you have to have permissions to access

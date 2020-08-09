@@ -10,7 +10,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.CDN_GET, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
 
@@ -23,7 +22,6 @@ describe(commands.CDN_GET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import config from '../../../../config';
 
 describe(commands.CONTENTTYPE_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.CONTENTTYPE_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -113,7 +111,7 @@ describe(commands.CONTENTTYPE_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, webUrl: 'https://contoso.sharepoint.com/sites/sales', name: 'PnP Tile', id: '0x0100FF0B2E33A3718B46A3909298D240FD93', description: 'A tile', group: 'PnP Content Types' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -213,7 +211,7 @@ describe(commands.CONTENTTYPE_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, webUrl: 'https://contoso.sharepoint.com/sites/sales', name: 'PnP Tile', id: '0x0100FF0B2E33A3718B46A3909298D240FD93', listTitle: 'My list', description: 'A tile' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

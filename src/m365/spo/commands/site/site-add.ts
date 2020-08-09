@@ -15,7 +15,6 @@ import { DeletedSiteProperties } from './DeletedSiteProperties';
 import { SiteProperties } from './SiteProperties';
 import { SpoOperation } from './SpoOperation';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -124,7 +123,7 @@ class SpoSiteAddCommand extends SpoCommand {
         spoUrl = _spoUrl;
 
         if (args.options.allowFileSharingForGuestUsers && this.verbose) {
-          cmd.log(vorpal.chalk.yellow(`Option 'allowFileSharingForGuestUsers' is deprecated. Please use 'shareByEmailEnabled' instead`));
+          cmd.log(chalk.yellow(`Option 'allowFileSharingForGuestUsers' is deprecated. Please use 'shareByEmailEnabled' instead`));
         }
 
         if (this.verbose) {
@@ -330,7 +329,7 @@ class SpoSiteAddCommand extends SpoCommand {
       })
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -721,7 +720,7 @@ class SpoSiteAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks for classic sites:

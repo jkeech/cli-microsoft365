@@ -10,7 +10,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.SITE_CLASSIC_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -28,7 +27,6 @@ describe(commands.SITE_CLASSIC_SET, () => {
     futureDate.setSeconds(futureDate.getSeconds() + 1800);
     sinon.stub(command as any, 'ensureFormDigest').callsFake(() => { return Promise.resolve({ FormDigestValue: 'abc', FormDigestTimeoutSeconds: 1800, FormDigestExpiresAt: futureDate.toISOString() }); });
 
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -131,7 +129,7 @@ describe(commands.SITE_CLASSIC_SET, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'New title' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -539,7 +537,7 @@ describe(commands.SITE_CLASSIC_SET, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', owners: 'admin@contoso.com' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -665,7 +663,7 @@ describe(commands.SITE_CLASSIC_SET, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', lockState: 'NoAccess' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -887,7 +885,7 @@ describe(commands.SITE_CLASSIC_SET, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'New title', wait: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -937,7 +935,7 @@ describe(commands.SITE_CLASSIC_SET, () => {
 
     cmdInstance.action({ options: { debug: false, verbose: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'New title', wait: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

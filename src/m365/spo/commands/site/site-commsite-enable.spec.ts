@@ -10,7 +10,6 @@ import config from '../../../../config';
 import Utils from '../../../../Utils';
 
 describe(commands.SITE_COMMSITE_ENABLE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   
@@ -23,7 +22,6 @@ describe(commands.SITE_COMMSITE_ENABLE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

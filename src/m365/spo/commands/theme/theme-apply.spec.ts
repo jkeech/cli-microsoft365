@@ -10,7 +10,6 @@ import auth from '../../../../Auth';
 import config from '../../../../config';
 
 describe(commands.THEME_APPLY, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let requests: any[];
   let cmdInstance: any;
@@ -25,7 +24,6 @@ describe(commands.THEME_APPLY, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

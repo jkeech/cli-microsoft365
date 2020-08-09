@@ -10,7 +10,6 @@ const command: Command = require('./app-publish');
 import Utils from '../../../../Utils';
 
 describe(commands.TEAMS_APP_PUBLISH, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.TEAMS_APP_PUBLISH, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -162,7 +160,7 @@ describe(commands.TEAMS_APP_PUBLISH, () => {
     cmdInstance.action({ options: { debug: true, filePath: 'teamsapp.zip' } }, () => {
       try {
         assert(cmdInstanceLogSpy.calledWith("e3e29acb-8c79-412b-b746-e6c39ff4cd22"));
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 
         done();
       } catch (e) {

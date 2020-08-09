@@ -16,7 +16,6 @@ import { BaseProjectCommand } from './base-project-command';
 import { FindingTour } from './project-upgrade/FindingTour';
 import { FindingTourStep } from './project-upgrade/FindingTourStep';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -742,7 +741,7 @@ ${f.resolution}
   }
 
   public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.PROJECT_UPGRADE).helpInformation());
     log(
       `   ${chalk.yellow('Important:')} Run this command in the folder where the project

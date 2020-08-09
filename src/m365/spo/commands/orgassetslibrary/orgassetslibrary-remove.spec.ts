@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import config from '../../../../config';
 
 describe(commands.ORGASSETSLIBRARY_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -27,7 +26,6 @@ describe(commands.ORGASSETSLIBRARY_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -168,7 +166,7 @@ describe(commands.ORGASSETSLIBRARY_REMOVE, () => {
 
     cmdInstance.action({ options: { libraryUrl: '/sites/branding/assets', debug: true, verbose: true, confirm: true } }, () => {
       try {
-        assert(orgAssetLibRemoveCallIssued && cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(orgAssetLibRemoveCallIssued && cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

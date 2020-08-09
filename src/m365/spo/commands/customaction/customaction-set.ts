@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import { CustomAction } from './customaction';
 import { BasePermissions, PermissionKind } from '../../base-permissions';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -99,7 +98,7 @@ class SpoCustomActionSetCommand extends SpoCommand {
           if (customAction && customAction["odata.null"] === true) {
             cmd.log(`Custom action with id ${args.options.id} not found`);
           } else {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -248,7 +247,7 @@ class SpoCustomActionSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CUSTOMACTION_SET).helpInformation());
     log(
       `  Remarks:

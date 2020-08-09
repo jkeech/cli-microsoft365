@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.SITECLASSIFICATION_DISABLE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.SITECLASSIFICATION_DISABLE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -587,7 +585,7 @@ describe(commands.SITECLASSIFICATION_DISABLE, () => {
 
     cmdInstance.action({ options: { debug: true, confirm: true } }, (err: any) => {
       try {
-        assert(deleteRequestIssued && cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(deleteRequestIssued && cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

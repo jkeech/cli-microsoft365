@@ -9,7 +9,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { SpoAppBaseCommand } from './SpoAppBaseCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -76,7 +75,7 @@ class SpoAppAddCommand extends SpoAppBaseCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -145,7 +144,7 @@ class SpoAppAddCommand extends SpoAppBaseCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (message: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.APP_ADD).helpInformation());
     log(
       `  Remarks:

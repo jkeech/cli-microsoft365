@@ -11,7 +11,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -62,7 +61,7 @@ class SpoHomeSiteSetCommand extends SpoCommand {
           cmd.log(json[json.length - 1]);
 
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -92,7 +91,7 @@ class SpoHomeSiteSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.HOMESITE_SET).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

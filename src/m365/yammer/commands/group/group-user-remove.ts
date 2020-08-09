@@ -6,7 +6,6 @@ import {
 import YammerCommand from "../../../base/YammerCommand";
 import request from '../../../../request';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -122,7 +121,7 @@ class YammerGroupUserRemoveCommand extends YammerCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

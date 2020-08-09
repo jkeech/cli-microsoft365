@@ -11,7 +11,6 @@ import Utils from '../../../../Utils';
 import * as fs from 'fs';
 
 describe(commands.TEAMS_TEAM_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -23,7 +22,6 @@ describe(commands.TEAMS_TEAM_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -160,7 +158,7 @@ describe(commands.TEAMS_TEAM_ADD, () => {
           description: 'Architecture Discussion'
         });
         assert(getRequestStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -216,7 +214,7 @@ describe(commands.TEAMS_TEAM_ADD, () => {
           description: 'This is a sample engineering team, used to showcase the range of properties supported by this API'
         });
         assert(getRequestStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -273,7 +271,7 @@ describe(commands.TEAMS_TEAM_ADD, () => {
           description: 'This is a sample engineering team, used to showcase the range of properties supported by this API'
         });
         assert(getRequestStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -330,7 +328,7 @@ describe(commands.TEAMS_TEAM_ADD, () => {
           description: 'This is a sample classroom team, used to showcase the range of properties supported by this API'
         });
         assert(getRequestStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -388,7 +386,7 @@ describe(commands.TEAMS_TEAM_ADD, () => {
           description: 'This is a sample classroom team, used to showcase the range of properties supported by this API'
         });
         assert(getRequestStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -489,7 +487,7 @@ describe(commands.TEAMS_TEAM_ADD, () => {
           displayName: 'Sample Classroom Team',
           description: 'This is a sample classroom team, used to showcase the range of properties supported by this API'
         });
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

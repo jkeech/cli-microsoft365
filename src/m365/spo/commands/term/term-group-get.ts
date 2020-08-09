@@ -12,7 +12,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { TermGroup } from './TermGroup';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -121,7 +120,7 @@ class SpoTermGroupGetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.TERM_GROUP_GET).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

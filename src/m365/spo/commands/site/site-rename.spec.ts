@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.SITE_RENAME, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -31,7 +30,6 @@ describe(commands.SITE_RENAME, () => {
     futureDate.setSeconds(futureDate.getSeconds() + 1800);
     sinon.stub(command as any, 'ensureFormDigest').callsFake(() => { return Promise.resolve({ FormDigestValue: 'abc', FormDigestTimeoutSeconds: 1800, FormDigestExpiresAt: futureDate.toISOString() }); });
 
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -99,7 +97,7 @@ describe(commands.SITE_RENAME, () => {
 
     cmdInstance.action({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/site1', newSiteUrl: 'https://contoso.sharepoint.com/sites/site1-renamed', verbose: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -185,7 +183,7 @@ describe(commands.SITE_RENAME, () => {
 
     cmdInstance.action({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/site1', newSiteUrl: 'https://contoso.sharepoint.com/sites/site1-renamed', suppressMarketplaceAppCheck: true, verbose: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -222,7 +220,7 @@ describe(commands.SITE_RENAME, () => {
 
     cmdInstance.action({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/site1', newSiteUrl: 'https://contoso.sharepoint.com/sites/site1-renamed', suppressWorkflow2013Check: true, verbose: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -259,7 +257,7 @@ describe(commands.SITE_RENAME, () => {
 
     cmdInstance.action({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/site1', newSiteUrl: 'https://contoso.sharepoint.com/sites/site1-renamed', newSiteTitle: "RenamedSite", suppressWorkflow2013Check: true, suppressMarketplaceAppCheck: true, verbose: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -357,7 +355,7 @@ describe(commands.SITE_RENAME, () => {
 
     cmdInstance.action({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/site1', newSiteUrl: 'https://contoso.sharepoint.com/sites/site1-renamed', wait: true, debug: true, verbose: true } }, (err?: any) => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

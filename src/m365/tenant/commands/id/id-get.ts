@@ -8,7 +8,6 @@ import Command, {
 import auth from '../../../../Auth';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;

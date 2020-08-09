@@ -10,7 +10,6 @@ import Utils from '../../../Utils';
 import * as fs from 'fs';
 
 describe(commands.FLOW_EXPORT, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -122,7 +121,6 @@ describe(commands.FLOW_EXPORT, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

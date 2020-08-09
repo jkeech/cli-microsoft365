@@ -10,7 +10,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.LISTITEM_SET, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
 
@@ -120,7 +119,6 @@ describe(commands.LISTITEM_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

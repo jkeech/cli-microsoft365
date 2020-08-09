@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import auth from '../../../../Auth';
 
 describe(commands.TENANT_STATUS_LIST, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let requests: any[];
   let cmdInstance: any;
@@ -66,7 +65,6 @@ describe(commands.TENANT_STATUS_LIST, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     requests = [];
     cmdInstance = {

@@ -8,7 +8,6 @@ import Utils from '../../../../Utils';
 import request from '../../../../request';
 import GraphCommand from '../../../base/GraphCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -84,7 +83,7 @@ class TeamsSetCommand extends GraphCommand {
       .patch(requestOptions)
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -145,7 +144,7 @@ class TeamsSetCommand extends GraphCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

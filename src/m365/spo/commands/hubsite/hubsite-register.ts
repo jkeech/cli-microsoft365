@@ -7,7 +7,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo } from '../../spo';
 import GlobalOptions from '../../../../GlobalOptions';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -45,7 +44,7 @@ class SpoHubSiteRegisterCommand extends SpoCommand {
         cmd.log(res);
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -80,7 +79,7 @@ class SpoHubSiteRegisterCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

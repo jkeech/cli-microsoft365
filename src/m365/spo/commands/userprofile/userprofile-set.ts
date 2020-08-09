@@ -8,7 +8,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -70,7 +69,7 @@ class SpoUserProfileSetCommand extends SpoCommand {
       })
       .then((): void => {
         if (this.debug) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         
         cb();
@@ -116,7 +115,7 @@ class SpoUserProfileSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

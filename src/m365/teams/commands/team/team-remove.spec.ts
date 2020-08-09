@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.TEAMS_TEAM_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let promptOptions: any;
@@ -21,7 +20,6 @@ describe(commands.TEAMS_TEAM_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

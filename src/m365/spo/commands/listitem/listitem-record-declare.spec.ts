@@ -10,7 +10,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.LISTITEM_RECORD_DECLARE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let declareItemAsRecordFakeCalled = false;
@@ -102,7 +101,6 @@ describe(commands.LISTITEM_RECORD_DECLARE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

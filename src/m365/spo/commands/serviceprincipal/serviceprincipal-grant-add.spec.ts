@@ -10,7 +10,6 @@ import config from '../../../../config';
 import Utils from '../../../../Utils';
 
 describe(commands.SERVICEPRINCIPAL_GRANT_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.SERVICEPRINCIPAL_GRANT_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

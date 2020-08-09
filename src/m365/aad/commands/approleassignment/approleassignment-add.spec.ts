@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import * as os from 'os';
 
 describe(commands.APPROLEASSIGNMENT_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -48,7 +47,6 @@ describe(commands.APPROLEASSIGNMENT_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

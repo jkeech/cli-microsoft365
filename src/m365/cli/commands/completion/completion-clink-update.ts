@@ -3,7 +3,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import AnonymousCommand from '../../../base/AnonymousCommand';
 import { autocomplete } from '../../../../autocomplete';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;
@@ -24,7 +23,7 @@ class CliCompletionClinkUpdateCommand extends AnonymousCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.COMPLETION_CLINK_UPDATE).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} Before running this command, change the working directory

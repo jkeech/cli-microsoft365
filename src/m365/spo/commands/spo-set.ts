@@ -8,7 +8,6 @@ import {
 import SpoCommand from '../../base/SpoCommand';
 import auth from '../../../Auth';
 
-const vorpal: Vorpal = require('../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;

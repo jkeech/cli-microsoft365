@@ -9,7 +9,6 @@ import { AppMetadata } from './AppMetadata';
 import Utils from '../../../../Utils';
 import { SpoAppBaseCommand } from './SpoAppBaseCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -152,7 +151,7 @@ class SpoAppGetCommand extends SpoAppBaseCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.APP_GET).helpInformation());
     log(
       `  Remarks:

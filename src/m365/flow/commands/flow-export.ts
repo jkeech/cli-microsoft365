@@ -11,7 +11,6 @@ import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs';
 
-const vorpal: Vorpal = require('../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -252,7 +251,7 @@ class FlowExportCommand extends AzmgmtCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.FLOW_EXPORT).helpInformation());
     log(
       `  Remarks:

@@ -7,7 +7,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -46,7 +45,7 @@ class SpoCustomActionClearCommand extends SpoCommand {
       })()
         .then((): void => {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
           cb();
         }, (err: any): void => this.handleRejectedPromise(err, cmd, cb));
@@ -60,7 +59,7 @@ class SpoCustomActionClearCommand extends SpoCommand {
         type: 'confirm',
         name: 'continue',
         default: false,
-        message: `Are you sure you want to clear all the user custom actions with scope ${vorpal.chalk.yellow(args.options.scope || 'All')}?`,
+        message: `Are you sure you want to clear all the user custom actions with scope ${chalk.yellow(args.options.scope || 'All')}?`,
       }, (result: { continue: boolean }): void => {
         if (!result.continue) {
           cb();
@@ -150,7 +149,7 @@ class SpoCustomActionClearCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CUSTOMACTION_CLEAR).helpInformation());
     log(
       `  Examples:

@@ -5,7 +5,6 @@ import { ContextInfo } from '../../spo';
 import GlobalOptions from '../../../../GlobalOptions';
 import { SiteDesign } from './SiteDesign';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;
@@ -58,7 +57,7 @@ class SpoSiteDesignListCommand extends SpoCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

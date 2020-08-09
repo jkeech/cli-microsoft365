@@ -12,7 +12,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import Utils from '../../../../Utils';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 export interface CommandArgs {
   options: Options;
@@ -159,7 +158,7 @@ class SpoPropertyBagRemoveCommand extends SpoPropertyBagBaseCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.PROPERTYBAG_REMOVE).helpInformation());
     log(
       `  Examples:

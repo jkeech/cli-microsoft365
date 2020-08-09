@@ -11,7 +11,6 @@ import config from '../../../../config';
 const command: Command = require('./contenttypehub-get');
 
 describe(commands.CONTENTTYPEHUB_GET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -54,7 +53,6 @@ describe(commands.CONTENTTYPEHUB_GET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     auth.service.connected = true;
     log = [];
     cmdInstance = {

@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.LIST_CONTENTTYPE_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let requests: any[];
@@ -22,7 +21,6 @@ describe(commands.LIST_CONTENTTYPE_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

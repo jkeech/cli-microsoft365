@@ -7,7 +7,6 @@ import {
 } from '../../../../Command';
 import GraphCommand from '../../../base/GraphCommand';
 import Utils from '../../../../Utils';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -70,7 +69,7 @@ class GraphSchemaExtensionListCommand extends GraphCommand {
             cmd.log(result);
           }
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -143,7 +142,7 @@ class GraphSchemaExtensionListCommand extends GraphCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       ` Remarks:

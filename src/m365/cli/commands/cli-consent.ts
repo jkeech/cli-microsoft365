@@ -7,7 +7,6 @@ import Command, {
 } from '../../../Command';
 import config from '../../../config';
 
-const vorpal: Vorpal = require('../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -82,7 +81,7 @@ class CliConsentCommand extends Command {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

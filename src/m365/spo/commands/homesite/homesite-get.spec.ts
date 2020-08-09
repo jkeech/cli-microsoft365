@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import appInsights from '../../../../appInsights';
 
 describe(commands.HOMESITE_GET, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.HOMESITE_GET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -109,7 +107,7 @@ describe(commands.HOMESITE_GET, () => {
 
     cmdInstance.action({ options: { debug: true } }, (err?: any) => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

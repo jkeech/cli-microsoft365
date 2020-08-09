@@ -3,7 +3,6 @@ import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;
@@ -38,7 +37,7 @@ class SpoHomeSiteGetCommand extends SpoCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

@@ -6,7 +6,6 @@ import {
   CommandValidate
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -51,7 +50,7 @@ class SpoWebAddCommand extends SpoCommand {
         .post(requestOptions)
         .then((): void => {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
 
           cb();

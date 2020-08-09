@@ -13,7 +13,6 @@ import { ListTemplateType } from './ListTemplateType';
 import { DraftVisibilityType } from './DraftVisibilityType';
 import { ListExperience } from './ListExperience';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -678,7 +677,7 @@ class SpoListAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Examples:

@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import { CustomAction } from './customaction';
 import { BasePermissions, PermissionKind } from '../../base-permissions';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -299,7 +298,7 @@ class SpoCustomActionAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CUSTOMACTION_ADD).helpInformation());
     log(
       `  Remarks:

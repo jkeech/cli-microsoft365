@@ -10,7 +10,6 @@ import config from '../../../../config';
 import Utils from '../../../../Utils';
 
 describe(commands.SERVICEPRINCIPAL_GRANT_REVOKE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.SERVICEPRINCIPAL_GRANT_REVOKE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -90,7 +88,7 @@ describe(commands.SERVICEPRINCIPAL_GRANT_REVOKE, () => {
     });
     cmdInstance.action({ options: { debug: true, grantId: '50NAzUm3C0K9B6p8ORLtIvNe8tzf4ndKg51reFehHHg' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

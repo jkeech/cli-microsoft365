@@ -13,7 +13,6 @@ import * as aadO365GroupSetCommand from '../../../aad/commands/o365group/o365gro
 import * as spoSiteDesignApplyCommand from '../sitedesign/sitedesign-apply';
 
 describe(commands.SITE_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -27,7 +26,6 @@ describe(commands.SITE_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

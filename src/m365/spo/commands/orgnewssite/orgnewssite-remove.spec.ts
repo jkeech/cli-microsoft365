@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.ORGNEWSSITE_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let promptOptions: any;
@@ -26,7 +25,6 @@ describe(commands.ORGNEWSSITE_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -92,7 +90,7 @@ describe(commands.ORGNEWSSITE_REMOVE, () => {
     }, (err?: any) => {
       try {
         assert(svcListRequest.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -126,7 +124,7 @@ describe(commands.ORGNEWSSITE_REMOVE, () => {
     }, (err?: any) => {
       try {
         assert(svcListRequest.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.YAMMER_MESSAGE_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -20,7 +19,6 @@ describe(commands.YAMMER_MESSAGE_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

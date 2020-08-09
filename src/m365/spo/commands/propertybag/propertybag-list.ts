@@ -9,7 +9,6 @@ import { SpoPropertyBagBaseCommand, Property } from './propertybag-base';
 import GlobalOptions from '../../../../GlobalOptions';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 export interface CommandArgs {
   options: Options;
@@ -88,7 +87,7 @@ class SpoPropertyBagListCommand extends SpoPropertyBagBaseCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.PROPERTYBAG_LIST).helpInformation());
     log(
       `  Examples:

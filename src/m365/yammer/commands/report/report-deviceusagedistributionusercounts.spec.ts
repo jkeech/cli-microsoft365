@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import request from '../../../../request';
 
 describe(commands.YAMMER_REPORT_DEVICEUSAGEDISTRIBUTIONUSERCOUNTS, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -20,7 +19,6 @@ describe(commands.YAMMER_REPORT_DEVICEUSAGEDISTRIBUTIONUSERCOUNTS, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

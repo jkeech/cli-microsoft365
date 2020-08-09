@@ -8,7 +8,6 @@ import {
 import Utils from '../../../../Utils';
 import AadCommand from '../../../base/AadCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -56,7 +55,7 @@ class AadOAuth2GrantAddCommand extends AadCommand {
       .post<void>(requestOptions)
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -110,7 +109,7 @@ class AadOAuth2GrantAddCommand extends AadCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.OAUTH2GRANT_ADD).helpInformation());
     log(
       `  Remarks:

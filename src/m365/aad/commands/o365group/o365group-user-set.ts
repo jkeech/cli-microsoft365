@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import { GroupUser } from './GroupUser';
 import request from '../../../../request';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -124,7 +123,7 @@ class AadO365GroupUserSetCommand extends GraphItemsListCommand<GroupUser> {
       })
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

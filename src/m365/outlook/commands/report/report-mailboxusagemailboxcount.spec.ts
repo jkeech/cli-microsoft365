@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import request from '../../../../request';
 
 describe(commands.OUTLOOK_REPORT_MAILBOXUSAGEMAILBOXCOUNT, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -20,7 +19,6 @@ describe(commands.OUTLOOK_REPORT_MAILBOXUSAGEMAILBOXCOUNT, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

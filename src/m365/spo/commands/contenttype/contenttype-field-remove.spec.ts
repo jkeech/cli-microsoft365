@@ -18,7 +18,6 @@ const SITE_ID = "50720268-eff5-48e0-835e-de588b007927";
 const LIST_TITLE = "TEST";
 
 describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -137,7 +136,6 @@ describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -333,7 +331,7 @@ describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
     }, (err?: any) => {
       try {
         assert(postCallbackStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -385,7 +383,7 @@ describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
     }, (err?: any) => {
       try {
         assert(postCallbackStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -528,7 +526,7 @@ describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
       }
     }, (err?: any) => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -728,7 +726,7 @@ describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
     }, (err?: any) => {
       try {
         assert(postCallbackStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -777,7 +775,7 @@ describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
     }, (err?: any) => {
       try {
         assert(postCallbackStub.called);
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

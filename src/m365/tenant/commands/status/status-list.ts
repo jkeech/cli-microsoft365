@@ -3,7 +3,7 @@ import commands from '../../commands';
 import SpoCommand from '../../../base/SpoCommand';
 import GlobalOptions from '../../../../GlobalOptions';
 import { CommandOption } from '../../../../Command';
-const vorpal: Vorpal = require('../../../../vorpal-init');
+import * as chalk from 'chalk';
 
 interface CommandArgs {
   options: Options;
@@ -24,7 +24,7 @@ class TenantStatusListCommand extends SpoCommand {
 
   public getTelemetryProperties(args: CommandArgs): any {
     const telemetryProps: any = super.getTelemetryProperties(args);
-    telemetryProps.sharingCapabilities = args.options.workload;
+    telemetryProps.workload = args.options.workload;
     return telemetryProps;
   }
 
@@ -64,7 +64,7 @@ class TenantStatusListCommand extends SpoCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         cb();
       }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
@@ -80,31 +80,6 @@ class TenantStatusListCommand extends SpoCommand {
 
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
-  }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Remarks:
-
-    To get the name of the particular workload for use with the ${chalk.grey('workload')}
-    option, execute ${chalk.grey(`${commands.TENANT_STATUS_LIST} --output json`)} and get
-    the value of the ${chalk.grey('Workload')} property for the particular service.
-      
-  Examples:
-  
-    Gets health status of all services in Microsoft 365
-      m365 ${this.name}
-
-    Gets health status for SharePoint Online
-      m365 ${this.name} --workload "SharePoint"
-
-  More information:
-    
-    Microsoft 365 Service Communications API reference:
-      https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-service-communications-api-reference#get-current-status
-  ` );
   }
 }
 

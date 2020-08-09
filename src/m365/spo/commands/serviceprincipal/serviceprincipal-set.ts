@@ -10,7 +10,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -82,7 +81,7 @@ class SpoServicePrincipalSetCommand extends SpoCommand {
             cmd.log(output);
 
             if (this.verbose) {
-              cmd.log(vorpal.chalk.green('DONE'));
+              cmd.log(chalk.green('DONE'));
             }
           }
           cb();
@@ -143,7 +142,7 @@ class SpoServicePrincipalSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.SERVICEPRINCIPAL_SET).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

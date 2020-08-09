@@ -11,7 +11,6 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { Connector } from './Connector';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -166,7 +165,7 @@ class PaConnectorExportCommand extends AzmgmtCommand {
           }
         }
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         cb();
       }, (rawRes: any): void => this.handleRejectedODataJsonPromise(rawRes, cmd, cb));
@@ -217,7 +216,7 @@ class PaConnectorExportCommand extends AzmgmtCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CONNECTOR_EXPORT).helpInformation());
     log(
       `  Remarks:

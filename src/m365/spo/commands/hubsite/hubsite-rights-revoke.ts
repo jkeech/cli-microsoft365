@@ -11,7 +11,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -78,7 +77,7 @@ class SpoHubSiteRightsRevokeCommand extends SpoCommand {
           }
           else {
             if (this.verbose) {
-              cmd.log(vorpal.chalk.green('DONE'));
+              cmd.log(chalk.green('DONE'));
             }
           }
           cb();
@@ -145,7 +144,7 @@ class SpoHubSiteRightsRevokeCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.HUBSITE_RIGHTS_REVOKE).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

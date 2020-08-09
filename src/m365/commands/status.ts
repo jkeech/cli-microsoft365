@@ -6,7 +6,6 @@ import Command, {
 import Utils from '../../Utils';
 import { AuthType } from '../../Auth';
 
-const vorpal: Vorpal = require('../../vorpal-init');
 
 class StatusCommand extends Command {
   public get name(): string {
@@ -61,7 +60,7 @@ class StatusCommand extends Command {
   }
 
   public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.STATUS).helpInformation());
     log(
       `  Remarks:

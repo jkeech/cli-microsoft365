@@ -7,7 +7,6 @@ import {
 } from '../../../../Command';
 import AadCommand from '../../../base/AadCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -40,7 +39,7 @@ class AadOAuth2GrantRemoveCommand extends AadCommand {
       .delete(requestOptions)
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -70,7 +69,7 @@ class AadOAuth2GrantRemoveCommand extends AadCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.OAUTH2GRANT_REMOVE).helpInformation());
     log(
       `  Remarks:

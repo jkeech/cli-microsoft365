@@ -11,7 +11,6 @@ import * as fs from 'fs';
 import { FolderExtensions } from '../../FolderExtensions';
 
 describe(commands.FILE_ADD, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -157,7 +156,6 @@ describe(commands.FILE_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

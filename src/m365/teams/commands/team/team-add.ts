@@ -8,7 +8,6 @@ import {
 import GraphCommand from '../../../base/GraphCommand';
 import * as fs from 'fs';
 import * as path from 'path';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 enum TeamsAsyncOperationStatus {
   Invalid = "invalid",
@@ -148,7 +147,7 @@ class TeamsTeamAddCommand extends GraphCommand {
       .then((output: any) => {
         cmd.log(output);
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         cb();
       }, (err: any): void => {
@@ -235,7 +234,7 @@ class TeamsTeamAddCommand extends GraphCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

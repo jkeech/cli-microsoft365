@@ -13,7 +13,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { FieldLink } from './FieldLink';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -230,14 +229,14 @@ class SpoContentTypeFieldSetCommand extends SpoCommand {
         }
         else {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
           cb();
         }
       }, (error: any): void => {
         if (error === 'DONE') {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
           cb();
         }
@@ -460,7 +459,7 @@ class SpoContentTypeFieldSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CONTENTTYPE_FIELD_SET).helpInformation());
     log(
       `  Remarks:

@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import config from '../../../../config';
 
 describe(commands.CONTENTTYPE_FIELD_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.CONTENTTYPE_FIELD_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -264,7 +262,7 @@ describe(commands.CONTENTTYPE_FIELD_SET, () => {
 
     cmdInstance.action({ options: { debug: true, webUrl: 'https://contoso.sharepoint.com/sites/portal', contentTypeId: '0x0100558D85B7216F6A489A499DB361E1AE2F', fieldId: '5ee2dd25-d941-455a-9bdb-7f2c54aed11b', required: 'true', hidden: 'true' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -535,7 +533,7 @@ describe(commands.CONTENTTYPE_FIELD_SET, () => {
 
     cmdInstance.action({ options: { debug: true, webUrl: 'https://contoso.sharepoint.com/sites/portal', contentTypeId: '0x0100558D85B7216F6A489A499DB361E1AE2F', fieldId: '5ee2dd25-d941-455a-9bdb-7f2c54aed11b', required: 'true', hidden: 'true' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -769,7 +767,7 @@ describe(commands.CONTENTTYPE_FIELD_SET, () => {
 
     cmdInstance.action({ options: { debug: true, webUrl: 'https://contoso.sharepoint.com/sites/portal', contentTypeId: '0x0100558D85B7216F6A489A499DB361E1AE2F', fieldId: '5ee2dd25-d941-455a-9bdb-7f2c54aed11b', required: 'true', hidden: 'true' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -993,7 +991,7 @@ describe(commands.CONTENTTYPE_FIELD_SET, () => {
 
     cmdInstance.action({ options: { debug: true, webUrl: 'https://contoso.sharepoint.com/sites/portal', contentTypeId: '0x0100558D85B7216F6A489A499DB361E1AE2F', fieldId: '5ee2dd25-d941-455a-9bdb-7f2c54aed11b' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

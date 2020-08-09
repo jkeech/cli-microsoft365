@@ -10,7 +10,6 @@ import config from '../../../../config';
 import auth from '../../../../Auth';
 
 describe(commands.TENANT_SETTINGS_SET, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -39,7 +38,6 @@ describe(commands.TENANT_SETTINGS_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

@@ -19,7 +19,6 @@ import * as spoSiteDesignApplyCommand from '../sitedesign/sitedesign-apply';
 import { Options as SpoSiteDesignApplyCommandOptions } from '../sitedesign/sitedesign-apply';
 import { SharingCapabilities } from '../site/SharingCapabilities';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -87,7 +86,7 @@ class SpoSiteSetCommand extends SpoCommand {
       .then((): Promise<void> => this.setSharingCapabilities(cmd, args))
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -504,7 +503,7 @@ class SpoSiteSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.SITE_SET).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

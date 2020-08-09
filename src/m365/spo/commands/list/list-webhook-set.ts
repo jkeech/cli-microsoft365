@@ -8,7 +8,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -153,7 +152,7 @@ class SpoListWebhookSetCommand extends SpoCommand {
       }
 
       const parsedDateTime = Date.parse(args.options.expirationDateTime as string)
-      const chalk = vorpal.chalk;
+      const chalk = chalk;
       if (args.options.expirationDateTime && !(!parsedDateTime) !== true) {
         if (args.options.output === 'json') {
           return `${args.options.expirationDateTime} is not a valid date format. Provide the date in one of the following formats: YYYY-MM-DD, YYYY-MM-DDThh:mm, YYYY-MM-DDThh:mmZ, YYYY-MM-DDThh:mm±hh:mm`;
@@ -172,7 +171,7 @@ class SpoListWebhookSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

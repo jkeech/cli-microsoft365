@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import config from '../../../../config';
 
 describe(commands.SITE_APPCATALOG_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.SITE_APPCATALOG_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

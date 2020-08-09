@@ -7,7 +7,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import { GetClientSideWebPartsRsp } from './GetClientSideWebPartsRsp';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;

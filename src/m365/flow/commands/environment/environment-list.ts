@@ -3,7 +3,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import request from '../../../../request';
 import AzmgmtCommand from '../../../base/AzmgmtCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;
@@ -53,7 +52,7 @@ class FlowEnvironmentListCommand extends AzmgmtCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.FLOW_ENVIRONMENT_LIST).helpInformation());
     log(
       `  Remarks:

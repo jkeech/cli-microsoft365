@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import { ClientSidePage } from './clientsidepages';
 
 describe(commands.PAGE_SECTION_LIST, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -82,7 +81,6 @@ describe(commands.PAGE_SECTION_LIST, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

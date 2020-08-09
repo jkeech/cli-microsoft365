@@ -8,7 +8,6 @@ import Utils from '../../../Utils';
 import config from '../../../config';
 
 describe(commands.CONSENT, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: any;
@@ -22,7 +21,6 @@ describe(commands.CONSENT, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

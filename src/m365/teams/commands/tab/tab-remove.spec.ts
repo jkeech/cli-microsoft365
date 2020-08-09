@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.TEAMS_TAB_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.TEAMS_TAB_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -296,7 +294,7 @@ describe(commands.TEAMS_TAB_REMOVE, () => {
         confirm: true
       }
     }, () => {
-      assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+      assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
       done();
     }, (err: any) => done(err));
   });

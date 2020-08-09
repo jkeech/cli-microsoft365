@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import { SpoPropertyBagBaseCommand } from '../propertybag/propertybag-base';
 
 describe(commands.WEB_REINDEX, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -23,7 +22,6 @@ describe(commands.WEB_REINDEX, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -154,7 +152,7 @@ describe(commands.WEB_REINDEX, () => {
 
     cmdInstance.action({ options: { debug: true, webUrl: 'https://contoso.sharepoint.com/sites/team-a' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         assert.equal(propertyName, 'vti_searchversion', 'Incorrect property stored in the property bag');
         assert.equal(propertyValue, '2', 'Incorrect property value stored in the property bag');
         done();

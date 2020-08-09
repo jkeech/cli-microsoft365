@@ -10,7 +10,6 @@ import config from '../../../../config';
 import Utils from '../../../../Utils';
 
 describe(commands.SERVICEPRINCIPAL_PERMISSIONREQUEST_DENY, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.SERVICEPRINCIPAL_PERMISSIONREQUEST_DENY, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -86,7 +84,7 @@ describe(commands.SERVICEPRINCIPAL_PERMISSIONREQUEST_DENY, () => {
     });
     cmdInstance.action({ options: { debug: true, requestId: '4dc4c043-25ee-40f2-81d3-b3bf63da7538' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

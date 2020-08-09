@@ -8,7 +8,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 const expirationDateTimeMaxDays = 180;
 const maxExpirationDateTime: Date = new Date();
 // 180 days from now is the maximum expiration date for a webhook
@@ -171,7 +170,7 @@ class SpoListWebhookAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Examples:

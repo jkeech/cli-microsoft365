@@ -27,7 +27,6 @@ class MockCommand extends PeriodBasedReport {
 
 describe('PeriodBasedReport', () => {
   const mockCommand = new MockCommand();
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   //let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -40,7 +39,6 @@ describe('PeriodBasedReport', () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import { ServicePrincipal } from './ServicePrincipal';
 import * as os from 'os';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface AppRole {
   objectId: string;
@@ -170,7 +169,7 @@ class AadAppRoleAssignmentAddCommand extends AadCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -255,7 +254,7 @@ class AadAppRoleAssignmentAddCommand extends AadCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.APPROLEASSIGNMENT_ADD).helpInformation());
     log(
       `  Remarks:

@@ -8,7 +8,6 @@ import Utils from '../../../Utils';
 import auth from '../../../Auth';
 
 describe(commands.SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -20,7 +19,6 @@ describe(commands.SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

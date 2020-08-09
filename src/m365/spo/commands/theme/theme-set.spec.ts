@@ -11,7 +11,6 @@ import auth from '../../../../Auth';
 import config from '../../../../config';
 
 describe(commands.THEME_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -26,7 +25,6 @@ describe(commands.THEME_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

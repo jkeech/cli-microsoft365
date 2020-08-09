@@ -8,7 +8,6 @@ import Utils from '../../../../Utils';
 import { autocomplete } from '../../../../autocomplete';
 
 describe(commands.COMPLETION_CLINK_UPDATE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let generateClinkCompletionStub: sinon.SinonStub;
@@ -19,7 +18,6 @@ describe(commands.COMPLETION_CLINK_UPDATE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

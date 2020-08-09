@@ -12,7 +12,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -86,7 +85,7 @@ class SpoThemeSetCommand extends SpoCommand {
 
       }).then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -140,7 +139,7 @@ class SpoThemeSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

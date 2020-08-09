@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import auth from '../../../../Auth';
 
 describe(commands.WEB_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let requests: any[];
   let cmdInstance: any;
@@ -23,7 +22,6 @@ describe(commands.WEB_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

@@ -13,7 +13,6 @@ import { StandardWebPart, StandardWebPartUtils } from '../../StandardWebPartType
 import { isNumber } from 'util';
 import { Control } from './canvasContent';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -238,7 +237,7 @@ class SpoPageClientSideWebPartAddCommand extends SpoCommand {
       })
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         cb();
       })
@@ -459,7 +458,7 @@ class SpoPageClientSideWebPartAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

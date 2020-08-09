@@ -12,7 +12,6 @@ import { autocomplete } from '../../../../autocomplete';
 
 describe(commands.COMPLETION_PWSH_SETUP, () => {
   const completionScriptPath: string = path.resolve(__dirname, '..', '..', '..', '..', '..', 'scripts', 'Register-CLIM365Completion.ps1');
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -23,7 +22,6 @@ describe(commands.COMPLETION_PWSH_SETUP, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -87,7 +85,7 @@ describe(commands.COMPLETION_PWSH_SETUP, () => {
 
     cmdInstance.action({ options: { debug: true, profile: profilePath } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWithExactly(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWithExactly(chalk.green('DONE')));
         done();
       }
       catch (e) {

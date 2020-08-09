@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import auth from '../../../../Auth';
 
 describe(commands.THEME_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let promptOptions: any;
@@ -23,7 +22,6 @@ describe(commands.THEME_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

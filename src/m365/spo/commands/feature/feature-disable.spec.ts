@@ -9,7 +9,6 @@ import Command, { CommandValidate, CommandOption, CommandTypes, CommandError } f
 const command: Command = require('./feature-disable');
 
 describe(commands.FEATURE_DISABLE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let requests: any[];
@@ -21,7 +20,6 @@ describe(commands.FEATURE_DISABLE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     requests = [];
     cmdInstance = {

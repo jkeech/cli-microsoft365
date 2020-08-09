@@ -4,7 +4,6 @@ import AnonymousCommand from '../../../base/AnonymousCommand';
 import { autocomplete } from '../../../../autocomplete';
 import chalk = require('chalk');
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;

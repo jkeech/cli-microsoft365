@@ -12,7 +12,6 @@ import Utils from '../../../../Utils';
 import { ListItemInstance } from './ListItemInstance';
 import { ContextInfo, ClientSvcResponseContents, ClientSvcResponse } from '../../spo';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -329,7 +328,7 @@ class SpoListItemSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Examples:

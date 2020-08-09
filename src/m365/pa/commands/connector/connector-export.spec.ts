@@ -12,7 +12,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 describe(commands.CONNECTOR_EXPORT, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -28,7 +27,6 @@ describe(commands.CONNECTOR_EXPORT, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

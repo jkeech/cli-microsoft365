@@ -10,7 +10,6 @@ import {
 import Utils from '../../../../Utils';
 import GraphCommand from '../../../base/GraphCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -181,7 +180,7 @@ class AadO365GroupSetCommand extends GraphCommand {
       })
       .then((): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

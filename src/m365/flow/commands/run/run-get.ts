@@ -8,7 +8,6 @@ import request from '../../../../request';
 import AzmgmtCommand from '../../../base/AzmgmtCommand';
 import * as os from 'os';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -102,7 +101,7 @@ class FlowRunGetCommand extends AzmgmtCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.FLOW_RUN_GET).helpInformation());
     log(
       `  Remarks:

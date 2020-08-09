@@ -8,7 +8,6 @@ import request from '../../../request';
 import AzmgmtCommand from '../../base/AzmgmtCommand';
 import * as os from 'os';
 
-const vorpal: Vorpal = require('../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -47,7 +46,7 @@ class FlowEnableCommand extends AzmgmtCommand {
       .then((): void => {
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -89,7 +88,7 @@ class FlowEnableCommand extends AzmgmtCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.FLOW_ENABLE).helpInformation());
     log(
       `  Remarks:

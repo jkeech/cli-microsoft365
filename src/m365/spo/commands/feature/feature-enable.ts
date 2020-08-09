@@ -8,7 +8,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -64,7 +63,7 @@ class SpoFeatureEnableCommand extends SpoCommand {
       .post(requestOptions)
       .then((res: any): void => {
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         cb();
       }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
@@ -122,7 +121,7 @@ class SpoFeatureEnableCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.FEATURE_ENABLE).helpInformation());
     log(
       `  Remarks:

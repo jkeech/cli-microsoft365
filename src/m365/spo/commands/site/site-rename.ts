@@ -5,7 +5,6 @@ import { CommandOption, CommandValidate, CommandCancel } from '../../../../Comma
 import GlobalOptions from '../../../../GlobalOptions';
 import { FormDigestInfo } from '../../spo';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -129,7 +128,7 @@ class SpoSiteRenameCommand extends SpoCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb()
@@ -226,7 +225,7 @@ class SpoSiteRenameCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
 
     log(

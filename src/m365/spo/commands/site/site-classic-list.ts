@@ -8,7 +8,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { SPOSitePropertiesEnumerable } from './SPOSitePropertiesEnumerable';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -123,7 +122,7 @@ class SiteClassicListCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

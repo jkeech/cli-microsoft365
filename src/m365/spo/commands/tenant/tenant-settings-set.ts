@@ -10,7 +10,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import GlobalOptions from '../../../../GlobalOptions';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 export interface CommandArgs {
   options: Options;
@@ -754,7 +753,7 @@ class SpoTenantSettingsSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

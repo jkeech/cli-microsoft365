@@ -10,7 +10,6 @@ import Command, {
 } from './Command';
 import Utils from './Utils';
 import appInsights from './appInsights';
-const vorpal: Vorpal = require('./vorpal-init');
 
 class MockCommand1 extends Command {
   public get name(): string {
@@ -477,7 +476,7 @@ describe('Command', () => {
     const cmdLogSpy: sinon.SinonSpy = sinon.spy(cmd, 'log');
     const mock = new MockCommand1();
     mock.commandAction(cmd, {}, (err?: any): void => {
-      assert(cmdLogSpy.calledWith(vorpal.chalk.yellow(`Command 'mc1' is deprecated. Please use 'mock-command' instead`)))
+      assert(cmdLogSpy.calledWith(chalk.yellow(`Command 'mc1' is deprecated. Please use 'mock-command' instead`)))
     });
   });
 

@@ -8,7 +8,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { ClientSidePage } from './clientsidepages';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -81,7 +80,7 @@ class SpoPageGetCommand extends SpoCommand {
         cmd.log(page);
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -119,7 +118,7 @@ class SpoPageGetCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

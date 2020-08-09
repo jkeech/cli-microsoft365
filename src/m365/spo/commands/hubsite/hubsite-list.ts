@@ -7,7 +7,6 @@ import { HubSite } from './HubSite';
 import { QueryListResult } from './QueryListResult';
 import { AssociatedSite } from './AssociatedSite';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -124,7 +123,7 @@ class SpoHubSiteListCommand extends SpoCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -184,7 +183,7 @@ class SpoHubSiteListCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

@@ -13,7 +13,6 @@ import { ExternalizeEntry, FileEdit } from './project-externalize/';
 import * as requestNative from 'request-promise-native';
 
 describe(commands.PROJECT_EXTERNALIZE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let trackEvent: any;
@@ -28,7 +27,6 @@ describe(commands.PROJECT_EXTERNALIZE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

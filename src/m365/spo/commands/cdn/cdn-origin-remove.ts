@@ -11,7 +11,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -42,7 +41,7 @@ class SpoCdnOriginRemoveCommand extends SpoCommand {
   public commandAction(cmd: CommandInstance, args: CommandArgs, cb: (err?: any) => void): void {
     const cdnTypeString: string = args.options.type || 'Public';
     const cdnType: number = cdnTypeString === 'Private' ? 1 : 0;
-    const chalk: any = vorpal.chalk;
+    const chalk: any = chalk;
     let spoAdminUrl: string = '';
     let tenantId: string = '';
 
@@ -145,7 +144,7 @@ class SpoCdnOriginRemoveCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CDN_ORIGIN_REMOVE).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

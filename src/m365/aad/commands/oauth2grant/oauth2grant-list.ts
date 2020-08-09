@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import AadCommand from '../../../base/AadCommand';
 import { OAuth2PermissionGrant } from './OAuth2PermissionGrant';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -90,7 +89,7 @@ class AadOAuth2GrantListCommand extends AadCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.OAUTH2GRANT_LIST).helpInformation());
     log(
       `  Remarks:

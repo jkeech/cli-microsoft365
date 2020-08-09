@@ -11,7 +11,6 @@ import Command, {
 import { AuthType } from '../../Auth';
 import * as fs from 'fs';
 
-const vorpal: Vorpal = require('../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -41,7 +40,7 @@ class LoginCommand extends Command {
   }
 
   public commandAction(cmd: CommandInstance, args: CommandArgs, cb: (err?: any) => void): void {
-    const chalk: any = vorpal.chalk;
+    const chalk: any = chalk;
 
     // disconnect before re-connecting
     if (this.debug) {
@@ -199,7 +198,7 @@ class LoginCommand extends Command {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.LOGIN).helpInformation());
     log(
       `  Remarks:

@@ -10,7 +10,6 @@ import Command, {
 } from '../../../../Command';
 import CdsProjectMutator from "../../cds-project-mutator";
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -128,7 +127,7 @@ class PaSolutionReferenceAddCommand extends Command {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.SOLUTION_REFERENCE_ADD).helpInformation());
     log(
       `  Remarks:

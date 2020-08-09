@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import * as fs from 'fs';
 
 describe(commands.O365GROUP_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -23,7 +22,6 @@ describe(commands.O365GROUP_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

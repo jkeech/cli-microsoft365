@@ -9,7 +9,6 @@ import { Team } from '../../Team';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -43,7 +42,7 @@ class TeamsMemberSettingsListCommand extends GraphCommand {
         cmd.log(res.memberSettings);
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

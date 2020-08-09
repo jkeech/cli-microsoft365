@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.APP_UNINSTALL, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let requests: any[];
@@ -23,7 +22,6 @@ describe(commands.APP_UNINSTALL, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

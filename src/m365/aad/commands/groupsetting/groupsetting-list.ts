@@ -3,7 +3,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
 import { GroupSetting } from './GroupSetting';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;
@@ -35,7 +34,7 @@ class AadGroupSettingListCommand extends GraphItemsListCommand<GroupSetting> {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

@@ -8,7 +8,6 @@ import Utils from '../../../../Utils';
 import GlobalOptions from '../../../../GlobalOptions';
 import { SiteScriptActionStatus } from './SiteScriptActionStatus';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -59,7 +58,7 @@ class SpoSiteDesignRunStatusGetCommand extends SpoCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

@@ -41,7 +41,6 @@ enum TestID {
 }
 
 describe(commands.SEARCH, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let returnArrayLength = 0;
@@ -301,7 +300,6 @@ describe(commands.SEARCH, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

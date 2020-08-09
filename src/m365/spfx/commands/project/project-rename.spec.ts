@@ -9,7 +9,6 @@ import * as path from 'path';
 import Utils from '../../../../Utils';
 
 describe(commands.PROJECT_RENAME, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let trackEvent: any;
@@ -24,7 +23,6 @@ describe(commands.PROJECT_RENAME, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

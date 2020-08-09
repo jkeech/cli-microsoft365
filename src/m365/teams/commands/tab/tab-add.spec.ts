@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import Sinon = require('sinon');
 
 describe(commands.TEAMS_TAB_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.TEAMS_TAB_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -207,7 +205,7 @@ describe(commands.TEAMS_TAB_ADD, () => {
           "displayName": "testweb",
           "webUrl": "https://teams.microsoft.com/l/channel/19:f3dcbb1674574677abcae89cb626f1e6@thread.skype/"
         }));
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 
         done();
       }
@@ -250,7 +248,7 @@ describe(commands.TEAMS_TAB_ADD, () => {
           "displayName": "testweb",
           "webUrl": "https://teams.microsoft.com/l/channel/19:f3dcbb1674574677abcae89cb626f1e6@thread.skype/"
         }));
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 
         done();
       }

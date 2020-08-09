@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.FEATURE_ENABLE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let requests: any[];
@@ -21,7 +20,6 @@ describe(commands.FEATURE_ENABLE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     requests = [];
     cmdInstance = {

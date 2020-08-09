@@ -11,7 +11,6 @@ import Utils from '../../../../Utils';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -129,7 +128,7 @@ class SpoFolderRenameCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Examples:

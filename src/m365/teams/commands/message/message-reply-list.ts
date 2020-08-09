@@ -7,7 +7,6 @@ import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
 import Utils from '../../../../Utils';
 import { Reply } from '../../Reply';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -47,7 +46,7 @@ class TeamsMessageReplyListCommand extends GraphItemsListCommand<Reply>  {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
         cb();
       }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
@@ -100,7 +99,7 @@ class TeamsMessageReplyListCommand extends GraphItemsListCommand<Reply>  {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

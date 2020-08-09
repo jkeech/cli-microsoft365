@@ -7,7 +7,6 @@ import Command, {
 } from '../../../../Command';
 import auth from '../../../../Auth';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -63,7 +62,7 @@ class AccessTokenGetCommand extends Command {
   }
 
   public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

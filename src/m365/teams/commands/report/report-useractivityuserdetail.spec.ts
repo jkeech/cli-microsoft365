@@ -9,7 +9,6 @@ import request from '../../../../request';
 import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport';
 
 describe(commands.TEAMS_REPORT_USERACTIVITYUSERDETAIL, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -20,7 +19,6 @@ describe(commands.TEAMS_REPORT_USERACTIVITYUSERDETAIL, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

@@ -10,7 +10,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.SITE_CLASSIC_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -27,7 +26,6 @@ describe(commands.SITE_CLASSIC_ADD, () => {
     futureDate.setSeconds(futureDate.getSeconds() + 1800);
     sinon.stub(command as any, 'ensureFormDigest').callsFake(() => { return Promise.resolve({ FormDigestValue: 'abc', FormDigestTimeoutSeconds: 1800, FormDigestExpiresAt: futureDate.toISOString() }); });
 
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -145,7 +143,7 @@ describe(commands.SITE_CLASSIC_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', timeZone: 4, owner: 'admin@contoso.com' } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -188,7 +186,7 @@ describe(commands.SITE_CLASSIC_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', timeZone: 4, owner: 'admin@contoso.com', lcid: 1033, webTemplate: 'PUBLISHING#0', resourceQuota: 100, resourceQuotaWarningLevel: 90, storageQuota: 300, storageQuotaWarningLevel: 275 } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -684,7 +682,7 @@ describe(commands.SITE_CLASSIC_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', timeZone: 4, owner: 'admin@contoso.com', removeDeletedSite: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -872,7 +870,7 @@ describe(commands.SITE_CLASSIC_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', timeZone: 4, owner: 'admin@contoso.com', removeDeletedSite: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -1256,7 +1254,7 @@ describe(commands.SITE_CLASSIC_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', timeZone: 4, owner: 'admin@contoso.com', wait: true, removeDeletedSite: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -1359,7 +1357,7 @@ describe(commands.SITE_CLASSIC_ADD, () => {
 
     cmdInstance.action({ options: { debug: false, verbose: true, url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', timeZone: 4, owner: 'admin@contoso.com', wait: true, removeDeletedSite: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -1583,7 +1581,7 @@ describe(commands.SITE_CLASSIC_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/team>', title: 'Team>', timeZone: 4, owner: 'admin@contoso.com>', lcid: 1033, webTemplate: 'PUBLISHING#0>', resourceQuota: 100, resourceQuotaWarningLevel: 90, storageQuota: 300, storageQuotaWarningLevel: 275 } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

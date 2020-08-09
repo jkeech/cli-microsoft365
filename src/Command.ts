@@ -4,7 +4,6 @@ import request from './request';
 import auth from './Auth';
 import { GraphResponseError } from './m365/base/GraphResponseError';
 
-const vorpal: Vorpal = require('./vorpal-init');
 
 export interface CommandOption {
   option: string;
@@ -68,11 +67,10 @@ export default abstract class Command {
   public abstract get description(): string;
 
   public abstract commandAction(cmd: CommandInstance, args: any, cb: () => void): void;
-  public abstract commandHelp(args: any, log: (message: string) => void): void;
 
   protected showDeprecationWarning(cmd: CommandInstance, deprecated: string, recommended: string): void {
     if (cmd.commandWrapper.command.indexOf(deprecated) === 0) {
-      cmd.log(vorpal.chalk.yellow(`Command '${deprecated}' is deprecated. Please use '${recommended}' instead`));
+      cmd.log(chalk.yellow(`Command '${deprecated}' is deprecated. Please use '${recommended}' instead`));
     }
   }
 

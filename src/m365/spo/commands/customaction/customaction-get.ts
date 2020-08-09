@@ -9,7 +9,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { CustomAction } from './customaction';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -174,7 +173,7 @@ class SpoCustomActionGetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CUSTOMACTION_GET).helpInformation());
     log(
       `  Examples:

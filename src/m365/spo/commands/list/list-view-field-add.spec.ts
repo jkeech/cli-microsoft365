@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.LIST_VIEW_FIELD_ADD, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let requests: any[];
@@ -80,7 +79,6 @@ describe(commands.LIST_VIEW_FIELD_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

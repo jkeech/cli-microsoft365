@@ -8,7 +8,6 @@ import request from '../../../../request';
 import GraphCommand from '../../../base/GraphCommand';
 import { Channel } from '../../Channel';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -73,7 +72,7 @@ class TeamsChannelRemoveCommand extends GraphCommand {
           })
           .then((): void => {
             if (this.verbose) {
-              cmd.log(vorpal.chalk.green('DONE'));
+              cmd.log(chalk.green('DONE'));
             }
 
             cb();
@@ -93,7 +92,7 @@ class TeamsChannelRemoveCommand extends GraphCommand {
           .delete(requestOptions)
           .then((): void => {
             if (this.verbose) {
-              cmd.log(vorpal.chalk.green('DONE'));
+              cmd.log(chalk.green('DONE'));
             }
 
             cb();

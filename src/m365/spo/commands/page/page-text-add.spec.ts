@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.PAGE_TEXT_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.PAGE_TEXT_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -247,7 +245,7 @@ describe(commands.PAGE_TEXT_ADD, () => {
       },
       () => {
         try {
-          assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+          assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
           done();
         }
         catch (e) {
@@ -344,7 +342,7 @@ describe(commands.PAGE_TEXT_ADD, () => {
       },
       () => {
         try {
-          assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+          assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
           done();
         }
         catch (e) {

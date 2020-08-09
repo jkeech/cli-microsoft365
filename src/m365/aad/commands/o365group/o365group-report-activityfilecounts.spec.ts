@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Command from '../../../../Command';
 
 describe(commands.O365GROUP_REPORT_ACTIVITYFILECOUNTS, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -20,7 +19,6 @@ describe(commands.O365GROUP_REPORT_ACTIVITYFILECOUNTS, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

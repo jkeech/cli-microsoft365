@@ -8,7 +8,6 @@ import {
 import Utils from '../../../../Utils';
 import AadCommand from '../../../base/AadCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -115,7 +114,7 @@ class AadSpGetCommand extends AadCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.SP_GET).helpInformation());
     log(
       `  Remarks:

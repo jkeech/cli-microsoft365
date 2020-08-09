@@ -7,7 +7,6 @@ import {
 } from '../../../../Command';
 import { AzmgmtItemsListCommand } from '../../../base/AzmgmtItemsListCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -82,7 +81,7 @@ class PaConnectorListCommand extends AzmgmtItemsListCommand<{ name: string, prop
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CONNECTOR_LIST).helpInformation());
     log(
       `  Remarks:

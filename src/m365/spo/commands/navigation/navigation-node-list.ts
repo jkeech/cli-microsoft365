@@ -8,7 +8,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import { NavigationNode } from './NavigationNode';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -59,7 +58,7 @@ class SpoNavigationNodeListCommand extends SpoCommand {
         }));
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

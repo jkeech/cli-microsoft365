@@ -11,7 +11,6 @@ import * as os from 'os';
 import AnonymousCommand from '../../../base/AnonymousCommand';
 import { autocomplete } from '../../../../autocomplete';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -90,7 +89,7 @@ class CliCompletionPwshSetupCommand extends AnonymousCommand {
       fs.appendFileSync(args.options.profile, os.EOL + completionScriptPath, 'utf8');
 
       if (this.verbose) {
-        cmd.log(vorpal.chalk.green('DONE'));
+        cmd.log(chalk.green('DONE'));
       }
       cb();
     }
@@ -122,7 +121,7 @@ class CliCompletionPwshSetupCommand extends AnonymousCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.COMPLETION_PWSH_SETUP).helpInformation());
     log(
       `  Remarks:

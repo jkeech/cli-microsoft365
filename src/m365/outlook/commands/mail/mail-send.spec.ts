@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import * as fs from 'fs';
 
 describe(commands.OUTLOOK_MAIL_SEND, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -21,7 +20,6 @@ describe(commands.OUTLOOK_MAIL_SEND, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

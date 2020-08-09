@@ -8,7 +8,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -42,11 +41,11 @@ class SpoListWebhookListCommand extends SpoCommand {
 
   public commandAction(cmd: CommandInstance, args: CommandArgs, cb: () => void): void {
     if (args.options.title && this.verbose) {
-      cmd.log(vorpal.chalk.yellow(`Option 'title' is deprecated. Please use 'listTitle' instead`));
+      cmd.log(chalk.yellow(`Option 'title' is deprecated. Please use 'listTitle' instead`));
     }
 
     if (args.options.id && this.verbose) {
-      cmd.log(vorpal.chalk.yellow(`Option 'id' is deprecated. Please use 'listId' instead`));
+      cmd.log(chalk.yellow(`Option 'id' is deprecated. Please use 'listId' instead`));
     }
 
     if (this.verbose) {
@@ -176,7 +175,7 @@ class SpoListWebhookListCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Examples:

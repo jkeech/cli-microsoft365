@@ -9,7 +9,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { CustomAction } from './customaction';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -53,7 +52,7 @@ class SpoCustomActionRemoveCommand extends SpoCommand {
               cmd.log(`Custom action with id ${args.options.id} not found`);
             }
             else {
-              cmd.log(vorpal.chalk.green('DONE'));
+              cmd.log(chalk.green('DONE'));
             }
           }
           cb();
@@ -171,7 +170,7 @@ class SpoCustomActionRemoveCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CUSTOMACTION_REMOVE).helpInformation());
     log(
       `  Examples:

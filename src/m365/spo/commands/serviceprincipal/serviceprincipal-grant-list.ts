@@ -8,7 +8,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { SPOWebAppServicePrincipalPermissionGrant } from './SPOWebAppServicePrincipalPermissionGrant';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 class SpoServicePrincipalGrantListCommand extends SpoCommand {
   public get name(): string {
@@ -64,7 +63,7 @@ class SpoServicePrincipalGrantListCommand extends SpoCommand {
           }));
 
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -72,7 +71,7 @@ class SpoServicePrincipalGrantListCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.SERVICEPRINCIPAL_GRANT_LIST).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

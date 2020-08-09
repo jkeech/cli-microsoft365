@@ -11,7 +11,6 @@ import config from '../../../../config';
 import { IdentityResponse } from '../../ClientSvc';
 
 describe(commands.PROPERTYBAG_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   const stubAllPostRequests = (
@@ -114,7 +113,6 @@ describe(commands.PROPERTYBAG_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

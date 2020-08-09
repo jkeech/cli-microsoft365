@@ -7,7 +7,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import { DeletedSitePropertiesEnumerable } from './DeletedSitePropertiesEnumerable';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 class SpoTenantRecycleBinItemListCommand extends SpoCommand {
   public get name(): string {
@@ -77,7 +76,7 @@ class SpoTenantRecycleBinItemListCommand extends SpoCommand {
     return new Date(d[0], d[1], d[2], d[3], d[4], d[5], d[6]);
   }
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

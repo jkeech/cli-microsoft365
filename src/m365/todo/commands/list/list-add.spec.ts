@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.LIST_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -20,7 +19,6 @@ describe(commands.LIST_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -126,7 +124,7 @@ describe(commands.LIST_ADD, () => {
       }
     }, () => {
       try {
-        const expected = vorpal.chalk.green('DONE');
+        const expected = chalk.green('DONE');
         assert.equal(log.filter(l => l == expected).length, 1);
         done();
       }

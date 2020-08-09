@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import PeriodBasedReport from '../../../base/PeriodBasedReport';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 class YammerReportGroupsActivityGroupCountsCommand extends PeriodBasedReport {
   public get name(): string {

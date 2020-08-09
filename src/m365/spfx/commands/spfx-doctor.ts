@@ -5,7 +5,6 @@ import * as child_process from 'child_process';
 import AnonymousCommand from '../../base/AnonymousCommand';
 import { satisfies } from 'semver';
 
-const vorpal: Vorpal = require('../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -659,7 +658,7 @@ class SpfxDoctorCommand extends AnonymousCommand {
       process.env.TERM === 'xterm-256color';
     const success: string = primarySupported ? '✔' : '√';
     const failure: string = primarySupported ? '✖' : '×';
-    return `${result === CheckStatus.Success ? vorpal.chalk.green(success) : vorpal.chalk.red(failure)} ${message}`;
+    return `${result === CheckStatus.Success ? chalk.green(success) : chalk.red(failure)} ${message}`;
   }
 
   public options(): CommandOption[] {
@@ -695,7 +694,7 @@ class SpfxDoctorCommand extends AnonymousCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.DOCTOR).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} checks ran by this command are based on what is officially

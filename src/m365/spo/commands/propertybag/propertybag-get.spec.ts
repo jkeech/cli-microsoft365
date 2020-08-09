@@ -11,7 +11,6 @@ import config from '../../../../config';
 import { IdentityResponse, ClientSvc } from '../../ClientSvc';
 
 describe(commands.PROPERTYBAG_GET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -91,7 +90,6 @@ describe(commands.PROPERTYBAG_GET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

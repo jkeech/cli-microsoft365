@@ -10,7 +10,6 @@ import appInsights from '../../../../appInsights';
 import config from '../../../../config';
 
 describe(commands.HOMESITE_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -29,7 +28,6 @@ describe(commands.HOMESITE_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -174,7 +172,7 @@ describe(commands.HOMESITE_REMOVE, () => {
     };
     cmdInstance.action({ options: { debug: true } }, () => {
       try {
-        assert(homeSiteRemoveCallIssued && cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(homeSiteRemoveCallIssued && cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

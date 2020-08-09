@@ -3,7 +3,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import AnonymousCommand from '../../../base/AnonymousCommand';
 import { autocomplete } from '../../../../autocomplete';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;
@@ -26,7 +25,7 @@ class CliCompletionShUpdateCommand extends AnonymousCommand {
     autocomplete.generateShCompletion();
 
     if (this.debug) {
-      cmd.log(vorpal.chalk.green('DONE'));
+      cmd.log(chalk.green('DONE'));
     }
 
     cb();

@@ -8,7 +8,6 @@ import * as assert from 'assert';
 import Utils from '../../Utils';
 
 describe(commands.STATUS, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: any;
@@ -19,7 +18,6 @@ describe(commands.STATUS, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

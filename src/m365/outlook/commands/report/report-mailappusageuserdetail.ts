@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 class OutlookReportMailAppUsageUserDetailCommand extends DateAndPeriodBasedReport {
   public get name(): string {

@@ -8,7 +8,6 @@ import Utils from '../../../../Utils';
 import { autocomplete } from '../../../../autocomplete';
 
 describe(commands.COMPLETION_SH_UPDATE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -20,7 +19,6 @@ describe(commands.COMPLETION_SH_UPDATE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -71,7 +69,7 @@ describe(commands.COMPLETION_SH_UPDATE, () => {
   it('build command completion (debug)', (done) => {
     cmdInstance.action({ options: { debug: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

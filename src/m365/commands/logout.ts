@@ -4,7 +4,6 @@ import Command, {
   CommandError, CommandAction, CommandArgs,
 } from '../../Command';
 
-const vorpal: Vorpal = require('../../vorpal-init');
 
 class LogoutCommand extends Command {
   public get name(): string {
@@ -16,7 +15,7 @@ class LogoutCommand extends Command {
   }
 
   public commandAction(cmd: CommandInstance, args: {}, cb: () => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
 
     if (this.verbose) {
       cmd.log('Logging out from Microsoft 365...');
@@ -60,7 +59,7 @@ class LogoutCommand extends Command {
   }
 
   public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.LOGOUT).helpInformation());
     log(
       `  Remarks:

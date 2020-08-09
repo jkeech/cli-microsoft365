@@ -9,7 +9,6 @@ import { ContextInfo } from '../../spo';
 import GlobalOptions from '../../../../GlobalOptions';
 import { SiteDesignPrincipal } from './SiteDesignPrincipal';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -58,7 +57,7 @@ class SpoSiteDesignRightsListCommand extends SpoCommand {
         }));
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -92,7 +91,7 @@ class SpoSiteDesignRightsListCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

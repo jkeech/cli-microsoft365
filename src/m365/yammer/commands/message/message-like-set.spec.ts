@@ -9,7 +9,6 @@ import commands from '../../commands';
 
 const command: Command = require('./message-like-set');
 describe(commands.YAMMER_MESSAGE_LIKE_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let promptOptions: any;
@@ -22,7 +21,6 @@ describe(commands.YAMMER_MESSAGE_LIKE_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

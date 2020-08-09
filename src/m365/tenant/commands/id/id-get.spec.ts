@@ -9,7 +9,6 @@ import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
 
 describe(commands.TENANT_ID_GET, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstanceLogSpy: sinon.SinonSpy;
   let cmdInstance: any;
@@ -21,7 +20,6 @@ describe(commands.TENANT_ID_GET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

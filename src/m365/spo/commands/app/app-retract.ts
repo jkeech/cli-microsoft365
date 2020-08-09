@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import { SpoAppBaseCommand } from './SpoAppBaseCommand';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -64,7 +63,7 @@ class SpoAppRetractCommand extends SpoAppBaseCommand {
         })
         .then((): void => {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
 
           cb();
@@ -146,7 +145,7 @@ class SpoAppRetractCommand extends SpoAppBaseCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.APP_RETRACT).helpInformation());
     log(
       `  Remarks:

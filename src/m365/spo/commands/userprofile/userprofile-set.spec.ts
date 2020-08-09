@@ -8,7 +8,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.USERPROFILE_SET, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -22,7 +21,6 @@ describe(commands.USERPROFILE_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -154,7 +152,7 @@ describe(commands.USERPROFILE_SET, () => {
       }
     }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       } catch (e) {
         done(e);
@@ -214,7 +212,7 @@ describe(commands.USERPROFILE_SET, () => {
       }
     }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       } catch (e) {
         done(e);

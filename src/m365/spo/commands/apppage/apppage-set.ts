@@ -6,7 +6,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import GlobalOptions from '../../../../GlobalOptions';
 import Utils from '../../../../Utils';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -43,7 +42,7 @@ class SpoAppPageSetCommand extends SpoCommand {
 
     request.post(requestOptions).then((res: any): void => {
       if (this.verbose) {
-        cmd.log(vorpal.chalk.green('DONE'));
+        cmd.log(chalk.green('DONE'));
       }
       cb();
     }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
@@ -90,7 +89,7 @@ class SpoAppPageSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(`    
   Examples:   

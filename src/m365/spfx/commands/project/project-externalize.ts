@@ -7,7 +7,6 @@ import * as path from 'path';
 import * as os from 'os';
 import { Project, ExternalConfiguration, External } from './model';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 import rules = require('./project-externalize/DefaultRules');
 import { BasicDependencyRule } from './project-externalize/rules';
 import { ExternalizeEntry, FileEdit } from './project-externalize/';
@@ -223,7 +222,7 @@ class SpfxProjectExternalizeCommand extends BaseProjectCommand {
   }
 
   public commandHelp(args: any, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.PROJECT_EXTERNALIZE).helpInformation());
     log(
       `   ${chalk.yellow('Important:')} Run this command in the folder where the project for which you

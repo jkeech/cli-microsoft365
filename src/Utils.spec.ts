@@ -1,7 +1,6 @@
 import * as sinon from 'sinon';
 import * as assert from 'assert';
 import Utils from './Utils';
-const vorpal: Vorpal = require('./vorpal-init');
 import Table = require('easy-table');
 import Command, { CommandError } from './Command';
 import * as os from 'os';
@@ -367,7 +366,7 @@ describe('Utils', () => {
   it('formats command error as error message', (done) => {
     const o = new CommandError('An error has occurred');
     const actual = Utils.logOutput([o]);
-    const expected = vorpal.chalk.red('Error: An error has occurred');
+    const expected = chalk.red('Error: An error has occurred');
     try {
       assert.equal(actual, expected);
       done();

@@ -7,7 +7,6 @@ import {
 import { Group } from './Group';
 import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -113,7 +112,7 @@ class AadO365GroupListCommand extends GraphItemsListCommand<Group> {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();
@@ -182,7 +181,7 @@ class AadO365GroupListCommand extends GraphItemsListCommand<Group> {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

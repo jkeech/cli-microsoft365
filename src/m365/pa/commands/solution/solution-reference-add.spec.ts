@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import CdsProjectMutator from '../../cds-project-mutator';
 
 describe(commands.SOLUTION_REFERENCE_ADD, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let trackEvent: any;
@@ -23,7 +22,6 @@ describe(commands.SOLUTION_REFERENCE_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

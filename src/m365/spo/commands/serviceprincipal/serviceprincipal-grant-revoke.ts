@@ -9,7 +9,6 @@ import Utils from '../../../../Utils';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import GlobalOptions from '../../../../GlobalOptions';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -66,7 +65,7 @@ class SpoServicePrincipalGrantRevokeCommand extends SpoCommand {
         }
         else {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -94,7 +93,7 @@ class SpoServicePrincipalGrantRevokeCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.SERVICEPRINCIPAL_GRANT_REVOKE).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

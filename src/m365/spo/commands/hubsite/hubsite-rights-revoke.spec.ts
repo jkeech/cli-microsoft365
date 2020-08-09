@@ -10,7 +10,6 @@ import config from '../../../../config';
 import Utils from '../../../../Utils';
 
 describe(commands.HUBSITE_RIGHTS_REVOKE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -25,7 +24,6 @@ describe(commands.HUBSITE_RIGHTS_REVOKE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -114,7 +112,7 @@ describe(commands.HUBSITE_RIGHTS_REVOKE, () => {
 
     cmdInstance.action({ options: { debug: true, url: 'https://contoso.sharepoint.com/sites/Sales', principals: 'admin', confirm: true } }, () => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

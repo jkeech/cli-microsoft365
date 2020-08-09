@@ -8,7 +8,6 @@ import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
 import Utils from '../../../../Utils';
 import { GroupUser } from './GroupUser';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -69,7 +68,7 @@ class AadO365GroupUserListCommand extends GraphItemsListCommand<GroupUser> {
           cmd.log(this.items);
 
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green("DONE"));
+            cmd.log(chalk.green("DONE"));
           }
 
           cb();

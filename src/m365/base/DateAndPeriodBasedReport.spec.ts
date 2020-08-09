@@ -27,7 +27,6 @@ class MockCommand extends DateAndPeriodBasedReport {
 
 describe('PeriodBasedReport', () => {
   const mockCommand = new MockCommand();
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   before(() => {
@@ -37,7 +36,6 @@ describe('PeriodBasedReport', () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

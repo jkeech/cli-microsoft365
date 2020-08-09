@@ -13,7 +13,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { Term } from './Term';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -294,7 +293,7 @@ class SpoTermAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.TERM_ADD).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

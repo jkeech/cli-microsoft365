@@ -7,7 +7,6 @@ import * as assert from 'assert';
 import Utils from '../../../Utils';
 
 describe(commands.COMPLETION_SH_SETUP, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 
@@ -16,7 +15,6 @@ describe(commands.COMPLETION_SH_SETUP, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

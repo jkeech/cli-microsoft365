@@ -12,7 +12,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -73,7 +72,7 @@ class SpoOrgAssetsLibraryAddCommand extends SpoCommand {
         }
         else {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -118,7 +117,7 @@ class SpoOrgAssetsLibraryAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.ORGASSETSLIBRARY_ADD).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

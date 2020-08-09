@@ -9,8 +9,7 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.PAGE_REMOVE, () => {
-	let vorpal: Vorpal;
-	let log: string[];
+		let log: string[];
 	let cmdInstance: any;
 	let cmdInstanceLogSpy: sinon.SinonSpy;
 	let promptOptions: any;
@@ -35,8 +34,7 @@ describe(commands.PAGE_REMOVE, () => {
 	});
 
 	beforeEach(() => {
-		vorpal = require('../../../../vorpal-init');
-		log = [];
+				log = [];
 		cmdInstance = {
       commandWrapper: {
         command: command.name
@@ -109,7 +107,7 @@ describe(commands.PAGE_REMOVE, () => {
 			},
 			() => {
 				try {
-					assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+					assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 					done();
 				} catch (e) {
 					done(e);
@@ -138,7 +136,7 @@ describe(commands.PAGE_REMOVE, () => {
 			},
 			() => {
 				try {
-					assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+					assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 					done();
 				} catch (e) {
 					done(e);
@@ -188,7 +186,7 @@ describe(commands.PAGE_REMOVE, () => {
 			},
 			() => {
 				try {
-					assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+					assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 					done();
 				} catch (e) {
 					done(e);

@@ -11,7 +11,6 @@ import { AuthType } from '../../Auth';
 import * as fs from 'fs';
 
 describe(commands.LOGIN, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -24,7 +23,6 @@ describe(commands.LOGIN, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../vorpal-init');
     log = [];
     cmdInstance = {
       action: command.action(),

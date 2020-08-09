@@ -4,7 +4,6 @@ import request from '../../../../request';
 import YammerCommand from '../../../base/YammerCommand';
 import commands from '../../commands';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -45,7 +44,7 @@ class YammerMessageRemoveCommand extends YammerCommand {
         .delete(requestOptions)
         .then((res: any): void => {
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
 
           cb();
@@ -103,7 +102,7 @@ class YammerMessageRemoveCommand extends YammerCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Remarks:

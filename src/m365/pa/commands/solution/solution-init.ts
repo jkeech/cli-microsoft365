@@ -13,7 +13,6 @@ import Utils from '../../../../Utils';
 import { SolutionInitVariables } from "./solution-init/solution-init-variables";
 import TemplateInstantiator from "../../template-instantiator";
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -85,16 +84,16 @@ class PaSolutionInitCommand extends Command {
         cmd.log(` `);
       }
 
-      cmd.log(vorpal.chalk.green(`CDS solution project with name '${workingDirectoryName}' created successfully in current directory.`));
+      cmd.log(chalk.green(`CDS solution project with name '${workingDirectoryName}' created successfully in current directory.`));
 
       const cdsAssetsExist: boolean = fs.existsSync(cdsAssetsDirectory) && fs.existsSync(cdsAssetsDirectorySolutionsFile);
       if (cdsAssetsExist) {
-        cmd.log(vorpal.chalk.yellow(`CDS solution files already exist in the current directory. Skipping CDS solution files creation.`));
+        cmd.log(chalk.yellow(`CDS solution files already exist in the current directory. Skipping CDS solution files creation.`));
       }
       else {
         TemplateInstantiator.instantiate(cmd, cdsAssetsTemplatePath, cdsAssetsDirectory, false, variables, this.verbose);
-        cmd.log(vorpal.chalk.green(`CDS solution files were successfully created for this project in the sub-directory 'Other', using solution name '${workingDirectory}', publisher name '${publisherName}', and customization prefix '${publisherPrefix}'.`));
-        cmd.log(`Please verify the publisher information and solution name found in the '${vorpal.chalk.grey('Solution.xml')}' file.`);
+        cmd.log(chalk.green(`CDS solution files were successfully created for this project in the sub-directory 'Other', using solution name '${workingDirectory}', publisher name '${publisherName}', and customization prefix '${publisherPrefix}'.`));
+        cmd.log(`Please verify the publisher information and solution name found in the '${chalk.grey('Solution.xml')}' file.`);
       }
 
       cb();
@@ -154,7 +153,7 @@ class PaSolutionInitCommand extends Command {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.SOLUTION_INIT).helpInformation());
     log(
       `  Remarks:

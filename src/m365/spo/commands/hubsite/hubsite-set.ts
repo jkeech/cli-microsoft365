@@ -13,7 +13,6 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { HubSiteProperties } from './HubSiteProperties';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -89,7 +88,7 @@ class SpoHubSiteSetCommand extends SpoCommand {
           cmd.log(hubSite);
 
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -148,7 +147,7 @@ class SpoHubSiteSetCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.HUBSITE_SET).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

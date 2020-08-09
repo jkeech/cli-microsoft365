@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
 
 describe(commands.PROPERTYBAG_LIST, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -90,7 +89,6 @@ describe(commands.PROPERTYBAG_LIST, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

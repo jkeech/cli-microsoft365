@@ -3,7 +3,6 @@ import GlobalOptions from '../../../GlobalOptions';
 import AnonymousCommand from '../../base/AnonymousCommand';
 import config from '../../../config';
 
-const vorpal: Vorpal = require('../../../vorpal-init');
 
 interface CommandArgs {
   options: GlobalOptions;

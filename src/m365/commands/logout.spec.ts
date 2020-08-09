@@ -8,7 +8,6 @@ import * as assert from 'assert';
 import Utils from '../../Utils';
 
 describe(commands.LOGOUT, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let authClearConnectionInfoStub: sinon.SinonStub;
@@ -20,7 +19,6 @@ describe(commands.LOGOUT, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

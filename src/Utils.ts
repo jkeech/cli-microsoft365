@@ -1,6 +1,5 @@
 import Table = require('easy-table');
 import * as os from 'os';
-const vorpal: Vorpal = require('./vorpal-init');
 import Command, { CommandError } from './Command';
 import * as url from 'url';
 import * as jmespath from 'jmespath';
@@ -157,7 +156,7 @@ export default class Utils {
     }
 
     if (logStatement instanceof CommandError) {
-      return vorpal.chalk.red(`Error: ${logStatement.message}`);
+      return chalk.red(`Error: ${logStatement.message}`);
     }
 
     let arrayType: string = '';

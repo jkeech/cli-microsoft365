@@ -10,7 +10,6 @@ import appInsights from '../../../../appInsights';
 import config from '../../../../config';
 
 describe(commands.HOMESITE_SET, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -28,7 +27,6 @@ describe(commands.HOMESITE_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -123,7 +121,7 @@ describe(commands.HOMESITE_SET, () => {
       }
     }, (err?: any) => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

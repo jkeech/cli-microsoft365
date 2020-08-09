@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.TEAMS_TEAM_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -21,7 +20,6 @@ describe(commands.TEAMS_TEAM_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -134,7 +132,7 @@ describe(commands.TEAMS_TEAM_SET, () => {
       options: { debug: true, teamId: '8231f9f2-701f-4c6e-93ce-ecb563e3c1ee', description: 'desc' }
     }, (err?: any) => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {
@@ -157,7 +155,7 @@ describe(commands.TEAMS_TEAM_SET, () => {
       options: { debug: true, teamId: '8231f9f2-701f-4c6e-93ce-ecb563e3c1ee', classification: 'MBI' }
     }, (err?: any) => {
       try {
-        assert(cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
         done();
       }
       catch (e) {

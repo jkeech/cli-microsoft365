@@ -10,7 +10,6 @@ import request from '../../../../request';
 import { AppRoleAssignment } from './AppRoleAssignment';
 import { ServicePrincipal, AppRole } from './ServicePrincipal';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -184,7 +183,7 @@ class AadAppRoleAssignmentListCommand extends AadCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.APPROLEASSIGNMENT_LIST).helpInformation());
     log(
       `  Remarks:

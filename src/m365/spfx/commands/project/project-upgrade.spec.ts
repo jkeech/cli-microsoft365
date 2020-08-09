@@ -12,7 +12,6 @@ import { Project, Manifest, VsCode } from './model';
 import { Finding } from './project-upgrade/Finding';
 
 describe(commands.PROJECT_UPGRADE, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let trackEvent: any;
@@ -32,7 +31,6 @@ describe(commands.PROJECT_UPGRADE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

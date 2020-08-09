@@ -12,7 +12,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import { OrgAssetsResponse, OrgAssets } from './OrgAssets';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -84,7 +83,7 @@ class SpoOrgNewsSiteListCommand extends SpoCommand {
             }
 
             if (this.verbose) {
-              cmd.log(vorpal.chalk.green('DONE'));
+              cmd.log(chalk.green('DONE'));
             }
           }
           cb();
@@ -98,7 +97,7 @@ class SpoOrgNewsSiteListCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.ORGASSETSLIBRARY_LIST).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

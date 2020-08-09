@@ -11,7 +11,6 @@ import Utils from '../../../../Utils';
 import { FolderExtensions } from '../../FolderExtensions';
 
 describe(commands.LISTITEM_ADD, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let ensureFolderStub: sinon.SinonStub;
@@ -70,7 +69,6 @@ describe(commands.LISTITEM_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

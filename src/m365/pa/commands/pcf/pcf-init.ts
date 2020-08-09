@@ -13,7 +13,6 @@ import Utils from '../../../../Utils';
 import TemplateInstantiator from "../../template-instantiator";
 import { PcfInitVariables } from "./pcf-init/pcf-init-variables";
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -87,8 +86,8 @@ class PaPcfInitCommand extends Command {
         cmd.log(` `);
       }
 
-      cmd.log(vorpal.chalk.green(`The PowerApps component framework project was successfully created in '${workingDirectory}'.`));
-      cmd.log(`Be sure to run '${vorpal.chalk.grey('npm install')}' in this directory to install project dependencies.`);
+      cmd.log(chalk.green(`The PowerApps component framework project was successfully created in '${workingDirectory}'.`));
+      cmd.log(`Be sure to run '${chalk.grey('npm install')}' in this directory to install project dependencies.`);
 
       cb();
     }
@@ -176,7 +175,7 @@ class PaPcfInitCommand extends Command {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.PCF_INIT).helpInformation());
     log(
       `  Remarks:

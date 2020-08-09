@@ -9,7 +9,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import * as url from 'url';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;

@@ -7,7 +7,6 @@ import Utils from '../../../../Utils';
 import { Tab } from '../../Tab';
 import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -47,7 +46,7 @@ class TeamsTabListCommand extends GraphItemsListCommand<Tab> {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

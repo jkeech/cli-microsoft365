@@ -10,7 +10,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import { PermissionKind, BasePermissions } from '../../base-permissions';
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -146,7 +145,7 @@ class SpoWebAddCommand extends SpoCommand {
           cmd.log(siteInfo);
 
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
         }
         cb();
@@ -155,7 +154,7 @@ class SpoWebAddCommand extends SpoCommand {
           cmd.log(siteInfo);
 
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
 
           cb();
@@ -250,7 +249,7 @@ class SpoWebAddCommand extends SpoCommand {
   }
 
   public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(this.name).helpInformation());
     log(
       `  Examples:

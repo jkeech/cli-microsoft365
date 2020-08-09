@@ -10,7 +10,6 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;
@@ -105,7 +104,7 @@ class SpoCdnOriginListCommand extends SpoCommand {
   }
 
   public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
+    const chalk = chalk;
     log(vorpal.find(commands.CDN_ORIGIN_LIST).helpInformation());
     log(
       `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access

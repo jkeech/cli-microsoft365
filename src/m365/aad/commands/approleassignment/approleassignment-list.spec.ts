@@ -406,7 +406,6 @@ class RequestStub {
 
 
 describe(commands.APPROLEASSIGNMENT_LIST, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -445,7 +444,6 @@ describe(commands.APPROLEASSIGNMENT_LIST, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

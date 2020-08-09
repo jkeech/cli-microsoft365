@@ -3,7 +3,6 @@ import commands from '../../commands';
 import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo } from '../../spo';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 class SpoSiteScriptListCommand extends SpoCommand {
   public get name(): string {
@@ -41,7 +40,7 @@ class SpoSiteScriptListCommand extends SpoCommand {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

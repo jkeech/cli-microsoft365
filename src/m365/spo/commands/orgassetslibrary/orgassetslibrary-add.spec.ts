@@ -10,7 +10,6 @@ import Utils from '../../../../Utils';
 import config from '../../../../config';
 
 describe(commands.ORGASSETSLIBRARY_ADD, () => {
-  let vorpal: Vorpal;
   let log: any[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;
@@ -26,7 +25,6 @@ describe(commands.ORGASSETSLIBRARY_ADD, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
@@ -84,7 +82,7 @@ describe(commands.ORGASSETSLIBRARY_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, libraryUrl: 'https://contoso.sharepoint.com/siteassets' } }, () => {
       try {
-        assert(orgAssetLibAddCallIssued && cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(orgAssetLibAddCallIssued && cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 
         done();
       }
@@ -114,7 +112,7 @@ describe(commands.ORGASSETSLIBRARY_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, libraryUrl: 'https://contoso.sharepoint.com/siteassets', cdnType: 'Public' } }, () => {
       try {
-        assert(orgAssetLibAddCallIssued && cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(orgAssetLibAddCallIssued && cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 
         done();
       }
@@ -144,7 +142,7 @@ describe(commands.ORGASSETSLIBRARY_ADD, () => {
 
     cmdInstance.action({ options: { debug: true, libraryUrl: 'https://contoso.sharepoint.com/siteassets', cdnType: 'Public', thumbnailUrl: 'https://contoso.sharepoint.com/siteassets/logo.png' } }, () => {
       try {
-        assert(orgAssetLibAddCallIssued && cmdInstanceLogSpy.calledWith(vorpal.chalk.green('DONE')));
+        assert(orgAssetLibAddCallIssued && cmdInstanceLogSpy.calledWith(chalk.green('DONE')));
 
         done();
       }
