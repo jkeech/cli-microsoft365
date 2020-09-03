@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.TEAMS_USER_APP_REMOVE, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let cmdInstanceLogSpy: sinon.SinonSpy;

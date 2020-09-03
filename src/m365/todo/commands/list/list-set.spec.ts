@@ -9,7 +9,6 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 
 describe(commands.LIST_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
 

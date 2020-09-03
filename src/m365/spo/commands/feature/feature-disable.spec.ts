@@ -285,25 +285,4 @@ describe(commands.FEATURE_DISABLE, () => {
       }
     });
   });
-
-  it('has help with remarks', () => {
-    const _log: string[] = [];
-    const cmd: any = {
-      log: (msg: string) => {
-        _log.push(msg);
-      },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    let containsRemarks: boolean = false;
-    _log.forEach(l => {
-      if (l && l.indexOf('Remarks:') > -1) {
-        containsRemarks = true;
-      }
-    });
-    assert(containsRemarks);
-  });
 });

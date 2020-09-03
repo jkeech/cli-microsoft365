@@ -10,7 +10,6 @@ import config from '../../../../config';
 import Utils from '../../../../Utils';
 
 describe(commands.KNOWLEDGEHUB_SET, () => {
-  let vorpal: Vorpal;
   let log: string[];
   let cmdInstance: any;
   let requests: any[];
