@@ -74,28 +74,6 @@ describe(commands.SITECLASSIFICATION_DISABLE, () => {
     assert(containsOption);
   });
 
-  it('has help with examples', () => {
-    const _log: string[] = [];
-    const cmd: any = {
-      log: (msg: string) => {
-        _log.push(msg);
-      },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    let containsExamples: boolean = false;
-    _log.forEach(l => {
-      if (l && l.indexOf('Examples:') > -1) {
-        containsExamples = true;
-      }
-    });
-    Utils.restore(vorpal.find);
-    assert(containsExamples);
-  });
-
   it('prompts before disabling siteclassification when confirm option not passed', (done) => {
     cmdInstance.action({ options: { debug: false } }, () => {
       let promptIssued = false;

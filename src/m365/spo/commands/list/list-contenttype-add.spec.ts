@@ -587,28 +587,6 @@ describe(commands.LIST_CONTENTTYPE_ADD, () => {
     assert(containsDebugOption);
   });
 
-  it('has help with examples', () => {
-    const _log: string[] = [];
-    const cmd: any = {
-      log: (msg: string) => {
-        _log.push(msg);
-      },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    let containsExamples: boolean = false;
-    _log.forEach(l => {
-      if (l && l.indexOf('Examples:') > -1) {
-        containsExamples = true;
-      }
-    });
-    Utils.restore(vorpal.find);
-    assert(containsExamples);
-  });
-
   it('configures command types', () => {
     assert.notEqual(typeof command.types(), 'undefined', 'command types undefined');
     assert.notEqual((command.types() as CommandTypes).string, 'undefined', 'command string types undefined');

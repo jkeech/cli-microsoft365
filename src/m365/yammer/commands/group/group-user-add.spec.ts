@@ -104,28 +104,6 @@ describe(commands.YAMMER_GROUP_USER_ADD, () => {
     assert(containsOption);
   });
 
-  it('has help with examples', () => {
-    const _log: string[] = [];
-    const cmd: any = {
-      log: (msg: string) => {
-        _log.push(msg);
-      },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    let containsExamples: boolean = false;
-    _log.forEach(l => {
-      if (l && l.indexOf('Examples:') > -1) {
-        containsExamples = true;
-      }
-    });
-    Utils.restore(vorpal.find);
-    assert(containsExamples);
-  });
-
   it('calls the service if the current user is added to the group', (done) => {
     const requestPostedStub = sinon.stub(request, 'post').callsFake((opts) => {
       if (opts.url === 'https://www.yammer.com/api/v1/group_memberships.json') {
