@@ -32,9 +32,6 @@ describe(commands.COMPLETION_CLINK_UPDATE, () => {
 
   afterEach(() => {
     generateClinkCompletionStub.reset();
-    Utils.restore([
-      vorpal.find
-    ]);
   });
 
   after(() => {

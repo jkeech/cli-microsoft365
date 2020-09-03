@@ -27,12 +27,6 @@ describe(commands.COMPLETION_SH_SETUP, () => {
     };
   });
 
-  afterEach(() => {
-    Utils.restore([
-      vorpal.find
-    ]);
-  });
-
   after(() => {
     Utils.restore([
       appInsights.trackEvent

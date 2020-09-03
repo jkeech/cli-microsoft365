@@ -78,13 +78,6 @@ describe(commands.STORAGEENTITY_GET, () => {
     cmdInstanceLogSpy = sinon.spy(cmdInstance, 'log');
   });
 
-  afterEach(() => {
-    Utils.restore([
-      vorpal.find
-    ]);
-  });
-
-
   after(() => {
     Utils.restore([
       auth.restoreAuth,

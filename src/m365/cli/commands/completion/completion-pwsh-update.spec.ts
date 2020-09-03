@@ -34,9 +34,6 @@ describe(commands.COMPLETION_PWSH_UPDATE, () => {
 
   afterEach(() => {
     generateShCompletionStub.reset();
-    Utils.restore([
-      vorpal.find
-    ]);
   });
 
   after(() => {

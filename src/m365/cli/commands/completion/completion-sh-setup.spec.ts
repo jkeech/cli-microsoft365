@@ -35,9 +35,6 @@ describe(commands.COMPLETION_SH_SETUP, () => {
   });
 
   afterEach(() => {
-    Utils.restore([
-      vorpal.find
-    ]);
     generateShCompletionStub.reset();
     setupShCompletionStub.reset();
   });

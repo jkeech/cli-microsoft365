@@ -30,12 +30,6 @@ describe(commands.LOGOUT, () => {
     };
   });
 
-  afterEach(() => {
-    Utils.restore([
-      vorpal.find
-    ]);
-  });
-
   after(() => {
     Utils.restore([
       auth.restoreAuth,

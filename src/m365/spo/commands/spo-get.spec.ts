@@ -34,9 +34,6 @@ describe(commands.GET, () => {
   });
 
   afterEach(() => {
-    Utils.restore([
-      vorpal.find
-    ]);
     auth.service.spoUrl = undefined;
   });
 

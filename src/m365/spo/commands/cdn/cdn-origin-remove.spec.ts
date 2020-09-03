@@ -60,12 +60,6 @@ describe(commands.CDN_ORIGIN_REMOVE, () => {
     promptOptions = undefined;
   });
 
-  afterEach(() => {
-    Utils.restore([
-      vorpal.find
-    ]);
-  });
-
   after(() => {
     Utils.restore([
       auth.restoreAuth,
