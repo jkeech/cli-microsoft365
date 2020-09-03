@@ -82,16 +82,6 @@ class SpoGroupListCommand extends SpoCommand {
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    log(vorpal.find(this.name).helpInformation());
-    log(
-      `  Examples:
-
-    Lists all the groups within specific web
-      m365 ${this.name} --webUrl "https://contoso.sharepoint.com/sites/contoso"  
-    `);
-  }
 }
 
 module.exports = new SpoGroupListCommand();

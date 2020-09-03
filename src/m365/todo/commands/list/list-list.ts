@@ -41,21 +41,6 @@ class TodoListListCommand extends GraphItemsListCommand<ToDoList> {
         cb();
       }, (err: any): void => this.handleRejectedODataJsonPromise(err, cmd, cb));
   }
-
-  public commandHelp(args: {}, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
-    log(vorpal.find(this.name).helpInformation());
-    log(`  Remarks:
-
-    ${chalk.yellow('Attention:')} This command is based on an API that is currently in preview
-    and is subject to change once the API reached general availability.
-    
-  Examples:
-
-    Get the list of Microsoft To Do task lists
-      ${this.name}
-`);
-  }
 }
 
 module.exports = new TodoListListCommand();

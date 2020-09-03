@@ -97,25 +97,6 @@ class SpoKnowledgehubSetCommand extends SpoCommand {
       return true;
     };
   }
-
-  public commandHelp(args: CommandArgs, log: (help: string) => void): void {
-    const chalk = vorpal.chalk;
-    log(vorpal.find(commands.KNOWLEDGEHUB_SET).helpInformation());
-    log(
-      `  ${chalk.yellow('Important:')} to use this command you have to have permissions to access
-    the tenant admin site.
-      
-  Remarks:
-
-    If the specified ${chalk.grey('url')} doesn't refer to an existing site collection,
-    you will get a ${chalk.grey('404 - "404 FILE NOT FOUND"')} error.
-
-  Examples:
-  
-    Sets the Knowledge Hub Site for your tenant
-      ${this.name} --url https://contoso.sharepoint.com/sites/knowledgesite
-`);
-  }
 }
 
 module.exports = new SpoKnowledgehubSetCommand();
