@@ -32,7 +32,7 @@ describe(commands.APPPAGE_SET, () => {
   });
 
   afterEach(() => {
-    Utils.restore([vorpal.find, request.post]);
+    Utils.restore([request.post]);
   });
 
   after(() => {

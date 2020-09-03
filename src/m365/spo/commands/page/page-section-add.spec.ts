@@ -32,7 +32,7 @@ describe(commands.PAGE_SECTION_ADD, () => {
   });
 
   afterEach(() => {
-    Utils.restore([vorpal.find, request.post, request.get]);
+    Utils.restore([request.post, request.get]);
   });
 
   after(() => {
