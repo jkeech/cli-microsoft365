@@ -113,14 +113,6 @@ class SpoSiteRemoveCommand extends SpoCommand {
     }
   }
 
-  public cancel(): CommandCancel {
-    return (): void => {
-      if (this.timeout) {
-        clearTimeout(this.timeout);
-      }
-    }
-  }
-
   private deleteSite(url: string, wait: boolean, cmd: CommandInstance): Promise<void> {
     return new Promise<void>((resolve: () => void, reject: (error: any) => void): void => {
       this

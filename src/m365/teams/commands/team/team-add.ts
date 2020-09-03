@@ -181,14 +181,6 @@ class TeamsTeamAddCommand extends GraphCommand {
       }).catch(err => reject(err));
   }
 
-  public cancel(): CommandCancel {
-    return (): void => {
-      if (this.timeout) {
-        clearTimeout(this.timeout);
-      }
-    }
-  }
-
   public options(): CommandOption[] {
     const options: CommandOption[] = [
       {

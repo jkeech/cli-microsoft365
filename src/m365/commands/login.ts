@@ -132,12 +132,6 @@ class LoginCommand extends Command {
     }
   }
 
-  public cancel(): CommandCancel {
-    return (): void => {
-      auth.cancel();
-    }
-  }
-
   public options(): CommandOption[] {
     const options: CommandOption[] = [
       {
