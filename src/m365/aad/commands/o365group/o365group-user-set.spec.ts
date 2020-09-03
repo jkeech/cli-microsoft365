@@ -483,18 +483,6 @@ describe(commands.O365GROUP_USER_SET, () => {
     assert(containsOption);
   });
 
-  it('has help referring to the right command', () => {
-    const cmd: any = {
-      log: (msg: string) => { },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    const find = sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    assert(find.calledWith(commands.O365GROUP_USER_SET));
-  });
-
   it('has help with examples', () => {
     const _log: string[] = [];
     const cmd: any = {

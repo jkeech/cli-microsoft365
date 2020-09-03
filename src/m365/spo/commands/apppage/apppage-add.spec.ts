@@ -181,17 +181,6 @@ describe(commands.APPPAGE_ADD, () => {
     const actual = (command.validate() as CommandValidate)({ options: { title: 'Contoso', webPartData: '{}', webUrl: 'https://contoso.sharepoint.com' } });
     assert.equal(actual, true);
   });
-  it('has help referring to the right command', () => {
-    const cmd: any = {
-      log: (msg: string) => { },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    const find = sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    assert(find.calledWith(commands.APPPAGE_ADD));
-  });
 
   it('has help with examples', () => {
     const _log: string[] = [];

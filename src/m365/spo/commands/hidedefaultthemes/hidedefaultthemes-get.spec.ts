@@ -172,16 +172,4 @@ describe(commands.HIDEDEFAULTTHEMES_GET, () => {
     });
     assert(containsDebugOption);
   });
-
-  it('has help referring to the right command', () => {
-    const cmd: any = {
-      log: (msg: string) => { },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    const find = sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    assert(find.calledWith(commands.HIDEDEFAULTTHEMES_GET));
-  });
 });

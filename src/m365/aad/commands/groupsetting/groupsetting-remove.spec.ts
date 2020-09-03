@@ -270,18 +270,6 @@ describe(commands.GROUPSETTING_REMOVE, () => {
     assert.equal(actual, true);
   });
 
-  it('has help referring to the right command', () => {
-    const cmd: any = {
-      log: (msg: string) => { },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    const find = sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    assert(find.calledWith(commands.GROUPSETTING_REMOVE));
-  });
-
   it('has help with examples', () => {
     const _log: string[] = [];
     const cmd: any = {

@@ -118,18 +118,6 @@ describe(commands.UTIL_ACCESSTOKEN_GET, () => {
     assert(containsOption);
   });
 
-  it('has help referring to the right command', () => {
-    const cmd: any = {
-      log: (msg: string) => { },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    const find = sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    assert(find.calledWith(commands.UTIL_ACCESSTOKEN_GET));
-  });
-
   it('has help with examples', () => {
     const _log: string[] = [];
     const cmd: any = {

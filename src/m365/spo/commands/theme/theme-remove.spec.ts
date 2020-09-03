@@ -219,18 +219,6 @@ describe(commands.THEME_REMOVE, () => {
     assert(containsDebugOption);
   });
 
-  it('has help referring to the right command', () => {
-    const cmd: any = {
-      log: (msg: string) => { },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    const find = sinon.stub(vorpal, 'find').callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    assert(find.calledWith(commands.THEME_REMOVE));
-  });
-
   it('fails validation if name is not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { name: '' } });
     assert.notEqual(actual, true);
