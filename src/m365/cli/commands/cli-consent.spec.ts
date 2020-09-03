@@ -35,7 +35,6 @@ describe(commands.CONSENT, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
     config.tenant = originalTenant;
     config.cliAadAppId = originalAadAppId;
   });

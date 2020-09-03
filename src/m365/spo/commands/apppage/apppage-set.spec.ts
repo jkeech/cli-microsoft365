@@ -243,7 +243,6 @@ describe(commands.APPPAGE_SET, () => {
         containsExamples = true;
       }
     });
-    Utils.restore(vorpal.find);
     assert(containsExamples);
   });
 });

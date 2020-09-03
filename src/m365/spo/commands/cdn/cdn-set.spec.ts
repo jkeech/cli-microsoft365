@@ -54,8 +54,7 @@ describe(commands.CDN_SET, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([

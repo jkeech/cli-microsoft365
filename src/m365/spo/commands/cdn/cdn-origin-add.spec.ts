@@ -61,8 +61,7 @@ describe(commands.CDN_ORIGIN_ADD, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([

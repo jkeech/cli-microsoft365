@@ -304,7 +304,6 @@ describe(commands.FEATURE_DISABLE, () => {
         containsRemarks = true;
       }
     });
-    Utils.restore(vorpal.find);
     assert(containsRemarks);
   });
 });

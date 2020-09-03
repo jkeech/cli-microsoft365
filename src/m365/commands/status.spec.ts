@@ -32,8 +32,7 @@ describe(commands.STATUS, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([

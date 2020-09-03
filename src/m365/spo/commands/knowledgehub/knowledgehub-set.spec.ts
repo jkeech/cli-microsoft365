@@ -56,8 +56,7 @@ describe(commands.KNOWLEDGEHUB_SET, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([

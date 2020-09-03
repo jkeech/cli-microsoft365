@@ -35,8 +35,7 @@ describe(commands.HIDEDEFAULTTHEMES_GET, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([

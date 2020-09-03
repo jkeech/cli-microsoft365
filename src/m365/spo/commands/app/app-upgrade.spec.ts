@@ -35,8 +35,7 @@ describe(commands.APP_UPGRADE, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([

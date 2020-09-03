@@ -35,8 +35,7 @@ describe(commands.APP_INSTALL, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([

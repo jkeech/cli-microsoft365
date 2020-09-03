@@ -313,7 +313,6 @@ describe(commands.FEATURE_ENABLE, () => {
         containsRemarks = true;
       }
     });
-    Utils.restore(vorpal.find);
     assert(containsRemarks);
   });
 });

@@ -55,8 +55,7 @@ describe(commands.CDN_POLICY_SET, () => {
   });
 
   afterEach(() => {
-    Utils.restore(vorpal.find);
-  });
+    });
 
   after(() => {
     Utils.restore([
