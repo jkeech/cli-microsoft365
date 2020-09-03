@@ -1,10 +1,9 @@
 import Command from "../Command";
-import { CliCommandOption } from "./CommandOption";
+import { CommandOption } from "./CommandOption";
 
-// TODO: after removing Vorpal, rename to CommandInfo
-export interface CliCommandInfo {
+export interface CommandInfo {
   aliases: string[] | undefined;
   command: Command;
   name: string;
-  options: CliCommandOption[];
+  options: CommandOption[];
 }

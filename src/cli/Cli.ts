@@ -5,21 +5,19 @@ import * as minimist from 'minimist';
 import * as jmespath from 'jmespath';
 import * as chalk from 'chalk';
 import * as inquirer from 'inquirer';
-// import * as markshell from 'markshell';
-// TODO: workaround as markshell doesn't have typings
-const markshell = require('markshell');
+import * as markshell from 'markshell';
 import Table = require('easy-table');
 import Command, { CommandError, CommandValidate } from '../Command';
-import { CliCommandInfo } from './CommandInfo';
-import { CliCommandOption } from './CommandOption';
+import { CommandInfo } from './CommandInfo';
+import { CommandOption } from './CommandOption';
 const packageJSON = require('../../package.json');
 
 export class Cli {
-  public commands: CliCommandInfo[] = [];
+  public commands: CommandInfo[] = [];
   /**
    * Command to execute
    */
-  private commandToExecute: CliCommandInfo | undefined;
+  private commandToExecute: CommandInfo | undefined;
   /**
    * Name of the command specified through args
    */
@@ -62,7 +60,7 @@ export class Cli {
 
     if (this.currentCommandName) {
       for (let i = 0; i < this.commands.length; i++) {
-        const command: CliCommandInfo = this.commands[i];
+        const command: CommandInfo = this.commands[i];
         if (command.name === this.currentCommandName ||
           (command.aliases &&
             command.aliases.indexOf(this.currentCommandName) > -1)) {
@@ -110,7 +108,7 @@ export class Cli {
         let matches: boolean = false;
 
         for (let i = 0; i < this.commandToExecute.options.length; i++) {
-          const option: CliCommandOption = this.commandToExecute.options[i];
+          const option: CommandOption = this.commandToExecute.options[i];
           if (optionFromArgs === option.long ||
             optionFromArgs === option.short) {
             matches = true;
@@ -255,8 +253,8 @@ export class Cli {
     });
   }
 
-  private getCommandOptions(command: Command): CliCommandOption[] {
-    const options: CliCommandOption[] = [];
+  private getCommandOptions(command: Command): CommandOption[] {
+    const options: CommandOption[] = [];
 
     command.options().forEach(option => {
       const required: boolean = option.option.indexOf('<') > -1;
@@ -287,7 +285,7 @@ export class Cli {
     return options;
   }
 
-  private getCommandOptionsFromArgs(args: string[], commandInfo: CliCommandInfo | undefined): minimist.ParsedArgs {
+  private getCommandOptionsFromArgs(args: string[], commandInfo: CommandInfo | undefined): minimist.ParsedArgs {
     const minimistOptions: minimist.Opts = {
       alias: {}
     };
@@ -426,22 +424,20 @@ export class Cli {
     helpFilePath = path.join(...pathChunks);
 
     if (fs.existsSync(helpFilePath)) {
-      // TODO: markshell fails
       console.log();
-      console.log(fs.readFileSync(helpFilePath, 'utf8'));
-      // console.log(markshell.toRawContent(helpFilePath));
+      console.log(markshell.toRawContent(helpFilePath));
     }
   }
 
   private printAvailableCommands(): void {
     // commands that match the current group
-    const commandsToPrint: { [commandName: string]: CliCommandInfo } = {};
+    const commandsToPrint: { [commandName: string]: CommandInfo } = {};
     // sub-commands in the current group
     const commandGroupsToPrint: { [group: string]: number } = {};
     // current command group, eg. 'spo', 'spo site'
     let currentGroup: string = '';
 
-    const addToList = (commandName: string, command: CliCommandInfo): void => {
+    const addToList = (commandName: string, command: CommandInfo): void => {
       const pos: number = commandName.indexOf(' ', currentGroup.length + 1);
       if (pos === -1) {
         commandsToPrint[commandName] = command;
@@ -470,7 +466,7 @@ export class Cli {
 
     const getCommandsForGroup = (): void => {
       for (let i = 0; i < this.commands.length; i++) {
-        const command: CliCommandInfo = this.commands[i];
+        const command: CommandInfo = this.commands[i];
         if (command.name.startsWith(currentGroup)) {
           addToList(command.name, command);
         }

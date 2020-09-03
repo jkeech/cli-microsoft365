@@ -1,5 +1,4 @@
-// TODO: after removing Vorpal, rename to CommandOptions
-export interface CliCommandOption {
+export interface CommandOption {
   autocomplete: string[] | undefined;
   long?: string;
   name: string;

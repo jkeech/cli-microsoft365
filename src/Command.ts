@@ -160,29 +160,7 @@ export default abstract class Command {
     ];
   }
 
-  public help(): CommandHelp {
-    const cmd: Command = this;
-    return function (this: CommandInstance, args: CommandArgs, cbOrLog: () => void) {
-      const ranFromHelpCommand: boolean =
-        typeof vorpal._command !== 'undefined' &&
-        typeof vorpal._command.command !== 'undefined' &&
-        vorpal._command.command.indexOf('help ') === 0;
-
-      const log = ranFromHelpCommand ? cbOrLog : this.log.bind(this);
-
-      cmd.commandHelp(args, log);
-
-      if (!ranFromHelpCommand) {
-        cbOrLog();
-      }
-    }
-  }
-
   public validate(): CommandValidate | undefined {
-    return;
-  }
-
-  public cancel(): CommandCancel | undefined {
     return;
   }
 

@@ -1,8 +1,6 @@
-import Table = require('easy-table');
-import * as os from 'os';
-import Command, { CommandError } from './Command';
+import Command from './Command';
 import * as url from 'url';
-import * as jmespath from 'jmespath';
+import { CommandInstance } from './cli/CommandInstance';
 
 export default class Utils {
   public static escapeXml(s: any | undefined) {
@@ -119,101 +117,6 @@ export default class Utils {
 
   public static isValidBoolean(value: string): boolean {
     return value.toLowerCase() === 'true' || value.toLowerCase() === 'false'
-  }
-
-  public static logOutput(stdout: any): any {
-    // what comes in, should be an array
-    // if it's not, return as-is
-    if (!Array.isArray(stdout)) {
-      return stdout;
-    }
-
-    let logStatement: any = stdout.pop();
-
-    if (logStatement instanceof Date) {
-      return logStatement.toString();
-    }
-
-    const logStatementType: string = typeof logStatement;
-
-    if (logStatementType === 'undefined') {
-      return logStatement;
-    }
-
-    if (vorpal._command &&
-      vorpal._command.args &&
-      vorpal._command.args.options &&
-      vorpal._command.args.options.query &&
-      !vorpal._command.args.options.help) {
-      logStatement = jmespath.search(logStatement, vorpal._command.args.options.query);
-    }
-
-    if (vorpal._command &&
-      vorpal._command.args &&
-      vorpal._command.args.options &&
-      vorpal._command.args.options.output === 'json') {
-      return JSON.stringify(logStatement, null, 2);
-    }
-
-    if (logStatement instanceof CommandError) {
-      return chalk.red(`Error: ${logStatement.message}`);
-    }
-
-    let arrayType: string = '';
-    if (!Array.isArray(logStatement)) {
-      logStatement = [logStatement];
-      arrayType = logStatementType;
-    }
-    else {
-      for (let i: number = 0; i < logStatement.length; i++) {
-        const t: string = typeof logStatement[i];
-        if (t !== 'undefined') {
-          arrayType = t;
-          break;
-        }
-      }
-    }
-
-    if (arrayType !== 'object') {
-      return logStatement.join(os.EOL);
-    }
-
-    if (logStatement.length === 1) {
-      const obj: any = logStatement[0];
-      const propertyNames: string[] = [];
-      Object.getOwnPropertyNames(obj).forEach(p => {
-        propertyNames.push(p);
-      });
-
-      let longestPropertyLength: number = 0;
-      propertyNames.forEach(p => {
-        if (p.length > longestPropertyLength) {
-          longestPropertyLength = p.length;
-        }
-      });
-
-      const output: string[] = [];
-      propertyNames.sort().forEach(p => {
-        output.push(`${p.length < longestPropertyLength ? p + new Array(longestPropertyLength - p.length + 1).join(' ') : p}: ${Array.isArray(obj[p]) || typeof obj[p] === 'object' ? JSON.stringify(obj[p]) : obj[p]}`);
-      });
-
-      return output.join('\n') + '\n';
-    }
-    else {
-      const t: Table = new Table();
-      logStatement.forEach((r: any) => {
-        if (typeof r !== 'object') {
-          return;
-        }
-
-        Object.getOwnPropertyNames(r).forEach(p => {
-          t.cell(p, r[p]);
-        });
-        t.newRow();
-      });
-
-      return t.toString();
-    }
   }
 
   public static getUserNameFromAccessToken(accessToken: string): string {

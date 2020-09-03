@@ -5,8 +5,8 @@ import * as os from 'os';
 import * as fs from 'fs';
 import * as path from 'path';
 import { Cli } from './cli/Cli';
-import { CliCommandInfo } from './cli/CommandInfo';
-import { CliCommandOption } from './cli/CommandOption';
+import { CommandInfo } from './cli/CommandInfo';
+import { CommandOption } from './cli/CommandOption';
 
 class Autocomplete {
   private static autocompleteFilePath: string = path.join(__dirname, `..${path.sep}commands.json`);
@@ -176,7 +176,7 @@ class Autocomplete {
 
   private getCommandsInfo(cli: Cli): any {
     const commandsInfo: any = {};
-    const commands: CliCommandInfo[] = cli.commands;
+    const commands: CommandInfo[] = cli.commands;
     commands.forEach(c => {
       Autocomplete.processCommand(c.name, c, commandsInfo);
       if (c.aliases) {
@@ -187,7 +187,7 @@ class Autocomplete {
     return commandsInfo;
   }
 
-  private static processCommand(commandName: string, commandInfo: CliCommandInfo, autocomplete: any) {
+  private static processCommand(commandName: string, commandInfo: CommandInfo, autocomplete: any) {
     const chunks: string[] = commandName.split(' ');
     let parent: any = autocomplete;
     for (let i: number = 0; i < chunks.length; i++) {
@@ -208,7 +208,7 @@ class Autocomplete {
           optionsArr.push('-h');
           const optionsObj: any = {};
           optionsArr.forEach(o => {
-            const option: CliCommandOption = commandInfo.options.filter(opt => opt.long === o || opt.short === o)[0];
+            const option: CommandOption = commandInfo.options.filter(opt => opt.long === o || opt.short === o)[0];
             if (option && option.autocomplete) {
               optionsObj[o] = option.autocomplete;
             }
