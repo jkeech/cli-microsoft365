@@ -3,7 +3,8 @@ import GlobalOptions from './GlobalOptions';
 import request from './request';
 import auth from './Auth';
 import { GraphResponseError } from './m365/base/GraphResponseError';
-
+import { CommandInstance } from './cli/CommandInstance';
+import * as chalk from 'chalk';
 
 export interface CommandOption {
   option: string;
@@ -166,37 +167,6 @@ export default abstract class Command {
 
   public types(): CommandTypes | undefined {
     return;
-  }
-
-  public init(vorpal: Vorpal): void {
-    const cmd: VorpalCommand = vorpal
-      .command(this.name, this.description, this.autocomplete())
-      .action(this.action());
-    const options: CommandOption[] = this.options();
-    options.forEach((o: CommandOption): void => {
-      cmd.option(o.option, o.description, o.autocomplete);
-    });
-    const alias: string[] | undefined = this.alias();
-    if (alias) {
-      cmd.alias(alias);
-    }
-    const validate: CommandValidate | undefined = this.validate();
-    if (validate) {
-      cmd.validate(validate);
-    }
-    const cancel: CommandCancel | undefined = this.cancel();
-    if (cancel) {
-      cmd.cancel(cancel);
-    }
-    const allowUnknownOptions: boolean | undefined = this.allowUnknownOptions();
-    if (allowUnknownOptions) {
-      cmd.allowUnknownOptions();
-    }
-    cmd.help(this.help());
-    const types: CommandTypes | undefined = this.types();
-    if (types) {
-      cmd.types(types);
-    }
   }
 
   public getCommandName(): string {
