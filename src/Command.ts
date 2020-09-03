@@ -105,7 +105,6 @@ export default abstract class Command {
       auth
         .restoreAuth()
         .then((): void => {
-          args = cmd.processArgs(args);
           cmd.initAction(args, this);
 
           if (!auth.service.connected) {
@@ -289,40 +288,6 @@ export default abstract class Command {
       properties: this.getTelemetryProperties(args)
     });
     appInsights.flush();
-  }
-
-  protected processArgs(args: CommandArgs): CommandArgs {
-    if (!this.allowUnknownOptions()) {
-      return args;
-    }
-
-    const commandData = vorpal.util.parseCommand(process.argv.slice(2).join(' '), vorpal.commands);
-    const cmd = commandData.match;
-    // required for tests not to fail.
-    // Can't happen on runtime because we are already inside a command
-    if (!cmd) {
-      return args;
-    }
-
-    if (!cmd._types) {
-      cmd._types = {};
-    }
-    if (!cmd._types.string) {
-      cmd._types.string = [];
-    }
-    process.argv.slice(2).forEach(a => {
-      if (!a.startsWith('--')) {
-        return;
-      }
-
-      if (!cmd.options.find((o: any) => o.long === a)) {
-        cmd._types.string.push(a.substr(2));
-      }
-    });
-
-    args = vorpal.util.buildCommandArgs(commandData.matchArgs, cmd, undefined, vorpal.isCommandArgKeyPairNormalized);
-
-    return args;
   }
 
   protected getUnknownOptions(options: any): any {
