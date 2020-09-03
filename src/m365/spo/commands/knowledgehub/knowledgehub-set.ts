@@ -11,8 +11,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import Utils from '../../../../Utils';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
-
 interface CommandArgs {
   options: Options;
 }

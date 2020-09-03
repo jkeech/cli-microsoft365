@@ -212,37 +212,4 @@ describe(commands.APPPAGE_SET, () => {
     });
     assert.equal(actual, true);
   });
-
-  it("has help referring to the right command", () => {
-    const cmd: any = {
-      log: (msg: string) => { },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    const find = sinon.stub(vorpal, "find").callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    assert(find.calledWith(commands.APPPAGE_SET));
-  });
-
-  it("has help with examples", () => {
-    const _log: string[] = [];
-    const cmd: any = {
-      log: (msg: string) => {
-        _log.push(msg);
-      },
-      prompt: () => { },
-      helpInformation: () => { }
-    };
-    sinon.stub(vorpal, "find").callsFake(() => cmd);
-    cmd.help = command.help();
-    cmd.help({}, () => { });
-    let containsExamples: boolean = false;
-    _log.forEach(l => {
-      if (l && l.indexOf("Examples:") > -1) {
-        containsExamples = true;
-      }
-    });
-    assert(containsExamples);
-  });
 });

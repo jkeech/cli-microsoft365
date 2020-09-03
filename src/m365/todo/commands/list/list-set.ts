@@ -6,8 +6,6 @@ import {
 } from '../../../../Command';
 import GraphCommand from '../../../base/GraphCommand';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
-
 interface CommandArgs {
   options: Options;
 }

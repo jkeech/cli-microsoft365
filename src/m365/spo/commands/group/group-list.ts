@@ -8,7 +8,6 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import { GroupPropertiesCollection } from "./GroupPropertiesCollection";
 import { GroupProperties } from "./GroupProperties";
-const vorpal: Vorpal = require('../../../../vorpal-init');
 
 interface CommandArgs {
   options: Options;

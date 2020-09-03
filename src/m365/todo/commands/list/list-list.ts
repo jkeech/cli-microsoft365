@@ -3,8 +3,6 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
 import { ToDoList } from '../../ToDoList';
 
-const vorpal: Vorpal = require('../../../../vorpal-init');
-
 interface CommandArgs {
   options: Options;
 }
