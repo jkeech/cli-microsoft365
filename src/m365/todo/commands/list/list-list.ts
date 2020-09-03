@@ -35,7 +35,7 @@ class TodoListListCommand extends GraphItemsListCommand<ToDoList> {
         }
 
         if (this.verbose) {
-          cmd.log(vorpal.chalk.green('DONE'));
+          cmd.log(chalk.green('DONE'));
         }
 
         cb();

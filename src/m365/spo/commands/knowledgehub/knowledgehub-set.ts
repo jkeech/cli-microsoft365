@@ -62,7 +62,7 @@ class SpoKnowledgehubSetCommand extends SpoCommand {
           cmd.log(json[json.length - 1]);
 
           if (this.verbose) {
-            cmd.log(vorpal.chalk.green('DONE'));
+            cmd.log(chalk.green('DONE'));
           }
 
           cb();
