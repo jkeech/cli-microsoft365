@@ -22,7 +22,6 @@ describe(commands.TEAMS_USER_APP_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

@@ -21,7 +21,6 @@ describe(commands.LIST_REMOVE, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

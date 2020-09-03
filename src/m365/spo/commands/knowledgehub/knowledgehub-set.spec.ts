@@ -41,7 +41,6 @@ describe(commands.KNOWLEDGEHUB_SET, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {

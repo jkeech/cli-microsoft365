@@ -20,7 +20,6 @@ describe(commands.GROUP_LIST, () => {
   });
 
   beforeEach(() => {
-    vorpal = require('../../../../vorpal-init');
     log = [];
     cmdInstance = {
       commandWrapper: {
