@@ -35,7 +35,6 @@ describe(commands.LIST_CONTENTTYPE_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

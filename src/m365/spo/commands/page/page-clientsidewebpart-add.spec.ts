@@ -60,7 +60,6 @@ describe(commands.PAGE_CLIENTSIDEWEBPART_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

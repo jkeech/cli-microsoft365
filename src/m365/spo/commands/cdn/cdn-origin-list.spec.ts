@@ -38,7 +38,6 @@ describe(commands.CDN_ORIGIN_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

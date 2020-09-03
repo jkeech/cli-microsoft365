@@ -35,7 +35,6 @@ describe(commands.OUTLOOK_MAIL_SEND, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       fs.readFileSync,
       fs.existsSync,

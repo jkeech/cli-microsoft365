@@ -37,7 +37,6 @@ describe(commands.O365GROUP_RENEW, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       global.setTimeout
     ]);

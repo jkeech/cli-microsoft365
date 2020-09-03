@@ -38,7 +38,6 @@ describe(commands.TENANT_RECYCLEBINITEM_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

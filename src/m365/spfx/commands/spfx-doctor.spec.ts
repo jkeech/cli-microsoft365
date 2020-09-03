@@ -48,7 +48,6 @@ describe(commands.DOCTOR, () => {
   afterEach(() => {
     Utils.restore([
       sandbox,
-      vorpal.find,
       child_process.execFile,
       process.platform
     ]);

@@ -96,7 +96,6 @@ describe(commands.PAGE_SECTION_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       ClientSidePage.fromHtml
     ]);

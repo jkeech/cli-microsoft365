@@ -36,7 +36,6 @@ describe(commands.TEAMS_APP_INSTALL, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

@@ -34,7 +34,6 @@ describe(commands.TEAMS_REPORT_USERACTIVITYUSERCOUNTS, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

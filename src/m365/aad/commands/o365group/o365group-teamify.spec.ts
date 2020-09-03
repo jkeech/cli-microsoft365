@@ -36,7 +36,6 @@ describe(commands.O365GROUP_TEAMIFY, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

@@ -41,7 +41,6 @@ describe(commands.THEME_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       fs.readFileSync,
       fs.existsSync,
       fs.lstatSync,

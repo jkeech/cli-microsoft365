@@ -48,7 +48,6 @@ describe(commands.HOMESITE_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

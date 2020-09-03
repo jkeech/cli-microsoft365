@@ -54,7 +54,6 @@ describe(commands.YAMMER_MESSAGE_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

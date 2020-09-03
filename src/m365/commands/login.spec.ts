@@ -39,7 +39,6 @@ describe(commands.LOGIN, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       auth.cancel,
       fs.existsSync,
       fs.readFileSync,

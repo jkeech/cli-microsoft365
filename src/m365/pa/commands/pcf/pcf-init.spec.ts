@@ -37,7 +37,6 @@ describe(commands.PCF_INIT, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       fs.readdirSync,
       TemplateInstantiator.instantiate,
       process.cwd,

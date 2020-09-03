@@ -34,7 +34,6 @@ describe(commands.SKYPE_REPORT_ACTIVITYCOUNTS, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

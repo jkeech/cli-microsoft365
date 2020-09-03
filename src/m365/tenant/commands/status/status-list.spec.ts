@@ -81,7 +81,6 @@ describe(commands.TENANT_STATUS_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

@@ -36,7 +36,6 @@ describe(commands.TENANT_APPCATALOG_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       Utils.executeCommand,
       Utils.executeCommandWithOutput
     ]);

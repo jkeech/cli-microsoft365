@@ -37,7 +37,6 @@ describe(commands.O365GROUP_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.put,
       request.get,

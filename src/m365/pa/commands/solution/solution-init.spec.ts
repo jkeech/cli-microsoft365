@@ -37,7 +37,6 @@ describe(commands.SOLUTION_INIT, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       path.basename,
       fs.readdirSync,
       fs.existsSync,

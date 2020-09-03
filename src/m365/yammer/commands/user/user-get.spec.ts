@@ -36,7 +36,6 @@ describe(commands.YAMMER_USER_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

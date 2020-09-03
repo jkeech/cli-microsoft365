@@ -37,7 +37,6 @@ describe(commands.TEAMS_APP_PUBLISH, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       fs.readFileSync,
       fs.existsSync

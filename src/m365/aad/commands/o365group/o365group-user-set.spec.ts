@@ -35,7 +35,6 @@ describe(commands.O365GROUP_USER_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post,
       request.delete

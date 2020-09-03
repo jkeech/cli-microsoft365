@@ -36,7 +36,6 @@ describe(commands.GROUPSETTING_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.patch
     ]);

@@ -37,7 +37,6 @@ describe(commands.SITEDESIGN_RIGHTS_GRANT, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

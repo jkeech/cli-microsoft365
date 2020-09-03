@@ -52,7 +52,6 @@ describe(commands.PROJECT_UPGRADE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       (command as any).getProjectRoot,
       (command as any).getProjectVersion,
       fs.existsSync,

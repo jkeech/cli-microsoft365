@@ -43,7 +43,6 @@ describe(commands.SITE_CLASSIC_SET, () => {
   afterEach(() => {
     (command as any).currentContext = undefined;
     Utils.restore([
-      vorpal.find,
       request.post,
       global.setTimeout,
       (command as any).ensureFormDigest

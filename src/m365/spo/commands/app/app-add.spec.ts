@@ -40,7 +40,6 @@ describe(commands.APP_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get,
       fs.readFileSync

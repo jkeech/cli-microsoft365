@@ -36,7 +36,6 @@ describe(commands.TEAMS_APP_UNINSTALL, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

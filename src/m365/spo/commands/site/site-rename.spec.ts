@@ -45,7 +45,6 @@ describe(commands.SITE_RENAME, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post,
       (command as any).ensureFormDigest

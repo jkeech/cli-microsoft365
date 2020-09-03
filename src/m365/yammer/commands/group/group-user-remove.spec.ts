@@ -40,7 +40,6 @@ describe(commands.YAMMER_GROUP_USER_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

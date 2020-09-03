@@ -36,7 +36,6 @@ describe(commands.YAMMER_MESSAGE_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

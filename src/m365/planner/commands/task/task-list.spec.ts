@@ -36,7 +36,6 @@ describe(commands.PLANNER_TASK_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

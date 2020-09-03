@@ -33,7 +33,6 @@ describe(commands.LIST_WEBHOOK_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.patch
     ]);
   });

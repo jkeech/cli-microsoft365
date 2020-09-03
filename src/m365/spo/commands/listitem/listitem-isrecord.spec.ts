@@ -106,7 +106,6 @@ describe(commands.LISTITEM_ISRECORD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

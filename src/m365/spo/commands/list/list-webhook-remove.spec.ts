@@ -40,7 +40,6 @@ describe(commands.LIST_WEBHOOK_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

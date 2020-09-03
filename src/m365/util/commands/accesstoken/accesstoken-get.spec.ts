@@ -34,7 +34,6 @@ describe(commands.UTIL_ACCESSTOKEN_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       auth.ensureAccessToken
     ]);
     auth.service.accessTokens = {};

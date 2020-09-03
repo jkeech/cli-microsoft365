@@ -39,7 +39,6 @@ describe(commands.ORGASSETSLIBRARY_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

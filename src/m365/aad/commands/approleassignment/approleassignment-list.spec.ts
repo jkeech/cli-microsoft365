@@ -459,7 +459,6 @@ describe(commands.APPROLEASSIGNMENT_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

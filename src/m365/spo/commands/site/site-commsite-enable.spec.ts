@@ -36,7 +36,6 @@ describe(commands.SITE_COMMSITE_ENABLE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

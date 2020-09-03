@@ -36,7 +36,6 @@ describe(commands.SCHEMAEXTENSION_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

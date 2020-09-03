@@ -36,7 +36,6 @@ describe(commands.TEAMS_CHANNEL_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

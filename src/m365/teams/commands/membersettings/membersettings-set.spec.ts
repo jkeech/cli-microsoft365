@@ -36,7 +36,6 @@ describe(commands.TEAMS_MEMBERSETTINGS_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.patch
     ]);
   });

@@ -38,7 +38,6 @@ describe(commands.SITE_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

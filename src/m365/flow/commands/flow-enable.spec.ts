@@ -35,7 +35,6 @@ describe(commands.FLOW_ENABLE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

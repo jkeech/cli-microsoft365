@@ -35,7 +35,6 @@ describe(commands.OAUTH2GRANT_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.patch
     ]);
   });

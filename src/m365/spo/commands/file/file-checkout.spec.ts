@@ -56,7 +56,6 @@ describe(commands.FILE_CHECKOUT, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

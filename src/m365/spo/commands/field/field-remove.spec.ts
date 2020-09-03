@@ -40,7 +40,6 @@ describe(commands.FIELD_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

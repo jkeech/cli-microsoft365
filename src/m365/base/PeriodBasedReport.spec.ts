@@ -55,7 +55,6 @@ describe('PeriodBasedReport', () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       fs.writeFileSync
     ]);

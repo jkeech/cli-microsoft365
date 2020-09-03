@@ -33,7 +33,6 @@ describe(commands.SITECLASSIFICATION_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.patch,
       request.get
     ]);

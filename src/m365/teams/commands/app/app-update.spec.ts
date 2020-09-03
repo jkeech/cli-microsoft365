@@ -37,7 +37,6 @@ describe(commands.TEAMS_APP_UPDATE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.put,
       fs.readFileSync,
       fs.existsSync

@@ -110,7 +110,6 @@ describe(commands.PROPERTYBAG_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       (command as any).removeProperty
     ]);

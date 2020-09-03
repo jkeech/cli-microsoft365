@@ -36,7 +36,6 @@ describe(commands.PAGE_CONTROL_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       ClientSidePage.fromHtml
     ]);

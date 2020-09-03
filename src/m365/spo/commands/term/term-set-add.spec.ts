@@ -38,7 +38,6 @@ describe(commands.TERM_SET_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

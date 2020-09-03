@@ -52,7 +52,6 @@ describe(commands.PAGE_HEADER_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post
     ]);

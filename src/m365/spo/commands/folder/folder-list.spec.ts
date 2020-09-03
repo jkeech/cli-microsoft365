@@ -50,7 +50,6 @@ describe(commands.FOLDER_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

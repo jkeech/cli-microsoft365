@@ -35,7 +35,6 @@ describe(commands.SITE_GROUPIFY, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

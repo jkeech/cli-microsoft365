@@ -34,7 +34,6 @@ describe(commands.O365GROUP_REPORT_ACTIVITYCOUNTS, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

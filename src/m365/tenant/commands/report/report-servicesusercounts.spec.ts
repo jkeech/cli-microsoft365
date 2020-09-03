@@ -34,7 +34,6 @@ describe(commands.TENANT_REPORT_SERVICESUSERCOUNTS, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

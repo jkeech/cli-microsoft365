@@ -43,7 +43,6 @@ describe(commands.SITESCRIPT_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

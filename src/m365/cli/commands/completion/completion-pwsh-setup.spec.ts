@@ -37,7 +37,6 @@ describe(commands.COMPLETION_PWSH_SETUP, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       fs.existsSync,
       fs.mkdirSync,
       fs.writeFileSync,

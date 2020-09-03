@@ -36,7 +36,6 @@ describe(commands.LIST_VIEW_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.patch
     ]);
   });

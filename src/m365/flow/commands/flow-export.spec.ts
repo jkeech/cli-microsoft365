@@ -136,7 +136,6 @@ describe(commands.FLOW_EXPORT, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post,
       fs.writeFileSync

@@ -94,7 +94,6 @@ describe(commands.LIST_VIEW_FIELD_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post
     ]);

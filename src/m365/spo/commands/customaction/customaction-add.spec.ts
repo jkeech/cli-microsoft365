@@ -56,7 +56,6 @@ describe(commands.CUSTOMACTION_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

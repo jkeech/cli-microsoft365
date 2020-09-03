@@ -33,7 +33,6 @@ describe(commands.SITE_INPLACERECORDSMANAGEMENT_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

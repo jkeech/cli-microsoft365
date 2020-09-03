@@ -33,7 +33,6 @@ describe(commands.LIST_SITESCRIPT_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post
     ]);

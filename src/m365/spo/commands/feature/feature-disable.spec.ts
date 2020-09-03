@@ -35,7 +35,6 @@ describe(commands.FEATURE_DISABLE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

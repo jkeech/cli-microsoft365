@@ -37,7 +37,6 @@ describe(commands.WEB_REINDEX, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post,
       SpoPropertyBagBaseCommand.isNoScriptSite,

@@ -35,7 +35,6 @@ describe(commands.MAIL_SEND, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

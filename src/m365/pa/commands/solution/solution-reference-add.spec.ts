@@ -37,7 +37,6 @@ describe(commands.SOLUTION_REFERENCE_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       fs.existsSync,
       fs.readFileSync,
       fs.writeFileSync,

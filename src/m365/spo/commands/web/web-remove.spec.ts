@@ -43,7 +43,6 @@ describe(commands.WEB_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

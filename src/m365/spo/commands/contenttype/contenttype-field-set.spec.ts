@@ -42,7 +42,6 @@ describe(commands.CONTENTTYPE_FIELD_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

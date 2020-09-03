@@ -36,7 +36,6 @@ describe(commands.USERPROFILE_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

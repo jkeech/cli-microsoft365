@@ -54,7 +54,6 @@ describe(commands.CUSTOMACTION_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       (command as any).updateCustomAction,
       (command as any).searchAllScopes

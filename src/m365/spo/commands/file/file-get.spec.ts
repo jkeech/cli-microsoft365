@@ -36,7 +36,6 @@ describe(commands.FILE_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

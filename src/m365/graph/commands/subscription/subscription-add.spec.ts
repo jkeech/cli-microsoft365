@@ -37,7 +37,6 @@ describe(commands.SUBSCRIPTION_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       Date.now
     ]);

@@ -34,7 +34,6 @@ describe(commands.REPORT_SITEUSAGEPAGES, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

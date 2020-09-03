@@ -40,7 +40,6 @@ describe(commands.LIST_VIEW_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

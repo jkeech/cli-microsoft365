@@ -35,7 +35,6 @@ describe(commands.APPPAGE_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

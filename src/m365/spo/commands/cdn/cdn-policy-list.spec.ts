@@ -38,7 +38,6 @@ describe(commands.CDN_POLICY_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

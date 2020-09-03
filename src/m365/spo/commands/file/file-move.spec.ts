@@ -89,7 +89,6 @@ describe(commands.FILE_MOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

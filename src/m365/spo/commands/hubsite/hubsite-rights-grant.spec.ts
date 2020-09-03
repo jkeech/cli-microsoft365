@@ -38,7 +38,6 @@ describe(commands.HUBSITE_RIGHTS_GRANT, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

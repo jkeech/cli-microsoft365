@@ -38,7 +38,6 @@ describe(commands.TEAMS_TEAM_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get,
       fs.existsSync,

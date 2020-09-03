@@ -35,7 +35,6 @@ describe(commands.LIST_WEBHOOK_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

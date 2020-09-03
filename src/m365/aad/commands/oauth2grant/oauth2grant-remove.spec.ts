@@ -35,7 +35,6 @@ describe(commands.OAUTH2GRANT_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

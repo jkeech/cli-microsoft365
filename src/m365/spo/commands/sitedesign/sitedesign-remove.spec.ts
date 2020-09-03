@@ -42,7 +42,6 @@ describe(commands.SITEDESIGN_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

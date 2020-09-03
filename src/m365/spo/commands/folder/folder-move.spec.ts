@@ -88,7 +88,6 @@ describe(commands.FOLDER_MOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

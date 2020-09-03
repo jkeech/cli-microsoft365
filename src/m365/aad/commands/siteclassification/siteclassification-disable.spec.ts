@@ -41,7 +41,6 @@ describe(commands.SITECLASSIFICATION_DISABLE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.delete
     ]);

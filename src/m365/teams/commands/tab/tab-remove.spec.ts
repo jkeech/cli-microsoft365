@@ -41,7 +41,6 @@ describe(commands.TEAMS_TAB_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

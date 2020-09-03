@@ -35,7 +35,6 @@ describe(commands.TENANT_ID_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

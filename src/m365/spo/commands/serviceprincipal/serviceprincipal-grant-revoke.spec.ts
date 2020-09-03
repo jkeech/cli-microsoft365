@@ -38,7 +38,6 @@ describe(commands.SERVICEPRINCIPAL_GRANT_REVOKE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

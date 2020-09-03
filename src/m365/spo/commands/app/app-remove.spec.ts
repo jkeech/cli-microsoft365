@@ -43,7 +43,6 @@ describe(commands.APP_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

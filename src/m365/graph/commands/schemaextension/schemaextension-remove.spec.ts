@@ -41,7 +41,6 @@ describe(commands.SCHEMAEXTENSION_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

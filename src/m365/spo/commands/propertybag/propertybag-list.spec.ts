@@ -104,7 +104,6 @@ describe(commands.PROPERTYBAG_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       (command as any).getWebPropertyBag,
       (command as any).getFolderPropertyBag,

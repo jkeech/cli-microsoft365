@@ -41,7 +41,6 @@ describe(commands.TEAMS_APP_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

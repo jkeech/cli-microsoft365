@@ -133,7 +133,6 @@ describe(commands.LISTITEM_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

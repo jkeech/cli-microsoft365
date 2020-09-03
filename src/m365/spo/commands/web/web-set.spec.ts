@@ -35,7 +35,6 @@ describe(commands.WEB_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.patch
     ]);
   });

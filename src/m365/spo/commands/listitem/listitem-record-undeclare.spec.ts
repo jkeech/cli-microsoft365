@@ -90,7 +90,6 @@ describe(commands.LISTITEM_RECORD_UNDECLARE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

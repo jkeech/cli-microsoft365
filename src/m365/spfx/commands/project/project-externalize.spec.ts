@@ -42,7 +42,6 @@ describe(commands.PROJECT_EXTERNALIZE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       (command as any).getProjectRoot,
       (command as any).getProjectVersion,
       fs.existsSync,

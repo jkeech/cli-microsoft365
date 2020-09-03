@@ -36,7 +36,6 @@ describe(commands.TEAMS_TEAM_UNARCHIVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

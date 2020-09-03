@@ -34,7 +34,6 @@ describe(commands.REPORT_ACTIVITYFILECOUNTS, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

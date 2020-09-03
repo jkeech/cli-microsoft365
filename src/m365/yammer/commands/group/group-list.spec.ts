@@ -200,7 +200,6 @@ describe(commands.YAMMER_GROUP_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

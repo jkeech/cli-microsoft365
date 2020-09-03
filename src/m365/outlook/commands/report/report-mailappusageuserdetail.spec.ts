@@ -34,7 +34,6 @@ describe(commands.OUTLOOK_REPORT_MAILAPPUSAGEUSERDETAIL, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

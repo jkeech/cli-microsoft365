@@ -36,7 +36,6 @@ describe(commands.TEAMS_TEAM_CLONE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

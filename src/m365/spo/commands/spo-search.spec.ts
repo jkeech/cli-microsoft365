@@ -314,7 +314,6 @@ describe(commands.SEARCH, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

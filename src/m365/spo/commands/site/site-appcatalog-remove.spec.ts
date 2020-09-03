@@ -38,7 +38,6 @@ describe(commands.SITE_APPCATALOG_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

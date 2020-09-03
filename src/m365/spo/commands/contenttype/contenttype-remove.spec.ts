@@ -41,7 +41,6 @@ describe(commands.CONTENTTYPE_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post
     ]);

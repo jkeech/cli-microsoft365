@@ -40,7 +40,6 @@ describe(commands.YAMMER_MESSAGE_LIKE_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete,
       request.post
     ]);

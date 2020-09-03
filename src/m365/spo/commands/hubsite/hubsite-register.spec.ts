@@ -36,7 +36,6 @@ describe(commands.HUBSITE_REGISTER, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

@@ -42,7 +42,6 @@ describe(commands.THEME_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

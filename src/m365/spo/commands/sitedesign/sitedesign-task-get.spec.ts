@@ -36,7 +36,6 @@ describe(commands.SITEDESIGN_TASK_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

@@ -39,7 +39,6 @@ describe(commands.PROJECT_RENAME, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       (command as any).generateNewId,
       (command as any).getProjectRoot,
       (command as any).getProject,

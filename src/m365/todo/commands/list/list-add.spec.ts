@@ -34,7 +34,6 @@ describe(commands.LIST_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       Date.now
     ]);

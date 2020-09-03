@@ -86,7 +86,6 @@ describe(commands.FOLDER_COPY, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

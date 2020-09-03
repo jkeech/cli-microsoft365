@@ -35,7 +35,6 @@ describe(commands.TEAMS_MESSAGE_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

@@ -41,7 +41,6 @@ describe(commands.TEAMS_CHANNEL_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.delete
     ]);

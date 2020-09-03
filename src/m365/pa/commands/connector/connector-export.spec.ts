@@ -44,7 +44,6 @@ describe(commands.CONNECTOR_EXPORT, () => {
     mkdirSyncStub.reset();
     writeFileSyncStub.reset();
     Utils.restore([
-      vorpal.find,
       request.get,
       fs.existsSync
     ]);

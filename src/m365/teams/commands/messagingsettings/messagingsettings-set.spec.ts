@@ -36,7 +36,6 @@ describe(commands.TEAMS_MESSAGINGSETTINGS_SET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.patch
     ]);
   });

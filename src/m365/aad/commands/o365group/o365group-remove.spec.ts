@@ -43,7 +43,6 @@ describe(commands.O365GROUP_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete,
       global.setTimeout
     ]);

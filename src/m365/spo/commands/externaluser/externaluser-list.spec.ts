@@ -38,7 +38,6 @@ describe(commands.EXTERNALUSER_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

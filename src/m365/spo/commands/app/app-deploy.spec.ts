@@ -38,7 +38,6 @@ describe(commands.APP_DEPLOY, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get,
       request.post
     ]);

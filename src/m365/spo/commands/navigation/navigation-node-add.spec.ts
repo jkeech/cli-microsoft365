@@ -35,7 +35,6 @@ describe(commands.NAVIGATION_NODE_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

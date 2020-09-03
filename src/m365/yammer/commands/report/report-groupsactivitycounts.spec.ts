@@ -34,7 +34,6 @@ describe(commands.YAMMER_REPORT_GROUPSACTIVITYCOUNTS, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

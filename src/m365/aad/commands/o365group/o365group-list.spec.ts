@@ -36,7 +36,6 @@ describe(commands.O365GROUP_LIST, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

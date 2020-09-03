@@ -34,7 +34,6 @@ describe(commands.OUTLOOK_REPORT_MAILACTIVITYCOUNTS, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

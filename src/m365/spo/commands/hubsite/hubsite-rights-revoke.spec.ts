@@ -44,7 +44,6 @@ describe(commands.HUBSITE_RIGHTS_REVOKE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

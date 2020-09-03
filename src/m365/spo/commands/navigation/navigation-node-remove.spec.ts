@@ -42,7 +42,6 @@ describe(commands.NAVIGATION_NODE_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

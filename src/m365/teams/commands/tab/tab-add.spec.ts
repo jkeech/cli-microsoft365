@@ -37,7 +37,6 @@ describe(commands.TEAMS_TAB_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

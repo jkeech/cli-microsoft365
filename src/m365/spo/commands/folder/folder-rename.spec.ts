@@ -101,7 +101,6 @@ describe(commands.FOLDER_RENAME, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

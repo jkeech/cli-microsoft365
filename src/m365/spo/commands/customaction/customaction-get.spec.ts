@@ -35,7 +35,6 @@ describe(commands.CUSTOMACTION_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.get
     ]);
   });

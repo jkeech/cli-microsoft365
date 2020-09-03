@@ -69,7 +69,6 @@ describe(commands.CONTENTTYPEHUB_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

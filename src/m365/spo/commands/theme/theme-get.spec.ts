@@ -38,7 +38,6 @@ describe(commands.THEME_GET, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });

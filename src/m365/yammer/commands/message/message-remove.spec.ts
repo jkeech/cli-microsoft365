@@ -37,7 +37,6 @@ describe(commands.YAMMER_MESSAGE_REMOVE, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.delete
     ]);
   });

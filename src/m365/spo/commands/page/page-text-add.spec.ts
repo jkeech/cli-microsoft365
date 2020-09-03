@@ -38,7 +38,6 @@ describe(commands.PAGE_TEXT_ADD, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post,
       request.get
     ]);

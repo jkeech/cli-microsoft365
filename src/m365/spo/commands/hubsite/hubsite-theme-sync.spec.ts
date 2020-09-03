@@ -35,7 +35,6 @@ describe(commands.HUBSITE_THEME_SYNC, () => {
 
   afterEach(() => {
     Utils.restore([
-      vorpal.find,
       request.post
     ]);
   });
