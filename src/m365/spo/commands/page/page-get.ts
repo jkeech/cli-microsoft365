@@ -105,14 +105,6 @@ class SpoPageGetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.name) {
-        return 'Required parameter name missing';
-      }
-
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }

@@ -110,21 +110,8 @@ class TeamsCloneCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-
-      if (!args.options.teamId) {
-        return 'Required parameter teamId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.teamId)) {
         return `${args.options.teamId} is not a valid GUID`;
-      }
-
-      if (!args.options.displayName) {
-        return 'Required option displayName missing';
-      }
-
-      if (!args.options.partsToClone) {
-        return 'Required option partsToClone missing';
       }
 
       const partsToClone: string[] = args.options.partsToClone.replace(/\s/g, '').split(',');

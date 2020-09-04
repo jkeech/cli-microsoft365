@@ -89,16 +89,8 @@ class SpoAppUpgradeCommand extends SpoCommand {
         }
       }
 
-      if (!args.options.id) {
-        return 'Required parameter id missing';
-      }
-
       if (!Utils.isValidGuid(args.options.id)) {
         return `${args.options.id} is not a valid GUID`;
-      }
-
-      if (!args.options.siteUrl) {
-        return 'Required parameter siteUrl missing';
       }
 
       return SpoCommand.isValidSharePointUrl(args.options.siteUrl);

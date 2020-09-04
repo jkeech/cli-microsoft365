@@ -74,18 +74,6 @@ class TeamsMessageReplyListCommand extends GraphItemsListCommand<Reply>  {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.teamId) {
-        return 'Required parameter teamId missing';
-      }
-
-      if (!args.options.channelId) {
-        return 'Required parameter channelId missing';
-      }
-
-      if (!args.options.messageId) {
-        return 'Required parameter messageId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.teamId)) {
         return `${args.options.teamId} is not a valid GUID`;
       }

@@ -205,16 +205,7 @@ class FlowExportCommand extends AzmgmtCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-
       const lowerCaseFormat = args.options.format ? args.options.format.toLowerCase() : '';
-
-      if (!args.options.id) {
-        return 'Required option id missing';
-      }
-
-      if (!args.options.environment) {
-        return 'Required option environment missing';
-      }
 
       if (!Utils.isValidGuid(args.options.id)) {
         return `${args.options.id} is not a valid GUID`;

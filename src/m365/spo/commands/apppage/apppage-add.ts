@@ -86,18 +86,6 @@ class SpoAppPageAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
-      if (!args.options.title) {
-        return 'Required parameter title missing';
-      }
-
-      if (!args.options.webPartData) {
-        return 'Required parameter webPartData missing';
-      }
-
       try {
         JSON.parse(args.options.webPartData);
       }

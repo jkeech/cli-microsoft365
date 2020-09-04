@@ -155,20 +155,6 @@ class AadSiteClassificationEnableCommand extends GraphCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.classifications) {
-        return 'Required option classifications missing';
-      }
-
-      if (!args.options.defaultClassification) {
-        return 'Required option defaultClassification missing';
-      }
-
-      return true;
-    };
-  }
 }
 
 module.exports = new AadSiteClassificationEnableCommand();

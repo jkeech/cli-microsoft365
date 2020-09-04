@@ -84,10 +84,6 @@ class SpoServicePrincipalPermissionRequestDenyCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.requestId) {
-        return 'Required parameter requestId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.requestId)) {
         return `${args.options.requestId} is not a valid GUID`;
       }

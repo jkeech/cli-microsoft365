@@ -104,14 +104,6 @@ class SpoFeatureDisableCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.url) {
-        return 'Required parameter url missing';
-      }
-
-      if (!args.options.featureId) {
-        return 'Required parameter featureId missing';
-      }
-
       if (args.options.scope) {
         if (['site', 'web'].indexOf(args.options.scope.toLowerCase()) < 0) {
           return `${args.options.scope} is not a valid Feature scope. Allowed values are Site|Web`;

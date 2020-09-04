@@ -82,20 +82,6 @@ class FlowRunListCommand extends AzmgmtCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.flow) {
-        return 'Required option name missing';
-      }
-
-      if (!args.options.environment) {
-        return 'Required option environment missing';
-      }
-
-      return true;
-    };
-  }
 }
 
 module.exports = new FlowRunListCommand();

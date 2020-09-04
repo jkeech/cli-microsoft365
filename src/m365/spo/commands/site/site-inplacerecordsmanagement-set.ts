@@ -80,14 +80,6 @@ class SpoSiteInPlaceRecordsManagementSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.siteUrl) {
-        return 'Required option siteUrl missing';
-      }
-
-      if (!args.options.enabled) {
-        return 'Required option enabled missing';
-      }
-
       if (!Utils.isValidBoolean(args.options.enabled)) {
         return 'Invalid "enabled" option value. Specify "true" or "false"';
       }

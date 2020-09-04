@@ -98,21 +98,9 @@ class SpoHubSiteRightsGrantCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.url) {
-        return 'Required parameter url missing';
-      }
-
       const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.url);
       if (isValidSharePointUrl !== true) {
         return isValidSharePointUrl;
-      }
-
-      if (!args.options.principals) {
-        return 'Required parameter principals missing';
-      }
-
-      if (!args.options.rights) {
-        return 'Required parameter rights missing';
       }
 
       if (args.options.rights !== 'Join') {

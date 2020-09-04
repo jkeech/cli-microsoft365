@@ -112,14 +112,6 @@ class SpoThemeSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.name) {
-        return 'Required parameter name missing';
-      }
-
-      if (!args.options.filePath) {
-        return 'Required parameter filePath missing';
-      }
-
       const fullPath: string = path.resolve(args.options.filePath);
 
       if (!fs.existsSync(fullPath)) {

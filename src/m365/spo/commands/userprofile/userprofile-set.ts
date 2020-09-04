@@ -95,24 +95,6 @@ class SpoUserProfileSetCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.userName) {
-        return 'Required parameter userName missing';
-      }
-
-      if (!args.options.propertyName) {
-        return 'Required parameter propertyName missing';
-      }
-
-      if (!args.options.propertyValue) {
-        return 'Required parameter propertyValue missing';
-      }
-
-      return true;
-    };
-  }
 }
 
 module.exports = new SpoUserProfileSetCommand();

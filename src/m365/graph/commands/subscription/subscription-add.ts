@@ -182,20 +182,8 @@ class GraphSubscriptionAddCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.resource) {
-        return 'Required option resource is missing';
-      }
-
-      if (!args.options.notificationUrl) {
-        return 'Required option notificationUrl is missing';
-      }
-
       if (args.options.notificationUrl.indexOf('https://') !== 0) {
         return `The specified notification URL '${args.options.notificationUrl}' does not start with 'https://'`;
-      }
-
-      if (!args.options.changeType) {
-        return 'Required option changeType is missing';
       }
 
       if (!this.isValidChangeTypes(args.options.changeType)) {

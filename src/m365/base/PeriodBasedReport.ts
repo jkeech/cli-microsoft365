@@ -90,9 +90,6 @@ export default abstract class PeriodBasedReport extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.period) {
-        return 'Required parameter period missing';
-      }
       return this.validatePeriod(args.options.period);
     };
   }

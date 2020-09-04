@@ -82,16 +82,8 @@ class TeamsChannelAddCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.teamId) {
-        return 'Required parameter teamId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.teamId as string)) {
         return `${args.options.teamId} is not a valid GUID`;
-      }
-
-      if (!args.options.name) {
-        return 'Required parameter name missing';
       }
 
       return true;

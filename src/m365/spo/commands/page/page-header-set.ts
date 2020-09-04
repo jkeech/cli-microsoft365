@@ -394,14 +394,6 @@ class SpoPageHeaderSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.pageName) {
-        return 'Required parameter pageName missing';
-      }
-
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
       if (args.options.type &&
         args.options.type !== 'None' &&
         args.options.type !== 'Default' &&

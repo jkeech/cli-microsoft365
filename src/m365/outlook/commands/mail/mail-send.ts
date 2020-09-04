@@ -122,14 +122,6 @@ class OutlookSendmailCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.subject) {
-        return 'Required option subject missing';
-      }
-
-      if (!args.options.to) {
-        return 'Required option to missing';
-      }
-
       if (!args.options.bodyContents && !args.options.bodyContentsFilePath) {
         return 'Specify either bodyContents or bodyContentsFilePath';
       }

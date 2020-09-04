@@ -95,16 +95,7 @@ class SpoWebAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required option webUrl missing';
-      }
-
-      const isValidUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
-      if (typeof isValidUrl === 'string') {
-        return isValidUrl;
-      }
-
-      return true;
+      return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
 }

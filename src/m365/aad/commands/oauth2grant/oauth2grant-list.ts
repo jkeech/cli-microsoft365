@@ -76,10 +76,6 @@ class AadOAuth2GrantListCommand extends AadCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.clientId) {
-        return 'Required option clientId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.clientId)) {
         return `${args.options.clientId} is not a valid GUID`;
       }

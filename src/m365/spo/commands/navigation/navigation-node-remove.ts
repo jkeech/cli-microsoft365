@@ -112,29 +112,17 @@ class SpoNavigationNodeRemoveCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required option webUrl missing';
-      }
 
       const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
       if (isValidSharePointUrl !== true) {
         return isValidSharePointUrl;
       }
 
-      if (!args.options.location) {
-        return 'Required option location missing';
+      if (args.options.location !== 'QuickLaunch' &&
+        args.options.location !== 'TopNavigationBar') {
+        return `${args.options.location} is not a valid value for the location option. Allowed values are QuickLaunch|TopNavigationBar`;
       }
-      else {
-        if (args.options.location !== 'QuickLaunch' &&
-          args.options.location !== 'TopNavigationBar') {
-          return `${args.options.location} is not a valid value for the location option. Allowed values are QuickLaunch|TopNavigationBar`;
-        }
-      }
-
-      if (!args.options.id) {
-        return 'Required option id missing';
-      }
-
+      
       const id: number = parseInt(args.options.id);
       if (isNaN(id)) {
         return `${args.options.id} is not a number`;

@@ -152,14 +152,6 @@ class GraphSchemaExtensionSetCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.id) {
-        return 'Required option id is missing';
-      }
-
-      if (!args.options.owner) {
-        return 'Required option owner is missing';
-      }
-
       if (!Utils.isValidGuid(args.options.owner)) {
         return `The specified owner '${args.options.owner}' is not a valid App Id`;
       }

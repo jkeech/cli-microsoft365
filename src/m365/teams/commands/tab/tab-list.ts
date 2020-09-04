@@ -71,14 +71,6 @@ class TeamsTabListCommand extends GraphItemsListCommand<Tab> {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.teamId) {
-        return 'Required parameter teamId missing';
-      }
-
-      if (!args.options.channelId) {
-        return 'Required parameter channelId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.teamId as string)) {
         return `${args.options.teamId} is not a valid GUID`;
       }

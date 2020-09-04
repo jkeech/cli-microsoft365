@@ -253,18 +253,6 @@ class AadO365GroupAddCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.displayName) {
-        return 'Required option displayName missing';
-      }
-
-      if (!args.options.description) {
-        return 'Required option description missing';
-      }
-
-      if (!args.options.mailNickname) {
-        return 'Required option mailNickname missing';
-      }
-
       if (args.options.owners) {
         let owners: string[] = args.options.owners.split(',').map(o => o.trim());
         for (let i = 0; i < owners.length; i++) {

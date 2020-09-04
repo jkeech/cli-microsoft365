@@ -93,20 +93,6 @@ class SpoServicePrincipalGrantAddCommand extends SpoCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.resource) {
-        return 'Required parameter resource missing';
-      }
-
-      if (!args.options.scope) {
-        return 'Required parameter scope missing';
-      }
-
-      return true;
-    };
-  }
 }
 
 module.exports = new SpoServicePrincipalGrantAddCommand();

@@ -146,14 +146,6 @@ class SpoListLabelSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.label) {
-        return 'Required parameter label missing';
-      }
-
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
       if (!args.options.listId && !args.options.listTitle && !args.options.listUrl) {
         return `Specify listId or listTitle or listUrl.`;
       }

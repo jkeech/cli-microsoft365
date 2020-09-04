@@ -161,21 +161,9 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.url) {
-        return 'Required option url missing';
-      }
-
       const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.url);
       if (isValidSharePointUrl !== true) {
         return isValidSharePointUrl;
-      }
-
-      if (!args.options.owner) {
-        return 'Required option owner missing';
-      }
-
-      if (!args.options.timeZone) {
-        return 'Required option timeZone missing';
       }
 
       if (typeof args.options.timeZone !== 'number') {

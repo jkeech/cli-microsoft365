@@ -129,14 +129,6 @@ class SpoListItemRecordUndeclareCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
-      if (!args.options.id) {
-        return 'Required parameter id missing';
-      }
-
       const id: number = parseInt(args.options.id);
       if (isNaN(id)) {
         return `${args.options.id} is not a valid list item ID`;

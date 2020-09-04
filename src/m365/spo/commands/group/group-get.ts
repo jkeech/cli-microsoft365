@@ -88,10 +88,6 @@ class SpoUserGetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
       if (args.options.id && args.options.name) {
         return 'Use either "id" or "name", but not all.';
       }

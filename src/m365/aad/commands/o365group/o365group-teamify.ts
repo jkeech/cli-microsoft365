@@ -67,10 +67,6 @@ class AadO365GroupTeamifyCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.groupId) {
-        return 'Required parameter teamId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.groupId)) {
         return `${args.options.groupId} is not a valid GUID`;
       }

@@ -332,24 +332,7 @@ class SpoFileCopyCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
-      const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
-      if (isValidSharePointUrl !== true) {
-        return isValidSharePointUrl;
-      }
-
-      if (!args.options.sourceUrl) {
-        return 'Required parameter sourceUrl missing';
-      }
-
-      if (!args.options.targetUrl) {
-        return 'Required parameter targetUrl missing';
-      }
-
-      return true;
+      return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
 }

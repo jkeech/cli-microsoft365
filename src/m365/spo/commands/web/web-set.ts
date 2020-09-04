@@ -169,16 +169,11 @@ class SpoWebSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required option webUrl missing';
+      const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
+      if (isValidSharePointUrl !== true) {
+        return isValidSharePointUrl;
       }
-      else {
-        const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
-        if (isValidSharePointUrl !== true) {
-          return isValidSharePointUrl;
-        }
-      }
-
+      
       if (typeof args.options.quickLaunchEnabled !== 'undefined') {
         if (args.options.quickLaunchEnabled !== 'true' &&
           args.options.quickLaunchEnabled !== 'false') {

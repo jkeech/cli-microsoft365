@@ -170,18 +170,6 @@ class SpoPageTextAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
-      if (!args.options.pageName) {
-        return 'Required option pageName is missing';
-      }
-
-      if (!args.options.text) {
-        return 'Required option text is missing';
-      }
-
       if (args.options.section && (!isNumber(args.options.section) || args.options.section < 1)) {
         return 'The value of parameter section must be 1 or higher';
       }

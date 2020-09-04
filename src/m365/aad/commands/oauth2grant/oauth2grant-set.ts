@@ -68,20 +68,6 @@ class AadOAuth2GrantSetCommand extends AadCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.grantId) {
-        return 'Required option grantId missing';
-      }
-
-      if (!args.options.scope) {
-        return 'Required option scope missing';
-      }
-
-      return true;
-    };
-  }
 }
 
 module.exports = new AadOAuth2GrantSetCommand();

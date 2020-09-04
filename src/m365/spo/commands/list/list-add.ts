@@ -583,27 +583,9 @@ class SpoListAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.title) {
-        return 'Required parameter title missing';
-      }
-
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
       const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
       if (isValidSharePointUrl !== true) {
         return isValidSharePointUrl;
-      }
-
-      if (!args.options.baseTemplate) {
-        return 'Required parameter baseTemplate missing';
-      }
-      else {
-        const template: ListTemplateType = ListTemplateType[(args.options.baseTemplate.trim() as keyof typeof ListTemplateType)];
-        if (!template) {
-          return `${args.options.baseTemplate} is not a valid baseTemplate value`;
-        }
       }
 
       for (let i = 0; i < SpoListAddCommand.booleanOptions.length; i++) {

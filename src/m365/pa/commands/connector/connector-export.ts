@@ -193,14 +193,6 @@ class PaConnectorExportCommand extends AzmgmtCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.environment) {
-        return 'Required option environment missing';
-      }
-
-      if (!args.options.connector) {
-        return 'Required option connector missing';
-      }
-
       if (args.options.outputFolder &&
         !fs.existsSync(path.resolve(args.options.outputFolder))) {
         return `Specified output folder ${args.options.outputFolder} doesn't exist`;

@@ -68,10 +68,6 @@ class CliConsentCommand extends Command {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.service) {
-        return 'Required option service missing';        
-      }
-
       if (args.options.service !== 'yammer') {
         return `${args.options.service} is not a valid value for the service option. Allowed values: yammer`;
       }

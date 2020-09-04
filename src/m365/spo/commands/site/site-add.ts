@@ -30,7 +30,7 @@ interface Options extends GlobalOptions {
   lcid?: number;
   url?: string;
   allowFileSharingForGuestUsers?: boolean;
-  owners?: string;
+  owners: string;
   shareByEmailEnabled?: boolean;
   siteDesign?: string;
   siteDesignId?: string;
@@ -575,10 +575,6 @@ class SpoSiteAddCommand extends SpoCommand {
         }
       }
 
-      if (!args.options.title) {
-        return 'Required option title missing';
-      }
-
       if (isTeamSite) {
         if (!args.options.alias) {
           return 'Required option alias missing';
@@ -645,7 +641,7 @@ class SpoSiteAddCommand extends SpoCommand {
         if (!args.options.timeZone) {
           return 'Required option timeZone missing';
         }
-
+        
         if (typeof args.options.timeZone !== 'number') {
           return `${args.options.timeZone} is not a number`;
         }

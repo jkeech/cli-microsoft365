@@ -122,10 +122,6 @@ class AadGroupSettingAddCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.templateId) {
-        return 'Required option templateId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.templateId)) {
         return `${args.options.templateId} is not a valid GUID`;
       }

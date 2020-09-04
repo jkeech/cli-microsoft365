@@ -120,24 +120,7 @@ class SpoSiteGroupifyCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.siteUrl) {
-        return 'Required option siteUrl missing';
-      }
-
-      const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.siteUrl);
-      if (isValidSharePointUrl !== true) {
-        return isValidSharePointUrl;
-      }
-
-      if (!args.options.alias) {
-        return 'Required option alias missing';
-      }
-
-      if (!args.options.displayName) {
-        return 'Required option displayName missing';
-      }
-
-      return true;
+      return SpoCommand.isValidSharePointUrl(args.options.siteUrl);
     };
   }
 }

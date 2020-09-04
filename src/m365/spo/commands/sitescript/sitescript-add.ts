@@ -89,14 +89,6 @@ class SpoSiteScriptAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.title) {
-        return 'Required parameter title missing';
-      }
-
-      if (!args.options.content) {
-        return 'Required parameter content missing';
-      }
-
       try {
         JSON.parse(args.options.content);
       }

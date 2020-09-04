@@ -397,14 +397,6 @@ class SpoPageClientSideWebPartAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
-      if (!args.options.pageName) {
-        return 'Required option pageName is missing';
-      }
-
       if (!args.options.standardWebPart && !args.options.webPartId) {
         return 'Specify either the standardWebPart or the webPartId option';
       }

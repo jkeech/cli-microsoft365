@@ -77,10 +77,6 @@ class SpoFeatureListCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.url) {
-        return 'Required parameter url missing';
-      }
-
       if (args.options.scope) {
         if (args.options.scope !== 'Site' &&
           args.options.scope !== 'Web') {

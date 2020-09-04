@@ -222,10 +222,6 @@ class SpoTermAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.name) {
-        return 'Required option name missing';
-      }
-
       if (args.options.id) {
         if (!Utils.isValidGuid(args.options.id)) {
           return `${args.options.id} is not a valid GUID`;

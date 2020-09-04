@@ -319,10 +319,6 @@ class SpoSearchCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.queryText) {
-        return 'Required parameter queryText missing';
-      }
-
       if (args.options.sourceId && !Utils.isValidGuid(args.options.sourceId)) {
         return `${args.options.sourceId} is not a valid GUID`;
       }

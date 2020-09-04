@@ -75,10 +75,6 @@ class YammerGroupUserAddCommand extends YammerCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.id) {
-        return 'Required id value is missing';
-      }
-
       if (args.options.id && typeof args.options.id !== 'number') {
         return `${args.options.id} is not a number`;
       }

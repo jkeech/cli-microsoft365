@@ -109,16 +109,6 @@ class CliCompletionPwshSetupCommand extends AnonymousCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.profile) {
-        return 'Required option profile missing';
-      }
-
-      return true;
-    };
-  }
 }
 
 module.exports = new CliCompletionPwshSetupCommand();

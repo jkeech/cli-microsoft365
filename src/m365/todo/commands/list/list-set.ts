@@ -65,20 +65,6 @@ class TodoListSetCommand extends GraphCommand {
     const parentOptions: CommandOption[] = super.options();
     return options.concat(parentOptions);
   }
-
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.id) {
-        return 'Required option id is missing';
-      }
-
-      if (!args.options.newName) {
-        return 'Required option newName is missing'
-      }
-
-      return true;
-    };
-  }
 }
 
 module.exports = new TodoListSetCommand();

@@ -215,18 +215,6 @@ class SpoContentTypeFieldRemoveCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.contentTypeId) {
-        return 'Required parameter contentTypeId missing';
-      }
-
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
-      if (!args.options.fieldLinkId) {
-        return 'Required parameter fieldLinkId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.fieldLinkId)) {
         return `${args.options.fieldLinkId} is not a valid GUID`;
       }

@@ -93,16 +93,6 @@ class SpoOrgAssetsLibraryRemoveCommand extends SpoCommand {
     }
   }
 
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.libraryUrl) {
-        return 'Required parameter libraryUrl missing';
-      }
-
-      return true
-    };
-  }
-
   public options(): CommandOption[] {
     const options: CommandOption[] = [
       {

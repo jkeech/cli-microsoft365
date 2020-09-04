@@ -159,10 +159,6 @@ class TeamsChannelRemoveCommand extends GraphCommand {
         return `${args.options.channelId} is not a valid Teams Channel Id`;
       }
 
-      if (!args.options.teamId) {
-        return 'Required parameter teamId missing';
-      }
-
       if (args.options.teamId && !Utils.isValidGuid(args.options.teamId)) {
         return `${args.options.teamId} is not a valid GUID`;
       }

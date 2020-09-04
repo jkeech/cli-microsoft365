@@ -110,10 +110,6 @@ class SpoServicePrincipalSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.enabled) {
-        return 'Required option enabled missing';
-      }
-
       const enabled: string = args.options.enabled.toLowerCase();
       if (enabled !== 'true' &&
         enabled !== 'false') {

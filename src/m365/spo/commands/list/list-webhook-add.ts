@@ -125,10 +125,6 @@ class SpoListWebhookAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
       const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
       if (isValidSharePointUrl !== true) {
         return isValidSharePointUrl;
@@ -146,10 +142,6 @@ class SpoListWebhookAddCommand extends SpoCommand {
 
       if (!args.options.listId && !args.options.listTitle) {
         return 'Specify listId or listTitle, one is required';
-      }
-
-      if (!args.options.notificationUrl) {
-        return 'Required parameter notificationUrl missing';
       }
 
       const parsedDateTime = Date.parse(args.options.expirationDateTime as string)

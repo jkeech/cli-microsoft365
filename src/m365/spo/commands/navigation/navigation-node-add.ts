@@ -108,10 +108,6 @@ class SpoNavigationNodeAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required option webUrl missing';
-      }
-
       const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
       if (isValidSharePointUrl !== true) {
         return isValidSharePointUrl;
@@ -123,23 +119,10 @@ class SpoNavigationNodeAddCommand extends SpoCommand {
         }
       }
       else {
-        if (!args.options.location) {
-          return 'Required option location missing';
+        if (args.options.location !== 'QuickLaunch' &&
+          args.options.location !== 'TopNavigationBar') {
+          return `${args.options.location} is not a valid value for the location option. Allowed values are QuickLaunch|TopNavigationBar`;
         }
-        else {
-          if (args.options.location !== 'QuickLaunch' &&
-            args.options.location !== 'TopNavigationBar') {
-            return `${args.options.location} is not a valid value for the location option. Allowed values are QuickLaunch|TopNavigationBar`;
-          }
-        }
-      }
-
-      if (!args.options.title) {
-        return 'Required option title missing';
-      }
-
-      if (!args.options.url) {
-        return 'Required option url missing';
       }
 
       return true;

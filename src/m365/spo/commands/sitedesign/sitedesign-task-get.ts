@@ -70,10 +70,6 @@ class SpoSiteDesignTaskGetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.taskId) {
-        return 'Required parameter taskId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.taskId)) {
         return `${args.options.taskId} is not a valid GUID`;
       }

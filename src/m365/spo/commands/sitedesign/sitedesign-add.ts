@@ -135,21 +135,9 @@ class SpoSiteDesignAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.title) {
-        return 'Required parameter title missing';
-      }
-
-      if (!args.options.webTemplate) {
-        return 'Required parameter webTemplate missing';
-      }
-
       if (args.options.webTemplate !== 'TeamSite' &&
         args.options.webTemplate !== 'CommunicationSite') {
         return `${args.options.webTemplate} is not a valid web template type. Allowed values TeamSite|CommunicationSite`;
-      }
-
-      if (!args.options.siteScripts) {
-        return 'Required parameter siteScripts missing';
       }
 
       const siteScripts = args.options.siteScripts.split(',');

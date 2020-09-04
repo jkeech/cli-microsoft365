@@ -76,10 +76,6 @@ class SpoUserListCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-      
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }

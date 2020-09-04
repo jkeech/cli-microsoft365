@@ -114,16 +114,8 @@ class FlowRemoveCommand extends AzmgmtCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.name) {
-        return 'Required option name missing';
-      }
-
       if (!Utils.isValidGuid(args.options.name)) {
         return `${args.options.name} is not a valid GUID`;
-      }
-
-      if (!args.options.environment) {
-        return 'Required option environment missing';
       }
 
       return true;

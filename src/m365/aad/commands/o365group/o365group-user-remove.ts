@@ -153,10 +153,6 @@ class AadO365GroupUserRemoveCommand extends GraphCommand {
         return `${args.options.groupId} is not a valid GUID`;
       }
 
-      if (!args.options.userName) {
-        return 'Required parameter userName missing';
-      }
-
       return true;
     };
   }

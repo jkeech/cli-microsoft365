@@ -75,10 +75,6 @@ class SpoHideDefaultThemesSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (typeof args.options.hideDefaultThemes === 'undefined') {
-        return 'Required parameter hideDefaultThemes missing';
-      }
-
       if (args.options.hideDefaultThemes !== 'false' &&
         args.options.hideDefaultThemes !== 'true') {
         return `${args.options.hideDefaultThemes} is not a valid boolean`;

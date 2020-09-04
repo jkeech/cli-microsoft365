@@ -120,10 +120,6 @@ class AadO365GroupUserAddCommand extends GraphCommand {
         return `${args.options.groupId} is not a valid GUID`;
       }
 
-      if (!args.options.userName) {
-        return 'Required parameter userName missing';
-      }
-
       if (args.options.role) {
         if (['owner', 'member'].indexOf(args.options.role.toLowerCase()) === -1) {
           return `${args.options.role} is not a valid role value. Allowed values Owner|Member`;

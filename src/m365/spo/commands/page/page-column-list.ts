@@ -73,23 +73,10 @@ class SpoPageColumnListCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.name) {
-        return 'Required parameter name missing';
+      if (isNaN(args.options.section)) {
+        return `${args.options.section} is not a number`;
       }
-
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
-      if (!args.options.section) {
-        return 'Required parameter section missing';
-      }
-      else {
-        if (isNaN(args.options.section)) {
-          return `${args.options.section} is not a number`;
-        }
-      }
-
+      
       return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }

@@ -51,16 +51,6 @@ class SpfxProjectRenameCommand extends BaseProjectCommand {
     return options.concat(parentOptions);
   }
 
-  public validate(): CommandValidate {
-    return (args: CommandArgs): boolean | string => {
-      if (!args.options.newName) {
-        return 'Required parameter newName missing';
-      }
-
-      return true;
-    };
-  }
-
   public action(): CommandAction {
     const cmd: Command = this;
     return function (this: CommandInstance, args: CommandArgs, cb: (err?: any) => void) {

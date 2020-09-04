@@ -233,14 +233,6 @@ class AadAppRoleAssignmentAddCommand extends AadCommand {
         return 'Specify either appId, objectId or displayName';
       }
 
-      if (!args.options.resource) {
-        return 'Required option resource missing';
-      }
-
-      if (!args.options.scope) {
-        return 'Required option scope missing';
-      }
-
       if (args.options.appId && !Utils.isValidGuid(args.options.appId)) {
         return `${args.options.appId} is not a valid GUID`;
       }

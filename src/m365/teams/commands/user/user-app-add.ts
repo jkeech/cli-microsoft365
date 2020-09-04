@@ -68,16 +68,8 @@ class TeamsUserAppAddCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.appId) {
-        return 'Required parameter appId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.appId)) {
         return `${args.options.appId} is not a valid GUID`;
-      }
-
-      if (!args.options.userId) {
-        return 'Required parameter userId missing';
       }
 
       if (!Utils.isValidGuid(args.options.userId)) {

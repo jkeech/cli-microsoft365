@@ -102,10 +102,6 @@ class YammerMessageAddCommand extends YammerCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.body) {
-        return 'Required body value is missing';
-      }
-
       if (args.options.groupId && typeof args.options.groupId !== 'number') {
         return `${args.options.groupId} is not a number`;
       }

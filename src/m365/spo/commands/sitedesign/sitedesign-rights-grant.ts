@@ -88,20 +88,8 @@ class SpoSiteDesignRightsGrantCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.id) {
-        return 'Required parameter id missing';
-      }
-
       if (!Utils.isValidGuid(args.options.id)) {
         return `${args.options.id} is not a valid GUID`;
-      }
-
-      if (!args.options.principals) {
-        return 'Required parameter principals missing';
-      }
-
-      if (!args.options.rights) {
-        return 'Required parameter rights missing';
       }
 
       if (args.options.rights !== 'View') {

@@ -84,24 +84,12 @@ class AadOAuth2GrantAddCommand extends AadCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.clientId) {
-        return 'Required option clientId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.clientId)) {
         return `${args.options.clientId} is not a valid GUID`;
       }
 
-      if (!args.options.resourceId) {
-        return 'Required option resourceId missing';
-      }
-
       if (!Utils.isValidGuid(args.options.resourceId)) {
         return `${args.options.resourceId} is not a valid GUID`;
-      }
-
-      if (!args.options.scope) {
-        return 'Required option scope missing';
       }
 
       return true;

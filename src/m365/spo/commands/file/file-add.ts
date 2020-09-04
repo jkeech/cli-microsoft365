@@ -396,21 +396,9 @@ class SpoFileAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return 'Required parameter webUrl missing';
-      }
-
       const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.webUrl);
       if (isValidSharePointUrl !== true) {
         return isValidSharePointUrl;
-      }
-
-      if (!args.options.folder) {
-        return 'Required parameter folder missing';
-      }
-
-      if (!args.options.path) {
-        return 'Required parameter path missing';
       }
 
       if (args.options.path && !fs.existsSync(args.options.path)) {

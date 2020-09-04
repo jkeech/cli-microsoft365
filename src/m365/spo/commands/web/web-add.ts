@@ -214,29 +214,11 @@ class SpoWebAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-
-      if (!args.options.title) {
-        return 'Required option title missing';
+      const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.parentWebUrl);
+      if (isValidSharePointUrl !== true) {
+        return isValidSharePointUrl;
       }
-
-      if (!args.options.webUrl) {
-        return 'Required option webUrl missing';
-      }
-
-      if (!args.options.webTemplate) {
-        return 'Required option webTemplate missing';
-      }
-
-      if (!args.options.parentWebUrl) {
-        return 'Required option parentWebUrl missing';
-      }
-      else {
-        const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.parentWebUrl);
-        if (isValidSharePointUrl !== true) {
-          return isValidSharePointUrl;
-        }
-      }
-
+      
       if (args.options.locale) {
         const locale: number = parseInt(args.options.locale);
         if (isNaN(locale)) {
