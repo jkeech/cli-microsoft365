@@ -451,7 +451,7 @@ export class Cli {
 
     let helpFilePath = '';
     const commandNameWords = this.optionsFromArgs.options._;
-    const pathChunks: string[] = [this.rootFolder, '..', 'docs', 'manual', 'docs', 'cmd'];
+    const pathChunks: string[] = [this.rootFolder, '..', 'docs', 'docs', 'cmd'];
 
     if (commandNameWords.length === 1) {
       pathChunks.push(`${commandNameWords[0]}.md`);
