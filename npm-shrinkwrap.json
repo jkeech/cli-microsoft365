@@ -2398,9 +2398,9 @@
       }
     },
     "markshell": {
-      "version": "0.0.8",
-      "resolved": "https://registry.npmjs.org/markshell/-/markshell-0.0.8.tgz",
-      "integrity": "sha512-unRkIshOthJbiLPZWGVFT7YhxeNObzKjEmmBcZs8Os3lK4VlNGI9eCZ8rM33nSZGU5CfWnEFOTgTGTi/E8JIcA==",
+      "version": "0.0.9",
+      "resolved": "https://registry.npmjs.org/markshell/-/markshell-0.0.9.tgz",
+      "integrity": "sha512-z2QPpCHkK+85TfCVthY1XiTVRq5YJjBeCPVG1kOh3GVb7AuyojctyPXFp5UsrVk7luPqTt+vev9KO98jW2n3cA==",
       "requires": {
         "@types/node": "^10.17.28",
         "@types/prismjs": "^1.16.1",

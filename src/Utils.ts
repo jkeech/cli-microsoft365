@@ -1,6 +1,4 @@
-import Command from './Command';
 import * as url from 'url';
-import { CommandInstance } from './cli/CommandInstance';
 
 export default class Utils {
   public static escapeXml(s: any | undefined) {
@@ -551,61 +549,6 @@ export default class Utils {
     }
 
     return true;
-  }
-
-  public static executeCommand(command: Command, options: any, cmd: CommandInstance): Promise<void> {
-    return new Promise<void>((resolve: () => void, reject: (error: any) => void): void => {
-      const commandInstance: any = {
-        commandWrapper: {
-          command: command.name
-        },
-        action: command.action(),
-        log: (message: any): void => {
-          cmd.log(message);
-        },
-        prompt: cmd.prompt
-      };
-
-      if (options.debug) {
-        cmd.log(`Executing command ${command.name} with options ${JSON.stringify(options)}`);
-      }
-
-      commandInstance.action({ options: options }, (err: any): void => {
-        if (err) {
-          return reject(err);
-        }
-
-        resolve();
-      });
-    });
-  }
-
-  public static executeCommandWithOutput(command: Command, options: any, cmd: CommandInstance): Promise<string> {
-    return new Promise((resolve: (result: string) => void, reject: (error: any) => void): void => {
-      const log: string[] = [];
-      const commandInstance: any = {
-        commandWrapper: {
-          command: command.name
-        },
-        action: command.action(),
-        log: (message: any): void => {
-          log.push(message);
-        },
-        prompt: cmd.prompt
-      };
-
-      if (options.debug) {
-        cmd.log(`Executing command ${command.name} with options ${JSON.stringify(options)}`);
-      }
-
-      commandInstance.action({ options: options }, (err: any): void => {
-        if (err) {
-          return reject(err);
-        }
-
-        resolve(log.join());
-      });
-    });
   }
 
   public static parseJsonWithBom(s: string): any {

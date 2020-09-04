@@ -10,6 +10,8 @@ import Command, {
 } from './Command';
 import Utils from './Utils';
 import appInsights from './appInsights';
+import { CommandInstance } from './cli/CommandInstance';
+import * as chalk from 'chalk';
 
 class MockCommand1 extends Command {
   public get name(): string {
@@ -220,12 +222,8 @@ describe('Command', () => {
       vcmd.help,
       vcmd.types,
       vcmd.allowUnknownOptions,
-      vorpal.command,
-      process.exit,
-      vorpal.util.parseCommand
+      process.exit
     ]);
-    vorpal.commands = [];
-    (vorpal as any)._command = undefined;
     auth.service.connected = false;
   });
 

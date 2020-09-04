@@ -140,28 +140,72 @@ export class Cli {
       }
     }
 
-    const commandInstance = {
-      commandWrapper: {
-        command: this.commandToExecute.name
-      },
-      action: this.commandToExecute.command.action(),
-      log: (message: any): void => {
-        const output: any = Cli.logOutput(message, (this.optionsFromArgs as any).options);
-        console.log(output);
-      },
-      prompt: (options: any, cb: (result: any) => void) => {
-        inquirer
-          .prompt(options)
-          .then(result => cb(result));
-      }
-    };
+    Cli
+      .executeCommand(this.commandToExecute.name, this.commandToExecute.command, this.optionsFromArgs)
+      .then(_ => process.exit(0), err => this.closeWithError(err));
+  }
 
-    commandInstance.action(this.optionsFromArgs, (err?: CommandError): void => {
-      if (err) {
-        this.closeWithError(err);
+  public static executeCommand(commandName: string, command: Command, args: any): Promise<void> {
+    return new Promise<void>((resolve: () => void, reject: (error: any) => void): void => {
+      const commandInstance = {
+        commandWrapper: {
+          command: commandName
+        },
+        action: command.action(),
+        log: (message: any): void => {
+          const output: any = Cli.logOutput(message, args.options);
+          console.log(output);
+        },
+        prompt: (options: any, cb: (result: any) => void) => {
+          inquirer
+            .prompt(options)
+            .then(result => cb(result));
+        }
+      };
+
+      if (args.debug) {
+        commandInstance.log(`Executing command ${command.name} with options ${JSON.stringify(args)}`);
       }
 
-      process.exit(0);
+      commandInstance.action({ options: args }, (err: any): void => {
+        if (err) {
+          return reject(err);
+        }
+
+        resolve();
+      });
+    });
+  }
+
+  public static executeCommandWithOutput(commandName: string, command: Command, args: any): Promise<string> {
+    return new Promise((resolve: (result: string) => void, reject: (error: any) => void): void => {
+      const log: string[] = [];
+      const commandInstance = {
+        commandWrapper: {
+          command: commandName
+        },
+        action: command.action(),
+        log: (message: any): void => {
+          log.push(message);
+        },
+        prompt: (options: any, cb: (result: any) => void) => {
+          inquirer
+            .prompt(options)
+            .then(result => cb(result));
+        }
+      };
+
+      if (args.debug) {
+        console.log(`Executing command ${command.name} with options ${JSON.stringify(args)}`);
+      }
+
+      commandInstance.action({ options: args }, (err: any): void => {
+        if (err) {
+          return reject(err);
+        }
+
+        resolve(log.join());
+      });
     });
   }
 
