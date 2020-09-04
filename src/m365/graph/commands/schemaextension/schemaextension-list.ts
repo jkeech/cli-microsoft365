@@ -1,4 +1,3 @@
-import config from '../../../../config';
 import commands from '../../commands';
 import request from '../../../../request';
 import GlobalOptions from '../../../../GlobalOptions';
@@ -7,6 +6,8 @@ import {
 } from '../../../../Command';
 import GraphCommand from '../../../base/GraphCommand';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

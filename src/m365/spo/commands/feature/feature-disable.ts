@@ -7,7 +7,8 @@ import {
   CommandOption
 } from "../../../../Command";
 import request from "../../../../request";
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

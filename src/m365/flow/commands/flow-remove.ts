@@ -7,7 +7,8 @@ import {
 import request from '../../../request';
 import AzmgmtCommand from '../../base/AzmgmtCommand';
 import Utils from '../../../Utils';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -1,13 +1,14 @@
 import commands from '../../commands';
-import aadcommands from '../../../aad/commands';
 import request from '../../../../request';
 import GlobalOptions from '../../../../GlobalOptions';
 import {
-  CommandOption, CommandValidate, CommandCancel
+  CommandOption, CommandValidate
 } from '../../../../Command';
 import GraphCommand from '../../../base/GraphCommand';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 enum TeamsAsyncOperationStatus {
   Invalid = "invalid",

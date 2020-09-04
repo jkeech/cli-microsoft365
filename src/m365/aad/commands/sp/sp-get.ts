@@ -7,7 +7,7 @@ import {
 } from '../../../../Command';
 import Utils from '../../../../Utils';
 import AadCommand from '../../../base/AadCommand';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -9,7 +9,8 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { CustomAction } from './customaction';
 import { BasePermissions, PermissionKind } from '../../base-permissions';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

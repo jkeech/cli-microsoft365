@@ -11,7 +11,7 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { GetExternalUsersResults } from './GetExternalUsersResults';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

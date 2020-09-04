@@ -10,7 +10,8 @@ import AzmgmtCommand from '../../../base/AzmgmtCommand';
 import * as path from 'path';
 import * as fs from 'fs';
 import { Connector } from './Connector';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

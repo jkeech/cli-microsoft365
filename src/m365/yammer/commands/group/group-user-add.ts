@@ -3,7 +3,7 @@ import GlobalOptions from '../../../../GlobalOptions';
 import request from '../../../../request';
 import YammerCommand from '../../../base/YammerCommand';
 import commands from '../../commands';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

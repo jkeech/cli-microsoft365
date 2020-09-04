@@ -1,6 +1,8 @@
 import request from '../../../../request';
 import commands from '../../commands';
 import SpoCommand from '../../../base/SpoCommand';
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 class TenantStatusListCommand extends SpoCommand {
   public get name(): string {

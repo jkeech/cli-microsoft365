@@ -7,7 +7,7 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import { FilePropertiesCollection } from './FilePropertiesCollection';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -3,13 +3,14 @@ import commands from '../../commands';
 import request from '../../../../request';
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
-import { CommandOption, CommandValidate, CommandCancel } from '../../../../Command';
+import { CommandOption, CommandValidate } from '../../../../Command';
 import GlobalOptions from '../../../../GlobalOptions';
 import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo } from '../../spo';
 import { SiteProperties } from './SiteProperties';
 import { DeletedSiteProperties } from './DeletedSiteProperties';
 import { SpoOperation } from './SpoOperation';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

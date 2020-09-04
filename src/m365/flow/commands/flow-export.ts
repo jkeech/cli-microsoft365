@@ -7,10 +7,9 @@ import {
 } from '../../../Command';
 import AzmgmtCommand from '../../base/AzmgmtCommand';
 import Utils from '../../../Utils';
-import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs';
-
+import { CommandInstance } from '../../../cli';
 
 interface CommandArgs {
   options: Options;

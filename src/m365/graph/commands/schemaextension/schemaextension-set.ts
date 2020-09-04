@@ -6,7 +6,8 @@ import {
 } from '../../../../Command';
 import GraphCommand from '../../../base/GraphCommand';
 import Utils from '../../../../Utils';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

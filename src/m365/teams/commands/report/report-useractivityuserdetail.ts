@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport';
 
-
 class TeamsReportUserActivityUserDetailCommand extends DateAndPeriodBasedReport {
   public get name(): string {
     return `${commands.TEAMS_REPORT_USERACTIVITYUSERDETAIL}`;

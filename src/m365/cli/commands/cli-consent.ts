@@ -6,7 +6,7 @@ import Command, {
   CommandAction
 } from '../../../Command';
 import config from '../../../config';
-
+import { CommandInstance } from '../../../cli';
 
 interface CommandArgs {
   options: Options;

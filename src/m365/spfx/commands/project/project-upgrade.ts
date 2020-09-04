@@ -15,7 +15,7 @@ import { ReportData, ReportDataModification } from './ReportData';
 import { BaseProjectCommand } from './base-project-command';
 import { FindingTour } from './project-upgrade/FindingTour';
 import { FindingTourStep } from './project-upgrade/FindingTourStep';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

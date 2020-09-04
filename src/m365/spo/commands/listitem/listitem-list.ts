@@ -10,7 +10,7 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { ListItemInstanceCollection } from './ListItemInstanceCollection';
 import { ContextInfo } from '../../spo';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

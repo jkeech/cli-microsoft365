@@ -2,7 +2,7 @@ import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import request from '../../../../request';
 import SpoCommand from '../../../base/SpoCommand';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: GlobalOptions;

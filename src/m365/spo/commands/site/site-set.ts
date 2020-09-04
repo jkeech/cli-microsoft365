@@ -18,7 +18,8 @@ import { Options as AadO365GroupSetCommandOptions } from '../../../aad/commands/
 import * as spoSiteDesignApplyCommand from '../sitedesign/sitedesign-apply';
 import { Options as SpoSiteDesignApplyCommandOptions } from '../sitedesign/sitedesign-apply';
 import { SharingCapabilities } from '../site/SharingCapabilities';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

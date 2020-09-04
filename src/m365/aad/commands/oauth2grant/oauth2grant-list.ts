@@ -8,7 +8,7 @@ import {
 import Utils from '../../../../Utils';
 import AadCommand from '../../../base/AadCommand';
 import { OAuth2PermissionGrant } from './OAuth2PermissionGrant';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -11,7 +11,8 @@ import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../..
 import * as fs from 'fs';
 import * as path from 'path';
 import Utils from '../../../../Utils';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

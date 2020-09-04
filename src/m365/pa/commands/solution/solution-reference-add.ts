@@ -9,7 +9,7 @@ import Command, {
   CommandError
 } from '../../../../Command';
 import CdsProjectMutator from "../../cds-project-mutator";
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

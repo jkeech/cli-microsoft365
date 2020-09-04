@@ -12,7 +12,8 @@ import Command, {
 import Utils from '../../../../Utils';
 import TemplateInstantiator from "../../template-instantiator";
 import { PcfInitVariables } from "./pcf-init/pcf-init-variables";
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

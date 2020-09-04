@@ -7,7 +7,8 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { SPOWebAppServicePrincipalPermissionRequest } from './SPOWebAppServicePrincipalPermissionRequest';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 class SpoServicePrincipalPermissionRequestListCommand extends SpoCommand {
   public get name(): string {

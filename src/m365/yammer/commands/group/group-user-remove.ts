@@ -5,7 +5,7 @@ import {
 } from '../../../../Command';
 import YammerCommand from "../../../base/YammerCommand";
 import request from '../../../../request';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -3,7 +3,7 @@
 import * as fs from 'fs';
 import * as updateNotifier from 'update-notifier';
 import appInsights from './appInsights';
-import { Cli } from './cli/Cli';
+import { Cli } from './cli';
 
 const packageJSON = require('../package.json');
 

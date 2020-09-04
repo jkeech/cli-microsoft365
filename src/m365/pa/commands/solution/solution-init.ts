@@ -12,7 +12,8 @@ import Command, {
 import Utils from '../../../../Utils';
 import { SolutionInitVariables } from "./solution-init/solution-init-variables";
 import TemplateInstantiator from "../../template-instantiator";
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

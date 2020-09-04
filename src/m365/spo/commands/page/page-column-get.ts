@@ -6,7 +6,8 @@ import SpoCommand from '../../../base/SpoCommand';
 import GlobalOptions from '../../../../GlobalOptions';
 import { ClientSidePage, CanvasSection } from './clientsidepages';
 import { Page } from './Page';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

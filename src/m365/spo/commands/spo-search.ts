@@ -10,7 +10,7 @@ import Utils from '../../../Utils';
 import { SearchResult } from './search/datatypes/SearchResult';
 import { ResultTableRow } from './search/datatypes/ResultTableRow';
 import { isNumber } from 'util';
-
+import { CommandInstance } from '../../../cli';
 
 interface CommandArgs {
   options: Options;

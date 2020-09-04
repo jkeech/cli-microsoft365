@@ -3,13 +3,13 @@ import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import request from '../../../../request';
 import {
-  CommandOption,
-  CommandValidate
+  CommandOption
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import Utils from '../../../../Utils';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

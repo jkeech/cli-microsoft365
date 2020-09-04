@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import PeriodBasedReport from '../../../base/PeriodBasedReport';
 
-
 class YammerReportGroupsActivityCountsCommand extends PeriodBasedReport {
   public get name(): string {
     return commands.YAMMER_REPORT_GROUPSACTIVITYCOUNTS;

@@ -9,7 +9,7 @@ import AadCommand from '../../../base/AadCommand';
 import request from '../../../../request';
 import { AppRoleAssignment } from './AppRoleAssignment';
 import { ServicePrincipal, AppRole } from './ServicePrincipal';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

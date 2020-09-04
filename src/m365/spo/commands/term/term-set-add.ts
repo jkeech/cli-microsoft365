@@ -12,7 +12,7 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { TermSet } from './TermSet';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

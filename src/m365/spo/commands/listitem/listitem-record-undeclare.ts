@@ -10,6 +10,7 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { ContextInfo } from '../../spo';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

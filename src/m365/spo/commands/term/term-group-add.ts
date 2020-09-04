@@ -13,7 +13,7 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { TermStore } from './TermStore';
 import { TermGroup } from './TermGroup';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

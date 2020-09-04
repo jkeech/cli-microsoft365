@@ -6,6 +6,7 @@ import {
   CommandError
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
+import { CommandInstance } from '../../../../cli';
 
 class SpoTenantSettingsListCommand extends SpoCommand {
   public get name(): string {

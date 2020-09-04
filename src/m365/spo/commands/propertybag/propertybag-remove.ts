@@ -11,7 +11,7 @@ import { SpoPropertyBagBaseCommand } from './propertybag-base';
 import GlobalOptions from '../../../../GlobalOptions';
 import Utils from '../../../../Utils';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
-
+import { CommandInstance } from '../../../../cli';
 
 export interface CommandArgs {
   options: Options;

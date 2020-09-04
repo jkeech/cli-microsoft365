@@ -6,7 +6,7 @@ import {
 } from '../../../Command';
 import SpoCommand from '../../base/SpoCommand';
 import auth from '../../../Auth';
-
+import { CommandInstance } from '../../../cli';
 
 interface CommandArgs {
   options: Options;

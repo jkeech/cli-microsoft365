@@ -7,7 +7,8 @@ import {
   CommandTypes,
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

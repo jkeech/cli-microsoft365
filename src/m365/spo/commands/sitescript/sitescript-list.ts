@@ -2,7 +2,8 @@ import request from '../../../../request';
 import commands from '../../commands';
 import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo } from '../../spo';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 class SpoSiteScriptListCommand extends SpoCommand {
   public get name(): string {

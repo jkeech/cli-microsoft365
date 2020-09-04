@@ -8,7 +8,8 @@ import {
 import * as fs from 'fs';
 import * as path from 'path';
 import { SpoAppBaseCommand } from './SpoAppBaseCommand';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

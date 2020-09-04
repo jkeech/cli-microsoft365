@@ -11,7 +11,7 @@ import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { ListItemInstance } from './ListItemInstance';
 import { ContextInfo, ClientSvcResponseContents, ClientSvcResponse } from '../../spo';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -10,6 +10,7 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import GlobalOptions from '../../../../GlobalOptions';
+import { CommandInstance } from '../../../../cli';
 
 export interface CommandArgs {
   options: Options;

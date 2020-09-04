@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import PeriodBasedReport from '../../../base/PeriodBasedReport';
 
-
 class SkypeReportActivityUserCountsCommand extends PeriodBasedReport {
   public get name(): string {
     return commands.SKYPE_REPORT_ACTIVITYUSERCOUNTS;

@@ -15,7 +15,7 @@ import {
   ClientSvcResponseContents,
 } from "../../spo";
 import { ClientSvc, IdentityResponse } from "../../ClientSvc";
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

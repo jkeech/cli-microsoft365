@@ -7,6 +7,8 @@ import * as spoSiteGetCommand from '../site/site-get';
 import * as spoSiteRemoveCommand from '../site/site-remove';
 import * as spoSiteClassicAddCommand from '../site/site-classic-add';
 import Command, { CommandError, CommandOption, CommandValidate } from '../../../../Command';
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 export interface CommandArgs {
   options: Options;

@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport';
 
-
 class YammerReportDeviceUsageUserDetailCommand extends DateAndPeriodBasedReport {
   public get name(): string {
     return commands.YAMMER_REPORT_DEVICEUSAGEUSERDETAIL;

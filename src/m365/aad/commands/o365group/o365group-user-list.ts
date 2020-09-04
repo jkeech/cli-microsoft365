@@ -7,7 +7,8 @@ import {
 import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
 import Utils from '../../../../Utils';
 import { GroupUser } from './GroupUser';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

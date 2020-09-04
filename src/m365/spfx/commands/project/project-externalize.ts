@@ -6,11 +6,11 @@ import GlobalOptions from '../../../../GlobalOptions';
 import * as path from 'path';
 import * as os from 'os';
 import { Project, ExternalConfiguration, External } from './model';
-
 import rules = require('./project-externalize/DefaultRules');
 import { BasicDependencyRule } from './project-externalize/rules';
 import { ExternalizeEntry, FileEdit } from './project-externalize/';
 import { BaseProjectCommand } from './base-project-command';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: GlobalOptions;

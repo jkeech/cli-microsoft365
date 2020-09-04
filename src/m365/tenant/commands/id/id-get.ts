@@ -7,7 +7,7 @@ import Command, {
 } from '../../../../Command';
 import auth from '../../../../Auth';
 import Utils from '../../../../Utils';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

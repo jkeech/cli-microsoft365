@@ -9,7 +9,8 @@ import SpoCommand from '../../../base/SpoCommand';
 import { SpoPropertyBagBaseCommand } from '../propertybag/propertybag-base';
 import { ContextInfo } from '../../spo';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

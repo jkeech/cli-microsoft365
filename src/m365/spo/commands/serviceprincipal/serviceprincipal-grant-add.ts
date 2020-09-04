@@ -2,14 +2,15 @@ import config from '../../../../config';
 import request from '../../../../request';
 import commands from '../../commands';
 import {
-  CommandError, CommandOption, CommandValidate
+  CommandError, CommandOption
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { SPOWebAppServicePrincipalPermissionGrant } from './SPOWebAppServicePrincipalPermissionGrant';
 import GlobalOptions from '../../../../GlobalOptions';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

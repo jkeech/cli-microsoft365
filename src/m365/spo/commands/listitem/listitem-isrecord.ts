@@ -12,6 +12,7 @@ import Utils from '../../../../Utils';
 import { Auth } from '../../../../Auth';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

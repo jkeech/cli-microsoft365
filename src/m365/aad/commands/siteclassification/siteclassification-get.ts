@@ -7,7 +7,7 @@ import { DirectorySetting } from './DirectorySetting';
 import { DirectorySettingValue } from './DirectorySettingValue';
 import { SiteClassificationSettings } from './SiteClassificationSettings'
 import { CommandError } from '../../../../Command';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

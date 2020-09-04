@@ -2,7 +2,6 @@ import auth from '../../Auth';
 import commands from './commands';
 import GlobalOptions from '../../GlobalOptions';
 import Command, {
-  CommandCancel,
   CommandOption,
   CommandValidate,
   CommandError,
@@ -10,7 +9,8 @@ import Command, {
 } from '../../Command';
 import { AuthType } from '../../Auth';
 import * as fs from 'fs';
-
+import { CommandInstance } from '../../cli';
+import * as chalk from 'chalk';
 
 interface CommandArgs {
   options: Options;
@@ -40,8 +40,6 @@ class LoginCommand extends Command {
   }
 
   public commandAction(cmd: CommandInstance, args: CommandArgs, cb: (err?: any) => void): void {
-    const chalk: any = chalk;
-
     // disconnect before re-connecting
     if (this.debug) {
       cmd.log(`Logging out from Microsoft 365...`);

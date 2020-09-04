@@ -8,7 +8,7 @@ import {
 import Utils from '../../../../Utils';
 import { SpoAppBaseCommand } from './SpoAppBaseCommand';
 import SpoCommand from '../../../base/SpoCommand';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

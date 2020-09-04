@@ -7,6 +7,7 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import { DeletedSitePropertiesEnumerable } from './DeletedSitePropertiesEnumerable';
+import { CommandInstance } from '../../../../cli';
 
 class SpoTenantRecycleBinItemListCommand extends SpoCommand {
   public get name(): string {

@@ -11,7 +11,7 @@ import Utils from '../../../../Utils';
 import * as fs from 'fs';
 import * as path from 'path';
 import { FolderExtensions } from '../../FolderExtensions';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

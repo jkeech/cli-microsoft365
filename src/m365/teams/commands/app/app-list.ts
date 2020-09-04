@@ -5,7 +5,8 @@ import { TeamsApp } from '../../TeamsApp'
 import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand'
 import { TeamsAppInstallation } from '../../TeamsAppInstallation';
 import Utils from '../../../../Utils';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

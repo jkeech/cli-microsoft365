@@ -7,7 +7,7 @@ import {
 import { AppMetadata } from './AppMetadata';
 import GlobalOptions from '../../../../GlobalOptions';
 import { SpoAppBaseCommand } from './SpoAppBaseCommand';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -6,7 +6,8 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { HubSite } from './HubSite';
 import { QueryListResult } from './QueryListResult';
 import { AssociatedSite } from './AssociatedSite';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

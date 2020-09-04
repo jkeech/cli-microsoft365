@@ -1,6 +1,7 @@
 import request from '../../../../request';
 import commands from '../../commands';
 import SpoCommand from '../../../base/SpoCommand';
+import { CommandInstance } from '../../../../cli';
 
 class SpoTenantAppCatalogUrlGetCommand extends SpoCommand {
   public get name(): string {

@@ -7,7 +7,7 @@ import {
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import * as url from 'url';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

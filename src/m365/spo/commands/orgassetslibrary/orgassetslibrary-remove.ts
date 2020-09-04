@@ -6,12 +6,12 @@ import request from '../../../../request';
 import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import {
-  CommandValidate,
   CommandOption,
   CommandError
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

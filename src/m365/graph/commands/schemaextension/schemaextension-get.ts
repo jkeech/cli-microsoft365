@@ -1,12 +1,12 @@
-import config from '../../../../config';
 import commands from '../../commands';
 import request from '../../../../request';
 import GlobalOptions from '../../../../GlobalOptions';
 import {
-  CommandOption, CommandValidate
+  CommandOption
 } from '../../../../Command';
 import GraphCommand from '../../../base/GraphCommand';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

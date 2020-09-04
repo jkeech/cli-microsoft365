@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import PeriodBasedReport from '../../../base/PeriodBasedReport';
 
-
 class TeamsReportDeviceUsageUserCountsCommand extends PeriodBasedReport {
   public get name(): string {
     return `${commands.TEAMS_REPORT_DEVICEUSAGEUSERCOUNTS}`;

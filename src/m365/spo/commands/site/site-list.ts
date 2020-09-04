@@ -7,6 +7,7 @@ import { CommandOption, CommandValidate, CommandError } from '../../../../Comman
 import GlobalOptions from '../../../../GlobalOptions';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { SPOSitePropertiesEnumerable } from './SPOSitePropertiesEnumerable';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

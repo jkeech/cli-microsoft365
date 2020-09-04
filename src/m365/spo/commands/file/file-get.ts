@@ -10,7 +10,7 @@ import Utils from '../../../../Utils';
 import * as fs from 'fs';
 import * as path from 'path';
 import { FileProperties } from './FileProperties';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

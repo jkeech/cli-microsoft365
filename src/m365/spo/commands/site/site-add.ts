@@ -4,8 +4,7 @@ import request from '../../../../request';
 import {
   CommandOption,
   CommandValidate,
-  CommandError,
-  CommandCancel
+  CommandError
 } from '../../../../Command';
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
@@ -14,7 +13,8 @@ import { ClientSvcResponse, ClientSvcResponseContents, FormDigestInfo } from '..
 import { DeletedSiteProperties } from './DeletedSiteProperties';
 import { SiteProperties } from './SiteProperties';
 import { SpoOperation } from './SpoOperation';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

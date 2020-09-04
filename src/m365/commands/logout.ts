@@ -3,7 +3,8 @@ import commands from './commands';
 import Command, {
   CommandError, CommandAction, CommandArgs,
 } from '../../Command';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../cli';
 
 class LogoutCommand extends Command {
   public get name(): string {
@@ -15,8 +16,6 @@ class LogoutCommand extends Command {
   }
 
   public commandAction(cmd: CommandInstance, args: {}, cb: () => void): void {
-    const chalk = chalk;
-
     if (this.verbose) {
       cmd.log('Logging out from Microsoft 365...');
     }

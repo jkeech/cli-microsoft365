@@ -7,7 +7,8 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
 import { SPOWebAppServicePrincipalPermissionGrant } from './SPOWebAppServicePrincipalPermissionGrant';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 class SpoServicePrincipalGrantListCommand extends SpoCommand {
   public get name(): string {

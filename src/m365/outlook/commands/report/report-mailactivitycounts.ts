@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import PeriodBasedReport from '../../../base/PeriodBasedReport';
 
-
 class OutlookReportMailActivityCountsCommand extends PeriodBasedReport {
   public get name(): string {
     return `${commands.OUTLOOK_REPORT_MAILACTIVITYCOUNTS}`;

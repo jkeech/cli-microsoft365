@@ -8,7 +8,8 @@ import GlobalOptions from '../../../../GlobalOptions';
 import { CanvasSectionTemplate } from './clientsidepages';
 import { isNumber } from 'util';
 import { Control } from './canvasContent';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -6,7 +6,7 @@ import Utils from '../../../../Utils';
 import { CommandOption, CommandError, CommandValidate } from '../../../../Command';
 import GlobalOptions from '../../../../GlobalOptions';
 import { ContextInfo, ClientSvcResponse, ClientSvcResponseContents } from '../../spo';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

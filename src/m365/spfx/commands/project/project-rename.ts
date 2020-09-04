@@ -1,13 +1,13 @@
 import commands from '../../commands';
 import Command, {
-  CommandOption, CommandAction, CommandError, CommandValidate
+  CommandOption, CommandAction, CommandError
 } from '../../../../Command';
 import GlobalOptions from '../../../../GlobalOptions';
 import { BaseProjectCommand } from './base-project-command';
 import * as path from 'path';
 import * as fs from 'fs';
 import { v4 } from 'uuid';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -2,7 +2,7 @@ import commands from '../commands';
 import GlobalOptions from '../../../GlobalOptions';
 import AnonymousCommand from '../../base/AnonymousCommand';
 import config from '../../../config';
-
+import { CommandInstance } from '../../../cli';
 
 interface CommandArgs {
   options: GlobalOptions;

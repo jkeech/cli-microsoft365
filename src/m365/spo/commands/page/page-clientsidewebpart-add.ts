@@ -12,7 +12,8 @@ import {
 import { StandardWebPart, StandardWebPartUtils } from '../../StandardWebPartTypes';
 import { isNumber } from 'util';
 import { Control } from './canvasContent';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

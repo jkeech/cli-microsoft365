@@ -7,7 +7,8 @@ import Utils from '../../../../Utils';
 import GlobalOptions from '../../../../GlobalOptions';
 import { ClientSidePage, ClientSidePart } from './clientsidepages';
 import { Page } from './Page';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

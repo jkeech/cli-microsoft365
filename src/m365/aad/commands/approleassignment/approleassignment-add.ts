@@ -9,7 +9,8 @@ import AadCommand from '../../../base/AadCommand';
 import Utils from '../../../../Utils';
 import { ServicePrincipal } from './ServicePrincipal';
 import * as os from 'os';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface AppRole {
   objectId: string;

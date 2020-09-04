@@ -1,10 +1,11 @@
 import commands from '../../commands';
 import request from '../../../../request';
 import SpoCommand from '../../../base/SpoCommand';
-import { CommandOption, CommandValidate, CommandCancel } from '../../../../Command';
+import { CommandOption, CommandValidate } from '../../../../Command';
 import GlobalOptions from '../../../../GlobalOptions';
 import { FormDigestInfo } from '../../spo';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

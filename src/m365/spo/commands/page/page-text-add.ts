@@ -11,7 +11,8 @@ import { ContextInfo } from '../../spo';
 import { isNumber } from 'util';
 import { Page } from './Page';
 import Utils from '../../../../Utils';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

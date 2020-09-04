@@ -2,7 +2,6 @@ import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import {
   CommandOption,
-  CommandValidate,
   CommandError
 } from '../../../../Command';
 import * as fs from 'fs';
@@ -10,7 +9,8 @@ import * as path from 'path';
 import * as os from 'os';
 import AnonymousCommand from '../../../base/AnonymousCommand';
 import { autocomplete } from '../../../../autocomplete';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -8,7 +8,7 @@ import { ContextInfo } from '../../spo';
 import { SpoPropertyBagBaseCommand } from './propertybag-base';
 import GlobalOptions from '../../../../GlobalOptions';
 import { ClientSvc, IdentityResponse } from '../../ClientSvc';
-
+import { CommandInstance } from '../../../../cli';
 
 export interface CommandArgs {
   options: Options;

@@ -7,7 +7,8 @@ import {
   CommandOption, CommandValidate
 } from '../../../../Command';
 import Utils from '../../../../Utils';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

@@ -8,6 +8,7 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import { GroupPropertiesCollection } from "./GroupPropertiesCollection";
 import { GroupProperties } from "./GroupProperties";
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

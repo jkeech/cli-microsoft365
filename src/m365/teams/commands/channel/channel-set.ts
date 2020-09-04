@@ -7,7 +7,8 @@ import GraphCommand from '../../../base/GraphCommand';
 import Utils from '../../../../Utils';
 import request from '../../../../request';
 import { Channel } from '../../Channel';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

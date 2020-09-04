@@ -5,7 +5,7 @@ import Command, {
 } from '../../Command';
 import Utils from '../../Utils';
 import { AuthType } from '../../Auth';
-
+import { CommandInstance } from '../../cli';
 
 class StatusCommand extends Command {
   public get name(): string {

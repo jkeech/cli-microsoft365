@@ -2,11 +2,10 @@ import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import Command, {
   CommandOption,
-  CommandValidate,
   CommandError
 } from '../../../../Command';
 import auth from '../../../../Auth';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

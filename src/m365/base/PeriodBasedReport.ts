@@ -4,6 +4,7 @@ import {
 } from '../../Command';
 import GraphCommand from "./GraphCommand";
 import request from '../../request';
+import { CommandInstance } from '../../cli';
 
 interface CommandArgs {
   options: UsagePeriodOptions;
@@ -15,8 +16,6 @@ interface UsagePeriodOptions extends GlobalOptions {
 
 export default abstract class PeriodBasedReport extends GraphCommand {
   public abstract get usageEndpoint(): string;
-
-
 
   public commandAction(cmd: CommandInstance, args: CommandArgs, cb: () => void): void {
     const endpoint: string = `${this.resource}/v1.0/reports/${this.usageEndpoint}(period='${encodeURIComponent(args.options.period)}')`;

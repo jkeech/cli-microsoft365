@@ -12,7 +12,7 @@ import { ListInstance } from "./ListInstance";
 import { ListTemplateType } from './ListTemplateType';
 import { DraftVisibilityType } from './DraftVisibilityType';
 import { ListExperience } from './ListExperience';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

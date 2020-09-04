@@ -1,12 +1,11 @@
 import commands from '../../commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import {
-  CommandOption,
-  CommandValidate
+  CommandOption
 } from '../../../../Command';
 import request from '../../../../request';
 import AzmgmtCommand from '../../../base/AzmgmtCommand';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

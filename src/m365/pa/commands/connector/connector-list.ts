@@ -2,11 +2,10 @@ import commands from '../../commands';
 import flowCommands from '../../../flow/commands';
 import GlobalOptions from '../../../../GlobalOptions';
 import {
-  CommandOption,
-  CommandValidate
+  CommandOption
 } from '../../../../Command';
 import { AzmgmtItemsListCommand } from '../../../base/AzmgmtItemsListCommand';
-
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

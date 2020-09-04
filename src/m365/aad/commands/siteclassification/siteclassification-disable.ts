@@ -7,7 +7,8 @@ import {
 import GraphCommand from '../../../base/GraphCommand';
 import { DirectorySetting } from './DirectorySetting';
 import { DirectorySettingTemplatesRsp } from './DirectorySettingTemplatesRsp';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

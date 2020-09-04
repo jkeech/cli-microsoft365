@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import PeriodBasedReport from '../../../base/PeriodBasedReport';
 
-
 class O365GroupReportActivityFileCountsCommand extends PeriodBasedReport {
   public get name(): string {
     return commands.O365GROUP_REPORT_ACTIVITYFILECOUNTS;

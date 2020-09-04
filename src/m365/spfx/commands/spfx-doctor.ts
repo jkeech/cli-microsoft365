@@ -4,7 +4,8 @@ import { CommandError, CommandOption, CommandValidate, CommandTypes } from '../.
 import * as child_process from 'child_process';
 import AnonymousCommand from '../../base/AnonymousCommand';
 import { satisfies } from 'semver';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../cli';
 
 interface CommandArgs {
   options: Options;

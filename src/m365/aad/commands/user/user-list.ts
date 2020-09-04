@@ -4,7 +4,8 @@ import {
   CommandOption
 } from '../../../../Command';
 import { GraphItemsListCommand } from '../../../base/GraphItemsListCommand';
-
+import * as chalk from 'chalk';
+import { CommandInstance } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;

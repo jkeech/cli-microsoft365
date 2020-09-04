@@ -1,7 +1,6 @@
 import commands from '../../commands';
 import DateAndPeriodBasedReport from '../../../base/DateAndPeriodBasedReport';
 
-
 class TenantReportActiveUserDetailCommand extends DateAndPeriodBasedReport {
   public get name(): string {
     return commands.TENANT_REPORT_ACTIVEUSERDETAIL;
