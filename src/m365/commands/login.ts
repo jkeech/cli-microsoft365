@@ -120,9 +120,7 @@ class LoginCommand extends Command {
       auth
         .restoreAuth()
         .then((): void => {
-          args = (cmd as any).processArgs(args);
           (cmd as any).initAction(args, this);
-
           cmd.commandAction(this, args, cb);
         }, (error: any): void => {
           cb(new CommandError(error));

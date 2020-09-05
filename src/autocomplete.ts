@@ -192,9 +192,6 @@ class Autocomplete {
     let parent: any = autocomplete;
     for (let i: number = 0; i < chunks.length; i++) {
       const current: any = chunks[i];
-      if (current === 'exit' || current === 'quit') {
-        continue;
-      }
 
       if (!parent[current]) {
         if (i < chunks.length - 1) {
@@ -202,13 +199,17 @@ class Autocomplete {
         }
         else {
           // last chunk, add options
-          const optionsArr: string[] = commandInfo.options.map(o => o.short)
-            .concat(commandInfo.options.map(o => o.long)).filter(o => o != null) as string[];
+          const optionsArr: string[] = commandInfo.options
+            .map(o => o.short)
+            .concat(commandInfo.options.map(o => o.long))
+            .filter(o => o != null)
+            .map(o => (o as string).length === 1 ? `-${o}` : `--${o}`);
           optionsArr.push('--help');
           optionsArr.push('-h');
           const optionsObj: any = {};
           optionsArr.forEach(o => {
-            const option: CommandOption = commandInfo.options.filter(opt => opt.long === o || opt.short === o)[0];
+            const optionName: string = o.replace(/^-+/, '');
+            const option: CommandOption = commandInfo.options.filter(opt => opt.long === optionName || opt.short === optionName)[0];
             if (option && option.autocomplete) {
               optionsObj[o] = option.autocomplete;
             }
