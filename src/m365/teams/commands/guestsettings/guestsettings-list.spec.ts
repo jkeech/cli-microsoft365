@@ -131,15 +131,6 @@ describe(commands.TEAMS_GUESTSETTINGS_LIST, () => {
     });
   });
 
-  it('fails validation if teamId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if teamId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {

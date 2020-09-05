@@ -258,17 +258,6 @@ describe(commands.ORGASSETSLIBRARY_REMOVE, () => {
     });
   });
 
-  it('fails validation if the libraryUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation if the libraryUrl option is a valid SharePoint site URL', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { libraryUrl: '/sites/branding/assets' } });
-    assert.strictEqual(actual, true);
-  });
-
-
   it('supports debug mode', () => {
     const options = (command.options() as CommandOption[]);
     let containsDebugOption = false;

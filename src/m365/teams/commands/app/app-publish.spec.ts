@@ -60,14 +60,6 @@ describe(commands.TEAMS_APP_PUBLISH, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the filePath is not provided', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {}
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the filePath does not exist', (done) => {
     sinon.stub(fs, 'existsSync').callsFake(() => false);
     const actual = (command.validate() as CommandValidate)({

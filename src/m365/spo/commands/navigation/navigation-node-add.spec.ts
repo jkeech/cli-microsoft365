@@ -269,11 +269,6 @@ describe(commands.NAVIGATION_NODE_ADD, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { location: 'TopNavigationBar', title: 'About', url: '/sites/team-s/sitepages/about.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'invalid', location: 'TopNavigationBar', title: 'About', url: '/sites/team-s/sitepages/about.aspx' } });
     assert.notEqual(actual, true);
@@ -284,23 +279,8 @@ describe(commands.NAVIGATION_NODE_ADD, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if location is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/team-a', title: 'About', url: '/sites/team-s/sitepages/about.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if specified location is not valid', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/team-a', location: 'invalid', title: 'About', url: '/sites/team-s/sitepages/about.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if title is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/team-a', location: 'TopNavigationBar', url: '/sites/team-s/sitepages/about.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if url is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/team-a', location: 'TopNavigationBar', title: 'About' } });
     assert.notEqual(actual, true);
   });
 

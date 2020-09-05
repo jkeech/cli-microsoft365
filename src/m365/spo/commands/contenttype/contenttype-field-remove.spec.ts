@@ -879,11 +879,6 @@ describe(commands.CONTENTTYPE_FIELD_REMOVE, () => {
   });
 
   // Fails validation
-  it('fails validation if contentTypeId is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: WEB_URL, fieldLinkId: FIELD_LINK_ID } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if fieldLinkId is not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: WEB_URL, contentTypeId: CONTENT_TYPE_ID } });
     assert.notEqual(actual, true);

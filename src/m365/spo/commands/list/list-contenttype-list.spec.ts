@@ -684,11 +684,6 @@ describe(commands.LIST_CONTENTTYPE_LIST, () => {
     });
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { listId: '0CD891EF-AFCE-4E55-B836-FCE03286CCCF' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if both listId and listTitle options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
     assert.notEqual(actual, true);

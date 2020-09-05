@@ -194,11 +194,6 @@ describe(commands.FOLDER_GET, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { folderUrl: '/Shared Documents' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', folderUrl: '/Shared Documents' } });
     assert.notEqual(actual, true);
@@ -207,10 +202,5 @@ describe(commands.FOLDER_GET, () => {
   it('passes validation if the webUrl option is a valid SharePoint site URL and folderUrl specified', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', folderUrl: '/Shared Documents' } });
     assert.equal(actual, true);
-  });
-
-  it('fails validation if the folderUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
   });
 });

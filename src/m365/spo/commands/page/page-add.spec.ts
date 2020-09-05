@@ -1033,16 +1033,6 @@ describe(commands.PAGE_ADD, () => {
     assert(containsOption);
   });
 
-  it('fails validation if name not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'page.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not an absolute URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { name: 'page.aspx', webUrl: 'foo' } });
     assert.notEqual(actual, true);

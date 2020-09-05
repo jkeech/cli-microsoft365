@@ -371,18 +371,8 @@ describe(commands.HUBSITE_RIGHTS_REVOKE, () => {
     assert(containsOption);
   });
 
-  it('fails validation if url not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { principals: 'admin' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if url is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'abc', principals: 'admin' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if principals not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { url: 'https://contoso.sharepoint.com/sites/sales' } });
     assert.notEqual(actual, true);
   });
 

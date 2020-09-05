@@ -333,11 +333,6 @@ describe(commands.WEB_GET, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the url option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo' } });
     assert.notEqual(actual, true);

@@ -312,19 +312,6 @@ describe(commands.LIST_WEBHOOK_SET, () => {
     });
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options:
-      {
-        id: 'cc27a922-8224-4296-90a5-ebbc54da2e85',
-        listTitle: 'Documents',
-        notificationUrl: 'https://contoso-funcions.azurewebsites.net/webhook',
-        expirationDateTime: '2018-10-09'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if both list id and title options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({
       options:

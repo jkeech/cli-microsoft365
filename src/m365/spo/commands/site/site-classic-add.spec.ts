@@ -1632,15 +1632,6 @@ describe(commands.SITE_CLASSIC_ADD, () => {
     assert(containsdebugOption);
   });
 
-  it('fails validation if the url is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        title: 'Team', timeZone: 4, owner: 'admin@contoso.com'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the url is not a valid url', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
@@ -1654,33 +1645,6 @@ describe(commands.SITE_CLASSIC_ADD, () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         url: 'http://contoso', title: 'Team', timeZone: 4, owner: 'admin@contoso.com'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the title is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: 'https://contoso.sharepoint.com/sites/team', timeZone: 4, owner: 'admin@contoso.com'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the owner is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', timeZone: 4
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the timeZone is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: 'https://contoso.sharepoint.com/sites/team', title: 'Team', owner: 'admin@contoso.com'
       }
     });
     assert.notEqual(actual, true);

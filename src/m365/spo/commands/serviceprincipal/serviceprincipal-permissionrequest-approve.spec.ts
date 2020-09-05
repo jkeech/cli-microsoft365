@@ -207,11 +207,6 @@ describe(commands.SERVICEPRINCIPAL_PERMISSIONREQUEST_APPROVE, () => {
     assert(containsOption);
   });
 
-  it('fails validation if the requestId option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the requestId option is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { requestId: '123' } });
     assert.notEqual(actual, true);

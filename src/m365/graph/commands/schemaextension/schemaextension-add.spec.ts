@@ -216,34 +216,6 @@ describe(commands.SCHEMAEXTENSION_ADD, () => {
     });
   });
 
-  it('fails validation if the id is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: null,
-        description: 'Test Description',
-        owner: 'b07a45b3-f7b7-489b-9269-da6f3f93dff0',
-        targetTypes: 'Group',
-        properties: '[{"name":"MyInt","type":"Integer"},{"name":"MyString","type":"String"}]'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the owner is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: 'TestSchemaExtension',
-        description: 'Test Description',
-        owner: null,
-        targetTypes: 'Group',
-        properties: '[{"name":"MyInt","type":"Integer"},{"name":"MyString","type":"String"}]'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the owner is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
@@ -253,34 +225,6 @@ describe(commands.SCHEMAEXTENSION_ADD, () => {
         owner: 'invalid',
         targetTypes: 'Group',
         properties: '[{"name":"MyInt","type":"Integer"},{"name":"MyString","type":"String"}]'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if targetTypes is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: 'TestSchemaExtension',
-        description: 'Test Description',
-        owner: 'b07a45b3-f7b7-489b-9269-da6f3f93dff0',
-        targetTypes: '',
-        properties: '[{"name":"MyInt","type":"Integer"},{"name":"MyString","type":"String"}]'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if properties is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: 'TestSchemaExtension',
-        description: 'Test Description',
-        owner: 'b07a45b3-f7b7-489b-9269-da6f3f93dff0',
-        targetTypes: 'Group',
-        properties: ''
       }
     });
     assert.notEqual(actual, true);

@@ -699,11 +699,6 @@ describe(commands.FIELD_SET, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if webUrl is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { listId: '330f29c5-5c4c-465f-9f4b-7903020ae1ce', name: 'MyColumn' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'invalid', listId: '330f29c5-5c4c-465f-9f4b-7903020ae1ce', name: 'MyColumn' } });
     assert.notEqual(actual, true);

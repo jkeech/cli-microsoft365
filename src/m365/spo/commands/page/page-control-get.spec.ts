@@ -971,28 +971,13 @@ describe(commands.PAGE_CONTROL_GET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if the id option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'home.aspx', webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 'abc', name: 'home.aspx', webUrl: 'https://contoso.sharepoint.com' } });
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'home.aspx', id: '3ede60d3-dc2c-438b-b5bf-cc40bb2351e5' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', name: 'home.aspx', id: '3ede60d3-dc2c-438b-b5bf-cc40bb2351e5' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the name option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: '3ede60d3-dc2c-438b-b5bf-cc40bb2351e5' } });
     assert.notEqual(actual, true);
   });
 

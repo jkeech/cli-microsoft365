@@ -345,17 +345,6 @@ describe(commands.LIST_WEBHOOK_ADD, () => {
     });
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options:
-      {
-        listTitle: 'Documents',
-        notificationUrl: 'https://contoso-funcions.azurewebsites.net/webhook',
-      }
-    });
-    assert.strictEqual(actual, 'Required parameter webUrl missing');
-  });
-
   it('fails validation if both list id and title options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({
       options:
@@ -389,17 +378,6 @@ describe(commands.LIST_WEBHOOK_ADD, () => {
       }
     });
     assert.strictEqual(actual, true);
-  });
-
-  it('fails validation if the notificationUrl option is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options:
-      {
-        webUrl: 'https://contoso.sharepoint.com',
-        listId: '0cd891ef-afce-4e55-b836-fce03286cccf',
-      }
-    });
-    assert.strictEqual(actual, 'Required parameter notificationUrl missing');
   });
 
   it('fails validation if the list id option is not a valid GUID', () => {

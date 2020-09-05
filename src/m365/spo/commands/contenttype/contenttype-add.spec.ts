@@ -318,23 +318,8 @@ describe(commands.CONTENTTYPE_ADD, () => {
     assert(containsOption);
   });
 
-  it('fails validation if site URL is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'PnP Tile', id: '0x0100FF0B2E33A3718B46A3909298D240FD93' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'site.com', name: 'PnP Tile', id: '0x0100FF0B2E33A3718B46A3909298D240FD93' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the content type name is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales', id: '0x0100FF0B2E33A3718B46A3909298D240FD93' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the content type id is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales', name: 'PnP Tile' } });
     assert.notEqual(actual, true);
   });
 

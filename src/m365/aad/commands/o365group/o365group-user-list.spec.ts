@@ -77,16 +77,6 @@ describe(commands.O365GROUP_USER_LIST, () => {
     done();
   });
 
-  it('fails validation if the groupId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        role: 'Member'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the groupId is not a valid guid.', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {

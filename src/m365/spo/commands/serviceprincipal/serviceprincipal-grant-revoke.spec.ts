@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandError, CommandValidate } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -192,15 +192,5 @@ describe(commands.SERVICEPRINCIPAL_GRANT_REVOKE, () => {
       }
     });
     assert(containsOption);
-  });
-
-  it('fails validation if the grantId option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when the grantId is specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { grantId: '50NAzUm3C0K9B6p8ORLtIvNe8tzf4ndKg51reFehHHg' } });
-    assert.equal(actual, true);
   });
 });

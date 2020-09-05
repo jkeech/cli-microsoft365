@@ -675,11 +675,6 @@ describe(commands.APP_ADD, () => {
     });
   });
 
-  it('fails validation if file path not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if file path doesn\'t exist', () => {
     sinon.stub(fs, 'existsSync').callsFake(() => false);
     const actual = (command.validate() as CommandValidate)({ options: { filePath: 'abc' } });

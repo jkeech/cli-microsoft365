@@ -83,38 +83,6 @@ describe(commands.TEAMS_TAB_REMOVE, () => {
     done();
   });
 
-  it('fails validation if the teamId is not provided', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        channelId: '19:f3dcbb1674574677abcae89cb626f1e6@thread.skype',
-        tabId: 'd66b8110-fcad-49e8-8159-0d488ddb7656',
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation if the channelId is not provided', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: 'd66b8110-fcad-49e8-8159-0d488ddb7656',
-        tabId: 'd66b8110-fcad-49e8-8159-0d488ddb7656',
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-  it('fails validation if the tabId is not provided', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: 'd66b8110-fcad-49e8-8159-0d488ddb7656',
-        channelId: '19:f3dcbb1674574677abcae89cb626f1e6@thread.skype',
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the channelId is not valid channelId', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {

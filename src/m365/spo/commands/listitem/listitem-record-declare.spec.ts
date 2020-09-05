@@ -333,18 +333,8 @@ describe(commands.LISTITEM_RECORD_DECLARE, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'Test List' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', listTitle: 'Test List', id: '1' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the item ID is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', listTitle: 'Test List' } });
     assert.notEqual(actual, true);
   });
 

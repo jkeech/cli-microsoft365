@@ -167,11 +167,6 @@ describe(commands.KNOWLEDGEHUB_SET, () => {
     assert.equal(actual, true);
   });
 
-  it('fails validation if site URL is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { debug: false } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'site.com' } });
     assert.notEqual(actual, true);

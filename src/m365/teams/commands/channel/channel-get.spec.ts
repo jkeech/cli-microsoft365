@@ -56,16 +56,6 @@ describe(commands.TEAMS_CHANNEL_GET, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the teamId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        channelId: '19:493665404ebd4a18adb8a980a31b4986@thread.skype'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the teamId is not a valid guid.', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
@@ -74,16 +64,6 @@ describe(commands.TEAMS_CHANNEL_GET, () => {
       }
     });
     assert.notEqual(actual, true);
-  });
-
-  it('fails validation when no channelId is specified', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
   });
 
   it('correctly validates the when all options are valid', () => {

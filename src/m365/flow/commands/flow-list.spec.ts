@@ -1,5 +1,5 @@
 import commands from '../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../Command';
+import Command, { CommandOption, CommandError } from '../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../appInsights';
 import auth from '../../../Auth';
@@ -1291,16 +1291,6 @@ describe(commands.FLOW_LIST, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if the environment name is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when the environment name option specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { environment: 'Default-d87a7535-dd31-4437-bfe1-95340acd55c5' } });
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

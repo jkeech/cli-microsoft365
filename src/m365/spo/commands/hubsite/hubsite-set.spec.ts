@@ -473,11 +473,6 @@ describe(commands.HUBSITE_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if id not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'Sales' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 'abc', title: 'Sales' } });
     assert.notEqual(actual, true);

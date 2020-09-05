@@ -635,16 +635,6 @@ describe(commands.WEB_ADD, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if the title option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        webUrl: "subsite",
-        parentWebUrl: "https://contoso.sharepoint.com", webTemplate: "STS#0", locale: 1033
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('passes validation if all required options are specified', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
@@ -665,16 +655,6 @@ describe(commands.WEB_ADD, () => {
     assert.equal(actual, true);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        title: "subsite",
-        parentWebUrl: "https://contoso.sharepoint.com", webTemplate: "STS#0", locale: 1033
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the parentWebUrl option not specified', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
@@ -691,16 +671,6 @@ describe(commands.WEB_ADD, () => {
         title: "subsite",
         webUrl: "subsite", webTemplate: "STS#0", locale: 1033,
         parentWebUrl: 'foo'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the webTemplate option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        title: "subsite",
-        webUrl: "subsite", parentWebUrl: "https://contoso.sharepoint.com", locale: 1033
       }
     });
     assert.notEqual(actual, true);

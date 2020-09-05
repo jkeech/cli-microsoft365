@@ -154,11 +154,6 @@ describe(commands.SITEDESIGN_TASK_GET, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if taskId not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if taskId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { taskId: 'invalid' } });
     assert.notEqual(actual, true);

@@ -372,11 +372,6 @@ describe(commands.SITESCRIPT_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if id not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 'abc' } });
     assert.notEqual(actual, true);

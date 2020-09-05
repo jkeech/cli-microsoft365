@@ -97,7 +97,7 @@ class SpoSiteDesignApplyCommand extends SpoCommand {
         return `${args.options.id} is not a valid GUID`;
       }
 
-      return true;
+      return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
 }

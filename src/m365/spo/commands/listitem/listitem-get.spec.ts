@@ -116,11 +116,6 @@ describe(commands.LISTITEM_GET, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { listTitle: 'Demo List', id: expectedId } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', listTitle: 'Demo List', id: expectedId } });
     assert.notEqual(actual, true);
@@ -139,11 +134,6 @@ describe(commands.LISTITEM_GET, () => {
   it('passes validation if the listId option is a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', listId: '0CD891EF-AFCE-4E55-B836-FCE03286CCCF', id: expectedId } });
     assert(actual);
-  });
-
-  it('fails validation if the id option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', listTitle: 'Demo List' } });
-    assert.notEqual(actual, true);
   });
 
   it('fails validation if the specified id is not a number', () => {

@@ -74,17 +74,6 @@ describe(commands.TEAMS_MESSAGE_REPLY_LIST, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if messageId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        teamId: "02bd9fd6-8f93-4758-87c3-1fb73740a315",
-        channelId: "19:d0bba23c2fc8413991125a43a54cc30e@thread.skype"
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the teamId is not a valid guid', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {

@@ -56,45 +56,12 @@ describe(commands.TEAMS_TEAM_CLONE, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the teamId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        displayName: "Library Assist",
-        partsToClone: "apps,tabs,settings,channels,members"
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the teamId is not a valid GUID.', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         teamId: 'invalid',
         displayName: "Library Assist",
         partsToClone: "apps,tabs,settings,channels,members"
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation if the displayName is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: '15d7a78e-fd77-4599-97a5-dbb6372846c5',
-        partsToClone: "apps,tabs,settings,channels,members"
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation if the partsToClone is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: '15d7a78e-fd77-4599-97a5-dbb6372846c5',
-        displayName: "Library Assist"
       }
     });
     assert.notEqual(actual, true);

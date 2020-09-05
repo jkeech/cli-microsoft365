@@ -73,11 +73,6 @@ describe(commands.YAMMER_GROUP_USER_ADD, () => {
     });
   });
 
-  it('fails validation without parameters', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {  } });
-    assert.notEqual(actual, true);
-  });
-
   it('passes validation with parameters', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 10123123 } });
     assert.equal(actual, true);

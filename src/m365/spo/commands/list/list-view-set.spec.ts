@@ -203,11 +203,6 @@ describe(commands.LIST_VIEW_SET, () => {
     assert.equal(allowUnknownOptions, true);
   });
 
-  it('fails validation if webUrl is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { listTitle: 'List 1', viewTitle: 'All items' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'invalid', listTitle: 'List 1', viewTitle: 'All items' } });
     assert.notEqual(actual, true);

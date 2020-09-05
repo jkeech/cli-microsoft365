@@ -146,18 +146,8 @@ describe(commands.SITEDESIGN_RUN_STATUS_GET, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { runId: 'b4411557-308b-4545-a3c4-55297d5cd8c8' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'invalid', runId: 'b4411557-308b-4545-a3c4-55297d5cd8c8' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if runId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
     assert.notEqual(actual, true);
   });
 

@@ -584,23 +584,8 @@ describe(commands.SITEDESIGN_ADD, () => {
     assert(containsOption);
   });
 
-  it('fails validation if title not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if webTemplate not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'Contoso' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if specified webTemplate is invalid', () => {
     const actual = (command.validate() as CommandValidate)({ options: { title: 'Contoso', webTemplate: 'Invalid' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if siteScripts not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'Contoso', webTemplate: 'TeamSite' } });
     assert.notEqual(actual, true);
   });
 

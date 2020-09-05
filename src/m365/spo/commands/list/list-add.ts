@@ -588,6 +588,11 @@ class SpoListAddCommand extends SpoCommand {
         return isValidSharePointUrl;
       }
 
+      const template: ListTemplateType = ListTemplateType[(args.options.baseTemplate.trim() as keyof typeof ListTemplateType)];
+      if (!template) {
+        return `${args.options.baseTemplate} is not a valid baseTemplate value`;
+      }
+
       for (let i = 0; i < SpoListAddCommand.booleanOptions.length; i++) {
         const option: string = SpoListAddCommand.booleanOptions[i];
         const value: string | undefined = (args.options as any)[option];

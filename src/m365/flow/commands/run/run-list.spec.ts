@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -571,26 +571,6 @@ describe(commands.FLOW_RUN_LIST, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if both the environment and name parameters are not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the environment parameter is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { flow: '396d5ec9-ae2d-4a84-967d-cd7f56cd8f30' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the name parameter is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { environment: 'Default-48595cc3-adce-4267-8e99-0c838923dbb9' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when the environment and name parameters both are specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { environment: 'Default-48595cc3-adce-4267-8e99-0c838923dbb9', flow: '396d5ec9-ae2d-4a84-967d-cd7f56cd8f30' } });
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

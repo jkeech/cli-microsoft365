@@ -55,52 +55,6 @@ describe(commands.FEATURE_ENABLE, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the url is not provided', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        force: false,
-        scope: "web",
-        featureId: "00bfea71-5932-4f9c-ad71-1557e5751100"
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the url is empty', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: '',
-        force: false,
-        scope: "web",
-        featureId: "00bfea71-5932-4f9c-ad71-1557e5751100"
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the featureId is not provided', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: 'https://contoso.sharepoint.com/sites/sales',
-        force: false,
-        scope: "web"
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the featureId is empty', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: 'https://contoso.sharepoint.com/sites/sales',
-        force: false,
-        scope: "web",
-        featureId: ""
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('configures command types', () => {
     assert.notEqual(typeof command.types(), 'undefined', 'command types undefined');
     assert.notEqual((command.types() as CommandTypes).string, 'undefined', 'command string types undefined');

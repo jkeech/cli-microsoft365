@@ -260,16 +260,6 @@ describe(commands.SITESCRIPT_ADD, () => {
     assert(containsOption);
   });
 
-  it('fails validation if title not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if script content not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'Contoso' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if script content is not a valid JSON string', () => {
     const actual = (command.validate() as CommandValidate)({ options: { title: 'Contoso', content: 'abc' } });
     assert.notEqual(actual, true);

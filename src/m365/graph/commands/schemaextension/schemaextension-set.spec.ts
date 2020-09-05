@@ -193,26 +193,6 @@ describe(commands.SCHEMAEXTENSION_SET, () => {
     });
   });
 
-  it('fails validation if the id is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: null
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if owner is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: 'TestSchemaExtension'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the owner is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {

@@ -87,32 +87,11 @@ describe(commands.O365GROUP_USER_SET, () => {
     done();
   });
 
-  it('fails validation if the groupId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        role: 'Member'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation when both groupId and teamId are specified', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         groupId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
         teamId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation when no user is specified', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        groupId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
-        role: 'Member'
       }
     });
     assert.notEqual(actual, true);
@@ -125,17 +104,6 @@ describe(commands.O365GROUP_USER_SET, () => {
         groupId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
         userName: 'anne.matthews@contoso.onmicrosoft.com',
         role: 'Invalid',
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation when no role is specified', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        groupId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
-        userName: 'anne.matthews@contoso.onmicrosoft.com'
       }
     });
     assert.notEqual(actual, true);

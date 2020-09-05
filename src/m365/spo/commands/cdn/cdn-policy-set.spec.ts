@@ -318,9 +318,4 @@ describe(commands.CDN_POLICY_SET, () => {
     const actual = (command.validate() as CommandValidate)({ options: { policy: policy } });
     assert.equal(actual, `${policy} is not a valid CDN policy. Allowed values are IncludeFileExtensions|ExcludeRestrictedSiteClassifications`);
   });
-
-  it('fails validation if the required policy option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { } });
-    assert.equal(actual, 'undefined is not a valid CDN policy. Allowed values are IncludeFileExtensions|ExcludeRestrictedSiteClassifications');
-  });
 });

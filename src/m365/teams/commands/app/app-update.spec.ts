@@ -60,31 +60,11 @@ describe(commands.TEAMS_APP_UPDATE, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the id is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        filePath: 'teamsapp.zip'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the id is not a valid GUID.', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         id: 'invalid',
         filePath: 'teamsapp.zip'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation if the filePath is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        id: "e3e29acb-8c79-412b-b746-e6c39ff4cd22"
       }
     });
     assert.notEqual(actual, true);

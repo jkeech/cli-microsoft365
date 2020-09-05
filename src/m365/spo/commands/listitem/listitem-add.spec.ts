@@ -142,11 +142,6 @@ describe(commands.LISTITEM_ADD, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'Demo List' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', listTitle: 'Demo List' } });
     assert.notEqual(actual, true);

@@ -809,16 +809,6 @@ describe(commands.PAGE_HEADER_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if pageName not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { pageName: 'page.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not an absolute URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { pageName: 'page.aspx', webUrl: 'foo' } });
     assert.notEqual(actual, true);

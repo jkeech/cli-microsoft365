@@ -195,11 +195,6 @@ describe(commands.TEAMS_TEAM_SET, () => {
     });
   });
 
-  it('fails validation if the teamId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the teamId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { teamId: 'invalid' } });
     assert.notEqual(actual, true);

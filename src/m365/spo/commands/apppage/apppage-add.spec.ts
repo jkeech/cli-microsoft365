@@ -160,19 +160,6 @@ describe(commands.APPPAGE_ADD, () => {
     });
     assert(containsOption);
   });
-
-  it('fails validation if title not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webPartData: JSON.stringify({ "abc": "def" }), webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-  it('fails validation if webPartData not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'page.aspx', webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webPartData: JSON.stringify({ "abc": "def" }), title: 'page.aspx' } });
-    assert.notEqual(actual, true);
-  });
   it('fails validation if webPartData is not a valid JSON string', () => {
     const actual = (command.validate() as CommandValidate)({ options: { title: 'Contoso', webUrl: 'https://contoso', webPartData: 'abc' } });
     assert.notEqual(actual, true);

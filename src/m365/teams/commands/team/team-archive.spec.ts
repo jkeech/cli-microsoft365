@@ -65,14 +65,6 @@ describe(commands.TEAMS_TEAM_ARCHIVE, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the teamId is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('passes validation when the input is correct', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {

@@ -593,33 +593,11 @@ describe(commands.PAGE_SECTION_ADD, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if sectionTemplate is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        name: 'page.aspx',
-        webUrl: 'https://contoso.sharepoint.com',
-        order: 'abc'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if sectionTemplate is not valid', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         name: 'page.aspx',
         webUrl: 'https://contoso.sharepoint.com',
-        order: 'abc',
-        sectionTemplate: 'OneColumnInvalid'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if webUrl is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        name: 'page.aspx',
         order: 'abc',
         sectionTemplate: 'OneColumnInvalid'
       }
@@ -634,28 +612,6 @@ describe(commands.PAGE_SECTION_ADD, () => {
         order: 1,
         sectionTemplate: 'OneColumn',
         webUrl: 'http://notasharepointurl'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if webUrl is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        name: 'page.aspx',
-        order: 1,
-        sectionTemplate: 'OneColumn'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if name is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        order: 1,
-        sectionTemplate: 'OneColumn',
-        webUrl: 'https://contoso.sharepoint.com'
       }
     });
     assert.notEqual(actual, true);

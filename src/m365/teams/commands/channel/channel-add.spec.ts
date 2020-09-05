@@ -58,31 +58,10 @@ describe(commands.TEAMS_CHANNEL_ADD, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the name is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the teamId is not a valid guid.', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         teamId: '61703ac8a-c49b-4fd4-8223-28f0ac3a6402'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-
-  it('fails validation if the teamId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        name: 'Architecture'
       }
     });
     assert.notEqual(actual, true);

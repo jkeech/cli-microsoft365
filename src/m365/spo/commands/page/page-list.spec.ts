@@ -630,11 +630,6 @@ describe(commands.PAGE_LIST, () => {
     assert(containsOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo' } });
     assert.notEqual(actual, true);

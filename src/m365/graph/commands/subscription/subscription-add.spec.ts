@@ -394,34 +394,6 @@ describe(commands.SUBSCRIPTION_ADD, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if resource is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        resource: null,
-        changeType: 'updated',
-        clientState: 'secretClientValue',
-        notificationUrl: "https://webhook.azurewebsites.net/api/send/myNotifyClient",
-        expirationDateTime: '2016-11-20T18:23:45.935Z'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if notificationUrl is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        resource: "me/mailFolders('Inbox')/messages",
-        changeType: 'updated',
-        clientState: 'secretClientValue',
-        notificationUrl: null,
-        expirationDateTime: '2016-11-20T18:23:45.935Z'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if notificationUrl is not valid', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
@@ -430,20 +402,6 @@ describe(commands.SUBSCRIPTION_ADD, () => {
         changeType: 'updated',
         clientState: 'secretClientValue',
         notificationUrl: "foo",
-        expirationDateTime: '2016-11-20T18:23:45.935Z'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if changeType is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        resource: "me/mailFolders('Inbox')/messages",
-        changeType: null,
-        clientState: 'secretClientValue',
-        notificationUrl: "https://webhook.azurewebsites.net/api/send/myNotifyClient",
         expirationDateTime: '2016-11-20T18:23:45.935Z'
       }
     });

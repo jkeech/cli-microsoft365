@@ -146,18 +146,8 @@ describe(commands.NAVIGATION_NODE_LIST, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { location: 'TopNavigationBar', title: 'About', url: '/sites/team-s/sitepages/about.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'invalid', location: 'TopNavigationBar', title: 'About', url: '/sites/team-s/sitepages/about.aspx' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if location is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/team-a', title: 'About', url: '/sites/team-s/sitepages/about.aspx' } });
     assert.notEqual(actual, true);
   });
 

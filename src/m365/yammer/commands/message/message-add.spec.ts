@@ -71,11 +71,6 @@ describe(commands.YAMMER_MESSAGE_ADD, () => {
     assert.notEqual(actual, true);
   });
 
-  it('body is required', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('has all fields', () => {
     const actual = (command.validate() as CommandValidate)({ options: { body: "test" } });
     assert.equal(actual, true);

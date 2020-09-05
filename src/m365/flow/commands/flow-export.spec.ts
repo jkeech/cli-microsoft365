@@ -332,16 +332,6 @@ describe(commands.FLOW_EXPORT, () => {
     });
   });
 
-  it('fails validation if the id is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { environment: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the environment is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: `${foundFlowId}` } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the id is not a GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { environment: `Default-${foundEnvironmentId}`, id: 'abc' } });
     assert.notEqual(actual, true);

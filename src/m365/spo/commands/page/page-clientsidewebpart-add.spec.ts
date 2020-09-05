@@ -2998,20 +2998,6 @@ describe(commands.PAGE_CLIENTSIDEWEBPART_ADD, () => {
     assert(containsOption);
   });
 
-  it('fails validation if page name not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: { webUrl: 'https://contoso.sharepoint.com', webPartId: '3ede60d3-dc2c-438b-b5bf-cc40bb2351e1' }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: { pageName: 'page.aspx', webPartId: '3ede60d3-dc2c-438b-b5bf-cc40bb2351e1' }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not an absolute URL', () => {
     const actual = (command.validate() as CommandValidate)({
       options: { pageName: 'page.aspx', webUrl: 'foo', webPartId: '3ede60d3-dc2c-438b-b5bf-cc40bb2351e1' }

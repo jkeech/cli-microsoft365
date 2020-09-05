@@ -274,16 +274,6 @@ describe(commands.LIST_LABEL_SET, () => {
     });
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { label: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the label option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the url option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', listId: 'cc27a922-8224-4296-90a5-ebbc54da2e85' } });
     assert.notEqual(actual, true);

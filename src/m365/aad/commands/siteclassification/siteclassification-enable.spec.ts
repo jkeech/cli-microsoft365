@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandError, CommandOption, CommandValidate } from '../../../../Command';
+import Command, { CommandError, CommandOption } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -63,51 +63,6 @@ describe(commands.SITECLASSIFICATION_ENABLE, () => {
       }
     });
     assert(containsOption);
-  });
-
-  it('fails validation if the classification and defaultClassification are not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the classification is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false, defaultClassification: "HBI"
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the defaultClassification is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false, classifications: "HBI, LBI, Top Secret"
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation if the required options are correct', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false, classifications: "HBI, LBI, Top Secret", defaultClassification: "HBI"
-      }
-    });
-    assert.equal(actual, true);
-  });
-
-  it('passes validation if the required options are correct and optional options are passed', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false, classifications: "HBI, LBI, Top Secret", defaultClassification: "HBI", usageGuidelinesUrl: "https://aka.ms/pnp"
-      }
-    });
-    assert.equal(actual, true);
   });
 
   it('handles Microsoft 365 Tenant siteclassification missing DirectorySettingTemplate', (done) => {

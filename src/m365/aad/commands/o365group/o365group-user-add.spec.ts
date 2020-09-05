@@ -86,32 +86,11 @@ describe(commands.O365GROUP_USER_ADD, () => {
     done();
   });
 
-  it('fails validation if the groupId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        role: 'Member'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation when both groupId and teamId are specified', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         groupId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
         teamId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation if the userName is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        role: 'Member',
-        groupId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402',
       }
     });
     assert.notEqual(actual, true);

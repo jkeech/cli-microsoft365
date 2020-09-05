@@ -299,11 +299,6 @@ describe(commands.LISTITEM_REMOVE, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if both id and title options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: 1 } });
     assert.notEqual(actual, true);

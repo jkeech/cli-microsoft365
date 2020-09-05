@@ -621,11 +621,6 @@ describe(commands.TERM_ADD, () => {
     });
   });
 
-  it('fails validation if name not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { termGroupName: 'PnPTermSets' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { termGroupName: 'PnPTermSets', name: 'PnP-Organizations', id: 'invalid' } });
     assert.notEqual(actual, true);

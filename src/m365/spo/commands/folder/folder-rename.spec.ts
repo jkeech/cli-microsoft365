@@ -380,24 +380,9 @@ describe(commands.FOLDER_RENAME, () => {
     assert(options.length > 0);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.equal(actual, "Required parameter webUrl missing");
-  });
-
   it('fails validation if the webUrl option is not valid', () => {
     const actual = (command.validate() as CommandValidate)({ options: {webUrl:'abc'} });
     assert.equal(actual, "abc is not a valid SharePoint Online site URL");
-  });
-
-  it('fails validation if the folderUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {webUrl:'https://contoso.sharepoint.com'} });
-    assert.equal(actual, "Required parameter folderUrl missing");
-  });
-
-  it('fails validation if the name option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {webUrl:'https://contoso.sharepoint.com', folderUrl: '/Shared Documents/test'} });
-    assert.equal(actual, "Required parameter name missing");
   });
 
   it('passes validation when the url option specified', () => {

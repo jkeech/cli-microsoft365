@@ -161,18 +161,8 @@ describe(commands.HUBSITE_CONNECT, () => {
     assert(containsOption);
   });
 
-  it('fails validation if site collection URL not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { hubSiteId: '255a50b2-527f-4413-8485-57f4c17a24d1' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site collection URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'site.com', hubSiteId: '255a50b2-527f-4413-8485-57f4c17a24d1' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the hub site ID not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { url: 'https://contoso.sharepoint.com/sites/sales' } });
     assert.notEqual(actual, true);
   });
 

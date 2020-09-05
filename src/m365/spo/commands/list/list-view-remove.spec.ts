@@ -559,11 +559,6 @@ describe(commands.LIST_VIEW_REMOVE, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if both listId and listTitle options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', viewId: 'cc27a922-8224-4296-90a5-ebbc54da2e85' } });
     assert.notEqual(actual, true);

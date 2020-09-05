@@ -1546,21 +1546,6 @@ describe(commands.LIST_ADD, () => {
     assert.notEqual((command.types() as CommandTypes).string, 'undefined', 'command string types undefined');
   });
 
-  it('fails validation if title option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if baseTemplate option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'List 1', webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { title: 'List 1', baseTemplate: 'GenericList' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the url option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', title: 'List 1', baseTemplate: 'GenericList' } });
     assert.notEqual(actual, true);

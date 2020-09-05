@@ -893,27 +893,12 @@ describe(commands.PROPERTYBAG_GET, () => {
     assert.equal(prop.value, true);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { key: 'abc' } });
-    assert.equal(actual, "Missing required option url");
-  });
-
   it('fails validation if the url option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({
       options:
         {
           webUrl: 'foo',
           key: 'abc'
-        }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the key option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options:
-        {
-          webUrl: 'https://contoso.sharepoint.com',
         }
     });
     assert.notEqual(actual, true);

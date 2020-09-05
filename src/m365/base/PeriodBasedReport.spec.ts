@@ -29,8 +29,6 @@ describe('PeriodBasedReport', () => {
   const mockCommand = new MockCommand();
   let log: string[];
   let cmdInstance: any;
-  //let cmdInstanceLogSpy: sinon.SinonSpy;
-  //let writeFileSyncFake = () => { };
 
   before(() => {
     sinon.stub(auth, 'restoreAuth').callsFake(() => Promise.resolve());
@@ -49,7 +47,6 @@ describe('PeriodBasedReport', () => {
         log.push(msg);
       }
     };
-    //cmdInstanceLogSpy = sinon.spy(cmdInstance, 'log');
     (mockCommand as any).items = [];
   });
 
@@ -74,11 +71,6 @@ describe('PeriodBasedReport', () => {
 
   it('has a description', () => {
     assert.notEqual(mockCommand.description, null);
-  });
-
-  it('fails validation if period option is not passed', () => {
-    const actual = (mockCommand.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
   });
 
   it('fails validation on invalid period', () => {
@@ -160,14 +152,11 @@ describe('PeriodBasedReport', () => {
       return Promise.reject('Invalid request');
     });
 
-    //const fileStub: sinon.SinonStub = sinon.stub(fs, 'writeFileSync').callsFake(writeFileSyncFake);
-
     cmdInstance.action({ options: { debug: false, period: 'D7' } }, () => {
       try {
         assert.equal(requestStub.lastCall.args[0].url, "https://graph.microsoft.com/v1.0/reports/MockEndPoint(period='D7')");
         assert.equal(requestStub.lastCall.args[0].headers["accept"], 'application/json;odata.metadata=none');
         assert.equal(requestStub.lastCall.args[0].json, true);
-        //assert.equal(fileStub.called, true);
         done();
       }
       catch (e) {
@@ -187,14 +176,11 @@ describe('PeriodBasedReport', () => {
       return Promise.reject('Invalid request');
     });
 
-    //const fileStub: sinon.SinonStub = sinon.stub(fs, 'writeFileSync').callsFake(writeFileSyncFake);
-
     cmdInstance.action({ options: { debug: false, period: 'D7', output: 'json' } }, () => {
       try {
         assert.equal(requestStub.lastCall.args[0].url, "https://graph.microsoft.com/v1.0/reports/MockEndPoint(period='D7')");
         assert.equal(requestStub.lastCall.args[0].headers["accept"], 'application/json;odata.metadata=none');
         assert.equal(requestStub.lastCall.args[0].json, true);
-        //assert.equal(fileStub.notCalled, true);
         done();
       }
       catch (e) {
@@ -214,14 +200,12 @@ describe('PeriodBasedReport', () => {
 
       return Promise.reject('Invalid request');
     });
-    //const fileStub: sinon.SinonStub = sinon.stub(fs, 'writeFileSync').callsFake(writeFileSyncFake);
 
     cmdInstance.action({ options: { debug: false, period: 'D7',  output: 'text' } }, () => {
       try {
         assert.equal(requestStub.lastCall.args[0].url, "https://graph.microsoft.com/v1.0/reports/MockEndPoint(period='D7')");
         assert.equal(requestStub.lastCall.args[0].headers["accept"], 'application/json;odata.metadata=none');
         assert.equal(requestStub.lastCall.args[0].json, true);
-        //assert.equal(fileStub.called, true);
         done();
       }
       catch (e) {
@@ -241,14 +225,12 @@ describe('PeriodBasedReport', () => {
 
       return Promise.reject('Invalid request');
     });
-    //const fileStub: sinon.SinonStub = sinon.stub(fs, 'writeFileSync').callsFake(writeFileSyncFake);
 
     cmdInstance.action({ options: { debug: false, period: 'D7' } }, () => {
       try {
         assert.equal(requestStub.lastCall.args[0].url, "https://graph.microsoft.com/v1.0/reports/MockEndPoint(period='D7')");
         assert.equal(requestStub.lastCall.args[0].headers["accept"], 'application/json;odata.metadata=none');
         assert.equal(requestStub.lastCall.args[0].json, true);
-        //assert.equal(fileStub.called, true);
         done();
       }
       catch (e) {
@@ -265,15 +247,12 @@ describe('PeriodBasedReport', () => {
 
       return Promise.reject('Invalid request');
     });
-    //const fileStub: sinon.SinonStub = sinon.stub(fs, 'writeFileSync').callsFake(writeFileSyncFake);
 
     cmdInstance.action({ options: { debug: true, period: 'D7',  output: 'json' } }, () => {
       try {
         assert.equal(requestStub.lastCall.args[0].url, "https://graph.microsoft.com/v1.0/reports/MockEndPoint(period='D7')");
         assert.equal(requestStub.lastCall.args[0].headers["accept"], 'application/json;odata.metadata=none');
         assert.equal(requestStub.lastCall.args[0].json, true);
-        //assert.equal(fileStub.called, true);
-        //assert(cmdInstanceLogSpy.calledWith(`File saved to path '/Users/josephvelliah/Desktop/deviceusagedistributionusercounts.json'`));
         done();
       }
       catch (e) {

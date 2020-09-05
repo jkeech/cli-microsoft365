@@ -67,27 +67,6 @@ describe(commands.TEAMS_APP_UNINSTALL, () => {
     done();
   });
 
-
-  it('fails validation if the teamId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        appId: 'YzUyN2E0NzAtYTg4Mi00ODFjLTk4MWMtZWU2ZWZhYmE4NWM3IyM0ZDFlYTA0Ny1mMTk2LTQ1MGQtYjJlOS0wZDI4NTViYTA1YTY='
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation if the appId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: '61703ac8a-c49b-4fd4-8223-28f0ac3a6402'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('uninstalls an app from a Microsoft Teams team with confirmation', (done) => {
     sinon.stub(request, 'delete').callsFake((opts) => {
       if (opts.url === `https://graph.microsoft.com/v1.0/teams/c527a470-a882-481c-981c-ee6efaba85c7/installedApps/YzUyN2E0NzAtYTg4Mi00ODFjLTk4MWMtZWU2ZWZhYmE4NWM3IyM0ZDFlYTA0Ny1mMTk2LTQ1MGQtYjJlOS0wZDI4NTViYTA1YTY=`) {

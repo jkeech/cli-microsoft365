@@ -262,11 +262,6 @@ describe(commands.HUBSITE_DATA_GET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if webUrl is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '9b142c22-037f-4a7f-9017-e9d8c0e34b99' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: '9b142c22-037f-4a7f-9017-e9d8c0e34b99', webUrl: 'Invalid' } });
     assert.notEqual(actual, true);

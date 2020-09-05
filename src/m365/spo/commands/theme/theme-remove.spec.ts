@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 const command: Command = require('./theme-remove');
@@ -217,15 +217,5 @@ describe(commands.THEME_REMOVE, () => {
       }
     });
     assert(containsDebugOption);
-  });
-
-  it('fails validation if name is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: '' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when name is passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'Contoso-Blue' } });
-    assert.equal(actual, true);
   });
 });

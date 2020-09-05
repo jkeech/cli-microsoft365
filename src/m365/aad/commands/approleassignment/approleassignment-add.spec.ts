@@ -319,16 +319,6 @@ describe(commands.APPROLEASSIGNMENT_ADD, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if resource is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { appId: '57907bf8-73fa-43a6-89a5-1f603e29e452', scope: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if scope is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { appId: '57907bf8-73fa-43a6-89a5-1f603e29e452', resource: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the appId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { appId: '123', resource: 'abc', scope: 'abc' } });
     assert.notEqual(actual, true);

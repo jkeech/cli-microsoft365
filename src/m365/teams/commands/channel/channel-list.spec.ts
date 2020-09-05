@@ -61,15 +61,6 @@ describe(commands.TEAMS_CHANNEL_LIST, () => {
     done();
   });
 
-  it('fails validation if the teamId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('has a description', () => {
     assert.notEqual(command.description, null);
   });

@@ -1,5 +1,5 @@
 import commands from '../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../Command';
+import Command, { CommandOption, CommandError } from '../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../appInsights';
 import auth from '../../../Auth';
@@ -184,21 +184,6 @@ describe(commands.FLOW_ENABLE, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if the name is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { environment: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the environment is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when the name and environment specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { environment: 'Default-d87a7535-dd31-4437-bfe1-95340acd55c5', name: 'abc' } });
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

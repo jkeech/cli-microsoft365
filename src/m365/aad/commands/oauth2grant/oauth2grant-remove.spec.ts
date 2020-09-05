@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -119,16 +119,6 @@ describe(commands.OAUTH2GRANT_REMOVE, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if the grantId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when grantId is specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { grantId: 'YgA60KYa4UOPSdc-lpxYEnQkr8KVLDpCsOXkiV8i-ek' } });
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

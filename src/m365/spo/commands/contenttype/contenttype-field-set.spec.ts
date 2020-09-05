@@ -1073,23 +1073,8 @@ describe(commands.CONTENTTYPE_FIELD_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if site URL is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { contentTypeId: '0x0100FF0B2E33A3718B46A3909298D240FD93', fieldId: '5ee2dd25-d941-455a-9bdb-7f2c54aed11b' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'site.com', contentTypeId: '0x0100FF0B2E33A3718B46A3909298D240FD93', fieldId: '5ee2dd25-d941-455a-9bdb-7f2c54aed11b' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the content type ID is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales', fieldId: '5ee2dd25-d941-455a-9bdb-7f2c54aed11b' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the field ID is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales', contentTypeId: '0x0100FF0B2E33A3718B46A3909298D240FD93' } });
     assert.notEqual(actual, true);
   });
 

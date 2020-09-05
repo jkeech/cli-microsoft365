@@ -502,12 +502,6 @@ describe(commands.CUSTOMACTION_ADD, () => {
     assert(registrationType === 4);
   });
 
-  it('fails validation if the url option not specified', () => {
-    defaultCommandOptions.url = undefined;
-    const actual = (command.validate() as CommandValidate)({ options: defaultCommandOptions });
-    assert.equal(actual, 'Missing required option url');
-  });
-
   it('fails if non existing PermissionKind rights specified', () => {
     defaultCommandOptions.rights = 'abc';
     const actual = (command.validate() as CommandValidate)({ options: defaultCommandOptions });

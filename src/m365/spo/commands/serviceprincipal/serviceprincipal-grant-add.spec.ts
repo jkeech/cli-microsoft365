@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandError, CommandValidate } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -222,20 +222,5 @@ describe(commands.SERVICEPRINCIPAL_GRANT_ADD, () => {
       }
     });
     assert(containsOption);
-  });
-
-  it('fails validation if the resource option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { scope: 'Mail.Read' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the scope option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { resource: 'Microsoft Graph' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when the resource and scope are specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { resource: 'Microsoft Graph', scope: 'Mail.Read' } });
-    assert.equal(actual, true);
   });
 });

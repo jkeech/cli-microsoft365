@@ -368,11 +368,6 @@ describe(commands.SITE_GROUPIFY, () => {
     assert(containsOption);
   });
 
-  it('fails validation if siteUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { alias: 'team-a', displayName: 'Team A' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if siteUrl is not an absolute URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { siteUrl: '/sites/team-a', alias: 'team-a', displayName: 'Team A' } });
     assert.notEqual(actual, true);
@@ -380,16 +375,6 @@ describe(commands.SITE_GROUPIFY, () => {
 
   it('fails validation if siteUrl is not a SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { siteUrl: 'http://contoso/sites/team-a', alias: 'team-a', displayName: 'Team A' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if alias is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/team-a', displayName: 'Team A' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if displayName is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/team-a', alias: 'team-a' } });
     assert.notEqual(actual, true);
   });
 

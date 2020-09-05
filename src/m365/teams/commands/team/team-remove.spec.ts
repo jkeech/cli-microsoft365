@@ -70,16 +70,6 @@ describe(commands.TEAMS_TEAM_REMOVE, () => {
     done();
   });
 
-  it('fails validation if the teamId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('passes validation when valid teamId is specified', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {

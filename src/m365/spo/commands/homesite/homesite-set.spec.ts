@@ -180,11 +180,6 @@ describe(commands.HOMESITE_SET, () => {
     });
   });
 
-  it('fails validation if the siteUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the siteUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { siteUrl: 'foo' } });
     assert.notEqual(actual, true);

@@ -586,11 +586,6 @@ describe(commands.FILE_COPY, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', sourceUrl: 'abc', targetUrl: 'abc' } });
     assert.notEqual(actual, true);
@@ -599,15 +594,5 @@ describe(commands.FILE_COPY, () => {
   it('passes validation if the webUrl option is a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', sourceUrl: 'abc', targetUrl: 'abc' } });
     assert.equal(actual, true);
-  });
-
-  it('fails validation if the sourceUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the targetUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', sourceUrl: 'abc' } });
-    assert.notEqual(actual, true);
   });
 });

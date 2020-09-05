@@ -183,11 +183,6 @@ describe(commands.FOLDER_ADD, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { parentFolderUrl: '/Shared Documents', name: 'My Folder' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', parentFolderUrl: '/Shared Documents', name: 'My Folder' } });
     assert.notEqual(actual, true);
@@ -196,15 +191,5 @@ describe(commands.FOLDER_ADD, () => {
   it('passes validation if the webUrl option is a valid SharePoint site URL and parentFolderUrl specified', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', parentFolderUrl: '/Shared Documents', name: 'My Folder' } });
     assert.equal(actual, true);
-  });
-
-  it('fails validation if the parentFolderUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', name: 'My Folder' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the name option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', parentFolderUrl: '/Shared Documents' } });
-    assert.notEqual(actual, true);
   });
 });

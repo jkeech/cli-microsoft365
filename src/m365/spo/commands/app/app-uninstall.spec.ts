@@ -448,16 +448,6 @@ describe(commands.APP_UNINSTALL, () => {
     });
   });
 
-  it('fails validation if the id option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the siteUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: 'b2307a39-e878-458b-bc90-03bc578531d6' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation when the id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: '123', siteUrl: 'https://contoso.sharepoint.com' } });
     assert.notEqual(actual, true);

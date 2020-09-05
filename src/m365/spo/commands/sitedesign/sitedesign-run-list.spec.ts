@@ -235,11 +235,6 @@ describe(commands.SITEDESIGN_RUN_LIST, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'invalid' } });
     assert.notEqual(actual, true);

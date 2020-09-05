@@ -429,11 +429,6 @@ describe(commands.APP_RETRACT, () => {
     });
   });
 
-  it('fails validation if the id option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the appCatalogUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 'b2307a39-e878-458b-bc90-03bc578531d6', appCatalogUrl: 'foo' } });
     assert.notEqual(actual, true);

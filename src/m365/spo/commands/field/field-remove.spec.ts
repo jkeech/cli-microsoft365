@@ -670,11 +670,6 @@ describe(commands.FIELD_REMOVE, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the URL option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '0CD891EF-AFCE-4E55-B836-FCE03286CCCF' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if both id and fieldTitle options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', confirm: true, listTitle: 'Documents' } });
     assert.notEqual(actual, true);
@@ -688,11 +683,6 @@ describe(commands.FIELD_REMOVE, () => {
   it('passes validation if the url option is a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: '0CD891EF-AFCE-4E55-B836-FCE03286CCCF' } });
     assert(actual);
-  });
-  
-  it('fails validation if the field ID option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
   });
 
   it('fails validation if the field ID option is not a valid GUID', () => {

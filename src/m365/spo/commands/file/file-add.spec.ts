@@ -1039,23 +1039,8 @@ describe(commands.FILE_ADD, () => {
     });
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option not valid url', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the path option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', folder: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the folder option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', path: 'abc' } });
     assert.notEqual(actual, true);
   });
 

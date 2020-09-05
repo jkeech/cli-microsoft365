@@ -66,29 +66,11 @@ describe(commands.TEAMS_USER_APP_ADD, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the userId is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        appId: '61703ac8-c49b-4fd4-8223-28f0ac3a6402'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the appId is not a valid guid.', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
         appId: 'not-c49b-4fd4-8223-28f0ac3a6402',
         userId: '15d7a78e-fd77-4599-97a5-dbb6372846c5'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the appId is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        userId: '61703ac8a-c49b-4fd4-8223-28f0ac3a6402'
       }
     });
     assert.notEqual(actual, true);

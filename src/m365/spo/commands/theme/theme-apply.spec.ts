@@ -624,11 +624,6 @@ describe(commands.THEME_APPLY, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if name is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: '', webUrl: 'https://contoso.sharepoint.com/sites/project-x' } });
-    assert.notEqual(actual, true);
-  });
-
   it('passes validation when name is passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { name: 'Contoso-Blue', webUrl: 'https://contoso.sharepoint.com/sites/project-x' } });
     assert.equal(actual, true);

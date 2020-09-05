@@ -248,11 +248,6 @@ describe(commands.GROUP_REMOVE, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if both id and name options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/mysite' } });
     assert.notEqual(actual, true);

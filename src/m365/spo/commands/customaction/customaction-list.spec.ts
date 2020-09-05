@@ -377,11 +377,6 @@ describe(commands.CUSTOMACTION_LIST, () => {
     assert(options.length > 0);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.equal(actual, "Missing required option url");
-  });
-
   it('retrieves all available user custom actions', (done) => {
     sinon.stub(request, 'get').callsFake((opts) => {
       if ((opts.url as string).indexOf('/_api/Web/UserCustomActions') > -1) {

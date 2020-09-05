@@ -467,11 +467,6 @@ describe(commands.FEATURE_LIST, () => {
     assert(options.length > 0);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.equal(actual, "Required parameter url missing");
-  });
-
   it('retrieves all Web features', (done) => {
     sinon.stub(request, 'get').callsFake((opts) => {
       if ((opts.url as string).indexOf('/_api/Web/Features?$select=DisplayName,DefinitionId') > -1) {

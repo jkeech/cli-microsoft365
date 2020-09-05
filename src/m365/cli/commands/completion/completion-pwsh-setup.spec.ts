@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 const command: Command = require('./completion-pwsh-setup');
@@ -229,16 +229,6 @@ describe(commands.COMPLETION_PWSH_SETUP, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if the profile path is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when the profile path specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { profile: 'profile.ps1' } });
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

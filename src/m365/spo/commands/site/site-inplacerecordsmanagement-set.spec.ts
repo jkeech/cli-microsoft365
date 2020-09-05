@@ -218,16 +218,6 @@ describe(commands.SITE_INPLACERECORDSMANAGEMENT_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if siteUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { enabled: 'true' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if enabled option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/team-a' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if enabled option not "true" or "false"', () => {
     const actual = (command.validate() as CommandValidate)({ options: { siteUrl: 'https://contoso.sharepoint.com/sites/team-a', enabled: 'abc' } });
     assert.notEqual(actual, true);

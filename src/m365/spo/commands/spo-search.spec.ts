@@ -1103,11 +1103,6 @@ describe(commands.SEARCH, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the queryText option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('passes validation if all options are provided', () => {
     const actual = (command.validate() as CommandValidate)({ options: { queryText: '*' } });
     assert.equal(actual, true);

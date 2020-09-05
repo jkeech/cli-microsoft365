@@ -464,16 +464,6 @@ describe(commands.CUSTOMACTION_GET, () => {
     assert(options.length > 0);
   });
 
-  it('fails validation if the id option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { url: "https://contoso.sharepoint.com" } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: "BC448D63-484F-49C5-AB8C-96B14AA68D50" } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the url option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({
       options:

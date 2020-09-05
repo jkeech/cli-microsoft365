@@ -1511,11 +1511,6 @@ describe(commands.LIST_SET, () => {
     assert.notEqual((command.types() as CommandTypes).string, 'undefined', 'command string types undefined');
   });
 
-  it('fails validation if id option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the id option is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: 'foo' } });
     assert.notEqual(actual, true);
@@ -1524,11 +1519,6 @@ describe(commands.LIST_SET, () => {
   it('passes validation if the id option is a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: '3EA5A977-315E-4E25-8B0F-E4F949BF6B8F' } });
     assert(actual);
-  });
-
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '3EA5A977-315E-4E25-8B0F-E4F949BF6B8F' } });
-    assert.notEqual(actual, true);
   });
 
   it('fails validation if the url option is not a valid SharePoint site URL', () => {

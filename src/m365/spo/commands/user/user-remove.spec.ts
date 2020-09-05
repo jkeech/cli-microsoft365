@@ -74,15 +74,6 @@ describe(commands.USER_REMOVE, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if the webUrl option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if id or loginName options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {

@@ -309,23 +309,8 @@ describe(commands.HUBSITE_RIGHTS_GRANT, () => {
     assert(containsOption);
   });
 
-  it('fails validation if url not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { principals: 'admin', rights: 'Join' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if url is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'abc', principals: 'admin', rights: 'Join' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if principals not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { url: 'https://contoso.sharepoint.com/sites/sales', rights: 'Join' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if rights not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { url: 'https://contoso.sharepoint.com/sites/sales', principals: 'PattiF' } });
     assert.notEqual(actual, true);
   });
 

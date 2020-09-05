@@ -1143,26 +1143,8 @@ describe(commands.TENANT_APPCATALOG_ADD, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if url not specified', () => {
-    const options: any = { owner: 'user@contoso.com', timeZone: 4 };
-    const actual = (command.validate() as CommandValidate)({ options: options });
-    assert.equal(typeof actual, 'string');
-  });
-
   it('fails validation if the specified url is not a valid SharePoint URL', () => {
     const options: any = { url: '/foo', owner: 'user@contoso.com', timeZone: 4 };
-    const actual = (command.validate() as CommandValidate)({ options: options });
-    assert.equal(typeof actual, 'string');
-  });
-
-  it('fails validation if owner not specified', () => {
-    const options: any = { url: 'https://contoso.sharepoint.com/sites/apps', timeZone: 4 };
-    const actual = (command.validate() as CommandValidate)({ options: options });
-    assert.equal(typeof actual, 'string');
-  });
-
-  it('fails validation if timeZone not specified', () => {
-    const options: any = { url: 'https://contoso.sharepoint.com/sites/apps', owner: 'user@contoso.com' };
     const actual = (command.validate() as CommandValidate)({ options: options });
     assert.equal(typeof actual, 'string');
   });

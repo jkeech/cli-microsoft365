@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError} from '../../../../Command';
+import Command, { CommandOption, CommandError} from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -207,27 +207,6 @@ describe(commands.SCHEMAEXTENSION_GET, () => {
       }
     });
   });
-
-it('fails validation if the id is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: null
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation if the id is specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: 'adatumisv_exo2'
-      }
-    });
-    assert.equal(actual, true);
-  });
-
 
   it('supports debug mode', () => {
     const options = (command.options() as CommandOption[]);

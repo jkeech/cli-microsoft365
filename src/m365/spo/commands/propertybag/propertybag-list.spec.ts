@@ -395,11 +395,6 @@ describe(commands.PROPERTYBAG_LIST, () => {
     assert.equal(prop.value, false);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.equal(actual, "Missing required option url");
-  });
-
   it('fails validation if the url option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({
       options:

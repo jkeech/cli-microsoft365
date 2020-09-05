@@ -293,16 +293,6 @@ describe(commands.OUTLOOK_MAIL_SEND, () => {
     });
   });
 
-  it('fails validation if subject is missing', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { to: 'mail@domain.com', bodyContents: 'Lorem ipsum' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if to is missing', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { subject: 'Lorem ipsum', bodyContents: 'Lorem ipsum' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if neither bodyContents nor bodyContentsFilePath specified', () => {
     const actual = (command.validate() as CommandValidate)({ options: { subject: 'Lorem ipsum', to: 'mail@domain.com' } });
     assert.notEqual(actual, true);

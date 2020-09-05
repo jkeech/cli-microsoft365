@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -129,21 +129,6 @@ describe(commands.OAUTH2GRANT_SET, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if the grantId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the scope is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { grantId: 'YgA60KYa4UOPSdc-lpxYEnQkr8KVLDpCsOXkiV8i-ek' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when grantId and scope are specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { grantId: 'YgA60KYa4UOPSdc-lpxYEnQkr8KVLDpCsOXkiV8i-ek', scope: 'user_impersonation' } });
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

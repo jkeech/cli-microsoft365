@@ -156,13 +156,6 @@ describe(commands.SITE_REMOVE, () => {
     });
   });
 
-  it('fails validation if the url is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {}
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the url is not a valid url', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {

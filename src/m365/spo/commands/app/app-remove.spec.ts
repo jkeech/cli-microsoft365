@@ -399,11 +399,6 @@ describe(commands.APP_REMOVE, () => {
     });
   });
 
-  it('fails validation if the id option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 'foo' } });
     assert.notEqual(actual, true);

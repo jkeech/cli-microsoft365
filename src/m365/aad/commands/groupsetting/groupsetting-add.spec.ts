@@ -525,11 +525,6 @@ describe(commands.GROUPSETTING_ADD, () => {
     });
   });
 
-  it('fails validation if the templateId not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the templateId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { templateId: 'invalid' } });
     assert.notEqual(actual, true);

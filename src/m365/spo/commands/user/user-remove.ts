@@ -118,6 +118,10 @@ class SpoUserRemoveCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
+      if (!args.options.id && !args.options.loginName) {
+        return 'Required option id or loginName missing, one is required';
+      }
+      
       if (args.options.id && args.options.loginName) {
         return 'Use either id or loginName, but not both';
       }

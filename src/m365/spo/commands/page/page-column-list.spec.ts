@@ -448,18 +448,8 @@ describe(commands.PAGE_COLUMN_LIST, () => {
     assert(containsOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'home.aspx', section: 1 } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', name: 'home.aspx', section: 1 } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the name option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', section: 1 } });
     assert.notEqual(actual, true);
   });
 

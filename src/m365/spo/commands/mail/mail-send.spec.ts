@@ -441,28 +441,8 @@ describe(commands.MAIL_SEND, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { to: 'user@contoso.com', subject: 'Subject of the email', body: 'Content of the email' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', to: 'user@contoso.com', subject: 'Subject of the email', body: 'Content of the email' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the \'to\' option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', subject: 'Subject of the email', body: 'Content of the email' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the \'subject\' option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', to: 'user@contoso.com', body: 'Content of the email' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the \'body\' option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', to: 'user@contoso.com', subject: 'Subject of the email' } });
     assert.notEqual(actual, true);
   });
 

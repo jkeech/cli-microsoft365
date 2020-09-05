@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandError, CommandValidate } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 const command: Command = require('./project-rename');
@@ -76,16 +76,6 @@ describe(commands.PROJECT_RENAME, () => {
     cmdInstance.action({ options: { newName: 'spfx-react' } }, () => {
       assert.equal(telemetry.name, commands.PROJECT_RENAME);
     });
-  });
-
-  it('fails validation if newName is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation if newName is passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { newName: 'spfx-react' } });
-    assert.equal(actual, true);
   });
 
   it('shows error if the project path couldn\'t be determined', (done) => {

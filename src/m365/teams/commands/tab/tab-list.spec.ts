@@ -63,26 +63,6 @@ describe(commands.TEAMS_TAB_LIST, () => {
     done();
   });
 
-  it('fails validation if the teamId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        channelId: '19:552b7125655c46d5b5b86db02ee7bfdf@thread.skype'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
-  it('fails validation if the channelId is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        teamId: '6703ac8a-c49b-4fd4-8223-28f0ac3a6402'
-      }
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('has a description', () => {
     assert.notEqual(command.description, null);
   });

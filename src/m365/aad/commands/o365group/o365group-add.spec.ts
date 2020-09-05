@@ -1025,21 +1025,6 @@ describe(commands.O365GROUP_ADD, () => {
     });
   });
 
-  it('fails validation if the displayName is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { description: 'My awesome group', mailNickname: 'my_group' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the description is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { displayName: 'My group', mailNickname: 'my_group' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the mailNickname is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { displayName: 'My group', description: 'My awesome group' } });
-    assert.notEqual(actual, true);
-  });
-
   it('passes validation when the displayName, description and mailNickname are specified', () => {
     const actual = (command.validate() as CommandValidate)({ options: { displayName: 'My group', description: 'My awesome group', mailNickname: 'my_group' } });
     assert.equal(actual, true);

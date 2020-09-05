@@ -62,14 +62,6 @@ describe(commands.TEAMS_APP_REMOVE, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the id is not provided.', (done) => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {}
-    });
-    assert.notEqual(actual, true);
-    done();
-  });
-
   it('fails validation if the id is not a valid GUID.', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: { id: 'invalid' }

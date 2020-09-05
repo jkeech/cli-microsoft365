@@ -483,11 +483,6 @@ describe(commands.WEB_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'abc' } });
     assert.notEqual(actual, true);

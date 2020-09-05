@@ -306,18 +306,8 @@ describe(commands.SITESCRIPT_REMOVE, () => {
     assert(containsOption);
   });
 
-  it('fails validation if id not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if principals not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '2c1ba4c4-cd9b-4417-832f-92a34bc34b2a' } });
     assert.notEqual(actual, true);
   });
 

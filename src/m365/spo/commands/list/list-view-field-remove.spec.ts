@@ -917,11 +917,6 @@ describe(commands.LIST_VIEW_FIELD_REMOVE, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { listId: '0CD891EF-AFCE-4E55-B836-FCE03286CCCF', viewId: 'cc27a922-8224-4296-90a5-ebbc54da2e85', fieldId: '330f29c5-5c4c-465f-9f4b-7903020ae1ce' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if one of listId or listTitle options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', viewId: 'cc27a922-8224-4296-90a5-ebbc54da2e85', fieldId: '330f29c5-5c4c-465f-9f4b-7903020ae1ce' } });
     assert.notEqual(actual, true);

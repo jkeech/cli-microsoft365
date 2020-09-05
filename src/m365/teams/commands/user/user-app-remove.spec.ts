@@ -72,24 +72,6 @@ describe(commands.TEAMS_USER_APP_REMOVE, () => {
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the userId is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        appId: 'YzUyN2E0NzAtYTg4Mi00ODFjLTk4MWMtZWU2ZWZhYmE4NWM3IyM0ZDFlYTA0Ny1mMTk2LTQ1MGQtYjJlOS0wZDI4NTViYTA1YTY='
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the appId is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        userId: '61703ac8a-c49b-4fd4-8223-28f0ac3a6402'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('passes validation when the input is correct', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {

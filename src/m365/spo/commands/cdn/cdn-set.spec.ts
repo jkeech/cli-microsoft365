@@ -692,9 +692,4 @@ describe(commands.CDN_SET, () => {
     const actual = (command.validate() as CommandValidate)({ options: { enabled: enabled } });
     assert.equal(actual, `${enabled} is not a valid boolean value. Allowed values are true|false`);
   });
-
-  it('fails validation if the required enabled state option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.equal(actual, 'undefined is not a valid boolean value. Allowed values are true|false');
-  });
 });

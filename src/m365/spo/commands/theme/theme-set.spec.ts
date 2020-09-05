@@ -181,11 +181,6 @@ describe(commands.THEME_SET, () => {
     });
   });
 
-  it('fails validation if file path not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'abc', isInverted: false } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if file path doesn\'t exist', () => {
     sinon.stub(fs, 'existsSync').callsFake(() => false);
     const actual = (command.validate() as CommandValidate)({ options: { name: 'abc', filePath: 'abc', isInverted: false } });
@@ -258,20 +253,5 @@ describe(commands.THEME_SET, () => {
       }
     });
     assert(containsDebugOption);
-  });
-
-  it('fails validation if name is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: '' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if path is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { fullPath: '' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation when inverted parameter is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { name: 'abc', filePath: 'abc' } });
-    assert.notEqual(actual, true);
   });
 });

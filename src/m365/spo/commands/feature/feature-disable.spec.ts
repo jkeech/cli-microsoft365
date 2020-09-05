@@ -67,52 +67,6 @@ describe(commands.FEATURE_DISABLE, () => {
     });
   });
 
-  it('fails validation if the url is not provided', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        force: false,
-        scope: 'web',
-        featureId: '780ac353-eaf8-4ac2-8c47-536d93c03fd6'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the url is empty', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: '',
-        force: false,
-        scope: 'web',
-        featureId: '780ac353-eaf8-4ac2-8c47-536d93c03fd6'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the featureId is not provided', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: 'https://contoso.sharepoint.com/sites/sales',
-        force: false,
-        scope: 'web'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the featureId is empty', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        url: 'https://contoso.sharepoint.com/sites/sales',
-        force: false,
-        scope: 'web',
-        featureId: ''
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if scope is not site|web', () => {
     const scope = 'list';
     const actual = (command.validate() as CommandValidate)({

@@ -604,18 +604,8 @@ describe(commands.FIELD_ADD, () => {
     assert(containsOption);
   });
 
-  it('fails validation if site URL is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { xml: '<Field />' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'site.com', xml: '<Field />' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the field XML is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales' } });
     assert.notEqual(actual, true);
   });
 

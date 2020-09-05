@@ -166,11 +166,6 @@ describe(commands.GROUPSETTING_GET, () => {
     });
   });
 
-  it('fails validation if the id is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: '123' } });
     assert.notEqual(actual, true);

@@ -284,11 +284,6 @@ describe(commands.OAUTH2GRANT_LIST, () => {
     });
   });
 
-  it('fails validation if the clientId option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the clientId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { clientId: '123' } });
     assert.notEqual(actual, true);

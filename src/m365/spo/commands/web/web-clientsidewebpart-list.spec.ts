@@ -66,15 +66,6 @@ describe(commands.WEB_CLIENTSIDEWEBPART_LIST, () => {
     assert(containsDebugOption);
   });
 
-  it('fails validation if the webUrl option is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('should fail validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({
       options:

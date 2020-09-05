@@ -62,15 +62,6 @@ describe(commands.FLOW_REMOVE, () => {
     assert.notEqual(command.description, null);
   });
 
-  it('fails validation if the name is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        environment: 'Default-eff8592e-e14a-4ae8-8771-d96d5c549e1c'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the name is not valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({
       options: {
@@ -80,16 +71,6 @@ describe(commands.FLOW_REMOVE, () => {
     });
     assert.notEqual(actual, true);
   });
-
-  it('fails validation if the environment is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        name: '0f64d9dd-01bb-4c1b-95b3-cb4a1a08ac72'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
 
   it('passes validation when the name and environment specified', () => {
     const actual = (command.validate() as CommandValidate)({

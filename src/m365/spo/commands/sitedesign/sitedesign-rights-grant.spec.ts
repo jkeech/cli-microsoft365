@@ -255,23 +255,8 @@ describe(commands.SITEDESIGN_RIGHTS_GRANT, () => {
     assert(containsOption);
   });
 
-  it('fails validation if id not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if principals not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '9b142c22-037f-4a7f-9017-e9d8c0e34b98' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if rights not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '9b142c22-037f-4a7f-9017-e9d8c0e34b98', principals: 'PattiF' } });
     assert.notEqual(actual, true);
   });
 

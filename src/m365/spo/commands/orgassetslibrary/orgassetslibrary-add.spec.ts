@@ -228,11 +228,6 @@ describe(commands.ORGASSETSLIBRARY_ADD, () => {
     });
   });
 
-  it('fails validation if the libraryUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the libraryUrl is not valid', () => {
     const actual = (command.validate() as CommandValidate)({ options: { libraryUrl: 'invalid' } });
     assert.notEqual(actual, true);

@@ -214,18 +214,8 @@ describe(commands.CONTENTTYPE_GET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if site URL is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '0x0100558D85B7216F6A489A499DB361E1AE2F' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'site.com', id: '0x0100558D85B7216F6A489A499DB361E1AE2F' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the content type ID is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales' } });
     assert.notEqual(actual, true);
   });
 

@@ -265,11 +265,6 @@ describe(commands.LIST_WEBHOOK_REMOVE, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the url option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if both list id and title options are not passed', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: 'cc27a922-8224-4296-90a5-ebbc54da2e85' } });
     assert.notEqual(actual, true);

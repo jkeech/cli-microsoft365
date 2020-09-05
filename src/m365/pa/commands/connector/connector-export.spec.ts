@@ -706,16 +706,6 @@ describe(commands.CONNECTOR_EXPORT, () => {
     });
   });
 
-  it('fails validation if the environment name is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { connector: 'shared_connector-201-5f20a1f2d8d6777a75-5fa602f410652f4dfa' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the connector name is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { environment: 'Default-5be1aa17-e6cd-4d3d-8355-01af3e607d4b' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation when the specified output folder does not exist', () => {
     sinon.stub(fs, 'existsSync').callsFake(() => false);
     const actual = (command.validate() as CommandValidate)({ options: { environment: 'Default-d87a7535-dd31-4437-bfe1-95340acd55c5', connector: 'shared_connector-201-5f20a1f2d8d6777a75-5fa602f410652f4dfa', outputFolder: '123' } });

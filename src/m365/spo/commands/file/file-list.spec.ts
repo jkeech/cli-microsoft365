@@ -239,11 +239,6 @@ describe(commands.FILE_LIST, () => {
     assert(containsTypeOption);
   });
 
-  it('fails validation if the webUrl option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { folder: '/' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the webUrl option is not a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'foo', folder: '/' } });
     assert.notEqual(actual, true);
@@ -252,10 +247,5 @@ describe(commands.FILE_LIST, () => {
   it('passes validation if the webUrl option is a valid SharePoint site URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', folder: '/' } });
     assert.equal(actual, true);
-  });
-
-  it('fails validation if the folder option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
-    assert.notEqual(actual, true);
   });
 });

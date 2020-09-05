@@ -199,11 +199,6 @@ describe(commands.SITEDESIGN_TASK_REMOVE, () => {
     assert(containsOption);
   });
 
-  it('fails validation if taskId not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the taskId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { taskId: 'abc' } });
     assert.notEqual(actual, true);

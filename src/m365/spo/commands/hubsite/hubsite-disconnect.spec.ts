@@ -208,11 +208,6 @@ describe(commands.HUBSITE_DISCONNECT, () => {
     assert(containsOption);
   });
 
-  it('fails validation if url not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if url is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'abc' } });
     assert.notEqual(actual, true);

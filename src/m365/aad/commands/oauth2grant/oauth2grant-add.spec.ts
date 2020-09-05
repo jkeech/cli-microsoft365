@@ -137,28 +137,13 @@ describe(commands.OAUTH2GRANT_ADD, () => {
     });
   });
 
-  it('fails validation if the clientId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the clientId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { clientId: '123' } });
     assert.notEqual(actual, true);
   });
 
-  it('fails validation if the resourceId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { clientId: '6a7b1395-d313-4682-8ed4-65a6265a6320' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the resourceId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { clientId: '6a7b1395-d313-4682-8ed4-65a6265a6320', resourceId: '123' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the scope is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { clientId: '6a7b1395-d313-4682-8ed4-65a6265a6320', resourceId: '6a7b1395-d313-4682-8ed4-65a6265a6320' } });
     assert.notEqual(actual, true);
   });
 

@@ -434,18 +434,8 @@ describe(commands.FIELD_GET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if site URL is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { id: '03e45e84-1992-4d42-9116-26f756012634' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'site.com', id: '03e45e84-1992-4d42-9116-26f756012634' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the field ID is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales' } });
     assert.notEqual(actual, true);
   });
 

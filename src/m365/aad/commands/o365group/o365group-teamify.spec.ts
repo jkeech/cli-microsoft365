@@ -140,11 +140,6 @@ describe(commands.O365GROUP_TEAMIFY, () => {
     });
   });
 
-  it('fails validation if the groupId is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the groupId is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { groupId: 'invalid' } });
     assert.notEqual(actual, true);

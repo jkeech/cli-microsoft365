@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 const command: Command = require('./accesstoken-get');
 import * as assert from 'assert';
@@ -85,26 +85,6 @@ describe(commands.UTIL_ACCESSTOKEN_GET, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if resource is not passed', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if resource is undefined', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { resource: undefined } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if resource is blank', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { resource: '' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when resource is specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { resource: 'https://graph.microsoft.com' } });
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

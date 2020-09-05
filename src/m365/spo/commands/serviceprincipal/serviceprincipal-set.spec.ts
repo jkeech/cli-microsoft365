@@ -326,11 +326,6 @@ describe(commands.SERVICEPRINCIPAL_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if the enabled option not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the enabled option is not a valid boolean value', () => {
     const actual = (command.validate() as CommandValidate)({ options: { enabled: '123' } });
     assert.notEqual(actual, true);

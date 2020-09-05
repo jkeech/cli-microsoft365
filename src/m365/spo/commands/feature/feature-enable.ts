@@ -109,7 +109,7 @@ class SpoFeatureEnableCommand extends SpoCommand {
         }
       }
 
-      return true;
+      return SpoCommand.isValidSharePointUrl(args.options.url);
     };
   }
 }

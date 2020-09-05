@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -160,38 +160,6 @@ describe(commands.LIST_SET, () => {
         done(e);
       }
     });
-  });
-
-  it('fails validation if name is not set', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: "AAMkAGI3NDhlZmQzLWQxYjAtNGJjNy04NmYwLWQ0M2IzZTNlMDUwNAAuAAAAAACQ1l2jfH6VSZraktP8Z7auAQCbV93BagWITZhL3J6BMqhjAAD9pHIjAAA="
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if id is not set', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        newName: "Foo"
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when all parameters are valid', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        id: "AAMkAGI3NDhlZmQzLWQxYjAtNGJjNy04NmYwLWQ0M2IzZTNlMDUwNAAuAAAAAACQ1l2jfH6VSZraktP8Z7auAQCbV93BagWITZhL3J6BMqhjAAD9pHIjAAA=",
-        newName: 'Foo'
-      }
-    });
-
-    assert.equal(actual, true);
   });
 
   it('supports debug mode', () => {

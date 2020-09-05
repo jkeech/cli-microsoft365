@@ -703,7 +703,7 @@ describe(commands.SITE_SET, () => {
           debug: false,
           verbose: false
         };
-        assert(executeCommandSpy.calledWith(spoSiteClassicSetCommand, options));
+        assert(executeCommandSpy.calledWith('spo site classic set', spoSiteClassicSetCommand, options));
         done();
       }
       catch (e) {
@@ -735,7 +735,7 @@ describe(commands.SITE_SET, () => {
           debug: false,
           verbose: false
         };
-        assert(executeCommandSpy.calledWith(spoSiteClassicSetCommand, options));
+        assert(executeCommandSpy.calledWith('spo site classic set', spoSiteClassicSetCommand, options));
         done();
       }
       catch (e) {
@@ -825,7 +825,7 @@ describe(commands.SITE_SET, () => {
           debug: false,
           verbose: false
         };
-        assert(executeCommandSpy.calledWith(aadO365GroupSetCommand, options));
+        assert(executeCommandSpy.calledWith('aad o365group set', aadO365GroupSetCommand, options));
         assert.equal(typeof err, 'undefined');
         done();
       }
@@ -1114,7 +1114,7 @@ describe(commands.SITE_SET, () => {
           debug: false,
           verbose: false
         };
-        assert(executeCommandSpy.calledWith(spoSiteDesignApplyCommand, options));
+        assert(executeCommandSpy.calledWith('spo sitedesign apply', spoSiteDesignApplyCommand, options));
         done();
       }
       catch (e) {
@@ -1123,7 +1123,7 @@ describe(commands.SITE_SET, () => {
     });
   });
 
-  it('applies site design to the specified gropified site', (done) => {
+  it('applies site design to the specified groupified site', (done) => {
     sinon.stub(request, 'get').callsFake((opts) => {
       if (opts.url === 'https://contoso.sharepoint.com/sites/Sales/_api/site?$select=GroupId,Id') {
         return Promise.resolve({
@@ -1145,7 +1145,7 @@ describe(commands.SITE_SET, () => {
           debug: false,
           verbose: false
         };
-        assert(executeCommandSpy.calledWith(spoSiteDesignApplyCommand, options));
+        assert(executeCommandSpy.calledWith('spo sitedesign apply', spoSiteDesignApplyCommand, options));
         done();
       }
       catch (e) {
@@ -1327,11 +1327,6 @@ describe(commands.SITE_SET, () => {
     assert(containsOption);
   });
 
-  it('fails validation if URL not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { classification: 'HBI' } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'Invalid', classification: 'HBI' } });
     assert.notEqual(actual, true);
@@ -1339,11 +1334,6 @@ describe(commands.SITE_SET, () => {
 
   it('fails validation if specified id is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'https://contoso.sharepoint.com', id: 'abc' } });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if no property to update specified (id not specified)', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { url: 'https://contoso.sharepoint.com' } });
     assert.notEqual(actual, true);
   });
 

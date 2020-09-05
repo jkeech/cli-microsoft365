@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandValidate, CommandOption, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import auth from '../../../../Auth';
 const command: Command = require('./userprofile-set');
@@ -56,47 +56,6 @@ describe(commands.USERPROFILE_SET, () => {
 
   it('has a description', () => {
     assert.notEqual(command.description, null);
-  });
-
-  it('fails validation if the userName is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        propertyName: 'SPS-JobTitle',
-        propertyValue: 'Senior Developer'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the propertyName is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        userName: 'john.doe@mytenant.onmicrosoft.com',
-        propertyValue: 'Senior Developer'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the propertyValue is not provided.', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        userName: 'john.doe@mytenant.onmicrosoft.com',
-        propertyName: 'SPS-JobTitle'
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when the input is correct', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        userName: 'john.doe@mytenant.onmicrosoft.com',
-        propertyName: 'SPS-JobTitle',
-        propertyValue: 'Senior Developer'
-      }
-    });
-    assert.equal(actual, true);
   });
 
   it('updates single valued profile property', (done) => {

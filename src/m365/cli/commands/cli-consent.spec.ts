@@ -92,11 +92,6 @@ describe(commands.CONSENT, () => {
     assert(containsOption);
   });
 
-  it('fails validation if service is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: { } });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if specified service is invalid ', () => {
     const actual = (command.validate() as CommandValidate)({ options: { service: 'invalid' } });
     assert.notEqual(actual, true);

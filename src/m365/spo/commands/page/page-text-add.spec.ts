@@ -1198,20 +1198,6 @@ describe(commands.PAGE_TEXT_ADD, () => {
     assert(containsOption);
   });
 
-  it('fails validation if page name not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: { webUrl: 'https://contoso.sharepoint.com', text: 'Hello world' }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if webUrl not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: { pageName: 'page.aspx', text: 'Hello world' }
-    });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if webUrl is not an absolute URL', () => {
     const actual = (command.validate() as CommandValidate)({
       options: { pageName: 'page.aspx', webUrl: 'foo', text: 'Hello world' }
@@ -1226,13 +1212,6 @@ describe(commands.PAGE_TEXT_ADD, () => {
         webUrl: 'http://foo',
         text: 'Hello world'
       }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('fails validation if the text parameter is not specified', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: { pageName: 'page.aspx', webUrl: 'https://contoso.sharepoint.com' }
     });
     assert.notEqual(actual, true);
   });

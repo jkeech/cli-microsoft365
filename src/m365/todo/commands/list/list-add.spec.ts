@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandValidate, CommandError } from '../../../../Command';
+import Command, { CommandOption, CommandError } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import auth from '../../../../Auth';
@@ -155,28 +155,6 @@ describe(commands.LIST_ADD, () => {
       }
     });
   });
-
-  it('fails validation if name is not set', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        name: null
-      }
-    });
-    assert.notEqual(actual, true);
-  });
-
-  it('passes validation when all parameters are valid', () => {
-    const actual = (command.validate() as CommandValidate)({
-      options: {
-        debug: false,
-        name: 'Foo'
-      }
-    });
-
-    assert.equal(actual, true);
-  });
-
 
   it('supports debug mode', () => {
     const options = (command.options() as CommandOption[]);

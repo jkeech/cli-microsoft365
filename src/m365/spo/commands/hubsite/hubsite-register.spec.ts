@@ -181,11 +181,6 @@ describe(commands.HUBSITE_REGISTER, () => {
     assert(containsOption);
   });
 
-  it('fails validation if site collection URL not specified', () => {
-    const actual = (command.validate() as CommandValidate)({ options: {} });
-    assert.notEqual(actual, true);
-  });
-
   it('fails validation if the specified site collection URL is not a valid SharePoint URL', () => {
     const actual = (command.validate() as CommandValidate)({ options: { url: 'site.com' } });
     assert.notEqual(actual, true);
