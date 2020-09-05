@@ -7,6 +7,7 @@ const command: Command = require('./list-add');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.LIST_ADD, () => {
   let log: string[];

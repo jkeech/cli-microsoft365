@@ -5,6 +5,7 @@ import auth from '../../Auth';
 import Utils from '../../Utils';
 import { CommandError } from '../../Command';
 import appInsights from '../../appInsights';
+import { CommandInstance } from '../../cli';
 
 class MockCommand extends GraphCommand {
   public get name(): string {

@@ -7,6 +7,7 @@ const command: Command = require('./app-deploy');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.APP_DEPLOY, () => {
   let log: string[];

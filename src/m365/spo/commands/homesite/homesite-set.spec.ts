@@ -8,6 +8,7 @@ import request from '../../../../request';
 import Utils from '../../../../Utils';
 import appInsights from '../../../../appInsights';
 import config from '../../../../config';
+import * as chalk from 'chalk';
 
 describe(commands.HOMESITE_SET, () => {
   let log: any[];

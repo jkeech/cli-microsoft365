@@ -7,6 +7,7 @@ const command: Command = require('./page-text-add');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.PAGE_TEXT_ADD, () => {
   let log: string[];

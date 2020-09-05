@@ -27,7 +27,6 @@ interface SiteRenameJob {
 
 class SpoSiteRenameCommand extends SpoCommand {
   private context?: FormDigestInfo;
-  private timeout?: NodeJS.Timer;
   private operationData?: SiteRenameJob;
   private static readonly checkIntervalInMs: number = 5000;
 
@@ -162,7 +161,7 @@ class SpoSiteRenameCommand extends SpoCommand {
           return;
         }
 
-        command.timeout = setTimeout(() => {
+        setTimeout(() => {
           command.waitForRenameCompletion(command, isVerbose, spoAdminUrl, siteUrl, resolve, reject, iteration);
         }, SpoSiteRenameCommand.checkIntervalInMs);
       })

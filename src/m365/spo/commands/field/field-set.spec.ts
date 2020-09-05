@@ -9,6 +9,7 @@ import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
 import Sinon = require('sinon');
+import * as chalk from 'chalk';
 
 describe(commands.FIELD_SET, () => {
   let log: any[];

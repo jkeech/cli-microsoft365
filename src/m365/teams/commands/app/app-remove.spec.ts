@@ -7,6 +7,7 @@ import Command, { CommandOption, CommandError, CommandValidate } from '../../../
 import auth from '../../../../Auth';
 const command: Command = require('./app-remove');
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.TEAMS_APP_REMOVE, () => {
   let log: string[];

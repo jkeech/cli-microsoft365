@@ -11,6 +11,7 @@ import Utils from '../../../../Utils';
 import * as spoSiteClassicSetCommand from './site-classic-set';
 import * as aadO365GroupSetCommand from '../../../aad/commands/o365group/o365group-set';
 import * as spoSiteDesignApplyCommand from '../sitedesign/sitedesign-apply';
+import { Cli } from '../../../../cli';
 
 describe(commands.SITE_SET, () => {
   let log: string[];
@@ -43,7 +44,7 @@ describe(commands.SITE_SET, () => {
     Utils.restore([
       request.post,
       request.get,
-      Utils.executeCommand,
+      Cli.executeCommand,
       (command as any).getSpoAdminUrl
     ]);
   });
@@ -690,7 +691,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.resolve());
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.resolve());
 
     cmdInstance.action({ options: { debug: false, title: 'New title', url: 'https://contoso.sharepoint.com/sites/Sales' } }, () => {
       try {
@@ -722,7 +723,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.resolve());
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.resolve());
 
     cmdInstance.action({ options: { debug: false, owners: 'admin@contoso.onmicrosoft.com', url: 'https://contoso.sharepoint.com/sites/Sales' } }, () => {
       try {
@@ -754,7 +755,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.reject(new CommandError('An error has occurred')));
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.reject(new CommandError('An error has occurred')));
 
     cmdInstance.action({ options: { debug: false, title: 'New title', url: 'https://contoso.sharepoint.com/sites/Sales' } }, (err: any) => {
       try {
@@ -814,7 +815,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.resolve());
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.resolve());
 
     cmdInstance.action({ options: { debug: false, isPublic: true, url: 'https://contoso.sharepoint.com/sites/Sales' } }, (err?: any) => {
       try {
@@ -845,7 +846,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.reject(new CommandError('An error has occurred')));
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.reject(new CommandError('An error has occurred')));
 
     cmdInstance.action({ options: { debug: false, isPublic: true, url: 'https://contoso.sharepoint.com/sites/Sales' } }, (err?: any) => {
       try {
@@ -1102,7 +1103,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.resolve());
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.resolve());
 
     cmdInstance.action({ options: { debug: false, siteDesignId: 'eb2f31da-9461-4fbf-9ea1-9959b134b89e', url: 'https://contoso.sharepoint.com/sites/Sales' } }, () => {
       try {
@@ -1133,7 +1134,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.resolve());
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.resolve());
 
     cmdInstance.action({ options: { debug: false, siteDesignId: 'eb2f31da-9461-4fbf-9ea1-9959b134b89e', url: 'https://contoso.sharepoint.com/sites/Sales' } }, () => {
       try {
@@ -1164,7 +1165,7 @@ describe(commands.SITE_SET, () => {
 
       return Promise.reject('Invalid request');
     });
-    executeCommandSpy = sinon.stub(Utils, 'executeCommand').callsFake(() => Promise.reject(new CommandError('An error has occurred')));
+    executeCommandSpy = sinon.stub(Cli, 'executeCommand').callsFake(() => Promise.reject(new CommandError('An error has occurred')));
 
     cmdInstance.action({ options: { debug: false, siteDesignId: 'eb2f31da-9461-4fbf-9ea1-9959b134b89e', url: 'https://contoso.sharepoint.com/sites/Sales' } }, (err: any) => {
       try {

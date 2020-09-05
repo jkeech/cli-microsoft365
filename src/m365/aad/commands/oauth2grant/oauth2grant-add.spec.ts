@@ -7,6 +7,7 @@ const command: Command = require('./oauth2grant-add');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.OAUTH2GRANT_ADD, () => {
   let log: string[];

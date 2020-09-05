@@ -6,6 +6,7 @@ const command: Command = require('./completion-pwsh-update');
 import * as assert from 'assert';
 import Utils from '../../../../Utils';
 import { autocomplete } from '../../../../autocomplete';
+import * as chalk from 'chalk';
 
 describe(commands.COMPLETION_PWSH_UPDATE, () => {
   let log: string[];

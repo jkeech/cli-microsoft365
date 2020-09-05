@@ -1,4 +1,5 @@
 import Command, { CommandAction, CommandArgs } from '../../Command';
+import { CommandInstance } from '../../cli';
 
 export default abstract class AnonymousCommand extends Command {
   public action(): CommandAction {

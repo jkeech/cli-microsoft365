@@ -7,6 +7,7 @@ const command: Command = require('./siteclassification-disable');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.SITECLASSIFICATION_DISABLE, () => {
   let log: string[];

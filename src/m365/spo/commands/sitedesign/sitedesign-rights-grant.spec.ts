@@ -7,6 +7,7 @@ import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
 import auth from '../../../../Auth';
+import * as chalk from 'chalk';
 
 describe(commands.SITEDESIGN_RIGHTS_GRANT, () => {
   let log: string[];

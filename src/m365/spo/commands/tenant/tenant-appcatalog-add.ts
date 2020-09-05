@@ -1,14 +1,13 @@
 import commands from '../../commands';
 import SpoCommand from '../../../base/SpoCommand';
 import GlobalOptions from '../../../../GlobalOptions';
-import Utils from '../../../../Utils';
 import * as spoTenantAppCatalogUrlGetCommand from './tenant-appcatalogurl-get';
 import * as spoSiteGetCommand from '../site/site-get';
 import * as spoSiteRemoveCommand from '../site/site-remove';
 import * as spoSiteClassicAddCommand from '../site/site-classic-add';
 import Command, { CommandError, CommandOption, CommandValidate } from '../../../../Command';
 import * as chalk from 'chalk';
-import { CommandInstance } from '../../../../cli';
+import { CommandInstance, Cli } from '../../../../cli';
 
 export interface CommandArgs {
   options: Options;
@@ -36,8 +35,8 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
       cmd.log('Checking for existing app catalog URL...');
     }
 
-    Utils
-      .executeCommandWithOutput(spoTenantAppCatalogUrlGetCommand as Command, {}, cmd)
+    Cli
+      .executeCommandWithOutput((spoTenantAppCatalogUrlGetCommand as Command).name, spoTenantAppCatalogUrlGetCommand as Command, {})
       .then((appCatalogUrl: string): Promise<void> => {
         if (!appCatalogUrl) {
           if (this.verbose) {
@@ -74,8 +73,8 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
         verbose: this.verbose,
         debug: this.debug
       };
-      Utils
-        .executeCommandWithOutput(spoSiteGetCommand as Command, siteGetOptions, cmd)
+      Cli
+        .executeCommandWithOutput((spoSiteGetCommand as Command).name, spoSiteGetCommand as Command, siteGetOptions)
         .then(_ => {
           if (this.verbose) {
             cmd.log(`Found site ${url}`);
@@ -96,8 +95,8 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
             verbose: this.verbose,
             debug: this.debug
           }
-          Utils
-            .executeCommand(spoSiteRemoveCommand as Command, siteRemoveOptions, cmd)
+          Cli
+            .executeCommand((spoSiteRemoveCommand as Command).name, spoSiteRemoveCommand as Command, siteRemoveOptions)
             .then(_ => resolve(), (err: CommandError) => reject(err));
         }, (err: CommandError) => {
           if (err.message !== 'File Not Found.' && err.message !== '404 FILE NOT FOUND') {
@@ -130,7 +129,7 @@ class SpoTenantAppCatalogAddCommand extends SpoCommand {
       verbose: this.verbose,
       debug: this.debug
     };
-    return Utils.executeCommand(spoSiteClassicAddCommand as Command, siteClassicAddOptions, cmd);
+    return Cli.executeCommand((spoSiteClassicAddCommand as Command).name, spoSiteClassicAddCommand as Command, siteClassicAddOptions);
   }
 
   public options(): CommandOption[] {

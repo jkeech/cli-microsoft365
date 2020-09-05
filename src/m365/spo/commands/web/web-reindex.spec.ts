@@ -8,6 +8,7 @@ import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
 import { SpoPropertyBagBaseCommand } from '../propertybag/propertybag-base';
+import * as chalk from 'chalk';
 
 describe(commands.WEB_REINDEX, () => {
   let log: string[];

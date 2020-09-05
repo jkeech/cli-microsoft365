@@ -7,6 +7,7 @@ const command: Command = require('./hubsite-theme-sync');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.HUBSITE_THEME_SYNC, () => {
   let log: string[];

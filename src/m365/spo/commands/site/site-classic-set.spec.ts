@@ -1,5 +1,5 @@
 import commands from '../../commands';
-import Command, { CommandOption, CommandError, CommandValidate, CommandCancel } from '../../../../Command';
+import Command, { CommandOption, CommandError, CommandValidate } from '../../../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../../../appInsights';
 import config from '../../../../config';
@@ -8,6 +8,7 @@ const command: Command = require('./site-classic-set');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.SITE_CLASSIC_SET, () => {
   let log: string[];
@@ -1148,24 +1149,6 @@ describe(commands.SITE_CLASSIC_SET, () => {
         done(e);
       }
     });
-  });
-
-  it('can be cancelled', () => {
-    assert(command.cancel());
-  });
-
-  it('clears pending connection on cancel', () => {
-    (command as any).timeout = {};
-    const clearTimeoutSpy = sinon.spy(global, 'clearTimeout');
-    (command.cancel() as CommandCancel)();
-    Utils.restore(global.clearTimeout);
-    assert(clearTimeoutSpy.called);
-  });
-
-  it('doesn\'t fail on cancel if no connection pending', () => {
-    (command as any).timeout = undefined;
-    (command.cancel() as CommandCancel)();
-    assert(true);
   });
 
   it('supports debug mode', () => {

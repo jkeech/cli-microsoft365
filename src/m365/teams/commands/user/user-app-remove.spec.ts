@@ -7,6 +7,7 @@ const command: Command = require('./user-app-remove');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.TEAMS_USER_APP_REMOVE, () => {
   let log: string[];

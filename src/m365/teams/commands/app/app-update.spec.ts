@@ -8,6 +8,7 @@ import Command, { CommandOption, CommandError, CommandValidate } from '../../../
 import auth from '../../../../Auth';
 const command: Command = require('./app-update');
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.TEAMS_APP_UPDATE, () => {
   let log: string[];

@@ -7,6 +7,7 @@ import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
 import appInsights from '../../../../appInsights';
+import * as chalk from 'chalk';
 
 describe(commands.HOMESITE_GET, () => {
   let log: any[];

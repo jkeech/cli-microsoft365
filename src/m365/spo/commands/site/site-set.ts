@@ -19,7 +19,7 @@ import * as spoSiteDesignApplyCommand from '../sitedesign/sitedesign-apply';
 import { Options as SpoSiteDesignApplyCommandOptions } from '../sitedesign/sitedesign-apply';
 import { SharingCapabilities } from '../site/SharingCapabilities';
 import * as chalk from 'chalk';
-import { CommandInstance } from '../../../../cli';
+import { CommandInstance, Cli } from '../../../../cli';
 
 interface CommandArgs {
   options: Options;
@@ -118,7 +118,7 @@ class SpoSiteSetCommand extends SpoCommand {
       debug: this.debug,
       verbose: this.verbose
     };
-    return Utils.executeCommand(spoSiteClassicSetCommand as Command, options, cmd);
+    return Cli.executeCommand((spoSiteClassicSetCommand as Command).name, spoSiteClassicSetCommand as Command, options);
   }
 
   private updateGroupifiedSite(cmd: CommandInstance, args: CommandArgs): Promise<void> {
@@ -167,7 +167,7 @@ class SpoSiteSetCommand extends SpoCommand {
           debug: this.debug,
           verbose: this.verbose
         };
-        promises.push(Utils.executeCommand(aadO365GroupSetCommand as Command, commandOptions, cmd));
+        promises.push(Cli.executeCommand((aadO365GroupSetCommand as Command).name, aadO365GroupSetCommand as Command, commandOptions));
       }
 
       promises.push(this.setGroupifiedSiteOwners(cmd, args));
@@ -297,7 +297,7 @@ class SpoSiteSetCommand extends SpoCommand {
       debug: this.debug,
       verbose: this.verbose
     };
-    return Utils.executeCommand(spoSiteDesignApplyCommand as Command, options, cmd);
+    return Cli.executeCommand((spoSiteDesignApplyCommand as Command).name, spoSiteDesignApplyCommand as Command, options);
   }
 
   private setSharingCapabilities(cmd: CommandInstance, args: CommandArgs): Promise<void> {

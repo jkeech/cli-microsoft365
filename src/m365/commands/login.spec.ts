@@ -1,5 +1,5 @@
 import commands from './commands';
-import Command, { CommandCancel, CommandOption, CommandValidate, CommandError } from '../../Command';
+import Command, { CommandOption, CommandValidate, CommandError } from '../../Command';
 import * as sinon from 'sinon';
 import appInsights from '../../appInsights';
 import auth from '../../Auth';
@@ -150,16 +150,6 @@ describe(commands.LOGIN, () => {
         done(e);
       }
     });
-  });
-
-  it('can be cancelled', () => {
-    assert(command.cancel());
-  });
-
-  it('clears pending connection on cancel', () => {
-    const authCancelStub = sinon.stub(auth, 'cancel').callsFake(() => { });
-    (command.cancel() as CommandCancel)();
-    assert(authCancelStub.called);
   });
 
   it('supports specifying authType', () => {

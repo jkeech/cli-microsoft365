@@ -8,6 +8,7 @@ import {
 import SpoCommand from '../../../base/SpoCommand';
 import Utils from '../../../../Utils';
 import { CommandInstance } from '../../../../cli';
+import * as chalk from 'chalk';
 
 interface CommandArgs {
   options: Options;
@@ -144,7 +145,6 @@ class SpoListWebhookSetCommand extends SpoCommand {
       }
 
       const parsedDateTime = Date.parse(args.options.expirationDateTime as string)
-      const chalk = chalk;
       if (args.options.expirationDateTime && !(!parsedDateTime) !== true) {
         if (args.options.output === 'json') {
           return `${args.options.expirationDateTime} is not a valid date format. Provide the date in one of the following formats: YYYY-MM-DD, YYYY-MM-DDThh:mm, YYYY-MM-DDThh:mmZ, YYYY-MM-DDThh:mm±hh:mm`;

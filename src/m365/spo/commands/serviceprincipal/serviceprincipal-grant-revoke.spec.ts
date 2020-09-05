@@ -8,6 +8,7 @@ import * as assert from 'assert';
 import request from '../../../../request';
 import config from '../../../../config';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.SERVICEPRINCIPAL_GRANT_REVOKE, () => {
   let log: string[];

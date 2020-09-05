@@ -6,6 +6,7 @@ const command: Command = require('./userprofile-set');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.USERPROFILE_SET, () => {
   let log: any[];

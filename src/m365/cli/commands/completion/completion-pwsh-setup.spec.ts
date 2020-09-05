@@ -9,6 +9,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
 import { autocomplete } from '../../../../autocomplete';
+import * as chalk from 'chalk';
 
 describe(commands.COMPLETION_PWSH_SETUP, () => {
   const completionScriptPath: string = path.resolve(__dirname, '..', '..', '..', '..', '..', 'scripts', 'Register-CLIM365Completion.ps1');

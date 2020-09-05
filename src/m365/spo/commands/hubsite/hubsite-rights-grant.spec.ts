@@ -8,6 +8,7 @@ import * as assert from 'assert';
 import request from '../../../../request';
 import config from '../../../../config';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.HUBSITE_RIGHTS_GRANT, () => {
   let log: string[];

@@ -7,6 +7,7 @@ const command: Command = require('./schemaextension-set');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.SCHEMAEXTENSION_SET, () => {
   let log: string[];

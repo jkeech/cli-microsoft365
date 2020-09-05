@@ -7,6 +7,7 @@ const command: Command = require('./oauth2grant-remove');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.OAUTH2GRANT_REMOVE, () => {
   let log: string[];

@@ -7,6 +7,7 @@ import Utils from '../../Utils';
 import { CommandError } from '../../Command';
 import { FormDigestInfo } from '../spo/spo';
 import appInsights from '../../appInsights';
+import { CommandInstance } from '../../cli';
 
 class MockCommand extends SpoCommand {
   public get name(): string {

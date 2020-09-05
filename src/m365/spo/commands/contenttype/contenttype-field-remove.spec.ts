@@ -6,6 +6,7 @@ import auth from '../../../../Auth';
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 const command: Command = require('./contenttype-field-remove');
 const WEB_URL = 'https://contoso.sharepoint.com';

@@ -6,6 +6,7 @@ const command: Command = require('./completion-sh-setup');
 import * as assert from 'assert';
 import Utils from '../../../../Utils';
 import { autocomplete } from '../../../../autocomplete';
+import * as chalk from 'chalk';
 
 describe(commands.COMPLETION_SH_SETUP, () => {
   let log: string[];

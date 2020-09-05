@@ -1,7 +1,7 @@
 import commands from './commands';
 import AnonymousCommand from '../base/AnonymousCommand';
+import { CommandInstance } from '../../cli';
 const packageJSON = require('../../../package.json');
-
 
 class VersionCommand extends AnonymousCommand {
   public get name(): string {

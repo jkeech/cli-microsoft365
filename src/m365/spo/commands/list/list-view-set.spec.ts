@@ -7,6 +7,7 @@ const command: Command = require('./list-view-set');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.LIST_VIEW_SET, () => {
   let log: string[];

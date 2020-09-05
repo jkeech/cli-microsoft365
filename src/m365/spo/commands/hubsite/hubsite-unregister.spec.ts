@@ -7,6 +7,7 @@ const command: Command = require('./hubsite-unregister');
 import * as assert from 'assert';
 import request from '../../../../request';
 import Utils from '../../../../Utils';
+import * as chalk from 'chalk';
 
 describe(commands.HUBSITE_UNREGISTER, () => {
   let log: string[];
