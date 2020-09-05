@@ -439,6 +439,11 @@ describe(commands.FIELD_GET, () => {
     assert.notEqual(actual, true);
   });
 
+  it('fails validation if neither the field ID nor title are specified', () => {
+    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales' } });
+    assert.notEqual(actual, true);
+  });
+
   it('fails validation if the field ID is not a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com/sites/sales', id: 'abc' } });
     assert.notEqual(actual, true);

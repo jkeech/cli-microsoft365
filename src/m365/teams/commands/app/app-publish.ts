@@ -69,10 +69,6 @@ class TeamsAppPublishCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.filePath) {
-        return 'Missing required option filePath';
-      }
-
       const fullPath: string = path.resolve(args.options.filePath);
 
       if (!fs.existsSync(fullPath)) {

@@ -586,6 +586,11 @@ describe(commands.APP_GET, () => {
     });
   });
 
+  it('fails validation if neither the id nor the name options are specified', () => {
+    const actual = (command.validate() as CommandValidate)({ options: {} });
+    assert.notEqual(actual, true);
+  });
+
   it('fails validation when invalid scope is specified', () => {
     const actual = (command.validate() as CommandValidate)({ options: { id: '123', appCatalogUrl: 'https://contoso.sharepoint.com', scope: 'foo' } });
     assert.notEqual(actual, true);

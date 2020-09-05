@@ -198,8 +198,9 @@ class SpoCustomActionSetCommand extends SpoCommand {
         return `${args.options.id} is not valid. Custom action id (Guid) expected`;
       }
 
-      if (!args.options.url || SpoCommand.isValidSharePointUrl(args.options.url) !== true) {
-        return 'Missing required option url';
+      const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.url);
+      if (isValidSharePointUrl !== true) {
+        return isValidSharePointUrl;
       }
 
       if (!args.options.title && !args.options.name && !args.options.location &&

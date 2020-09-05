@@ -461,6 +461,11 @@ describe(commands.WEB_SET, () => {
     });
   });
 
+  it('allows unknown properties', () => {
+    const allowUnknownOptions = command.allowUnknownOptions();
+    assert.equal(allowUnknownOptions, true);
+  });
+
   it('supports debug mode', () => {
     const options = (command.options() as CommandOption[]);
     let containsOption = false;

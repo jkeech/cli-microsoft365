@@ -169,10 +169,6 @@ class SpoListItemRecordDeclareCommand extends SpoCommand {
         return `${args.options.listId} in option listId is not a valid GUID`;
       }
 
-      if (!args.options.id) {
-        return `Specify id for item to declare as a record`;
-      }
-
       const id: number = parseInt(args.options.id);
       if (isNaN(id)) {
         return `${args.options.id} is not a number`;

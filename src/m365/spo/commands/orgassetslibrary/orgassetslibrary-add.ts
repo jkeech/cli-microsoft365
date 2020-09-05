@@ -82,12 +82,7 @@ class SpoOrgAssetsLibraryAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.libraryUrl) {
-        return `Required parameter libraryUrl missing`;
-      }
-
       const isValidThumbnailUrl = SpoCommand.isValidSharePointUrl((args.options.thumbnailUrl as string));
-
       if (typeof args.options.thumbnailUrl !== 'undefined' && isValidThumbnailUrl !== true) {
         return isValidThumbnailUrl
       }

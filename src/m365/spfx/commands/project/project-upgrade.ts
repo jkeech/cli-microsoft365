@@ -22,7 +22,6 @@ interface CommandArgs {
 }
 
 interface Options extends GlobalOptions {
-  outputFile?: string;
   packageManager?: string;
   toVersion?: string;
   shell?: string;
@@ -166,7 +165,6 @@ class SpfxProjectUpgradeCommand extends BaseProjectCommand {
     telemetryProps.toVersion = args.options.toVersion || this.supportedVersions[this.supportedVersions.length - 1];
     telemetryProps.packageManager = args.options.packageManager || 'npm';
     telemetryProps.shell = args.options.shell || 'bash';
-    telemetryProps.outputFile = typeof args.options.outputFile !== 'undefined';
     return telemetryProps;
   }
 
@@ -361,16 +359,16 @@ class SpfxProjectUpgradeCommand extends BaseProjectCommand {
 
     switch (args.options.output) {
       case 'json':
-        this.writeReport(findingsToReport, cmd, args.options);
+        cmd.log(findingsToReport);
         break;
       case 'tour':
         this.writeReportTourFolder(this.getTourReport(findingsToReport, project), cmd, args.options);
         break;
       case 'md':
-        this.writeReport(this.getMdReport(findingsToReport), cmd, args.options);
+        cmd.log(this.getMdReport(findingsToReport));       
         break;
       default:
-        this.writeReport(this.getTextReport(findingsToReport), cmd, args.options);
+        cmd.log(this.getTextReport(findingsToReport));
     }
 
     cb();
@@ -383,20 +381,8 @@ class SpfxProjectUpgradeCommand extends BaseProjectCommand {
       fs.mkdirSync(toursFolder, { recursive: false });
     }
 
-    // Override reports folder
-    options.outputFile = path.join(this.projectRootPath as string, '.tours', 'upgrade.tour');
-
-    // Write reports
-    this.writeReport(findingsToReport, cmd, options);
-  }
-
-  private writeReport(findingsToReport: any, cmd: CommandInstance, options: Options): void {
-    if (options.outputFile) {
-      fs.writeFileSync(path.resolve(options.outputFile), options.output === 'json' ? JSON.stringify(findingsToReport) : findingsToReport, 'utf-8');
-    }
-    else {
-      cmd.log(findingsToReport);
-    }
+    const tourFilePath: string = path.join(this.projectRootPath as string, '.tours', 'upgrade.tour');
+    fs.writeFileSync(path.resolve(tourFilePath), findingsToReport, 'utf-8');
   }
 
   private getTextReport(findings: FindingToReport[]): string {
@@ -723,10 +709,6 @@ ${f.resolution}
         option: '--shell [shell]',
         description: 'The shell you use. Supported shells bash|powershell|cmd. Default bash',
         autocomplete: ['bash', 'powershell', 'cmd']
-      },
-      {
-        option: '-f, --outputFile [outputFile]',
-        description: 'Path to the file where the upgrade report should be stored in. This option is ignored if output type is "tour"'
       }
     ];
 
@@ -751,14 +733,6 @@ ${f.resolution}
       if (args.options.shell) {
         if (['bash', 'powershell', 'cmd'].indexOf(args.options.shell) < 0) {
           return `${args.options.shell} is not a supported shell. Supported shells are bash, powershell and cmd`;
-        }
-      }
-
-      // If we're not using a CodeTour, make sure the path exists
-      if (args.options.outputFile && args.options.output !== 'tour') {
-        const dirPath: string = path.dirname(path.resolve(args.options.outputFile));
-        if (!fs.existsSync(dirPath)) {
-          return `Directory ${dirPath} doesn't exist. Please check the path and try again.`;
         }
       }
 

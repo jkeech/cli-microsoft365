@@ -572,22 +572,12 @@ describe(commands.CUSTOMACTION_ADD, () => {
     assert.equal(actual, `Option registrationId is specified, but registrationType is missing`);
   });
 
-  it('fails if location missing', () => {
-    defaultCommandOptions.location = undefined;
+  it('fails if the specified URL is invalid', () => {
+    defaultCommandOptions.location = 'Microsoft.SharePoint.StandardMenu';
+    defaultCommandOptions.group = 'SiteActions';
+    defaultCommandOptions.url = 'foo';
     const actual = (command.validate() as CommandValidate)({ options: defaultCommandOptions });
-    assert.equal(actual, `Missing required option location`);
-  });
-
-  it('fails if name missing', () => {
-    defaultCommandOptions.name = undefined;
-    const actual = (command.validate() as CommandValidate)({ options: defaultCommandOptions });
-    assert.equal(actual, `Missing required option name`);
-  });
-
-  it('fails if title missing', () => {
-    defaultCommandOptions.title = undefined;
-    const actual = (command.validate() as CommandValidate)({ options: defaultCommandOptions });
-    assert.equal(actual, `Missing required option title`);
+    assert.notStrictEqual(actual, true);
   });
 
   it('fails if location that requires group option is set, but group is not set', () => {

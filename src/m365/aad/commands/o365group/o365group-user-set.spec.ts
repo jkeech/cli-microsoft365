@@ -87,6 +87,17 @@ describe(commands.O365GROUP_USER_SET, () => {
     done();
   });
 
+  it('fails validation if neither the groupId nor the teamId are provided.', (done) => {
+    const actual = (command.validate() as CommandValidate)({
+      options: {
+        role: 'Member',
+        userName: 'anne.matthews@contoso.onmicrosoft.com',
+      }
+    });
+    assert.notEqual(actual, true);
+    done();
+  });
+
   it('fails validation when both groupId and teamId are specified', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {

@@ -210,20 +210,9 @@ class SpoCustomActionAddCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.title) {
-        return 'Missing required option title';
-      }
-
-      if (!args.options.name) {
-        return 'Missing required option name';
-      }
-
-      if (!args.options.location) {
-        return 'Missing required option location';
-      }
-
-      if (!args.options.url || SpoCommand.isValidSharePointUrl(args.options.url) !== true) {
-        return 'Missing required option url';
+      const isValidSharePointUrl: boolean | string = SpoCommand.isValidSharePointUrl(args.options.url);
+      if (isValidSharePointUrl !== true) {
+        return isValidSharePointUrl;
       }
 
       if (args.options.registrationId && !args.options.registrationType) {

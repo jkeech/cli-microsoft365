@@ -71,10 +71,6 @@ class SpoHomeSiteSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.siteUrl) {
-        return `Required parameter siteUrl missing`;
-      }
-
       return SpoCommand.isValidSharePointUrl(args.options.siteUrl);
     };
   }

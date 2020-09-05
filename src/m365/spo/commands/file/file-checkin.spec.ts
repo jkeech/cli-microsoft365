@@ -414,6 +414,11 @@ describe(commands.FILE_CHECKIN, () => {
     assert.equal(actual, true);
   });
 
+  it('fails validation if the id or url option not specified', () => {
+    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
+    assert.notEqual(actual, true);
+  });
+
   it('fails validation when comment lenght more than 1023', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: 'f09c4efe-b8c0-4e89-a166-03418661b89b', comment: 'ayMfuJBMDa3y3y8qitRb4U6VSbBVjeIxno45Ws6baZ1uatvxGVDS98zQu88QUjyeYXDbLey1dWTKdgMGw4LGeqfn080VszB5vMCrBEAnLYT54E94eW3YQe67Ub92oD0DG0U8gxMQJ0SWdVG9m5R5dL31YWx1Y5OH8KMtoAFkfo2lnbHVBMnCiO8oyuiRzVbTLkZB7mdih3F74ck3kEM7Lr1ayXkwHKK5h9MnTcVTWZVXafMOsuLYaVnUB7auhaamQ4JMBUFNpKhCjrNQVlYz0NlwJimlk5tPeR6crgeCm3u4YJtc1dBL2Ex7FRfvJ4g44WnkPLyU3PIXrHTjZtlgOKn4m9BiABuwznqiuytCcKbLxaTQcqHsbC7w20vnZxnLHYNnqXeDqwf6o43Si6duSeIZSixwoK4nE8qpCZk36jkwZBXASuv5aOyWLOsD19JjK7Ev3567b6oo11krIOpd0TSRihphELWnk9A71xpkCN1ljmSTnrITgQ7AxIaWOHvBIv5Swffi6AUM2DeLyz61EVe0fgAdVU3UySGSHGmUJEGqVBUlX7zZw2xSWswgvQphziHp2sKcnONWaaeDvbr27g67HrkkyYO3z0R5nY9TdSfkqDDQVSFdM3Sd6WLRKKKn64pcUzo9NcFNKzMSvRR0FbZFirpEcIfTCrSLaIiRZYCoGdj0BfePz83cimDmlVWS87UXugXmeWNpKTqQ1qG9y0fMwGIxFory4YbeRP9vKqX0vueCGKErb7tItC09jpLp0J8yMaj0iDdZ83Yc3JHunVmqZh56hmUroU8ER6ApPS3oDooEGH59e5I4DU8LG4rpAPmECX6oC8w9eZfM7U0uugT9Yx2ZAoDwvk0jYJz8SuU6dL6aFYtf7wzYcBcjc8gBySbeVZYPoLE3TGP1A0K8HNiZavHjsJWK0GIYVDT4QEsJO4R9PykRkn0O6TyDkaIgqju9hV7lqy9YqKawvBAUlNyK7b01fkra5UBrZzYz83k3OYWmG2naAcKuNuPs7OJ6' } });
     assert.notEqual(actual, true);

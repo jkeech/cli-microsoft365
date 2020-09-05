@@ -425,18 +425,6 @@ class SpoContentTypeFieldSetCommand extends SpoCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.webUrl) {
-        return `Missing required option webUrl`;
-      }
-
-      if (!args.options.contentTypeId) {
-        return 'Missing required option contentTypeId';
-      }
-
-      if (!args.options.fieldId) {
-        return 'Missing required option fieldId';
-      }
-
       if (!Utils.isValidGuid(args.options.fieldId)) {
         return `${args.options.fieldId} is not a valid GUID`;
       }

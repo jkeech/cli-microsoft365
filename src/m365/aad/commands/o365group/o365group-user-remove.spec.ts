@@ -92,6 +92,16 @@ describe(commands.O365GROUP_USER_REMOVE, () => {
     done();
   });
 
+  it('fails validation if neither the groupId nor the teamID are provided.', (done) => {
+    const actual = (command.validate() as CommandValidate)({
+      options: {
+        userName: 'anne.matthews@contoso.onmicrosoft.com'
+      }
+    });
+    assert.notEqual(actual, true);
+    done();
+  });
+
   it('fails validation when both groupId and teamId are specified', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {

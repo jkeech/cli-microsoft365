@@ -72,16 +72,8 @@ class TeamsAppUpdateCommand extends GraphCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.id) {
-        return 'Missing required option id';
-      }
-
       if (!Utils.isValidGuid(args.options.id)) {
         return `${args.options.id} is not a valid GUID`;
-      }
-
-      if (!args.options.filePath) {
-        return 'Missing required option filePath';
       }
 
       const fullPath: string = path.resolve(args.options.filePath);

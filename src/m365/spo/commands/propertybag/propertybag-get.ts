@@ -87,15 +87,7 @@ class SpoPropertyBagGetCommand extends SpoPropertyBagBaseCommand {
 
   public validate(): CommandValidate {
     return (args: CommandArgs): boolean | string => {
-      if (!args.options.key) {
-        return `Required option key missing`;
-      }
-
-      if (SpoCommand.isValidSharePointUrl(args.options.webUrl) !== true) {
-        return 'Missing required option url';
-      }
-
-      return true;
+      return SpoCommand.isValidSharePointUrl(args.options.webUrl);
     };
   }
 

@@ -506,6 +506,11 @@ describe(commands.FILE_GET, () => {
     assert(actual);
   });
 
+  it('fails validation if the id or url option not specified', () => {
+    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
+    assert.notEqual(actual, true);
+  });
+
   it('fails validation if both id and url options are specified', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: 'f09c4efe-b8c0-4e89-a166-03418661b89b', url: '/sites/project-x/documents' } });
     assert.notEqual(actual, true);

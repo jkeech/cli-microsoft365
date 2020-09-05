@@ -72,6 +72,11 @@ describe(commands.TEAMS_TAB_ADD, () => {
     assert.notEqual(command.description, null);
   });
 
+  it('allows unknown properties', () => {
+    const allowUnknownOptions = command.allowUnknownOptions();
+    assert.equal(allowUnknownOptions, true);
+  });
+
   it('fails validates for a incorrect channelId missing leading 19:.', (done) => {
     const actual = (command.validate() as CommandValidate)({
       options: {

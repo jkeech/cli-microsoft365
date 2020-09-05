@@ -135,13 +135,8 @@ class SpoListItemGetCommand extends SpoCommand {
         return `${args.options.listId} in option listId is not a valid GUID`;
       }
 
-      if (!args.options.id) {
-        return `Specify id`;
-      }
-      else {
-        if (isNaN(parseInt(args.options.id))) {
-          return `${args.options.id} is not a number`;
-        }
+      if (isNaN(parseInt(args.options.id))) {
+        return `${args.options.id} is not a number`;
       }
 
       return true;

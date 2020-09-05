@@ -177,7 +177,6 @@ describe(commands.FILE_CHECKOUT, () => {
     });
   });
 
-
   it('should call "DONE" when in verbose', (done) => {
     stubPostResponses();
 
@@ -280,6 +279,11 @@ describe(commands.FILE_CHECKOUT, () => {
   it('passes validation if the id option is a valid GUID', () => {
     const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com', id: 'f09c4efe-b8c0-4e89-a166-03418661b89b' } });
     assert(actual);
+  });
+
+  it('fails validation if the id or url option not specified', () => {
+    const actual = (command.validate() as CommandValidate)({ options: { webUrl: 'https://contoso.sharepoint.com' } });
+    assert.notEqual(actual, true);
   });
 
   it('fails validation if both id and fileUrl options are specified', () => {

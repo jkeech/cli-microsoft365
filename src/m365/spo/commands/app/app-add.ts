@@ -122,10 +122,6 @@ class SpoAppAddCommand extends SpoAppBaseCommand {
         }
       }
 
-      if (!args.options.filePath) {
-        return 'Missing required option filePath';
-      }
-
       const fullPath: string = path.resolve(args.options.filePath);
 
       if (!fs.existsSync(fullPath)) {

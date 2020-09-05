@@ -766,9 +766,14 @@ describe(commands.CUSTOMACTION_SET, () => {
   });
 
   it('fails validation if no other fields specified than url, id, scope', () => {
-    defaultCommandOptions.url = undefined;
     const actual = (command.validate() as CommandValidate)({ options: { id: '058140e3-0e37-44fc-a1d3-79c487d371a3', url:'https://contoso.sharepoint.com'} });
     assert.equal(actual, 'Please specify option to be updated');
+  });
+
+  it('fails if the specified URL is invalid', () => {
+    defaultCommandOptions.url = 'foo';
+    const actual = (command.validate() as CommandValidate)({ options: defaultCommandOptions });
+    assert.notStrictEqual(actual, true);
   });
 
   it('getRegistrationType returns 1 if registrationType value is List', () => {
