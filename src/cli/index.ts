@@ -1,4 +1,4 @@
 export * from './Cli';
 export * from './CommandInfo';
 export * from './CommandInstance';
-export * from './CommandOption';
+export * from './CommandOptionInfo';

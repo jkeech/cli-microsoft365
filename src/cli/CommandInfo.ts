@@ -1,9 +1,9 @@
 import Command from "../Command";
-import { CommandOption } from "./CommandOption";
+import { CommandOptionInfo } from "./CommandOptionInfo";
 
 export interface CommandInfo {
   aliases: string[] | undefined;
   command: Command;
   name: string;
-  options: CommandOption[];
+  options: CommandOptionInfo[];
 }

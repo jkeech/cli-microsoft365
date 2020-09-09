@@ -9,7 +9,7 @@ import * as markshell from 'markshell';
 import Table = require('easy-table');
 import Command, { CommandError, CommandValidate } from '../Command';
 import { CommandInfo } from './CommandInfo';
-import { CommandOption } from './CommandOption';
+import { CommandOptionInfo } from './CommandOptionInfo';
 const packageJSON = require('../../package.json');
 
 export class Cli {
@@ -23,7 +23,7 @@ export class Cli {
    */
   private currentCommandName: string | undefined;
   private optionsFromArgs: { options: minimist.ParsedArgs } | undefined;
-  private rootFolder: string = '';
+  private commandsFolder: string = '';
   private static instance: Cli;
 
   private constructor() {
@@ -36,16 +36,15 @@ export class Cli {
 
     return Cli.instance;
   }
-  
-  public execute(rootFolder: string): void {
-    this.rootFolder = rootFolder;
+
+  public execute(commandsFolder: string, rawArgs: string[]): Promise<void> {
+    this.commandsFolder = commandsFolder;
 
     // check if help for a specific command has been requested using the
     // 'm365 help xyz' format. If so, remove 'help' from the array of words
     // to use lazy loading commands but keep track of the fact that help should
     // be displayed
     let showHelp: boolean = false;
-    const rawArgs: string[] = process.argv.slice(2);
     if (rawArgs.length > 0 && rawArgs[0] === 'help') {
       showHelp = true;
       rawArgs.shift();
@@ -89,11 +88,9 @@ export class Cli {
     if (!this.commandToExecute ||
       showHelp ||
       parsedArgs.h ||
-      parsedArgs.help > -1 ||
-      parsedArgs._.length === 0 ||
-      parsedArgs[0] === 'help') {
+      parsedArgs.help) {
       this.printHelp();
-      return;
+      return Promise.resolve();
     }
 
     // if the command doesn't allow unknown options, check if all specified
@@ -108,7 +105,7 @@ export class Cli {
         let matches: boolean = false;
 
         for (let i = 0; i < this.commandToExecute.options.length; i++) {
-          const option: CommandOption = this.commandToExecute.options[i];
+          const option: CommandOptionInfo = this.commandToExecute.options[i];
           if (optionFromArgs === option.long ||
             optionFromArgs === option.short) {
             matches = true;
@@ -117,7 +114,7 @@ export class Cli {
         }
 
         if (!matches) {
-          this.closeWithError(`Invalid option: '${optionFromArgs}'${os.EOL}`, true);
+          return this.closeWithError(`Invalid option: '${optionFromArgs}'${os.EOL}`, true);
         }
       }
     }
@@ -127,7 +124,7 @@ export class Cli {
     for (let i = 0; i < this.commandToExecute.options.length; i++) {
       if (this.commandToExecute.options[i].required &&
         typeof this.optionsFromArgs.options[this.commandToExecute.options[i].name] === 'undefined') {
-        this.closeWithError(`Required option ${this.commandToExecute.options[i].name} not specified`, true);
+        return this.closeWithError(`Required option ${this.commandToExecute.options[i].name} not specified`, true);
       }
     }
 
@@ -136,11 +133,11 @@ export class Cli {
     if (validate) {
       const validationResult: boolean | string = validate(this.optionsFromArgs);
       if (typeof validationResult === 'string') {
-        this.closeWithError(validationResult, true);
+        return this.closeWithError(validationResult, true);
       }
     }
 
-    Cli
+    return Cli
       .executeCommand(this.commandToExecute.name, this.commandToExecute.command, this.optionsFromArgs)
       .then(_ => process.exit(0), err => this.closeWithError(err));
   }
@@ -154,7 +151,7 @@ export class Cli {
         action: command.action(),
         log: (message: any): void => {
           const output: any = Cli.logOutput(message, args.options);
-          console.log(output);
+          Cli.log(output);
         },
         prompt: (options: any, cb: (result: any) => void) => {
           inquirer
@@ -196,7 +193,7 @@ export class Cli {
       };
 
       if (args.debug) {
-        console.log(`Executing command ${command.name} with options ${JSON.stringify(args)}`);
+        Cli.log(`Executing command ${command.name} with options ${JSON.stringify(args)}`);
       }
 
       commandInstance.action({ options: args }, (err: any): void => {
@@ -210,8 +207,7 @@ export class Cli {
   }
 
   public loadAllCommands(): void {
-    const commandsDir: string = path.join(this.rootFolder as string, './m365');
-    const files: string[] = Cli.readdirR(commandsDir) as string[];
+    const files: string[] = Cli.readdirR(this.commandsFolder) as string[];
 
     files.forEach(file => {
       if (file.indexOf(`${path.sep}commands${path.sep}`) > -1 &&
@@ -252,14 +248,14 @@ export class Cli {
 
     let commandFilePath = '';
     if (commandNameWords.length === 1) {
-      commandFilePath = path.join(this.rootFolder, 'm365', 'commands', `${commandNameWords[0]}.js`);
+      commandFilePath = path.join(this.commandsFolder, 'commands', `${commandNameWords[0]}.js`);
     }
     else {
       if (commandNameWords.length === 2) {
-        commandFilePath = path.join(this.rootFolder, 'm365', commandNameWords[0], 'commands', `${commandNameWords.join('-')}.js`);
+        commandFilePath = path.join(this.commandsFolder, commandNameWords[0], 'commands', `${commandNameWords.join('-')}.js`);
       }
       else {
-        commandFilePath = path.join(this.rootFolder, 'm365', commandNameWords[0], 'commands', commandNameWords[1], commandNameWords.slice(1).join('-') + '.js');
+        commandFilePath = path.join(this.commandsFolder, commandNameWords[0], 'commands', commandNameWords[1], commandNameWords.slice(1).join('-') + '.js');
       }
     }
 
@@ -297,8 +293,8 @@ export class Cli {
     });
   }
 
-  private getCommandOptions(command: Command): CommandOption[] {
-    const options: CommandOption[] = [];
+  private getCommandOptions(command: Command): CommandOptionInfo[] {
+    const options: CommandOptionInfo[] = [];
 
     command.options().forEach(option => {
       const required: boolean = option.option.indexOf('<') > -1;
@@ -428,15 +424,15 @@ export class Cli {
     }
   }
 
-  private printHelp(exitCode: number = 0, std: any = console.log): void {
+  private printHelp(exitCode: number = 0, std: any = Cli.log): void {
     if (this.commandToExecute) {
       this.printCommandHelp();
     }
     else {
-      console.log();
-      console.log(`CLI for Microsoft 365 v${packageJSON.version}`);
-      console.log(`${packageJSON.description}`);
-      console.log();
+      Cli.log();
+      Cli.log(`CLI for Microsoft 365 v${packageJSON.version}`);
+      Cli.log(`${packageJSON.description}`);
+      Cli.log();
 
       this.printAvailableCommands();
     }
@@ -451,7 +447,7 @@ export class Cli {
 
     let helpFilePath = '';
     const commandNameWords = this.optionsFromArgs.options._;
-    const pathChunks: string[] = [this.rootFolder, '..', 'docs', 'docs', 'cmd'];
+    const pathChunks: string[] = [this.commandsFolder, '..', '..', 'docs', 'docs', 'cmd'];
 
     if (commandNameWords.length === 1) {
       pathChunks.push(`${commandNameWords[0]}.md`);
@@ -468,8 +464,8 @@ export class Cli {
     helpFilePath = path.join(...pathChunks);
 
     if (fs.existsSync(helpFilePath)) {
-      console.log();
-      console.log(markshell.toRawContent(helpFilePath));
+      Cli.log();
+      Cli.log(markshell.toRawContent(helpFilePath));
     }
   }
 
@@ -539,35 +535,35 @@ export class Cli {
       // determine the length of the longest command name to pad strings + ' [options]'
       const maxLength: number = Math.max(...namesOfCommandsToPrint.map(s => s.length)) + 10;
 
-      console.log(`Commands:`);
-      console.log();
+      Cli.log(`Commands:`);
+      Cli.log();
 
       for (let commandName in commandsToPrint) {
-        console.log(`  ${`${commandName} [options]`.padEnd(maxLength, ' ')}  ${commandsToPrint[commandName].command.description}`);
+        Cli.log(`  ${`${commandName} [options]`.padEnd(maxLength, ' ')}  ${commandsToPrint[commandName].command.description}`);
       }
     }
 
     const namesOfCommandGroupsToPrint: string[] = Object.keys(commandGroupsToPrint);
     if (namesOfCommandGroupsToPrint.length > 0) {
       if (namesOfCommandsToPrint.length > 0) {
-        console.log();
+        Cli.log();
       }
 
       // determine the longest command group name to pad strings + ' *'
       const maxLength: number = Math.max(...namesOfCommandGroupsToPrint.map(s => s.length)) + 2;
 
-      console.log(`Commands groups:`);
-      console.log();
+      Cli.log(`Commands groups:`);
+      Cli.log();
 
       for (let commandGroup in commandGroupsToPrint) {
-        console.log(`  ${`${commandGroup} *`.padEnd(maxLength, ' ')}  ${commandGroupsToPrint[commandGroup]} command${commandGroupsToPrint[commandGroup] === 1 ? '' : 's'}`);
+        Cli.log(`  ${`${commandGroup} *`.padEnd(maxLength, ' ')}  ${commandGroupsToPrint[commandGroup]} command${commandGroupsToPrint[commandGroup] === 1 ? '' : 's'}`);
       }
     }
 
-    console.log();
+    Cli.log();
   }
 
-  private closeWithError(error: any, showHelp: boolean = false): void {
+  private closeWithError(error: any, showHelp: boolean = false): Promise<void> {
     let exitCode: number = 1;
 
     if (error instanceof CommandError) {
@@ -575,19 +571,35 @@ export class Cli {
         exitCode = error.code;
       }
 
-      console.error(chalk.red(`Error: ${error.message}`));
+      Cli.error(chalk.red(`Error: ${error.message}`));
     }
     else {
-      console.error(chalk.red(`Error: ${error}`));
+      Cli.error(chalk.red(`Error: ${error}`));
     }
-    console.error(os.EOL);
+    Cli.error(os.EOL);
 
     if (showHelp) {
-      console.log();
+      Cli.log();
       this.printHelp(exitCode);
     }
     else {
       process.exit(exitCode);
     }
+
+    // will never be run. Required for testing where we're stubbing process.exit
+    return Promise.reject();
+  }
+
+  private static log(message?: any, ...optionalParams: any[]): void {
+    if (message) {
+      console.log(message, ...optionalParams);
+    }
+    else {
+      console.log();
+    }
+  }
+
+  private static error(message?: any, ...optionalParams: any[]): void {
+    console.error(message, ...optionalParams);
   }
 }

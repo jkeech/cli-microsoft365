@@ -1,4 +1,4 @@
-export interface CommandOption {
+export interface CommandOptionInfo {
   autocomplete: string[] | undefined;
   long?: string;
   name: string;

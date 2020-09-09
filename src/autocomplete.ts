@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Cli } from './cli/Cli';
 import { CommandInfo } from './cli/CommandInfo';
-import { CommandOption } from './cli/CommandOption';
+import { CommandOptionInfo } from './cli/CommandOptionInfo';
 
 class Autocomplete {
   private static autocompleteFilePath: string = path.join(__dirname, `..${path.sep}commands.json`);
@@ -209,7 +209,7 @@ class Autocomplete {
           const optionsObj: any = {};
           optionsArr.forEach(o => {
             const optionName: string = o.replace(/^-+/, '');
-            const option: CommandOption = commandInfo.options.filter(opt => opt.long === optionName || opt.short === optionName)[0];
+            const option: CommandOptionInfo = commandInfo.options.filter(opt => opt.long === optionName || opt.short === optionName)[0];
             if (option && option.autocomplete) {
               optionsObj[o] = option.autocomplete;
             }
