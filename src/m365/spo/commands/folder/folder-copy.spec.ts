@@ -380,25 +380,6 @@ describe(commands.FOLDER_COPY, () => {
     });
   });
 
-  it('can be cancelled', () => {
-    assert(command.cancel());
-  });
-
-  it('clears pending connection on cancel', () => {
-    (command as any).timeout = {};
-    const clearTimeoutSpy = sinon.spy(global, 'clearTimeout');
-    (command.cancel() as CommandCancel)();
-    Utils.restore(global.clearTimeout);
-    assert(clearTimeoutSpy.called);
-  });
-
-  it('doesn\'t fail on cancel if no connection pending', () => {
-    (command as any).timeout = undefined;
-    (command.cancel() as CommandCancel)();
-    assert(true);
-  });
-
-
   it('supports debug mode', () => {
     const options = (command.options() as CommandOption[]);
     let containsDebugOption = false;

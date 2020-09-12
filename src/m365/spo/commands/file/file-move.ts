@@ -279,30 +279,6 @@ class SpoFileMoveCommand extends SpoCommand {
     });
   }
 
-  /**
-   * Combines base and relative url considering any missing slashes
-   * @param baseUrl https://contoso.com
-   * @param relativeUrl sites/abc
-   */
-  private urlCombine(baseUrl: string, relativeUrl: string): string {
-    // remove last '/' of base if exists
-    if (baseUrl.lastIndexOf('/') === baseUrl.length - 1) {
-      baseUrl = baseUrl.substring(0, baseUrl.length - 1);
-    }
-
-    // remove '/' at 0
-    if (relativeUrl.charAt(0) === '/') {
-      relativeUrl = relativeUrl.substring(1, relativeUrl.length);
-    }
-
-    // remove last '/' of next if exists
-    if (relativeUrl.lastIndexOf('/') === relativeUrl.length - 1) {
-      relativeUrl = relativeUrl.substring(0, relativeUrl.length - 1);
-    }
-
-    return `${baseUrl}/${relativeUrl}`;
-  }
-
   public options(): CommandOption[] {
     const options: CommandOption[] = [
       {
