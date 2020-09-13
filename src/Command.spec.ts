@@ -174,23 +174,6 @@ class MockCommand4 extends Command {
 }
 
 describe('Command', () => {
-  const vcmd = {
-    action: () => vcmd,
-    alias: () => vcmd,
-    option: () => vcmd,
-    validate: () => vcmd,
-    cancel: () => vcmd,
-    help: () => vcmd,
-    types: () => vcmd,
-    allowUnknownOptions: () => vcmd
-  };
-  let actionSpy: sinon.SinonSpy;
-  let aliasSpy: sinon.SinonSpy;
-  let optionSpy: sinon.SinonSpy;
-  let validateSpy: sinon.SinonSpy;
-  let cancelSpy: sinon.SinonSpy;
-  let helpSpy: sinon.SinonSpy;
-  let typesSpy: sinon.SinonSpy;
   let telemetry: any;
 
   before(() => {
@@ -201,27 +184,12 @@ describe('Command', () => {
   });
 
   beforeEach(() => {
-    actionSpy = sinon.spy(vcmd, 'action');
-    aliasSpy = sinon.spy(vcmd, 'alias');
-    optionSpy = sinon.spy(vcmd, 'option');
-    validateSpy = sinon.spy(vcmd, 'validate');
-    cancelSpy = sinon.spy(vcmd, 'cancel');
-    helpSpy = sinon.spy(vcmd, 'help');
-    typesSpy = sinon.spy(vcmd, 'types');
     telemetry = null;
     auth.service.connected = true;
   });
 
   afterEach(() => {
     Utils.restore([
-      vcmd.action,
-      vcmd.alias,
-      vcmd.option,
-      vcmd.validate,
-      vcmd.cancel,
-      vcmd.help,
-      vcmd.types,
-      vcmd.allowUnknownOptions,
       process.exit
     ]);
     auth.service.connected = false;

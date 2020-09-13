@@ -89,7 +89,7 @@ describe('Cli', () => {
   let cliErrorStub: sinon.SinonStub;
   let processExitStub: sinon.SinonStub;
   let markshellStub: sinon.SinonStub;
-  let mockCommandActionSpy: sinon.SinonSpy;
+  let mockCommandActionStub: sinon.SinonStub;
   let mockCommand: Command;
   let mockCommandWithAlias: Command;
   let mockCommandWithValidation: Command;
@@ -103,7 +103,7 @@ describe('Cli', () => {
     mockCommand = new MockCommand();
     mockCommandWithAlias = new MockCommandWithAlias();
     mockCommandWithValidation = new MockCommandWithValidation();
-    mockCommandActionSpy = sinon.spy(mockCommand, 'action');
+    mockCommandActionStub = sinon.stub(mockCommand, 'action');
 
     return new Promise((resolve) => {
       fs.realpath(__dirname, (err: NodeJS.ErrnoException | null, resolvedPath: string): void => {
@@ -126,7 +126,7 @@ describe('Cli', () => {
     cliErrorStub.reset();
     processExitStub.reset();
     markshellStub.reset();
-    mockCommandActionSpy.resetHistory();
+    mockCommandActionStub.reset();
     Utils.restore([
       Cli.executeCommand,
       fs.existsSync,
@@ -280,7 +280,7 @@ describe('Cli', () => {
       .execute(rootFolder, ['cli', 'mock', '-x', '123', '-y', '456'])
       .then(_ => {
         try {
-          assert(mockCommandActionSpy.called);
+          assert(mockCommandActionStub.called);
           done();
         }
         catch (e) {
@@ -308,7 +308,7 @@ describe('Cli', () => {
       .execute(rootFolder, ['cli', 'mock', '-x', '123', '-z'])
       .then(_ => {
         try {
-          assert(mockCommandActionSpy.notCalled);
+          assert(mockCommandActionStub.notCalled);
           done();
         }
         catch (e) {
@@ -386,6 +386,50 @@ describe('Cli', () => {
       .then(_ => {
         try {
           assert(mockCommandWithValidationActionSpy.notCalled);
+          done();
+        }
+        catch (e) {
+          done(e);
+        }
+      }, e => done(e));
+  });
+
+  it(`executes command when validation passed`, (done) => {
+    cli
+      .execute(rootFolder, ['cli', 'mock', '-x', '123'])
+      .then(_ => {
+        try {
+          assert(mockCommandActionStub.called);
+          done();
+        }
+        catch (e) {
+          done(e);
+        }
+      }, e => done(e));
+  });
+
+  it('executes the specified command', (done) => {
+    mockCommandActionStub.callsFake(() => ({ }, cb: (err?: any) => {}) => { cb(); });
+    Cli
+      .executeCommand(mockCommand.name, mockCommand, { options: { _: [] } })
+      .then(_ => {
+        try {
+          assert(mockCommandActionStub.called);
+          done();
+        }
+        catch (e) {
+          done(e);
+        }
+      }, e => done(e));
+  });
+
+  it('logs command name when executing command in debug mode', (done) => {
+    mockCommandActionStub.callsFake(() => ({ }, cb: (err?: any) => {}) => { cb(); });
+    Cli
+      .executeCommand(mockCommand.name, mockCommand, { options: { debug: true, _: [] } })
+      .then(_ => {
+        try {
+          assert(cliLogStub.calledWith('Executing command cli mock with options {"options":{"debug":true,"_":[]}}'));
           done();
         }
         catch (e) {

@@ -142,7 +142,7 @@ export class Cli {
       .then(_ => process.exit(0), err => this.closeWithError(err));
   }
 
-  public static executeCommand(commandName: string, command: Command, args: any): Promise<void> {
+  public static executeCommand(commandName: string, command: Command, args: { options: minimist.ParsedArgs }): Promise<void> {
     return new Promise<void>((resolve: () => void, reject: (error: any) => void): void => {
       const commandInstance = {
         commandWrapper: {
@@ -160,7 +160,7 @@ export class Cli {
         }
       };
 
-      if (args.debug) {
+      if (args.options.debug) {
         commandInstance.log(`Executing command ${command.name} with options ${JSON.stringify(args)}`);
       }
 
